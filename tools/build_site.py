@@ -133,16 +133,23 @@ def add_tags(out: Path) -> None:
 
 
 DATA_URL = 'https://oph-particles-data-20261111.s3.amazonaws.com/index.html'   # the complete runs, for download
-VIEW_ONLY_DROP = ('intra_', 'feat_ticks', 'load_hist')                            # arrays of a stored cut the site does not draw
+VIEW_ONLY_DROP = ('intra_', 'feat_ticks', 'load_hist', 'ticks')                   # arrays of a stored cut the site does not draw
+ON_DEMAND = ('loads',)                     # read only by the zoom view: kept in <cut>_loads.npz, fetched when a zoom opens
 
 
 def slim_cuts(run: Path) -> None:
     """Keep in every stored cut only the arrays the viewer draws. The defects inside carriers (the internal tier) stay
-    in the complete run on S3; the viewer hides its internal-tier switch when a cut does not carry them."""
+    in the complete run on S3; the viewer hides its internal-tier switch when a cut does not carry them. The port loads
+    (12 per carrier, two thirds of a slice) go to a sibling file: playing the screen then fetches a third of the bytes."""
     import numpy as np
     for f in sorted((run / 'cuts').glob('*.npz')):
+        if f.stem.endswith('_loads'):
+            continue
         with np.load(f) as z:
-            keep = {k: z[k] for k in z.files if not k.startswith(VIEW_ONLY_DROP)}
+            keep = {k: z[k] for k in z.files if not k.startswith(VIEW_ONLY_DROP) and k not in ON_DEMAND}
+            later = {k: z[k] for k in z.files if k in ON_DEMAND}
+        if later:
+            np.savez_compressed(f.with_name(f.stem + '_loads.npz'), **later)
         tmp = f.with_name(f.stem + '.tmp.npz')
         np.savez_compressed(tmp, **keep)
         tmp.replace(f)
