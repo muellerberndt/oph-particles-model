@@ -2043,7 +2043,7 @@
   ],
   "analysis_source": {
     "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/quenched_hadron_binding/results.json",
-    "sha256": "ea329f6d36503725074f57045a86fda9afc69b5388d3ec0ef9a648ac0b21e4df",
+    "sha256": "d4312caacac75c852987d3fbd844edf573b9446d7b638540727babadbaec02ed",
     "proof": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/quenched_hadron_binding/PROOF.md",
     "replay": "python -m model.quenched_hadron_binding --check"
   }

@@ -524,10 +524,10 @@ export function panelEW(d) {
   return `${panelOpen(d, 'EW', 'teal')}
     <div class="ep-top">
       <div class="ep-lead"><div class="ep-kick"><span>Electroweak</span>${phBadge(d)}${progressSlot('EW')}</div><h3>The Higgs field switches on</h3>
-        <div class="ep-map">Map into this panel: ${fin(o.T_c_GeV) ? `at this temperature the time direction is ${esc(sci(E_CELL / o.T_c_GeV, 1))} ticks long, so` : 'the time direction is too long for a lattice of cells, so'} the hot plasma is measured in its three-dimensional lattice theory with the chain's couplings.</div></div>
+        <div class="ep-map">Thermal comparison: a separate three-dimensional Euclidean lattice theory uses the declared chain's couplings and an imported dimensional-reduction map. ${fin(o.T_c_GeV) ? `The ratio E<sub>cell</sub>/T = ${esc(sci(E_CELL / o.T_c_GeV, 1))} expresses an imaginary-time thermal extent in an assumed cell-energy unit; it does not identify the native attempted-event clock.` : 'No native attempted-event clock is identified with a thermal time extent.'} ${esc(o.scope_note || '')}</div></div>
       <div class="ep-stats">
         ${stat('Tc', fin(o.T_c_GeV) ? big(o.T_c_GeV, o.T_c_err, 'GeV') : '<i class="ep-dim">–</i>', 'crossover temperature')}
-        ${stat('time', fin(t) ? esc(fmtTime(t)) : '<i class="ep-dim">–</i>', fin(t) ? `after the first tick · ${NC(esc(fmtTicks(fin(o.ticks) ? o.ticks : t / TICK_S)))}` : 'cosmic time')}
+        ${stat('time', fin(t) ? esc(fmtTime(t)) : '<i class="ep-dim">–</i>', fin(t) ? `radiation-era comparison · ${NC(esc(fmtTicks(fin(o.ticks) ? o.ticks : t / TICK_S)))} in the assumed calibration` : 'radiation-era comparison time')}
         ${stat('kind', o.kind ? esc(o.kind) : '<i class="ep-dim">–</i>', 'at the chain\'s point')}
         <div class="ep-stat ep-cmp" data-stat="compare"><div class="ep-plot" data-plot="ew-compare"></div><span>against the Standard Model lattice value · not blind</span></div>
       </div>

@@ -197,7 +197,7 @@ export function matrix(file) {
 export const FILES = {
   pd: 'rl/PD/decoder.json', ew: 'rl/EW/ew_transition.json', qcd: 'rl/QCD/colour_transition.json', had: 'rl/HAD/hadrons.json',
   il: 'rl/IL/il_census.json', lr: 'rl/LR/lepton_run.json', av: 'rl/AV/class_balance.json', run: 'runs/L6/view/early_universe.json',
-  lrp: 'rl/LR/progress.json', avp: 'rl/AV/progress.json', ilp: 'rl/IL/progress.json',
+  lrp: 'rl/LR/progress.json', avp: 'rl/AV/progress.json',
 };
 // a lane whose result file is not on file yet, and whose progress file says that its run is under way
 const waiting = (p) => !!p && typeof p === 'object' && (p.status === 'running' || p.status === 'failed');
@@ -301,7 +301,7 @@ const WHAT = {
   tree: 'Tree-level values from the chain’s v and couplings.',
   alphaU: 'The unified coupling of the declared chain, at its unification scale. It has no measured counterpart.',
   higgs: 'One relation between the Higgs mass and the top mass, from the quartic induced at the cell. The top mass is a measured input.',
-  ew: 'The temperature of the electroweak crossover, computed on the lattice from the chain’s couplings. It is compared with the lattice value of the Standard Model.',
+  ew: 'A conditional electroweak crossover temperature from a separate Euclidean lattice ensemble and an imported reduction map using the declared chain’s couplings. Statistical, reduction and cutoff sensitivity estimates have distinct scopes.',
   qcd: 'The colour transition of the gauge sector the source defines, computed on the lattice.',
   had: 'The nucleon mass over the rho mass, computed on the lattice in the colour sector the source defines. A ratio needs no scale.',
   hadGeV: 'The nucleon mass of the same lattice computation in GeV, on a scale the lane computes.',
@@ -464,7 +464,7 @@ const laneBase = (t, o) => ({ ...o, state: t.state, meas: t.ref, cite: t.cite, l
 function electroweakRow(file) {
   const t = electroweak(file);
   const row = laneBase(t, { id: 'ew', laneId: 'EW', sym: 'T<sub>c</sub> electroweak', unit: 'GeV', name: 'electroweak crossover temperature', refWord: 'reference', refUrl: REF.ew.url, what: WHAT.ew, keys: ['coupling'],
-    text: 'The chain’s couplings and v enter the three-dimensional effective theory of the hot electroweak sector, which is simulated on the lattice. The reference is the lattice result for the Standard Model.' });
+    text: 'The chain’s declared couplings and v enter an imported three-dimensional effective theory simulated on the lattice. The Standard Model comparison is not blind. ' + str(file && file.oph && file.oph.scope_note) });
   if (t.state !== 'ok') return row;
   return { ...row, model: t.value, sModel: t.err, modelText: t.err ? t.value.toFixed(1) + '(' + t.err.toFixed(1) + ')' : t.value.toFixed(1), cmp: compare(t.value, t.ref.v, t.ref.s, t.err), kind: t.kind };
 }

@@ -319,8 +319,8 @@ function fpTable(L) {         // the numbers behind the cards, row by row: [what
 // ---- page wiring --------------------------------------------------------------------------------------------------------
 function fpSkeleton() {
   $('cos-first').innerHTML = `<div class="fd-head"><h2>First defects</h2><div class="fd-load" id="cos-fp-load"></div>
-      <div class="fd-lead">The first cuts of the run: defects appear in pairs, everywhere on the screen at once. The map into this step reads ticks in the time direction as temperature.</div></div>
-    <div class="fd-strip"><span>This run is the first few hundred ticks, each 10<sup>−43</sup> s. The electroweak crossover comes about 10<sup>32</sup> ticks later, the binding of quarks into hadrons about 10<sup>38</sup> ticks later. No run at the resolution of one cell reaches them. Lattice ensembles do.</span><button data-go="timeline">Timeline</button><button data-go="transitions">Phase transitions</button></div>
+      <div class="fd-lead">The first stored cuts retain native defect births and their class records. Their event counts have no derived temperature or physical-time calibration; lattice temperatures belong to separate comparison ensembles.</div></div>
+    <div class="fd-strip"><span>This run records a finite number of native events. The timeline uses an imported radiation-era relation and an assumed cell-energy clock to place separate electroweak and hadron lattice comparisons. Those placements do not supply a cooling history, physical temperature or elapsed seconds for this run.</span><button data-go="timeline">Timeline</button><button data-go="transitions">Phase transitions</button></div>
     <div class="fd-grid">
       <section class="card fd-run">
         <div class="fd-ch"><h3>The screen, cut by cut</h3><span class="fd-runlab" id="cos-fp-runlab"></span></div>
