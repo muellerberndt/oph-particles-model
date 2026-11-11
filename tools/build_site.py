@@ -75,6 +75,22 @@ def add_tags(out: Path) -> None:
         page.write_text(s.replace('</title>', '</title>\n' + head, 1))
 
 
+DATA_URL = 'https://oph-particles-data-20261111.s3.amazonaws.com/index.html'   # the complete runs, for download
+VIEW_ONLY_DROP = ('intra_', 'feat_ticks', 'load_hist')                            # arrays of a stored cut the site does not draw
+
+
+def slim_cuts(run: Path) -> None:
+    """Keep in every stored cut only the arrays the viewer draws. The defects inside carriers (the internal tier) stay
+    in the complete run on S3; the viewer hides its internal-tier switch when a cut does not carry them."""
+    import numpy as np
+    for f in sorted((run / 'cuts').glob('*.npz')):
+        with np.load(f) as z:
+            keep = {k: z[k] for k in z.files if not k.startswith(VIEW_ONLY_DROP)}
+        tmp = f.with_name(f.stem + '.tmp.npz')
+        np.savez_compressed(tmp, **keep)
+        tmp.replace(f)
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--runs', type=Path, default=SIM / 'runs' / 'universe')
@@ -101,6 +117,7 @@ def main(argv=None):
     (out / 'runs').mkdir()
     for name, path in runs.items():
         dataset.lite(path, out / 'runs' / name, a.keep_one_in)
+        slim_cuts(out / 'runs' / name)
         for extra in ('early_universe.json',):
             if (path / 'view' / extra).is_file():
                 shutil.copy2(path / 'view' / extra, out / 'runs' / name / 'view' / extra)
