@@ -50,6 +50,17 @@
     });
     document.body.appendChild(bar);
   }
+  // "Particles: go deeper click": the visitor leaves for the book, the papers, the derivations, the textbooks or the Notebook
+  const DEEPER = /(^|\.)(philpapers\.org|oph-book\.floatingpragma\.ai|learn\.floatingpragma\.ai|notebooklm\.google\.com|notebook\.google\.com)$/;
+  const DEEPER_GH = /^\/(FloatingPragma\/observer-patch-holography|muellerberndt\/oph-particles-model\/(blob|tree)\/main\/derivations)/;
+  document.addEventListener("click", (ev) => {
+    const a = ev.target.closest && ev.target.closest("a[href]"); if (!a) return;
+    let u; try { u = new URL(a.href, location.href); } catch (e) { return; }
+    if (!(DEEPER.test(u.hostname) || (u.hostname === "github.com" && DEEPER_GH.test(u.pathname)))) return;
+    gtag("event", "go_deeper", { link_url: u.href, transport_type: "beacon" });
+    gtag("event", "conversion", { send_to: AW + "/53iDCKSmlLYdEOTNgo5F", transport_type: "beacon" });
+  }, true);
+
   const ready = (f) => document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", f) : f();
   if (!saved && european) ready(banner);
   addEventListener("hashchange", () => { if (location.hash === "#cookies") ready(banner); });
