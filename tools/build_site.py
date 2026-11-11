@@ -111,6 +111,33 @@ def slim_catalogue(run: Path) -> None:
     print(f'catalogue of {run.name}: {int(keep.sum()):,} of {len(ids):,} identities kept')
 
 
+STATIC_IMPORT = re.compile(r"""(?:^|[;\n])\s*(?:import|export)\s[^'"`;]*?from\s*['"](\.{1,2}/[^'"]+\.js)['"]|(?:^|[;\n])\s*import\s*['"](\.{1,2}/[^'"]+\.js)['"]""")
+
+
+def preload_graph(out: Path) -> int:
+    """List every module of the static import graph of the entry scripts as a modulepreload link, so the browser
+    fetches them all at once instead of one import level per round trip."""
+    entries, seen = ['journey.js', 'app.js'], []
+    stack = list(entries)
+    while stack:
+        f = stack.pop(0)
+        if f in seen or not (out / f).is_file():
+            continue
+        seen.append(f)
+        base = Path(f).parent
+        for a, b in STATIC_IMPORT.findall((out / f).read_text()):
+            dep = (base / (a or b)).as_posix()
+            dep = str(Path(dep)).replace('\\', '/')
+            if dep.startswith('./'):
+                dep = dep[2:]
+            stack.append(dep)
+    html = (out / 'index.html').read_text()
+    links = ''.join(f'<link rel="modulepreload" href="{m}">\n' for m in seen if m not in ('journey.js',))
+    html = html.replace('<link rel="modulepreload" href="journey.js">', '<link rel="modulepreload" href="journey.js">\n' + links, 1)
+    (out / 'index.html').write_text(html)
+    return len(seen)
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--runs', type=Path, default=SIM / 'runs' / 'universe')
@@ -150,6 +177,7 @@ def main(argv=None):
     for level in range(1, 6):
         observer_lab.export(level, out / 'lab' / f'L{level}.npz')
     add_tags(out)
+    print(f'{preload_graph(out)} modules preloaded')
     (out / '.nojekyll').write_text('')
     (out / 'CNAME').write_text('particles.floatingpragma.ai\n')        # the site's address; DNS: CNAME particles -> muellerberndt.github.io
     size = sum(f.stat().st_size for f in out.rglob('*') if f.is_file() and '.git' not in f.parts)
