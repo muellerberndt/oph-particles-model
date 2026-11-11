@@ -1,5 +1,7 @@
 # OPH particles model
 
+**OPH is a rigorous, consistent and complete description of the unified, self-creating computational Universe we inhabit.**
+
 The interactive viewer of the OPH particle model, served with GitHub Pages: defects appearing in repair on the
 screen, the particle classes they carry, the observer's readout and the spectrum.
 
