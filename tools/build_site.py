@@ -91,6 +91,26 @@ def slim_cuts(run: Path) -> None:
         tmp.replace(f)
 
 
+def slim_catalogue(run: Path) -> None:
+    """The site draws defects of the screen tier only: keep their catalogue rows and the rows they point to (partners,
+    parents, children), and drop the columns no page reads. The app finds rows by identity, so the order is free."""
+    import numpy as np
+    f = run / 'view' / 'catalogue.npz'
+    if not f.is_file():
+        return
+    with np.load(f) as z:
+        cat = {k: z[k] for k in z.files}
+    keep = cat['tier'] == 1
+    ids = cat['id']
+    ref = np.concatenate([cat[c][keep] for c in ('partner', 'parent1', 'parent2', 'child1', 'child2') if c in cat])
+    keep |= np.isin(ids, ref[ref >= 0])
+    out = {k: v[keep] for k, v in cat.items() if k not in ('birth_xyz', 'last_xyz') and len(v) == len(ids)}
+    tmp = f.with_name('catalogue.tmp.npz')
+    np.savez_compressed(tmp, **out)
+    tmp.replace(f)
+    print(f'catalogue of {run.name}: {int(keep.sum()):,} of {len(ids):,} identities kept')
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--runs', type=Path, default=SIM / 'runs' / 'universe')
@@ -118,6 +138,7 @@ def main(argv=None):
     for name, path in runs.items():
         dataset.lite(path, out / 'runs' / name, a.keep_one_in)
         slim_cuts(out / 'runs' / name)
+        slim_catalogue(out / 'runs' / name)
         for extra in ('early_universe.json',):
             if (path / 'view' / extra).is_file():
                 shutil.copy2(path / 'view' / extra, out / 'runs' / name / 'view' / extra)
