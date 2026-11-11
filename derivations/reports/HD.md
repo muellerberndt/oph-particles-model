@@ -1,12 +1,10 @@
-## RESULT
+# Conditional imported hadron scale
 
 No hadron mass comes out of the source alone. The furthest complete chain is m_h/E* = c_h × Λ^(3)/E*:
 - **Λ^(3)/E* = 2.785e-20** (Λ^(3) = 0.3400 GeV). CONDITIONAL on the D10 colour coupling.
 - **c_h is a number of QCD.** It is IMPORTED from lattice results. It applies to the source only if the source's derived gauge sector below the cell scale is QCD, which has not been shown.
 
-With that status, the nucleon and rho rows are complete. Pion, kaon and the n - p splitting are OPEN, because QM supplies no quark mass. QM's furthest derivation, translated into hadron terms, is EXCLUDED. The source's own cut coupling puts every hadron at 4e4 to 9e15 GeV, so it is EXCLUDED too.
-
-**Housekeeping (not my doing).** At 23:18 the RER working tree moved from `oph-meta/reverse-engineering-reality` to `oph-meta/repair-law/reverse-engineering-reality`. I ran RER code from the new place, read only, and nothing in RER changed. The RER path in CAMPAIGN.md is stale until it is moved back.
+The nucleon and rho values below combine a conditional coupling chain with imported lattice ratios. They are distinct from the finite quenched calculation in [the hadron lattice report](../lanes/HAD.md), whose normalized masses include both hadron-fit and potential-fit sensitivities. Neither route supplies source-only masses in GeV. Pion, kaon and the n - p splitting require quark masses. The equal-up/down quark construction gives excluded meson ratios and neutron-proton splitting. A trial cell-scale closure at 1/alpha = 16.2453 gives excluded scales, but that closure is not established for the source; [the coupling contract](../COUPLING_FIX.md) states its domain.
 
 **Step 1: inputs and their status**
 
@@ -16,8 +14,8 @@ With that status, the nucleon and rho rows are complete. Pion, kaon and the n - 
 | α_3(m_Z_run) = 0.118336 at 91.588 GeV | CONDITIONAL: D10 at P_fwd. Declared parts: slopes (33/5, 1, -3) as a SUSY proxy, pixel closure at m_Z, M_U form. Thomson transport 2h uses phenomenological masses (MAUD) |
 | 4-loop running, 3-loop decoupling | IMPORTED (perturbative QCD) |
 | m_b(m_b) = 4.18, m_c(m_c) = 1.27 GeV | IMPORTED, measured; source OPEN. d ln Λ/d ln m = 0.092 for m_b, 0.115 for m_c |
-| Continuous SU(3) links | CONDITIONAL. GL M1 gives S(U(3)×U(2)) from port phases, but no law writes those phases. Today's native group is finite (EXACT) |
-| Plaquette action, equal bare couplings, 1/α(E_cell) = 16.2453 | CONDITIONAL: GL A1, with the overall value resting on DC's premises |
+| Continuous SU(3) links | CONDITIONAL. GL M1 gives S(U(3)×U(2)) from port phases, but no law writes those phases. The native group of that register is finite (EXACT) |
+| Plaquette action and equal bare couplings | CONDITIONAL: GL A1. A value of 1/alpha(E_cell) is not supplied by this identity; 16.2453 belongs to an unsupported trial closure. |
 | One Dirac cone per species (b0 = 7) | CONDITIONAL: T3 member B, whose seam weight is declared |
 | Running from E_cell to m_Z with the source's content | OPEN; it fails (cut rows below) |
 | m_u, m_d, m_s | OPEN (QM: x = 1/2, Y_u ∝ Y_d ∝ lepton circulant) |
@@ -52,7 +50,7 @@ DE's open item 4 is settled. The repository's 0.338 is FLAG 2024's Λ^(3), quote
 - **All rows depend sharply on the colour slope.** With the closure at the cut, d ln Λ/d b3 = -3.27, so every hadron mass moves 3.3% per 0.01 in Δb3. The printed Δb3 = 3.97 would give +10.3%.
 - **With the D10 m_Z closure re-solved instead,** the slope is only +0.50, but m_Z_run drops to 80.9 GeV at Δb3 = 3.97.
 - **The SM slope b3 = -7** at the D10 α_U puts the colour pole at 8.2e6 GeV.
-- **What the D10 α_3 would need at the cell:** 1/α_3(E_cell) = 27.2, 39.6 or 52.1 for b3 = -3, -5 or -7 (β_SU3 = 13.0, 18.9, 24.9). The source gives 16.25 (β = 7.76).
+- **What the D10 α_3 would need at the cell:** 1/α_3(E_cell) = 27.2, 39.6 or 52.1 for b3 = -3, -5 or -7 (β_SU3 = 13.0, 18.9, 24.9). The trial cell-scale closure gives 16.25 (β = 7.76); this is not a derived source coupling.
 - **Z3 scale clash (ARGUED):** H4's area law, sqrt(σ) = 0.173 per cell, is 2.1e18 GeV, which is 6.2e18 times Λ^(3). A light nucleon needs a centre-flux density of order 2e-39 per plaquette; the census gives 0.0898. H4's confined phase is cell-scale confinement, the wrong phase for GeV hadrons.
 
 **Step 5: comparison (NOT BLIND)**
@@ -65,7 +63,7 @@ DE's open item 4 is settled. The repository's 0.338 is FLAG 2024's Λ^(3), quote
 
 ## EVIDENCE
 
-RER is the moved tree under `repair-law/`. HD is `work/HD`.
+The executable theory is [observer-patch-holography](https://github.com/FloatingPragma/observer-patch-holography). The conditional import calculation is recorded in the campaign workspace `work/HD`; those production files are not distributed with this report.
 - `cd <RER>/code/particles && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:<HD> /tmp/oph-completion-venv/bin/python <HD>/hd_lambda.py <HD>/lambda.json` (12 s).
   - It uses the RER producer unchanged.
   - `d10_copy.py` is a verbatim copy of the legacy D10 producer with the slopes varied; it reproduces α_3 to 7e-12.
@@ -88,6 +86,5 @@ RER is the moved tree under `repair-law/`. HD is `work/HD`.
 2. **Quark masses (QM).** Supply m_ud and m_s at 2 GeV; test them through M_K/M_π. The n - p splitting needs m_d - m_u ≈ 2.6 MeV, and above 1.5 MeV for hydrogen to be stable (NOT BLIND).
 3. **QCD premises.** A law that writes the port phases (GL M1), the port-level origin of member B's seam weight (T3), and θ̄.
 4. **Owner decision.** In RER, 2.775 can be replaced by c_N = 2.745(137) with these citations. A tighter c_N would come from a nucleon mass and Λ on one scale (CLS ensembles in √(8t0)), without building ensembles.
-5. **Coordinator.** Restore the RER path, or update CAMPAIGN.md.
 
 Files are in `work/HD/`; `rows.json` is the input for the S3 web app.

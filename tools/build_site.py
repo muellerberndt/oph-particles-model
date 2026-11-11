@@ -31,7 +31,64 @@ PREFIXES = ('rl/', 'runs/', 'api/', 'lab/', 'particle_map.json', 'findings.json'
 ABS = re.compile(r"""(['"`])/(?=(?:%s))""" % '|'.join(re.escape(p) for p in PREFIXES))
 SKIP = {'research'}                       # copied separately as rl/
 DEV_ONLY = {'equations_dev.html'}         # development harnesses that are not part of the site
-GENERATED = ('CNAME', 'index.html', 'fp-analytics.js', 'og.jpg', 'api', 'runs', 'lab', 'rl', 'help', 'particle_map.json', 'findings.json', 'DATASET.md')
+GENERATED = ('CNAME', 'index.html', 'fp-analytics.js', 'og.jpg', 'api', 'runs', 'lab', 'rl', 'help', 'references', 'fixtures', 'particle_map.json', 'findings.json', 'DATASET.md')
+LEPTON_LABEL_FILES = {'classes.js', 'chart.js', 'equations_data.js', 'links.js', 'lepton_round.js', 'journey.js',
+                     'leptons.js', 'mapview.js', 'map.js', 'results_data.js', 'lepton_round_check.mjs',
+                     'results_data_check.mjs'}
+
+
+def rewrite_source(source: str, name: str) -> str:
+    """Use the published data routes in browser modules and downloadable Node checks."""
+    source = ABS.sub(r'\1', source)
+    if name in LEPTON_LABEL_FILES:
+        source = source.replace('80 checks', '99 checks').replace('80 of 80', '99 of 99')
+    # Number conservation is an exact statement of the declared register. The neutrino interpretation
+    # requires a physical field attachment, as the theory contract and the Spectrum page state.
+    for old, current in (
+        ('No neutrino mass is derived: the source conserves B − L exactly, so neutrinos are Dirac, and no operation gives them an amplitude of their own.',
+         'The declared source conserves B − L and excludes a number-violating Majorana term in that sector. A physical neutrino identity, mass and mixing are not derived.'),
+        ('B − L is exact, so neutrinos are Dirac. No mass and no mixing is derived.',
+         'B − L is conserved in the declared sector. A physical neutrino identity, mass and mixing are not derived.'),
+        ('Every operation of the source conserves it. Neutrinos are Dirac.',
+         'The declared operations conserve it and exclude Majorana pairing in that sector. A physical neutrino identity requires a separate attachment.'),
+        ("formula: 'neutrinos are Dirac'", "formula: 'Majorana pairing excluded in this sector'"),
+        ('Exact B − L: neutrinos are Dirac. Every operation of the source conserves B − L, and that charge forbids the Majorana pairing. The neutrino masses are open.',
+         'Every declared operation conserves B − L and excludes number-violating Majorana pairing in that sector. This does not alone identify a physical Dirac neutrino or its mass.'),
+        ('Neutrinos are Dirac. With the common lepton amplitude a neutrino has the electron’s mass, which is excluded. No neutrino mass and no mixing angle is derived.',
+         'In the declared number-conserving sector, the common lepton amplitude would give a neutrino the electron’s mass, which is excluded. No physical neutrino identity, mass or mixing angle is derived.'),
+        ('Neutrinos are Dirac as the source stands, with no mass derived (NM).',
+         'The declared sector excludes Majorana pairing; no physical neutrino identity or mass is derived (NM).'),
+        ('Neutrinos are Dirac by exact B − L; their masses are open.',
+         'The declared B − L conservation excludes Majorana pairing in that sector; physical neutrino identities and masses require a separate attachment.'),
+        ('Derived consequence: neutrinos are Dirac.',
+         'This excludes number-violating Majorana pairing in the declared sector; a physical neutrino identity requires a separate attachment.'),
+    ):
+        source = source.replace(old, current)
+    if name.endswith('_check.mjs'):
+        source = re.sub(r"(['\"])(\./)?research/", r'\1\2rl/', source)
+        source = source.replace('../references/cosmology_postdiction_ledger.json',
+                                './references/cosmology_postdiction_ledger.json')
+        source = source.replace("'/Users/muellerberndt/Projects/oph-meta/repair-law/work/LEPTON_READOUT/lepton_readout.json'",
+                                "new URL('./fixtures/lepton_readout.json', import.meta.url)")
+        if name == 'lepton_round_check.mjs':
+            source = source.replace('Object.keys(R.checks).length === 80',
+                                    'Object.keys(R.checks).length === 99 && Object.values(R.checks).every(v => v === true)')
+        if name == 'results_data_check.mjs':
+            source = source.replace('assert.equal(n(c2), 80)', 'assert.equal(n(c2), 99)')
+            source = source.replace('assert.equal(Object.keys(c2.checks).length, 80)',
+                                    'assert.equal(Object.keys(c2.checks).length, 99)')
+    return source
+
+
+def copy_check_fixtures(viewer: Path, out: Path) -> None:
+    """Ship the immutable input bytes required by the public checks."""
+    for source, relative in (
+        (viewer.parent / 'references/cosmology_postdiction_ledger.json', 'references/cosmology_postdiction_ledger.json'),
+        (ROOT / 'derivations/work/LEPTON_READOUT/lepton_readout.json', 'fixtures/lepton_readout.json'),
+    ):
+        destination = out / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
 
 
 def copy_viewer(viewer: Path, out: Path) -> int:
@@ -42,7 +99,7 @@ def copy_viewer(viewer: Path, out: Path) -> int:
             continue
         dst = out / rel; dst.parent.mkdir(parents=True, exist_ok=True)
         if f.suffix in ('.js', '.mjs', '.html', '.css'):
-            dst.write_text(ABS.sub(r'\1', f.read_text()))
+            dst.write_text(rewrite_source(f.read_text(), f.name))
         else:
             shutil.copy2(f, dst)
         n += 1
@@ -156,6 +213,11 @@ def main(argv=None):
     viewer = SIM / 'oph_defects' / 'viewer2'
     n = copy_viewer(viewer, out)
     shutil.copytree(viewer / 'research', out / 'rl', ignore=shutil.ignore_patterns('_dev', '__pycache__'))
+    copy_check_fixtures(viewer, out)
+    from sync_hadron_analysis import sync
+    sync(out)
+    from sync_particle_reference import sync as sync_reference
+    sync_reference(out)
     for f in ('particle_map.json', 'findings.json', 'DATASET.md'):
         shutil.copy2(SIM / 'oph_defects' / f, out / f)
     runs = serve.find_runs(a.runs)
