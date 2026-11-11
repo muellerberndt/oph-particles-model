@@ -212,7 +212,7 @@ export function electroweak(file) {
   if (!b || !pos(b.T_c_GeV)) return { ...out, status: str(file.status) };
   const r = b.reference;
   if (r && pos(r.T_c_GeV)) { out.ref = { v: r.T_c_GeV, s: pos(r.err) ? r.err : 0, text: String(r.T_c_GeV) + (pos(r.err) ? '(' + r.err + ')' : ''), ref: ref.ref }; if (str(r.cite)) out.cite = r.cite; }
-  return { ...out, state: 'ok', value: b.T_c_GeV, err: pos(b.T_c_err) ? b.T_c_err : 0, kind: str(b.kind), status: str(file.status) };
+  return { ...out, state: 'ok', value: b.T_c_GeV, err: pos(b.T_c_err) ? b.T_c_err : null, statisticalRange: b.T_c_err_lattice_range || null, unrestrictedRange: b.T_c_err_lattice_unrestricted_range || null, uncertaintyScope: str(b.statistical_error_scope), kind: str(b.kind), status: str(file.status) };
 }
 // the colour transition of the lane QCD. A temperature in MeV is compared only when the file marks the route to MeV as
 // computed (scale.route_computed === true). Otherwise the row states what the lane measured about the order of the
@@ -463,10 +463,10 @@ export function board(live = {}) {
 const laneBase = (t, o) => ({ ...o, state: t.state, meas: t.ref, cite: t.cite, lane: true, cmp: null, modelText: '', more: [], note: t.status || '' });
 function electroweakRow(file) {
   const t = electroweak(file);
-  const row = laneBase(t, { id: 'ew', laneId: 'EW', sym: 'T<sub>c</sub> electroweak', unit: 'GeV', name: 'electroweak crossover temperature', refWord: 'reference', refUrl: REF.ew.url, what: WHAT.ew, keys: ['coupling'],
+  const row = laneBase(t, { id: 'ew', laneId: 'EW', sym: 'T<sub>c</sub> electroweak', unit: 'GeV', name: 'electroweak crossover temperature', refWord: 'reference', refUrl: REF.ew.url, what: WHAT.ew + ' ' + str(file && file.oph && file.oph.scope_note), keys: ['coupling'],
     text: 'The chain’s declared couplings and v enter an imported three-dimensional effective theory simulated on the lattice. The Standard Model comparison is not blind. ' + str(file && file.oph && file.oph.scope_note) });
   if (t.state !== 'ok') return row;
-  return { ...row, model: t.value, sModel: t.err, modelText: t.err ? t.value.toFixed(1) + '(' + t.err.toFixed(1) + ')' : t.value.toFixed(1), cmp: compare(t.value, t.ref.v, t.ref.s, t.err), kind: t.kind };
+  return { ...row, model: t.value, sModel: t.err, statisticalRange: t.statisticalRange, modelText: t.value.toFixed(2), cmp: { rel: t.value / t.ref.v - 1, abs: t.value - t.ref.v, sigma: null, relSigma: null }, kind: t.kind };
 }
 function colourRow(file) {
   const t = colour(file);

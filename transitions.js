@@ -623,8 +623,8 @@ export function panelHAD(d, st) {
 export function pageMarkup(ew, qcd, had, st) {
   const ph = [ew, qcd, had].some((d) => d && d.placeholder === true);
   return `<div class="ep-wrap">
-    <div class="ep-head"><div><h2>The universe cools: three lattice measurements</h2>
-      <div class="ep-sub">Map into this step: ticks in the time direction are temperature, T = E<sub>cell</sub> / N<sub>t</sub>. The Higgs field switches on, colour is confined, and quarks bind.</div></div></div>
+    <div class="ep-head"><div><h2>Thermal physics: three lattice comparisons</h2>
+      <div class="ep-sub">Separate lattice ensembles compare electroweak crossover, colour confinement and hadron binding. Their temperature maps use imported thermal physics. T = E<sub>cell</sub> / N<sub>t</sub> is an imaginary-time relation with an assumed cell-energy scale; it does not identify the native attempted-event clock or derive a cooling history.</div></div></div>
     ${ph ? '<div class="ep-phline">placeholder data, not a measurement</div>' : ''}
     ${panelEW(ew)}${panelQCD(qcd)}${panelHAD(had, st)}
     <div class="ep-tip" hidden></div></div>`;

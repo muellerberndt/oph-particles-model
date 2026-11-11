@@ -5,13 +5,13 @@
       "file": "lepton.json",
       "label": "Complete lepton cycles",
       "path": "model/lepton_cycle/results.json",
-      "sha256": "91eb6ad7af8bc77ae4ba9b96956e4fbb65f386ef1ec0adbb7bb1002cd9c87e9c"
+      "sha256": "945eab36a9d72b330b5d4de7a5e4a63cf8b70d104d0612c45beb7e3c32a1503c"
     },
     {
       "file": "epochs.json",
       "label": "Exact population dynamics",
       "path": "model/native_abundance_epochs/results.json",
-      "sha256": "b25c4361d22557e07f3833189d42c44ae441f0fd15570ef5f03b1cd23cc8e5a6"
+      "sha256": "9c128ef448fb43e7550f17aed8fb558f178dbbfa991c7aa389d6826aad9b4727"
     },
     {
       "file": "symmetry.json",
@@ -29,17 +29,3855 @@
       "file": "crossover.json",
       "label": "Crossover size and cutoff sensitivity",
       "path": "model/electroweak_crossover/results.json",
-      "sha256": "d0b23ecce285dc197cfbc4897dbc33e680c03dd73ea597e174ba3c9a82b7ff3d"
+      "sha256": "10106012475b837f3e8c6e87321c8f2fa8f1db36881b25721cbb2b9a0646ea0a"
     },
     {
       "file": "repair.json",
       "label": "Current-record distance observer",
       "path": "model/repair_sector_bridge/record_observer_results.json",
       "sha256": "1a86836545c125fec2719164c3b09c8188a4de22ff98319e2f88f94a6a895791"
+    },
+    {
+      "file": "lepton_comparison.json",
+      "label": "Fixed lepton comparison and exposure",
+      "path": "model/lepton_cycle/physical_comparison.json",
+      "sha256": "d880464e668b4187e2190dc39160bd11f1441bc465b7b07d1bc985d9469e4c26"
+    },
+    {
+      "file": "species.json",
+      "label": "Species identifiability and thermal comparison",
+      "path": "model/native_abundance_epochs/species_identifiability_results.json",
+      "sha256": "516f27341cfd8540320b5812b3f7eca25e904bc4592c214e09c09e70a0429cea"
+    },
+    {
+      "file": "crossover_budget.json",
+      "label": "Crossover covariance budget",
+      "path": "model/electroweak_crossover/comparison_budget.json",
+      "sha256": "9ddee9eb0f48671f392f85757bb32e806b6e0054d9f169162334af72d205821a"
+    },
+    {
+      "file": "calibrated_quarks.json",
+      "label": "Empirically calibrated common-scale matter action",
+      "path": "model/common_source/calibrated_matter_results.json",
+      "sha256": "1c489dcdd5f53a97bec8a6e1fcfdf307662d8df6238fa35d2bf7bf95b6c48b42"
+    },
+    {
+      "file": "yukawa_operator.json",
+      "label": "Source Higgs derivatives and exact tensor extraction",
+      "path": "model/yukawa_source_operator/results.json",
+      "sha256": "c09c51438747d75abf97645d943a0429a339824a241f1a4243f1f6c31ffcab00"
+    },
+    {
+      "file": "yukawa_dynamics.json",
+      "label": "Complete family dynamics and canonical residues",
+      "path": "model/yukawa_source_dynamics/results.json",
+      "sha256": "085c6617c7cae12a839434e20fd06116ba3a8c9c8ac09c93ee96b99a1aff3535"
+    },
+    {
+      "file": "yukawa_running.json",
+      "label": "Finite coupling inverse and conditional running",
+      "path": "model/yukawa_source_running/results.json",
+      "sha256": "bc5e3d11a5689b0ded01b1a4a999192dba9f2601f16c03a1932548c1cbbb17cc"
+    },
+    {
+      "file": "yukawa_feedback.json",
+      "label": "Ordered source correlations and pairing correction",
+      "path": "model/yukawa_source_feedback/results.json",
+      "sha256": "69a7841e2a92e7636a6bf75e321d39b7102e4e8515f65459781c80d77048555f"
+    },
+    {
+      "file": "defect_overlap.json",
+      "label": "Complete localized-mode scalar overlap",
+      "path": "model/defect_mode_overlap/results.json",
+      "sha256": "426e50a62e43a716fb651c395f547e0ca18f4abfbd95726729ba300ca9db888b"
+    },
+    {
+      "file": "defect_scalar.json",
+      "label": "Native scalar-cost response of charge sectors",
+      "path": "model/defect_scalar_response/results.json",
+      "sha256": "071fd6de1d0fcafd86eb97b1d488e475bc5754507d951924a6d023f0a128d2b1"
+    },
+    {
+      "file": "defect_vertex.json",
+      "label": "Actual quantum-Higgs insertion and contact response",
+      "path": "model/yukawa_defect_vertex/results.json",
+      "sha256": "34e896dfe232c900996a528a09ab59e0d2f5ad2e2a7fe0dcdd8f2f86ba76bae0"
+    },
+    {
+      "file": "scalar_modes.json",
+      "label": "Complete source-selected scalar modes and sea response",
+      "path": "model/defect_scalar_modes/results.json",
+      "sha256": "0bce3196e198ec50dec04ccb811c1757f4a28d48f9db40d83631b58dd2ab3db9"
+    },
+    {
+      "file": "mass_join.json",
+      "label": "Common defect and quantum Higgs source",
+      "path": "model/defect_mass_join/results.json",
+      "sha256": "760ad2714aefff8b96151f1b8e880a5c1de89fa4e36b8dbe0031028ef78c6ea4"
+    },
+    {
+      "file": "family_vertices.json",
+      "label": "Full native contact vertices and scalar spectrum",
+      "path": "model/defect_family_vertices/results.json",
+      "sha256": "0c56a6dfb5a3a8b6d957086d605ce50914dbdcee94a6a6021e9bbd76f96137fb"
+    },
+    {
+      "file": "dispersion.json",
+      "label": "Complete periodic defect band controls",
+      "path": "model/defect_dispersion/results.json",
+      "sha256": "d70eb2bb6c668a92c1bdcb13b4c302e1b884e1c1386672b5d6acddbda00b625c"
+    },
+    {
+      "file": "mass_catalogue.json",
+      "label": "Conditional GeV map and seventeen-species catalogue",
+      "path": "model/defect_mass_catalogue/results.json",
+      "sha256": "965915c2d0a76e54e6efc1a5dcda02aed192cd6fe3b5fa596958f5e1a895df73"
     }
   ],
+  "joined_defect": {
+    "physical_mass_map_proved": false,
+    "conditional_leptons": [
+      {
+        "species": "electron",
+        "value_GeV": "0.00051099895069",
+        "electron_anchor_standard_uncertainty_only_GeV": "1.6E-13",
+        "role": "empirical_anchor",
+        "source_to_relativistic_rest_map_proved": false,
+        "display_GeV": "0.00051099895069"
+      },
+      {
+        "species": "muon",
+        "value_GeV": "0.105659414495904464236338438264844707",
+        "electron_anchor_standard_uncertainty_only_GeV": "3.3083250555636702178008048E-11",
+        "role": "conditional_fixed_effect_ratio",
+        "source_to_relativistic_rest_map_proved": false,
+        "display_GeV": "0.1056594144959"
+      },
+      {
+        "species": "tau",
+        "value_GeV": "1.77698497081342714778565756964492069",
+        "electron_anchor_standard_uncertainty_only_GeV": "5.5639565393673576517008016E-10",
+        "role": "conditional_fixed_effect_ratio",
+        "source_to_relativistic_rest_map_proved": false,
+        "display_GeV": "1.7769849708134"
+      }
+    ],
+    "lepton_scope": "The electron value is the empirical scale anchor. Muon and tau values multiply that anchor by the fixed finite-effect ratios. The map from those effects to relativistic rest masses is unproved. Displayed digits are fixed-model values; anchor-only uncertainty excludes model and attachment error.",
+    "lepton_comparison": {
+      "muon_residual_ppm": "9.83358135415133740093688",
+      "tau_residual_ppm": "30.93583507912398668353263",
+      "uncertainty": "anchor-only errors exclude model/attachment error; no confidence interval for the theory"
+    },
+    "selected_scalar": {
+      "strengths": [
+        0.7068908839906763,
+        0.7068908839906756,
+        0.7068046304580876,
+        0.7068046304580871
+      ],
+      "canonical_strengths": [
+        1.6259806704808755,
+        1.6259806704808737,
+        1.6257822712937784,
+        1.6257822712937773
+      ],
+      "ratio": 1.0001220330610079,
+      "frequency": 2.645428323605453,
+      "complement_leakage_norm": 0.01460788367968445,
+      "profiles": {
+        "source_lowest": {
+          "strengths": [
+            0.7068908839906763,
+            0.7068908839906756,
+            0.7068046304580876,
+            0.7068046304580871
+          ],
+          "ratio": 1.0001220330610079,
+          "complement_leakage_norm": 0.01460788367968445
+        }
+      }
+    },
+    "backreaction": {
+      "modes": [
+        {
+          "mode": 0,
+          "frequency": 2.645428323605453,
+          "particle_weight_per_component": 0.0029880008188019913,
+          "antiparticle_weight_per_component": 0.0029880008188019913,
+          "conditional_first_image_probability": 0.00041188268857637476,
+          "original_pointer_and_mode_probability": 1.295795301000846e-10
+        },
+        {
+          "mode": 1,
+          "frequency": 2.6455206097667,
+          "particle_weight_per_component": 6.997008010630262,
+          "antiparticle_weight_per_component": 6.997008010630262,
+          "conditional_first_image_probability": 0.964506586903919,
+          "original_pointer_and_mode_probability": 3.034366672253848e-07
+        },
+        {
+          "mode": 2,
+          "frequency": 64.00800504170705,
+          "particle_weight_per_component": 9.084742744005255e-06,
+          "antiparticle_weight_per_component": 9.084742744005255e-06,
+          "conditional_first_image_probability": 1.2522915800022616e-06,
+          "original_pointer_and_mode_probability": 3.9397468984641687e-13
+        },
+        {
+          "mode": 3,
+          "frequency": 64.00935917710936,
+          "particle_weight_per_component": 3.869815695847329e-05,
+          "antiparticle_weight_per_component": 3.869815695847329e-05,
+          "conditional_first_image_probability": 5.334369666403621e-06,
+          "original_pointer_and_mode_probability": 1.6782087082656144e-12
+        },
+        {
+          "mode": 4,
+          "frequency": 64.00935917710937,
+          "particle_weight_per_component": 3.8698156958320426e-05,
+          "antiparticle_weight_per_component": 3.8698156958320426e-05,
+          "conditional_first_image_probability": 5.33436966638255e-06,
+          "original_pointer_and_mode_probability": 1.6782087082589853e-12
+        },
+        {
+          "mode": 5,
+          "frequency": 64.00943836497501,
+          "particle_weight_per_component": 2.008336287881052e-05,
+          "antiparticle_weight_per_component": 2.008336287881052e-05,
+          "conditional_first_image_probability": 2.7684026878868157e-06,
+          "original_pointer_and_mode_probability": 8.709477950240832e-13
+        },
+        {
+          "mode": 6,
+          "frequency": 64.01090629360273,
+          "particle_weight_per_component": 5.195387357411376e-05,
+          "antiparticle_weight_per_component": 5.195387357411376e-05,
+          "conditional_first_image_probability": 7.161611534712604e-06,
+          "original_pointer_and_mode_probability": 2.2530644845378774e-12
+        },
+        {
+          "mode": 7,
+          "frequency": 64.01090629360274,
+          "particle_weight_per_component": 7.844167377348261e-05,
+          "antiparticle_weight_per_component": 7.844167377348261e-05,
+          "conditional_first_image_probability": 1.0812837562476571e-05,
+          "original_pointer_and_mode_probability": 3.4017511520988585e-12
+        },
+        {
+          "mode": 8,
+          "frequency": 64.01090629360274,
+          "particle_weight_per_component": 5.331854941266834e-05,
+          "antiparticle_weight_per_component": 5.331854941266834e-05,
+          "conditional_first_image_probability": 7.3497260592743615e-06,
+          "original_pointer_and_mode_probability": 2.3122458785944362e-12
+        },
+        {
+          "mode": 9,
+          "frequency": 64.01245337270386,
+          "particle_weight_per_component": 8.984535983292521e-05,
+          "antiparticle_weight_per_component": 8.984535983292521e-05,
+          "conditional_first_image_probability": 1.2384785215331416e-05,
+          "original_pointer_and_mode_probability": 3.896290601918662e-12
+        },
+        {
+          "mode": 10,
+          "frequency": 64.01369400680046,
+          "particle_weight_per_component": 6.216619835724212e-05,
+          "antiparticle_weight_per_component": 6.216619835724212e-05,
+          "conditional_first_image_probability": 8.569335308354847e-06,
+          "original_pointer_and_mode_probability": 2.6959386090362058e-12
+        },
+        {
+          "mode": 11,
+          "frequency": 64.01369400680046,
+          "particle_weight_per_component": 0.00013186908815892803,
+          "antiparticle_weight_per_component": 0.00013186908815892803,
+          "conditional_first_image_probability": 1.8177570176433603e-05,
+          "original_pointer_and_mode_probability": 5.718718137838931e-12
+        },
+        {
+          "mode": 12,
+          "frequency": 64.01450838869948,
+          "particle_weight_per_component": 0.00016210612054786902,
+          "antiparticle_weight_per_component": 0.00016210612054786902,
+          "conditional_first_image_probability": 2.234561126817644e-05,
+          "original_pointer_and_mode_probability": 7.0299963757582016e-12
+        },
+        {
+          "mode": 13,
+          "frequency": 64.01524101852993,
+          "particle_weight_per_component": 0.00015468998316340972,
+          "antiparticle_weight_per_component": 0.00015468998316340972,
+          "conditional_first_image_probability": 2.1323329552073174e-05,
+          "original_pointer_and_mode_probability": 6.70838347947352e-12
+        },
+        {
+          "mode": 14,
+          "frequency": 64.01524101852993,
+          "particle_weight_per_component": 8.750788694152423e-05,
+          "antiparticle_weight_per_component": 8.750788694152423e-05,
+          "conditional_first_image_probability": 1.2062574922440451e-05,
+          "original_pointer_and_mode_probability": 3.794922276654659e-12
+        },
+        {
+          "mode": 15,
+          "frequency": 64.01524101852993,
+          "particle_weight_per_component": 0.0001117501116510947,
+          "antiparticle_weight_per_component": 0.0001117501116510947,
+          "conditional_first_image_probability": 1.540425830740481e-05,
+          "original_pointer_and_mode_probability": 4.8462258996925785e-12
+        },
+        {
+          "mode": 16,
+          "frequency": 64.01524101852993,
+          "particle_weight_per_component": 0.00013897539035220735,
+          "antiparticle_weight_per_component": 0.00013897539035220735,
+          "conditional_first_image_probability": 1.915714248270145e-05,
+          "original_pointer_and_mode_probability": 6.026894525596259e-12
+        },
+        {
+          "mode": 17,
+          "frequency": 64.01524101852995,
+          "particle_weight_per_component": 0.00017215357426082694,
+          "antiparticle_weight_per_component": 0.00017215357426082694,
+          "conditional_first_image_probability": 2.373060829448215e-05,
+          "original_pointer_and_mode_probability": 7.46572059732968e-12
+        },
+        {
+          "mode": 18,
+          "frequency": 64.0154991273153,
+          "particle_weight_per_component": 0.00017836256348441543,
+          "antiparticle_weight_per_component": 0.00017836256348441543,
+          "conditional_first_image_probability": 2.458648997920629e-05,
+          "original_pointer_and_mode_probability": 7.734983544289534e-12
+        },
+        {
+          "mode": 19,
+          "frequency": 64.01678799287474,
+          "particle_weight_per_component": 0.00019521033106951314,
+          "antiparticle_weight_per_component": 0.00019521033106951314,
+          "conditional_first_image_probability": 2.6908880175954023e-05,
+          "original_pointer_and_mode_probability": 8.465614470886033e-12
+        },
+        {
+          "mode": 20,
+          "frequency": 64.01678799287474,
+          "particle_weight_per_component": 0.00017890137364061321,
+          "antiparticle_weight_per_component": 0.00017890137364061321,
+          "conditional_first_image_probability": 2.4660762574571907e-05,
+          "original_pointer_and_mode_probability": 7.758349925722207e-12
+        },
+        {
+          "mode": 21,
+          "frequency": 64.01678799287475,
+          "particle_weight_per_component": 0.00013346542372800351,
+          "antiparticle_weight_per_component": 0.00013346542372800351,
+          "conditional_first_image_probability": 1.839761796956792e-05,
+          "original_pointer_and_mode_probability": 5.787945834036748e-12
+        },
+        {
+          "mode": 22,
+          "frequency": 64.01957544995565,
+          "particle_weight_per_component": 0.00024603406554077936,
+          "antiparticle_weight_per_component": 0.00024603406554077936,
+          "conditional_first_image_probability": 3.391470703710929e-05,
+          "original_pointer_and_mode_probability": 1.0669668629532023e-11
+        },
+        {
+          "mode": 23,
+          "frequency": 64.01957544995567,
+          "particle_weight_per_component": 0.0001543811756243776,
+          "antiparticle_weight_per_component": 0.0001543811756243776,
+          "conditional_first_image_probability": 2.1280761799538154e-05,
+          "original_pointer_and_mode_probability": 6.69499153675806e-12
+        },
+        {
+          "mode": 24,
+          "frequency": 64.01995749867447,
+          "particle_weight_per_component": 0.00029104549962634526,
+          "antiparticle_weight_per_component": 0.00029104549962634526,
+          "conditional_first_image_probability": 4.011933401417764e-05,
+          "original_pointer_and_mode_probability": 1.2621662899827125e-11
+        },
+        {
+          "mode": 25,
+          "frequency": 64.01995749867449,
+          "particle_weight_per_component": 0.0002910454996262354,
+          "antiparticle_weight_per_component": 0.0002910454996262354,
+          "conditional_first_image_probability": 4.011933401416249e-05,
+          "original_pointer_and_mode_probability": 1.262166289982236e-11
+        },
+        {
+          "mode": 26,
+          "frequency": 64.02019520102287,
+          "particle_weight_per_component": 8.700116749964182e-05,
+          "antiparticle_weight_per_component": 8.700116749964182e-05,
+          "conditional_first_image_probability": 1.1992725890016115e-05,
+          "original_pointer_and_mode_probability": 3.772947561400724e-12
+        },
+        {
+          "mode": 27,
+          "frequency": 64.02083243528536,
+          "particle_weight_per_component": 0.0002718785375033719,
+          "antiparticle_weight_per_component": 0.0002718785375033719,
+          "conditional_first_image_probability": 3.747725311467607e-05,
+          "original_pointer_and_mode_probability": 1.1790456318586363e-11
+        },
+        {
+          "mode": 28,
+          "frequency": 64.02112231956545,
+          "particle_weight_per_component": 0.00020600769216414265,
+          "antiparticle_weight_per_component": 0.00020600769216414265,
+          "conditional_first_image_probability": 2.839724861588271e-05,
+          "original_pointer_and_mode_probability": 8.933859649454623e-12
+        },
+        {
+          "mode": 29,
+          "frequency": 64.02112231956546,
+          "particle_weight_per_component": 0.00020600769216411557,
+          "antiparticle_weight_per_component": 0.00020600769216411557,
+          "conditional_first_image_probability": 2.8397248615878975e-05,
+          "original_pointer_and_mode_probability": 8.933859649453449e-12
+        },
+        {
+          "mode": 30,
+          "frequency": 64.0213832682209,
+          "particle_weight_per_component": 0.0003160678301932408,
+          "antiparticle_weight_per_component": 0.0003160678301932408,
+          "conditional_first_image_probability": 4.356855153898138e-05,
+          "original_pointer_and_mode_probability": 1.370679708602434e-11
+        },
+        {
+          "mode": 31,
+          "frequency": 64.0215043590533,
+          "particle_weight_per_component": 0.00016237922842246176,
+          "antiparticle_weight_per_component": 0.00016237922842246176,
+          "conditional_first_image_probability": 2.2383257979968082e-05,
+          "original_pointer_and_mode_probability": 7.041840144285195e-12
+        },
+        {
+          "mode": 32,
+          "frequency": 64.02150435905331,
+          "particle_weight_per_component": 0.00025905349320998373,
+          "antiparticle_weight_per_component": 0.00025905349320998373,
+          "conditional_first_image_probability": 3.570937751991979e-05,
+          "original_pointer_and_mode_probability": 1.1234277350162814e-11
+        },
+        {
+          "mode": 33,
+          "frequency": 64.02150435905332,
+          "particle_weight_per_component": 0.00025893803425496514,
+          "antiparticle_weight_per_component": 0.00025893803425496514,
+          "conditional_first_image_probability": 3.5693462013968775e-05,
+          "original_pointer_and_mode_probability": 1.122927028421992e-11
+        },
+        {
+          "mode": 34,
+          "frequency": 64.02150435905334,
+          "particle_weight_per_component": 0.0003372557865222167,
+          "antiparticle_weight_per_component": 0.0003372557865222167,
+          "conditional_first_image_probability": 4.648921754526326e-05,
+          "original_pointer_and_mode_probability": 1.4625647378036843e-11
+        },
+        {
+          "mode": 35,
+          "frequency": 64.02150435905334,
+          "particle_weight_per_component": 0.00025351360819400533,
+          "antiparticle_weight_per_component": 0.00025351360819400533,
+          "conditional_first_image_probability": 3.4945728888892966e-05,
+          "original_pointer_and_mode_probability": 1.099403119873545e-11
+        },
+        {
+          "mode": 36,
+          "frequency": 64.02150435905335,
+          "particle_weight_per_component": 0.0002583381193539415,
+          "antiparticle_weight_per_component": 0.0002583381193539415,
+          "conditional_first_image_probability": 3.561076639996632e-05,
+          "original_pointer_and_mode_probability": 1.1203253995842245e-11
+        },
+        {
+          "mode": 37,
+          "frequency": 64.02305118205847,
+          "particle_weight_per_component": 0.00018308657349691893,
+          "antiparticle_weight_per_component": 0.00018308657349691893,
+          "conditional_first_image_probability": 2.5237673851904085e-05,
+          "original_pointer_and_mode_probability": 7.939847945181408e-12
+        },
+        {
+          "mode": 38,
+          "frequency": 64.02305118205847,
+          "particle_weight_per_component": 0.00037497221556276013,
+          "antiparticle_weight_per_component": 0.00037497221556276013,
+          "conditional_first_image_probability": 5.1688260363112144e-05,
+          "original_pointer_and_mode_probability": 1.626128185356095e-11
+        },
+        {
+          "mode": 39,
+          "frequency": 64.02305118205847,
+          "particle_weight_per_component": 0.00029967125424440656,
+          "antiparticle_weight_per_component": 0.00029967125424440656,
+          "conditional_first_image_probability": 4.13083561124084e-05,
+          "original_pointer_and_mode_probability": 1.2995732820803638e-11
+        },
+        {
+          "mode": 40,
+          "frequency": 64.02581041903532,
+          "particle_weight_per_component": 0.00032316119980117417,
+          "antiparticle_weight_per_component": 0.00032316119980117417,
+          "conditional_first_image_probability": 4.454634114559632e-05,
+          "original_pointer_and_mode_probability": 1.4014412631120056e-11
+        },
+        {
+          "mode": 41,
+          "frequency": 64.0258383664624,
+          "particle_weight_per_component": 0.0004309568483146093,
+          "antiparticle_weight_per_component": 0.0004309568483146093,
+          "conditional_first_image_probability": 5.940549421113964e-05,
+          "original_pointer_and_mode_probability": 1.868914678557895e-11
+        },
+        {
+          "mode": 42,
+          "frequency": 64.02583836646241,
+          "particle_weight_per_component": 0.000251463268655199,
+          "antiparticle_weight_per_component": 0.000251463268655199,
+          "conditional_first_image_probability": 3.4663098657862245e-05,
+          "original_pointer_and_mode_probability": 1.0905114879733012e-11
+        },
+        {
+          "mode": 43,
+          "frequency": 64.02583836646241,
+          "particle_weight_per_component": 0.00042321658818209214,
+          "antiparticle_weight_per_component": 0.00042321658818209214,
+          "conditional_first_image_probability": 5.833853360871922e-05,
+          "original_pointer_and_mode_probability": 1.835347777755434e-11
+        },
+        {
+          "mode": 44,
+          "frequency": 64.02583836646241,
+          "particle_weight_per_component": 0.0003257367514367386,
+          "antiparticle_weight_per_component": 0.0003257367514367386,
+          "conditional_first_image_probability": 4.490136953968119e-05,
+          "original_pointer_and_mode_probability": 1.4126105629523837e-11
+        },
+        {
+          "mode": 45,
+          "frequency": 64.02583836646242,
+          "particle_weight_per_component": 0.00026524640681356007,
+          "antiparticle_weight_per_component": 0.00026524640681356007,
+          "conditional_first_image_probability": 3.656304325157274e-05,
+          "original_pointer_and_mode_probability": 1.1502843151635246e-11
+        },
+        {
+          "mode": 46,
+          "frequency": 64.02680977634944,
+          "particle_weight_per_component": 0.00023973364534678163,
+          "antiparticle_weight_per_component": 0.00023973364534678163,
+          "conditional_first_image_probability": 3.3046221997769466e-05,
+          "original_pointer_and_mode_probability": 1.0396440629380859e-11
+        },
+        {
+          "mode": 47,
+          "frequency": 64.02690873271887,
+          "particle_weight_per_component": 0.000452100228853917,
+          "antiparticle_weight_per_component": 0.000452100228853917,
+          "conditional_first_image_probability": 6.232001564209931e-05,
+          "original_pointer_and_mode_probability": 1.960606397575202e-11
+        },
+        {
+          "mode": 48,
+          "frequency": 64.02690873271888,
+          "particle_weight_per_component": 0.00014635679401732687,
+          "antiparticle_weight_per_component": 0.00014635679401732687,
+          "conditional_first_image_probability": 2.0174636309318238e-05,
+          "original_pointer_and_mode_probability": 6.34700113747755e-12
+        },
+        {
+          "mode": 49,
+          "frequency": 64.02738508476324,
+          "particle_weight_per_component": 0.00034953886447696526,
+          "antiparticle_weight_per_component": 0.00034953886447696526,
+          "conditional_first_image_probability": 4.818238547887295e-05,
+          "original_pointer_and_mode_probability": 1.515832309202717e-11
+        },
+        {
+          "mode": 50,
+          "frequency": 64.02738508476325,
+          "particle_weight_per_component": 0.0003565861428107851,
+          "antiparticle_weight_per_component": 0.0003565861428107851,
+          "conditional_first_image_probability": 4.915382160734213e-05,
+          "original_pointer_and_mode_probability": 1.546393981382814e-11
+        },
+        {
+          "mode": 51,
+          "frequency": 64.02738508476325,
+          "particle_weight_per_component": 0.0002727939954620948,
+          "antiparticle_weight_per_component": 0.0002727939954620948,
+          "conditional_first_image_probability": 3.760344494265174e-05,
+          "original_pointer_and_mode_probability": 1.1830156646434751e-11
+        },
+        {
+          "mode": 52,
+          "frequency": 64.02738508476327,
+          "particle_weight_per_component": 0.0003616217393390321,
+          "antiparticle_weight_per_component": 0.0003616217393390321,
+          "conditional_first_image_probability": 4.9847956302215414e-05,
+          "original_pointer_and_mode_probability": 1.5682316672294155e-11
+        },
+        {
+          "mode": 53,
+          "frequency": 64.02738508476328,
+          "particle_weight_per_component": 0.00043240604163249306,
+          "antiparticle_weight_per_component": 0.00043240604163249306,
+          "conditional_first_image_probability": 5.960525909616943e-05,
+          "original_pointer_and_mode_probability": 1.8751993418007538e-11
+        },
+        {
+          "mode": 54,
+          "frequency": 64.02738508476328,
+          "particle_weight_per_component": 0.0003726253177460756,
+          "antiparticle_weight_per_component": 0.0003726253177460756,
+          "conditional_first_image_probability": 5.1364750885983686e-05,
+          "original_pointer_and_mode_probability": 1.6159504801036306e-11
+        },
+        {
+          "mode": 55,
+          "frequency": 64.02771159001519,
+          "particle_weight_per_component": 0.0004872249903361883,
+          "antiparticle_weight_per_component": 0.0004872249903361883,
+          "conditional_first_image_probability": 6.716180855724393e-05,
+          "original_pointer_and_mode_probability": 2.112930655959279e-11
+        },
+        {
+          "mode": 56,
+          "frequency": 64.02845542516316,
+          "particle_weight_per_component": 0.0005094970041846799,
+          "antiparticle_weight_per_component": 0.0005094970041846799,
+          "conditional_first_image_probability": 7.023190709476875e-05,
+          "original_pointer_and_mode_probability": 2.209516877445899e-11
+        },
+        {
+          "mode": 57,
+          "frequency": 64.02845542516317,
+          "particle_weight_per_component": 0.00034600508901631096,
+          "antiparticle_weight_per_component": 0.00034600508901631096,
+          "conditional_first_image_probability": 4.769527017140691e-05,
+          "original_pointer_and_mode_probability": 1.5005075154212217e-11
+        },
+        {
+          "mode": 58,
+          "frequency": 64.02845542516317,
+          "particle_weight_per_component": 0.00043947718771544656,
+          "antiparticle_weight_per_component": 0.00043947718771544656,
+          "conditional_first_image_probability": 6.0579985288222786e-05,
+          "original_pointer_and_mode_probability": 1.905864520368728e-11
+        },
+        {
+          "mode": 59,
+          "frequency": 64.02845542516319,
+          "particle_weight_per_component": 0.00030763816825926237,
+          "antiparticle_weight_per_component": 0.00030763816825926237,
+          "conditional_first_image_probability": 4.2406559949384346e-05,
+          "original_pointer_and_mode_probability": 1.3341231044196598e-11
+        },
+        {
+          "mode": 60,
+          "frequency": 64.0284554251632,
+          "particle_weight_per_component": 0.00018643285054978655,
+          "antiparticle_weight_per_component": 0.00018643285054978655,
+          "conditional_first_image_probability": 2.5698943333687274e-05,
+          "original_pointer_and_mode_probability": 8.084964708659784e-12
+        },
+        {
+          "mode": 61,
+          "frequency": 64.02870091945067,
+          "particle_weight_per_component": 0.0005144122941929899,
+          "antiparticle_weight_per_component": 0.0005144122941929899,
+          "conditional_first_image_probability": 7.090945806832137e-05,
+          "original_pointer_and_mode_probability": 2.2308328344421162e-11
+        },
+        {
+          "mode": 62,
+          "frequency": 64.03000208024595,
+          "particle_weight_per_component": 0.000271358670674563,
+          "antiparticle_weight_per_component": 0.000271358670674563,
+          "conditional_first_image_probability": 3.7405591773151625e-05,
+          "original_pointer_and_mode_probability": 1.1767911445449852e-11
+        },
+        {
+          "mode": 63,
+          "frequency": 64.03000208024596,
+          "particle_weight_per_component": 0.0005488648918702022,
+          "antiparticle_weight_per_component": 0.0005488648918702022,
+          "conditional_first_image_probability": 7.56585961778015e-05,
+          "original_pointer_and_mode_probability": 2.3802421448294665e-11
+        },
+        {
+          "mode": 64,
+          "frequency": 64.03000208024596,
+          "particle_weight_per_component": 0.00043173935612784623,
+          "antiparticle_weight_per_component": 0.00043173935612784623,
+          "conditional_first_image_probability": 5.951335944997089e-05,
+          "original_pointer_and_mode_probability": 1.8723081513474888e-11
+        },
+        {
+          "mode": 65,
+          "frequency": 64.03171869413356,
+          "particle_weight_per_component": 0.0004602141463084813,
+          "antiparticle_weight_per_component": 0.0004602141463084813,
+          "conditional_first_image_probability": 6.343848325263119e-05,
+          "original_pointer_and_mode_probability": 1.995793724312779e-11
+        },
+        {
+          "mode": 66,
+          "frequency": 64.03171869413356,
+          "particle_weight_per_component": 0.00046021414630879084,
+          "antiparticle_weight_per_component": 0.00046021414630879084,
+          "conditional_first_image_probability": 6.343848325267385e-05,
+          "original_pointer_and_mode_probability": 1.9957937243141214e-11
+        },
+        {
+          "mode": 67,
+          "frequency": 64.03210067039949,
+          "particle_weight_per_component": 0.00046497119599440485,
+          "antiparticle_weight_per_component": 0.00046497119599440485,
+          "conditional_first_image_probability": 6.409422149808292e-05,
+          "original_pointer_and_mode_probability": 2.0164234463358096e-11
+        },
+        {
+          "mode": 68,
+          "frequency": 64.03210067039949,
+          "particle_weight_per_component": 0.0003963896125279244,
+          "antiparticle_weight_per_component": 0.0003963896125279244,
+          "conditional_first_image_probability": 5.4640553745634116e-05,
+          "original_pointer_and_mode_probability": 1.7190082213068775e-11
+        },
+        {
+          "mode": 69,
+          "frequency": 64.03210067039949,
+          "particle_weight_per_component": 0.0004379035465782735,
+          "antiparticle_weight_per_component": 0.0004379035465782735,
+          "conditional_first_image_probability": 6.0363065822085193e-05,
+          "original_pointer_and_mode_probability": 1.8990401688552366e-11
+        },
+        {
+          "mode": 70,
+          "frequency": 64.03252838761274,
+          "particle_weight_per_component": 0.00029197593089372407,
+          "antiparticle_weight_per_component": 0.00029197593089372407,
+          "conditional_first_image_probability": 4.0247589846482654e-05,
+          "original_pointer_and_mode_probability": 1.2662012569632676e-11
+        },
+        {
+          "mode": 71,
+          "frequency": 64.032788962095,
+          "particle_weight_per_component": 0.0004674569545613683,
+          "antiparticle_weight_per_component": 0.0004674569545613683,
+          "conditional_first_image_probability": 6.443687231506737e-05,
+          "original_pointer_and_mode_probability": 2.0272033438854537e-11
+        },
+        {
+          "mode": 72,
+          "frequency": 64.032788962095,
+          "particle_weight_per_component": 0.00046081217585609667,
+          "antiparticle_weight_per_component": 0.00046081217585609667,
+          "conditional_first_image_probability": 6.35209189790105e-05,
+          "original_pointer_and_mode_probability": 1.998387177007917e-11
+        },
+        {
+          "mode": 73,
+          "frequency": 64.03278896209501,
+          "particle_weight_per_component": 0.0003378195863522991,
+          "antiparticle_weight_per_component": 0.0003378195863522991,
+          "conditional_first_image_probability": 4.656693485657456e-05,
+          "original_pointer_and_mode_probability": 1.4650097477445412e-11
+        },
+        {
+          "mode": 74,
+          "frequency": 64.03278896209501,
+          "particle_weight_per_component": 0.0005112609366577114,
+          "antiparticle_weight_per_component": 0.0005112609366577114,
+          "conditional_first_image_probability": 7.047505737936294e-05,
+          "original_pointer_and_mode_probability": 2.2171664583812664e-11
+        },
+        {
+          "mode": 75,
+          "frequency": 64.03278896209501,
+          "particle_weight_per_component": 0.00040253121877323333,
+          "antiparticle_weight_per_component": 0.00040253121877323333,
+          "conditional_first_image_probability": 5.548714698502604e-05,
+          "original_pointer_and_mode_probability": 1.7456422987247664e-11
+        },
+        {
+          "mode": 76,
+          "frequency": 64.03317093197649,
+          "particle_weight_per_component": 0.0005708796942526373,
+          "antiparticle_weight_per_component": 0.0005708796942526373,
+          "conditional_first_image_probability": 7.869323925309707e-05,
+          "original_pointer_and_mode_probability": 2.475712926832328e-11
+        },
+        {
+          "mode": 77,
+          "frequency": 64.0331709319765,
+          "particle_weight_per_component": 0.0005708796942525822,
+          "antiparticle_weight_per_component": 0.0005708796942525822,
+          "conditional_first_image_probability": 7.869323925308948e-05,
+          "original_pointer_and_mode_probability": 2.4757129268320893e-11
+        },
+        {
+          "mode": 78,
+          "frequency": 64.03339989794732,
+          "particle_weight_per_component": 0.00029161779094019716,
+          "antiparticle_weight_per_component": 0.00029161779094019716,
+          "conditional_first_image_probability": 4.019822183894495e-05,
+          "original_pointer_and_mode_probability": 1.2646481246282273e-11
+        },
+        {
+          "mode": 79,
+          "frequency": 64.0336472374358,
+          "particle_weight_per_component": 0.0005039873979308747,
+          "antiparticle_weight_per_component": 0.0005039873979308747,
+          "conditional_first_image_probability": 6.947243225709974e-05,
+          "original_pointer_and_mode_probability": 2.185623571094972e-11
+        },
+        {
+          "mode": 80,
+          "frequency": 64.03364723743582,
+          "particle_weight_per_component": 0.0004852560162586487,
+          "antiparticle_weight_per_component": 0.0004852560162586487,
+          "conditional_first_image_probability": 6.689039419494153e-05,
+          "original_pointer_and_mode_probability": 2.104391878655693e-11
+        },
+        {
+          "mode": 81,
+          "frequency": 64.03364723743582,
+          "particle_weight_per_component": 0.0004297015734414551,
+          "antiparticle_weight_per_component": 0.0004297015734414551,
+          "conditional_first_image_probability": 5.923246012547149e-05,
+          "original_pointer_and_mode_probability": 1.8634709742862553e-11
+        },
+        {
+          "mode": 82,
+          "frequency": 64.03429421255065,
+          "particle_weight_per_component": 0.0005593035901094443,
+          "antiparticle_weight_per_component": 0.0005593035901094443,
+          "conditional_first_image_probability": 7.709752453048527e-05,
+          "original_pointer_and_mode_probability": 2.4255112627020616e-11
+        },
+        {
+          "mode": 83,
+          "frequency": 64.03433551250758,
+          "particle_weight_per_component": 0.0005913061589897284,
+          "antiparticle_weight_per_component": 0.0005913061589897284,
+          "conditional_first_image_probability": 8.150893701364749e-05,
+          "original_pointer_and_mode_probability": 2.5642956235164422e-11
+        },
+        {
+          "mode": 84,
+          "frequency": 64.0343355125076,
+          "particle_weight_per_component": 0.00035253923949010827,
+          "antiparticle_weight_per_component": 0.00035253923949010827,
+          "conditional_first_image_probability": 4.859597389537352e-05,
+          "original_pointer_and_mode_probability": 1.528843924925198e-11
+        },
+        {
+          "mode": 85,
+          "frequency": 64.0343355125076,
+          "particle_weight_per_component": 0.00042770063726256676,
+          "antiparticle_weight_per_component": 0.00042770063726256676,
+          "conditional_first_image_probability": 5.895663992895604e-05,
+          "original_pointer_and_mode_probability": 1.854793588115907e-11
+        },
+        {
+          "mode": 86,
+          "frequency": 64.0343355125076,
+          "particle_weight_per_component": 0.0005085705167263975,
+          "antiparticle_weight_per_component": 0.0005085705167263975,
+          "conditional_first_image_probability": 7.010419489909318e-05,
+          "original_pointer_and_mode_probability": 2.2054990134368798e-11
+        },
+        {
+          "mode": 87,
+          "frequency": 64.0343355125076,
+          "particle_weight_per_component": 0.000364781049267457,
+          "antiparticle_weight_per_component": 0.000364781049267457,
+          "conditional_first_image_probability": 5.028345319337336e-05,
+          "original_pointer_and_mode_probability": 1.5819325301404893e-11
+        },
+        {
+          "mode": 88,
+          "frequency": 64.03471747316381,
+          "particle_weight_per_component": 0.0005579836783895919,
+          "antiparticle_weight_per_component": 0.0005579836783895919,
+          "conditional_first_image_probability": 7.691558054156955e-05,
+          "original_pointer_and_mode_probability": 2.419787250199928e-11
+        },
+        {
+          "mode": 89,
+          "frequency": 64.03471747316382,
+          "particle_weight_per_component": 0.0005147425060913938,
+          "antiparticle_weight_per_component": 0.0005147425060913938,
+          "conditional_first_image_probability": 7.095497631706438e-05,
+          "original_pointer_and_mode_probability": 2.232264852209963e-11
+        },
+        {
+          "mode": 90,
+          "frequency": 64.03471747316382,
+          "particle_weight_per_component": 0.0006409992985053172,
+          "antiparticle_weight_per_component": 0.0006409992985053172,
+          "conditional_first_image_probability": 8.835891636395033e-05,
+          "original_pointer_and_mode_probability": 2.7797980299116882e-11
+        },
+        {
+          "mode": 91,
+          "frequency": 64.03471747316382,
+          "particle_weight_per_component": 0.0003149925485715917,
+          "antiparticle_weight_per_component": 0.0003149925485715917,
+          "conditional_first_image_probability": 4.342032872641897e-05,
+          "original_pointer_and_mode_probability": 1.3660165744298532e-11
+        },
+        {
+          "mode": 92,
+          "frequency": 64.03471747316384,
+          "particle_weight_per_component": 0.0005708046173049534,
+          "antiparticle_weight_per_component": 0.0005708046173049534,
+          "conditional_first_image_probability": 7.868289022813444e-05,
+          "original_pointer_and_mode_probability": 2.4753873434007235e-11
+        },
+        {
+          "mode": 93,
+          "frequency": 64.03471747316384,
+          "particle_weight_per_component": 0.0003939667681324429,
+          "antiparticle_weight_per_component": 0.0003939667681324429,
+          "conditional_first_image_probability": 5.4306575368742896e-05,
+          "original_pointer_and_mode_probability": 1.708501161325616e-11
+        },
+        {
+          "mode": 94,
+          "frequency": 64.03490635023417,
+          "particle_weight_per_component": 0.0006406614328594496,
+          "antiparticle_weight_per_component": 0.0006406614328594496,
+          "conditional_first_image_probability": 8.831234307999343e-05,
+          "original_pointer_and_mode_probability": 2.7783328204193413e-11
+        },
+        {
+          "mode": 95,
+          "frequency": 64.03626397700062,
+          "particle_weight_per_component": 0.0006706133555582719,
+          "antiparticle_weight_per_component": 0.0006706133555582719,
+          "conditional_first_image_probability": 9.2441083062792e-05,
+          "original_pointer_and_mode_probability": 2.908224219527577e-11
+        },
+        {
+          "mode": 96,
+          "frequency": 64.03626397700062,
+          "particle_weight_per_component": 0.0005030735372032305,
+          "antiparticle_weight_per_component": 0.0005030735372032305,
+          "conditional_first_image_probability": 6.934646060035925e-05,
+          "original_pointer_and_mode_probability": 2.1816604649632766e-11
+        },
+        {
+          "mode": 97,
+          "frequency": 64.03626397700062,
+          "particle_weight_per_component": 0.0004309367811872204,
+          "antiparticle_weight_per_component": 0.0004309367811872204,
+          "conditional_first_image_probability": 5.940272804644219e-05,
+          "original_pointer_and_mode_probability": 1.8688276541862434e-11
+        },
+        {
+          "mode": 98,
+          "frequency": 64.0375041498012,
+          "particle_weight_per_component": 0.0007308863818331591,
+          "antiparticle_weight_per_component": 0.0007308863818331591,
+          "conditional_first_image_probability": 0.00010074945297839615,
+          "original_pointer_and_mode_probability": 3.169608030845987e-11
+        },
+        {
+          "mode": 99,
+          "frequency": 64.0375041498012,
+          "particle_weight_per_component": 0.0004815398333239816,
+          "antiparticle_weight_per_component": 0.0004815398333239816,
+          "conditional_first_image_probability": 6.637813482448192e-05,
+          "original_pointer_and_mode_probability": 2.08827604510538e-11
+        },
+        {
+          "mode": 100,
+          "frequency": 64.03791965868461,
+          "particle_weight_per_component": 0.0006198192114005435,
+          "antiparticle_weight_per_component": 0.0006198192114005435,
+          "conditional_first_image_probability": 8.543933509539712e-05,
+          "original_pointer_and_mode_probability": 2.6879471268849677e-11
+        },
+        {
+          "mode": 101,
+          "frequency": 64.03798042303066,
+          "particle_weight_per_component": 0.0005671629228240892,
+          "antiparticle_weight_per_component": 0.0005671629228240892,
+          "conditional_first_image_probability": 7.818089876136053e-05,
+          "original_pointer_and_mode_probability": 2.4595945411822944e-11
+        },
+        {
+          "mode": 102,
+          "frequency": 64.03798042303066,
+          "particle_weight_per_component": 0.0005176361041255478,
+          "antiparticle_weight_per_component": 0.0005176361041255478,
+          "conditional_first_image_probability": 7.135384599958491e-05,
+          "original_pointer_and_mode_probability": 2.2448134121435752e-11
+        },
+        {
+          "mode": 103,
+          "frequency": 64.03798042303067,
+          "particle_weight_per_component": 0.0005000593023278798,
+          "antiparticle_weight_per_component": 0.0005000593023278798,
+          "conditional_first_image_probability": 6.893096166319434e-05,
+          "original_pointer_and_mode_probability": 2.1685887436872486e-11
+        },
+        {
+          "mode": 104,
+          "frequency": 64.0386686515302,
+          "particle_weight_per_component": 0.0006096436903722015,
+          "antiparticle_weight_per_component": 0.0006096436903722015,
+          "conditional_first_image_probability": 8.403668455646608e-05,
+          "original_pointer_and_mode_probability": 2.643819319921891e-11
+        },
+        {
+          "mode": 105,
+          "frequency": 64.03866865153022,
+          "particle_weight_per_component": 0.00043594210018656996,
+          "antiparticle_weight_per_component": 0.00043594210018656996,
+          "conditional_first_image_probability": 6.0092689117959256e-05,
+          "original_pointer_and_mode_probability": 1.8905340365893373e-11
+        },
+        {
+          "mode": 106,
+          "frequency": 64.03905058634142,
+          "particle_weight_per_component": 0.000585726267383819,
+          "antiparticle_weight_per_component": 0.000585726267383819,
+          "conditional_first_image_probability": 8.073977365125988e-05,
+          "original_pointer_and_mode_probability": 2.540097513269838e-11
+        },
+        {
+          "mode": 107,
+          "frequency": 64.03905058634143,
+          "particle_weight_per_component": 0.0006050417207109761,
+          "antiparticle_weight_per_component": 0.0006050417207109761,
+          "conditional_first_image_probability": 8.340232340606573e-05,
+          "original_pointer_and_mode_probability": 2.6238621277255542e-11
+        },
+        {
+          "mode": 108,
+          "frequency": 64.03905058634145,
+          "particle_weight_per_component": 0.0005607316497595475,
+          "antiparticle_weight_per_component": 0.0005607316497595475,
+          "conditional_first_image_probability": 7.72943762329449e-05,
+          "original_pointer_and_mode_probability": 2.4317042763468653e-11
+        },
+        {
+          "mode": 109,
+          "frequency": 64.03905058634145,
+          "particle_weight_per_component": 0.0005787385802212814,
+          "antiparticle_weight_per_component": 0.0005787385802212814,
+          "conditional_first_image_probability": 7.977655190201331e-05,
+          "original_pointer_and_mode_probability": 2.5097942679256463e-11
+        },
+        {
+          "mode": 110,
+          "frequency": 64.03905058634145,
+          "particle_weight_per_component": 0.0005572985857586307,
+          "antiparticle_weight_per_component": 0.0005572985857586307,
+          "conditional_first_image_probability": 7.682114355447485e-05,
+          "original_pointer_and_mode_probability": 2.4168162342404824e-11
+        },
+        {
+          "mode": 111,
+          "frequency": 64.03905058634145,
+          "particle_weight_per_component": 0.0005395130194392334,
+          "antiparticle_weight_per_component": 0.0005395130194392334,
+          "conditional_first_image_probability": 7.436948195271402e-05,
+          "original_pointer_and_mode_probability": 2.3396862243780546e-11
+        },
+        {
+          "mode": 112,
+          "frequency": 64.03905058634145,
+          "particle_weight_per_component": 0.0007160484780750951,
+          "antiparticle_weight_per_component": 0.0007160484780750951,
+          "conditional_first_image_probability": 9.87041136149487e-05,
+          "original_pointer_and_mode_probability": 3.105261040559314e-11
+        },
+        {
+          "mode": 113,
+          "frequency": 64.03905058634145,
+          "particle_weight_per_component": 0.0005008091498160784,
+          "antiparticle_weight_per_component": 0.0005008091498160784,
+          "conditional_first_image_probability": 6.903432482076714e-05,
+          "original_pointer_and_mode_probability": 2.1718405796491434e-11
+        },
+        {
+          "mode": 114,
+          "frequency": 64.03905058634145,
+          "particle_weight_per_component": 0.0006481167596407705,
+          "antiparticle_weight_per_component": 0.0006481167596407705,
+          "conditional_first_image_probability": 8.934002688100962e-05,
+          "original_pointer_and_mode_probability": 2.8106640612606168e-11
+        },
+        {
+          "mode": 115,
+          "frequency": 64.03905058634146,
+          "particle_weight_per_component": 0.0005750596314852686,
+          "antiparticle_weight_per_component": 0.0005750596314852686,
+          "conditional_first_image_probability": 7.926942510104706e-05,
+          "original_pointer_and_mode_probability": 2.4938399065521454e-11
+        },
+        {
+          "mode": 116,
+          "frequency": 64.03905058634146,
+          "particle_weight_per_component": 0.0005599983472787875,
+          "antiparticle_weight_per_component": 0.0005599983472787875,
+          "conditional_first_image_probability": 7.719329373142261e-05,
+          "original_pointer_and_mode_probability": 2.4285241905088635e-11
+        },
+        {
+          "mode": 117,
+          "frequency": 64.03905058634146,
+          "particle_weight_per_component": 0.0006220819130643259,
+          "antiparticle_weight_per_component": 0.0006220819130643259,
+          "conditional_first_image_probability": 8.575123850548337e-05,
+          "original_pointer_and_mode_probability": 2.697759701784701e-11
+        },
+        {
+          "mode": 118,
+          "frequency": 64.03905058634146,
+          "particle_weight_per_component": 0.0006245958486010277,
+          "antiparticle_weight_per_component": 0.0006245958486010277,
+          "conditional_first_image_probability": 8.609777339304061e-05,
+          "original_pointer_and_mode_probability": 2.7086617933603766e-11
+        },
+        {
+          "mode": 119,
+          "frequency": 64.03905058634147,
+          "particle_weight_per_component": 0.0006782730999931644,
+          "antiparticle_weight_per_component": 0.0006782730999931644,
+          "conditional_first_image_probability": 9.349694493264129e-05,
+          "original_pointer_and_mode_probability": 2.941441950872044e-11
+        },
+        {
+          "mode": 120,
+          "frequency": 64.03905058634147,
+          "particle_weight_per_component": 0.0003767418651878197,
+          "antiparticle_weight_per_component": 0.0003767418651878197,
+          "conditional_first_image_probability": 5.193219873181044e-05,
+          "original_pointer_and_mode_probability": 1.6338025596539224e-11
+        },
+        {
+          "mode": 121,
+          "frequency": 64.03905058634149,
+          "particle_weight_per_component": 0.0005734002708370453,
+          "antiparticle_weight_per_component": 0.0005734002708370453,
+          "conditional_first_image_probability": 7.904068957968864e-05,
+          "original_pointer_and_mode_probability": 2.486643818394795e-11
+        },
+        {
+          "mode": 122,
+          "frequency": 64.03905058634149,
+          "particle_weight_per_component": 0.0004965621445922492,
+          "antiparticle_weight_per_component": 0.0004965621445922492,
+          "conditional_first_image_probability": 6.844889394706007e-05,
+          "original_pointer_and_mode_probability": 2.1534227486440955e-11
+        },
+        {
+          "mode": 123,
+          "frequency": 64.0398621509291,
+          "particle_weight_per_component": 0.0006406699834994308,
+          "antiparticle_weight_per_component": 0.0006406699834994308,
+          "conditional_first_image_probability": 8.831352174787141e-05,
+          "original_pointer_and_mode_probability": 2.7783699016645623e-11
+        },
+        {
+          "mode": 124,
+          "frequency": 64.04059698553873,
+          "particle_weight_per_component": 0.0006374936124976055,
+          "antiparticle_weight_per_component": 0.0006374936124976055,
+          "conditional_first_image_probability": 8.787567306325412e-05,
+          "original_pointer_and_mode_probability": 2.764595050625362e-11
+        },
+        {
+          "mode": 125,
+          "frequency": 64.04059698553874,
+          "particle_weight_per_component": 0.0005791091491888795,
+          "antiparticle_weight_per_component": 0.0005791091491888795,
+          "conditional_first_image_probability": 7.98276331941324e-05,
+          "original_pointer_and_mode_probability": 2.5114013007078628e-11
+        },
+        {
+          "mode": 126,
+          "frequency": 64.04059698553874,
+          "particle_weight_per_component": 0.0005086667529850458,
+          "antiparticle_weight_per_component": 0.0005086667529850458,
+          "conditional_first_image_probability": 7.011746064142536e-05,
+          "original_pointer_and_mode_probability": 2.2059163576723888e-11
+        },
+        {
+          "mode": 127,
+          "frequency": 64.04059698553876,
+          "particle_weight_per_component": 0.0007050329239341498,
+          "antiparticle_weight_per_component": 0.0007050329239341498,
+          "conditional_first_image_probability": 9.718566822926428e-05,
+          "original_pointer_and_mode_probability": 3.057490292961326e-11
+        },
+        {
+          "mode": 128,
+          "frequency": 64.04059698553876,
+          "particle_weight_per_component": 0.0005966640984822663,
+          "antiparticle_weight_per_component": 0.0005966640984822663,
+          "conditional_first_image_probability": 8.224750525952263e-05,
+          "original_pointer_and_mode_probability": 2.5875312022143793e-11
+        },
+        {
+          "mode": 129,
+          "frequency": 64.04059698553876,
+          "particle_weight_per_component": 0.0005992315996134538,
+          "antiparticle_weight_per_component": 0.0005992315996134538,
+          "conditional_first_image_probability": 8.260142392720907e-05,
+          "original_pointer_and_mode_probability": 2.5986655897291763e-11
+        },
+        {
+          "mode": 130,
+          "frequency": 64.04059698553876,
+          "particle_weight_per_component": 0.0006097073151519355,
+          "antiparticle_weight_per_component": 0.0006097073151519355,
+          "conditional_first_image_probability": 8.404545495076184e-05,
+          "original_pointer_and_mode_probability": 2.6440952391588864e-11
+        },
+        {
+          "mode": 131,
+          "frequency": 64.04059698553876,
+          "particle_weight_per_component": 0.0005946547101572145,
+          "antiparticle_weight_per_component": 0.0005946547101572145,
+          "conditional_first_image_probability": 8.197051997206607e-05,
+          "original_pointer_and_mode_probability": 2.5788171619333195e-11
+        },
+        {
+          "mode": 132,
+          "frequency": 64.04059698553876,
+          "particle_weight_per_component": 0.0005268796803833754,
+          "antiparticle_weight_per_component": 0.0005268796803833754,
+          "conditional_first_image_probability": 7.262803207650214e-05,
+          "original_pointer_and_mode_probability": 2.2848996885728378e-11
+        },
+        {
+          "mode": 133,
+          "frequency": 64.04059698553877,
+          "particle_weight_per_component": 0.0005876221163295304,
+          "antiparticle_weight_per_component": 0.0005876221163295304,
+          "conditional_first_image_probability": 8.1001108037777e-05,
+          "original_pointer_and_mode_probability": 2.5483191715096947e-11
+        },
+        {
+          "mode": 134,
+          "frequency": 64.04059698553877,
+          "particle_weight_per_component": 0.000640724887736457,
+          "antiparticle_weight_per_component": 0.000640724887736457,
+          "conditional_first_image_probability": 8.832109005395027e-05,
+          "original_pointer_and_mode_probability": 2.778608002845445e-11
+        },
+        {
+          "mode": 135,
+          "frequency": 64.04059698553877,
+          "particle_weight_per_component": 0.0005915700217757133,
+          "antiparticle_weight_per_component": 0.0005915700217757133,
+          "conditional_first_image_probability": 8.154530933089147e-05,
+          "original_pointer_and_mode_probability": 2.56543990753416e-11
+        },
+        {
+          "mode": 136,
+          "frequency": 64.04059698553877,
+          "particle_weight_per_component": 0.0007349170183715548,
+          "antiparticle_weight_per_component": 0.0007349170183715548,
+          "conditional_first_image_probability": 0.00010130505838642084,
+          "original_pointer_and_mode_probability": 3.187087543748495e-11
+        },
+        {
+          "mode": 137,
+          "frequency": 64.0405969855388,
+          "particle_weight_per_component": 0.000622285996088248,
+          "antiparticle_weight_per_component": 0.000622285996088248,
+          "conditional_first_image_probability": 8.57793704471003e-05,
+          "original_pointer_and_mode_probability": 2.6986447411118267e-11
+        },
+        {
+          "mode": 138,
+          "frequency": 64.0405969855388,
+          "particle_weight_per_component": 0.000613486434154652,
+          "antiparticle_weight_per_component": 0.000613486434154652,
+          "conditional_first_image_probability": 8.456638977965959e-05,
+          "original_pointer_and_mode_probability": 2.6604840052356186e-11
+        },
+        {
+          "mode": 139,
+          "frequency": 64.04067813584047,
+          "particle_weight_per_component": 0.0005880847916185252,
+          "antiparticle_weight_per_component": 0.0005880847916185252,
+          "conditional_first_image_probability": 8.106488577865642e-05,
+          "original_pointer_and_mode_probability": 2.550325638380775e-11
+        },
+        {
+          "mode": 140,
+          "frequency": 64.04338340634483,
+          "particle_weight_per_component": 0.0007901931136797755,
+          "antiparticle_weight_per_component": 0.0007901931136797755,
+          "conditional_first_image_probability": 0.00010892462348368951,
+          "original_pointer_and_mode_probability": 3.426801348735956e-11
+        },
+        {
+          "mode": 141,
+          "frequency": 64.04338340634484,
+          "particle_weight_per_component": 0.0007496217726146517,
+          "antiparticle_weight_per_component": 0.0007496217726146517,
+          "conditional_first_image_probability": 0.00010333204367852326,
+          "original_pointer_and_mode_probability": 3.250857109441643e-11
+        },
+        {
+          "mode": 142,
+          "frequency": 64.04338340634484,
+          "particle_weight_per_component": 0.0006213128613096605,
+          "antiparticle_weight_per_component": 0.0006213128613096605,
+          "conditional_first_image_probability": 8.564522812477238e-05,
+          "original_pointer_and_mode_probability": 2.6944245833883096e-11
+        },
+        {
+          "mode": 143,
+          "frequency": 64.04338340634484,
+          "particle_weight_per_component": 0.0007288105301490543,
+          "antiparticle_weight_per_component": 0.0007288105301490543,
+          "conditional_first_image_probability": 0.0001004633060110477,
+          "original_pointer_and_mode_probability": 3.160605761365632e-11
+        },
+        {
+          "mode": 144,
+          "frequency": 64.04338340634486,
+          "particle_weight_per_component": 0.0005697255613780754,
+          "antiparticle_weight_per_component": 0.0005697255613780754,
+          "conditional_first_image_probability": 7.853414714430056e-05,
+          "original_pointer_and_mode_probability": 2.4707078413377816e-11
+        },
+        {
+          "mode": 145,
+          "frequency": 64.04424153970646,
+          "particle_weight_per_component": 0.0006321517914518575,
+          "antiparticle_weight_per_component": 0.0006321517914518575,
+          "conditional_first_image_probability": 8.713932667393193e-05,
+          "original_pointer_and_mode_probability": 2.741429372201475e-11
+        },
+        {
+          "mode": 146,
+          "frequency": 64.04492970092387,
+          "particle_weight_per_component": 0.0007105881612700437,
+          "antiparticle_weight_per_component": 0.0007105881612700437,
+          "conditional_first_image_probability": 9.795143310964515e-05,
+          "original_pointer_and_mode_probability": 3.081581485943937e-11
+        },
+        {
+          "mode": 147,
+          "frequency": 64.04492970092387,
+          "particle_weight_per_component": 0.0005496915236383025,
+          "antiparticle_weight_per_component": 0.0005496915236383025,
+          "conditional_first_image_probability": 7.577254370852684e-05,
+          "original_pointer_and_mode_probability": 2.3838269683476603e-11
+        },
+        {
+          "mode": 148,
+          "frequency": 64.04492970092387,
+          "particle_weight_per_component": 0.0006962974940568628,
+          "antiparticle_weight_per_component": 0.0006962974940568628,
+          "conditional_first_image_probability": 9.598152788195008e-05,
+          "original_pointer_and_mode_probability": 3.0196076762097376e-11
+        },
+        {
+          "mode": 149,
+          "frequency": 64.04492970092387,
+          "particle_weight_per_component": 0.0007445476584868626,
+          "antiparticle_weight_per_component": 0.0007445476584868626,
+          "conditional_first_image_probability": 0.0001026325995030243,
+          "original_pointer_and_mode_probability": 3.228852385740907e-11
+        },
+        {
+          "mode": 150,
+          "frequency": 64.04492970092389,
+          "particle_weight_per_component": 0.0007440011223987529,
+          "antiparticle_weight_per_component": 0.0007440011223987529,
+          "conditional_first_image_probability": 0.00010255726192213807,
+          "original_pointer_and_mode_probability": 3.226482242833503e-11
+        },
+        {
+          "mode": 151,
+          "frequency": 64.04492970092389,
+          "particle_weight_per_component": 0.0005977424437722455,
+          "antiparticle_weight_per_component": 0.0005977424437722455,
+          "conditional_first_image_probability": 8.239615038520515e-05,
+          "original_pointer_and_mode_probability": 2.592207622484477e-11
+        },
+        {
+          "mode": 152,
+          "frequency": 64.04492970092389,
+          "particle_weight_per_component": 0.0007666372476321196,
+          "antiparticle_weight_per_component": 0.0007666372476321196,
+          "conditional_first_image_probability": 0.00010567755160258358,
+          "original_pointer_and_mode_probability": 3.324647492741378e-11
+        },
+        {
+          "mode": 153,
+          "frequency": 64.04492970092389,
+          "particle_weight_per_component": 0.0006605108203813148,
+          "antiparticle_weight_per_component": 0.0006605108203813148,
+          "conditional_first_image_probability": 9.104849330045357e-05,
+          "original_pointer_and_mode_probability": 2.8644129276158654e-11
+        },
+        {
+          "mode": 154,
+          "frequency": 64.04492970092389,
+          "particle_weight_per_component": 0.0005271327549061389,
+          "antiparticle_weight_per_component": 0.0005271327549061389,
+          "conditional_first_image_probability": 7.266291727940775e-05,
+          "original_pointer_and_mode_probability": 2.2859971875271102e-11
+        },
+        {
+          "mode": 155,
+          "frequency": 64.0449297009239,
+          "particle_weight_per_component": 0.0005745660112885561,
+          "antiparticle_weight_per_component": 0.0005745660112885561,
+          "conditional_first_image_probability": 7.920138174159475e-05,
+          "original_pointer_and_mode_probability": 2.491699242040428e-11
+        },
+        {
+          "mode": 156,
+          "frequency": 64.0449297009239,
+          "particle_weight_per_component": 0.0005706675092471905,
+          "antiparticle_weight_per_component": 0.0005706675092471905,
+          "conditional_first_image_probability": 7.866399048918473e-05,
+          "original_pointer_and_mode_probability": 2.474792751940572e-11
+        },
+        {
+          "mode": 157,
+          "frequency": 64.0449297009239,
+          "particle_weight_per_component": 0.0007717347694748108,
+          "antiparticle_weight_per_component": 0.0007717347694748108,
+          "conditional_first_image_probability": 0.00010638022242798392,
+          "original_pointer_and_mode_probability": 3.346753727816497e-11
+        },
+        {
+          "mode": 158,
+          "frequency": 64.0449297009239,
+          "particle_weight_per_component": 0.0007739931312300948,
+          "antiparticle_weight_per_component": 0.0007739931312300948,
+          "conditional_first_image_probability": 0.00010669152760089125,
+          "original_pointer_and_mode_probability": 3.356547481995019e-11
+        },
+        {
+          "mode": 159,
+          "frequency": 64.04492970092392,
+          "particle_weight_per_component": 0.0006824317634909646,
+          "antiparticle_weight_per_component": 0.0006824317634909646,
+          "conditional_first_image_probability": 9.407019829039811e-05,
+          "original_pointer_and_mode_probability": 2.9594766735701917e-11
+        },
+        {
+          "mode": 160,
+          "frequency": 64.04518256692059,
+          "particle_weight_per_component": 0.0007961927356358317,
+          "antiparticle_weight_per_component": 0.0007961927356358317,
+          "conditional_first_image_probability": 0.00010975164481720209,
+          "original_pointer_and_mode_probability": 3.452819688120335e-11
+        },
+        {
+          "mode": 161,
+          "frequency": 64.04531159839729,
+          "particle_weight_per_component": 0.0007296284043596402,
+          "antiparticle_weight_per_component": 0.0007296284043596402,
+          "conditional_first_image_probability": 0.00010057604635122889,
+          "original_pointer_and_mode_probability": 3.164152606306966e-11
+        },
+        {
+          "mode": 162,
+          "frequency": 64.0453115983973,
+          "particle_weight_per_component": 0.0006921063481399781,
+          "antiparticle_weight_per_component": 0.0006921063481399781,
+          "conditional_first_image_probability": 9.540379696648316e-05,
+          "original_pointer_and_mode_probability": 3.001432088202082e-11
+        },
+        {
+          "mode": 163,
+          "frequency": 64.0453115983973,
+          "particle_weight_per_component": 0.0005228524572662887,
+          "antiparticle_weight_per_component": 0.0005228524572662887,
+          "conditional_first_image_probability": 7.207289719349778e-05,
+          "original_pointer_and_mode_probability": 2.2674349785286982e-11
+        },
+        {
+          "mode": 164,
+          "frequency": 64.0453115983973,
+          "particle_weight_per_component": 0.0007908329650380135,
+          "antiparticle_weight_per_component": 0.0007908329650380135,
+          "conditional_first_image_probability": 0.00010901282416156817,
+          "original_pointer_and_mode_probability": 3.429576168535624e-11
+        },
+        {
+          "mode": 165,
+          "frequency": 64.0453115983973,
+          "particle_weight_per_component": 0.0005919209060761433,
+          "antiparticle_weight_per_component": 0.0005919209060761433,
+          "conditional_first_image_probability": 8.159367717876183e-05,
+          "original_pointer_and_mode_probability": 2.5669615745458655e-11
+        },
+        {
+          "mode": 166,
+          "frequency": 64.04531159839733,
+          "particle_weight_per_component": 0.0006228708275682784,
+          "antiparticle_weight_per_component": 0.0006228708275682784,
+          "conditional_first_image_probability": 8.585998687827504e-05,
+          "original_pointer_and_mode_probability": 2.701180958233764e-11
+        },
+        {
+          "mode": 167,
+          "frequency": 64.04599974811717,
+          "particle_weight_per_component": 0.0006801968356263954,
+          "antiparticle_weight_per_component": 0.0006801968356263954,
+          "conditional_first_image_probability": 9.376212337561208e-05,
+          "original_pointer_and_mode_probability": 2.949784544281734e-11
+        },
+        {
+          "mode": 168,
+          "frequency": 64.04599974811718,
+          "particle_weight_per_component": 0.000569980479778686,
+          "antiparticle_weight_per_component": 0.000569980479778686,
+          "conditional_first_image_probability": 7.856928651760673e-05,
+          "original_pointer_and_mode_probability": 2.4718133365691458e-11
+        },
+        {
+          "mode": 169,
+          "frequency": 64.04685784642365,
+          "particle_weight_per_component": 0.000693500562452837,
+          "antiparticle_weight_per_component": 0.000693500562452837,
+          "conditional_first_image_probability": 9.559598323899637e-05,
+          "original_pointer_and_mode_probability": 3.007478326020434e-11
+        },
+        {
+          "mode": 170,
+          "frequency": 64.04685784642365,
+          "particle_weight_per_component": 0.0008009051443118009,
+          "antiparticle_weight_per_component": 0.0008009051443118009,
+          "conditional_first_image_probability": 0.00011040122949700383,
+          "original_pointer_and_mode_probability": 3.473255817121011e-11
+        },
+        {
+          "mode": 171,
+          "frequency": 64.04685784642366,
+          "particle_weight_per_component": 0.0007361487752977963,
+          "antiparticle_weight_per_component": 0.0007361487752977963,
+          "conditional_first_image_probability": 0.00010147485062719283,
+          "original_pointer_and_mode_probability": 3.192429258606656e-11
+        },
+        {
+          "mode": 172,
+          "frequency": 64.04685784642366,
+          "particle_weight_per_component": 0.0008612457260250243,
+          "antiparticle_weight_per_component": 0.0008612457260250243,
+          "conditional_first_image_probability": 0.00011871891163079574,
+          "original_pointer_and_mode_probability": 3.7349325936186884e-11
+        },
+        {
+          "mode": 173,
+          "frequency": 64.04685784642366,
+          "particle_weight_per_component": 0.0006832215345736377,
+          "antiparticle_weight_per_component": 0.0006832215345736377,
+          "conditional_first_image_probability": 9.417906473877534e-05,
+          "original_pointer_and_mode_probability": 2.962901644712617e-11
+        },
+        {
+          "mode": 174,
+          "frequency": 64.04685784642369,
+          "particle_weight_per_component": 0.0005443660032464436,
+          "antiparticle_weight_per_component": 0.0005443660032464436,
+          "conditional_first_image_probability": 7.503844429219984e-05,
+          "original_pointer_and_mode_probability": 2.3607319803686353e-11
+        },
+        {
+          "mode": 175,
+          "frequency": 64.04712749831222,
+          "particle_weight_per_component": 0.0008283617070687663,
+          "antiparticle_weight_per_component": 0.0008283617070687663,
+          "conditional_first_image_probability": 0.00011418599515578268,
+          "original_pointer_and_mode_probability": 3.5923256807510196e-11
+        },
+        {
+          "mode": 176,
+          "frequency": 64.04713342488174,
+          "particle_weight_per_component": 0.0008659777988165935,
+          "antiparticle_weight_per_component": 0.0008659777988165935,
+          "conditional_first_image_probability": 0.00011937120692190347,
+          "original_pointer_and_mode_probability": 3.7554539992646473e-11
+        },
+        {
+          "mode": 177,
+          "frequency": 64.04754597953008,
+          "particle_weight_per_component": 0.0006076550957996733,
+          "antiparticle_weight_per_component": 0.0006076550957996733,
+          "conditional_first_image_probability": 8.37625655957659e-05,
+          "original_pointer_and_mode_probability": 2.6351954551409203e-11
+        },
+        {
+          "mode": 178,
+          "frequency": 64.04754597953008,
+          "particle_weight_per_component": 0.0006076550957993206,
+          "antiparticle_weight_per_component": 0.0006076550957993206,
+          "conditional_first_image_probability": 8.376256559571729e-05,
+          "original_pointer_and_mode_probability": 2.635195455139391e-11
+        },
+        {
+          "mode": 179,
+          "frequency": 64.04812410968756,
+          "particle_weight_per_component": 0.0008468577886283766,
+          "antiparticle_weight_per_component": 0.0008468577886283766,
+          "conditional_first_image_probability": 0.00011673559813880818,
+          "original_pointer_and_mode_probability": 3.672536955865331e-11
+        },
+        {
+          "mode": 180,
+          "frequency": 64.04926212321551,
+          "particle_weight_per_component": 0.0007736818728775609,
+          "antiparticle_weight_per_component": 0.0007736818728775609,
+          "conditional_first_image_probability": 0.00010664862201456183,
+          "original_pointer_and_mode_probability": 3.3551976593709e-11
+        },
+        {
+          "mode": 181,
+          "frequency": 64.04926212321553,
+          "particle_weight_per_component": 0.000871998255690628,
+          "antiparticle_weight_per_component": 0.000871998255690628,
+          "conditional_first_image_probability": 0.00012020110025664817,
+          "original_pointer_and_mode_probability": 3.7815626926698253e-11
+        },
+        {
+          "mode": 182,
+          "frequency": 64.04964399485677,
+          "particle_weight_per_component": 0.000755351191824203,
+          "antiparticle_weight_per_component": 0.000755351191824203,
+          "conditional_first_image_probability": 0.00010412181875929357,
+          "original_pointer_and_mode_probability": 3.2757036705352147e-11
+        },
+        {
+          "mode": 183,
+          "frequency": 64.04964399485677,
+          "particle_weight_per_component": 0.0008589280450966661,
+          "antiparticle_weight_per_component": 0.0008589280450966661,
+          "conditional_first_image_probability": 0.00011839942957241493,
+          "original_pointer_and_mode_probability": 3.724881592168862e-11
+        },
+        {
+          "mode": 184,
+          "frequency": 64.04964399485678,
+          "particle_weight_per_component": 0.0007454193164033257,
+          "antiparticle_weight_per_component": 0.0007454193164033257,
+          "conditional_first_image_probability": 0.00010275275368902472,
+          "original_pointer_and_mode_probability": 3.232632472496994e-11
+        },
+        {
+          "mode": 185,
+          "frequency": 64.04964399485678,
+          "particle_weight_per_component": 0.0008881638051852573,
+          "antiparticle_weight_per_component": 0.0008881638051852573,
+          "conditional_first_image_probability": 0.000122429449708986,
+          "original_pointer_and_mode_probability": 3.851667235283826e-11
+        },
+        {
+          "mode": 186,
+          "frequency": 64.04964399485678,
+          "particle_weight_per_component": 0.0007174704321973608,
+          "antiparticle_weight_per_component": 0.0007174704321973608,
+          "conditional_first_image_probability": 9.890012369741779e-05,
+          "original_pointer_and_mode_probability": 3.111427576586602e-11
+        },
+        {
+          "mode": 187,
+          "frequency": 64.0509212991925,
+          "particle_weight_per_component": 0.0008017391436706199,
+          "antiparticle_weight_per_component": 0.0008017391436706199,
+          "conditional_first_image_probability": 0.00011051619261750225,
+          "original_pointer_and_mode_probability": 3.4768725913982976e-11
+        },
+        {
+          "mode": 188,
+          "frequency": 64.05114971520184,
+          "particle_weight_per_component": 0.0008450147930792673,
+          "antiparticle_weight_per_component": 0.0008450147930792673,
+          "conditional_first_image_probability": 0.00011648154935909408,
+          "original_pointer_and_mode_probability": 3.664544505002286e-11
+        },
+        {
+          "mode": 189,
+          "frequency": 64.05119013829551,
+          "particle_weight_per_component": 0.0007586920525113762,
+          "antiparticle_weight_per_component": 0.0007586920525113762,
+          "conditional_first_image_probability": 0.00010458234161903754,
+          "original_pointer_and_mode_probability": 3.290191857929598e-11
+        },
+        {
+          "mode": 190,
+          "frequency": 64.05119013829551,
+          "particle_weight_per_component": 0.0008597798897745919,
+          "antiparticle_weight_per_component": 0.0008597798897745919,
+          "conditional_first_image_probability": 0.0001185168525911724,
+          "original_pointer_and_mode_probability": 3.7285757555837216e-11
+        },
+        {
+          "mode": 191,
+          "frequency": 64.05119013829552,
+          "particle_weight_per_component": 0.0007724944913013003,
+          "antiparticle_weight_per_component": 0.0007724944913013003,
+          "conditional_first_image_probability": 0.00010648494671938826,
+          "original_pointer_and_mode_probability": 3.350048385457279e-11
+        },
+        {
+          "mode": 192,
+          "frequency": 64.05119013829552,
+          "particle_weight_per_component": 0.0007665524103758871,
+          "antiparticle_weight_per_component": 0.0007665524103758871,
+          "conditional_first_image_probability": 0.0001056658571622847,
+          "original_pointer_and_mode_probability": 3.324279582139466e-11
+        },
+        {
+          "mode": 193,
+          "frequency": 64.05119013829552,
+          "particle_weight_per_component": 0.0008079631556484824,
+          "antiparticle_weight_per_component": 0.0008079631556484824,
+          "conditional_first_image_probability": 0.00011137414512241535,
+          "original_pointer_and_mode_probability": 3.503864034718988e-11
+        },
+        {
+          "mode": 194,
+          "frequency": 64.05119013829552,
+          "particle_weight_per_component": 0.0006841385660317237,
+          "antiparticle_weight_per_component": 0.0006841385660317237,
+          "conditional_first_image_probability": 9.430547346667423e-05,
+          "original_pointer_and_mode_probability": 2.9668785012341434e-11
+        },
+        {
+          "mode": 195,
+          "frequency": 64.05119013829554,
+          "particle_weight_per_component": 0.0008411554404428182,
+          "antiparticle_weight_per_component": 0.0008411554404428182,
+          "conditional_first_image_probability": 0.00011594955467888434,
+          "original_pointer_and_mode_probability": 3.6478077926836426e-11
+        },
+        {
+          "mode": 196,
+          "frequency": 64.05119013829554,
+          "particle_weight_per_component": 0.0007679589089878068,
+          "antiparticle_weight_per_component": 0.0007679589089878068,
+          "conditional_first_image_probability": 0.00010585973677105559,
+          "original_pointer_and_mode_probability": 3.330379092824743e-11
+        },
+        {
+          "mode": 197,
+          "frequency": 64.05119013829554,
+          "particle_weight_per_component": 0.0008217362009392676,
+          "antiparticle_weight_per_component": 0.0008217362009392676,
+          "conditional_first_image_probability": 0.00011327269845899954,
+          "original_pointer_and_mode_probability": 3.5635930925424294e-11
+        },
+        {
+          "mode": 198,
+          "frequency": 64.05119013829554,
+          "particle_weight_per_component": 0.0007255680215295403,
+          "antiparticle_weight_per_component": 0.0007255680215295403,
+          "conditional_first_image_probability": 0.00010001634054854393,
+          "original_pointer_and_mode_probability": 3.146544093757704e-11
+        },
+        {
+          "mode": 199,
+          "frequency": 64.05119013829555,
+          "particle_weight_per_component": 0.0008819634527094242,
+          "antiparticle_weight_per_component": 0.0008819634527094242,
+          "conditional_first_image_probability": 0.0001215747585617154,
+          "original_pointer_and_mode_probability": 3.824778395253471e-11
+        },
+        {
+          "mode": 200,
+          "frequency": 64.05119013829555,
+          "particle_weight_per_component": 0.0008487373007360304,
+          "antiparticle_weight_per_component": 0.0008487373007360304,
+          "conditional_first_image_probability": 0.00011699468056450266,
+          "original_pointer_and_mode_probability": 3.6806877667417767e-11
+        },
+        {
+          "mode": 201,
+          "frequency": 64.05119013829555,
+          "particle_weight_per_component": 0.0007726597417084593,
+          "antiparticle_weight_per_component": 0.0007726597417084593,
+          "conditional_first_image_probability": 0.0001065077257566498,
+          "original_pointer_and_mode_probability": 3.3507650208067e-11
+        },
+        {
+          "mode": 202,
+          "frequency": 64.05119013829557,
+          "particle_weight_per_component": 0.0007393899722641433,
+          "antiparticle_weight_per_component": 0.0007393899722641433,
+          "conditional_first_image_probability": 0.00010192163528411266,
+          "original_pointer_and_mode_probability": 3.206485238016643e-11
+        },
+        {
+          "mode": 203,
+          "frequency": 64.05119013829557,
+          "particle_weight_per_component": 0.0007314147126877372,
+          "antiparticle_weight_per_component": 0.0007314147126877372,
+          "conditional_first_image_probability": 0.00010082228104841278,
+          "original_pointer_and_mode_probability": 3.171899223788198e-11
+        },
+        {
+          "mode": 204,
+          "frequency": 64.05187822485854,
+          "particle_weight_per_component": 0.0008979790941828985,
+          "antiparticle_weight_per_component": 0.0008979790941828985,
+          "conditional_first_image_probability": 0.0001237824438568,
+          "original_pointer_and_mode_probability": 3.8942328372778976e-11
+        },
+        {
+          "mode": 205,
+          "frequency": 64.05187822485856,
+          "particle_weight_per_component": 0.0006693512451540919,
+          "antiparticle_weight_per_component": 0.0006693512451540919,
+          "conditional_first_image_probability": 9.226710672942463e-05,
+          "original_pointer_and_mode_probability": 2.9027508718605026e-11
+        },
+        {
+          "mode": 206,
+          "frequency": 64.05226008090291,
+          "particle_weight_per_component": 0.0008857220499805985,
+          "antiparticle_weight_per_component": 0.0008857220499805985,
+          "conditional_first_image_probability": 0.00012209286456074515,
+          "original_pointer_and_mode_probability": 3.841078165493477e-11
+        },
+        {
+          "mode": 207,
+          "frequency": 64.05226008090293,
+          "particle_weight_per_component": 0.0006932972963941052,
+          "antiparticle_weight_per_component": 0.0006932972963941052,
+          "conditional_first_image_probability": 9.556796391241522e-05,
+          "original_pointer_and_mode_probability": 3.006596829596135e-11
+        },
+        {
+          "mode": 208,
+          "frequency": 64.05226008090293,
+          "particle_weight_per_component": 0.0009402531880063328,
+          "antiparticle_weight_per_component": 0.0009402531880063328,
+          "conditional_first_image_probability": 0.00012960974059365537,
+          "original_pointer_and_mode_probability": 4.077561341693897e-11
+        },
+        {
+          "mode": 209,
+          "frequency": 64.05226008090293,
+          "particle_weight_per_component": 0.0008466694217980283,
+          "antiparticle_weight_per_component": 0.0008466694217980283,
+          "conditional_first_image_probability": 0.00011670963260491868,
+          "original_pointer_and_mode_probability": 3.671720072375561e-11
+        },
+        {
+          "mode": 210,
+          "frequency": 64.05226008090294,
+          "particle_weight_per_component": 0.0007623413397535263,
+          "antiparticle_weight_per_component": 0.0007623413397535263,
+          "conditional_first_image_probability": 0.00010508537971435069,
+          "original_pointer_and_mode_probability": 3.3060175873960194e-11
+        },
+        {
+          "mode": 211,
+          "frequency": 64.05307061023329,
+          "particle_weight_per_component": 0.0008081945775599397,
+          "antiparticle_weight_per_component": 0.0008081945775599397,
+          "conditional_first_image_probability": 0.00011140604560868254,
+          "original_pointer_and_mode_probability": 3.504867633591948e-11
+        },
+        {
+          "mode": 212,
+          "frequency": 64.05353413936167,
+          "particle_weight_per_component": 0.0008777280574363562,
+          "antiparticle_weight_per_component": 0.0008777280574363562,
+          "conditional_first_image_probability": 0.00012099092806833744,
+          "original_pointer_and_mode_probability": 3.806410912693934e-11
+        },
+        {
+          "mode": 213,
+          "frequency": 64.05380616119407,
+          "particle_weight_per_component": 0.0007275693984544853,
+          "antiparticle_weight_per_component": 0.0007275693984544853,
+          "conditional_first_image_probability": 0.00010029222149995262,
+          "original_pointer_and_mode_probability": 3.15522339129523e-11
+        },
+        {
+          "mode": 214,
+          "frequency": 64.05380616119407,
+          "particle_weight_per_component": 0.0009295656161383086,
+          "antiparticle_weight_per_component": 0.0009295656161383086,
+          "conditional_first_image_probability": 0.00012813650611270903,
+          "original_pointer_and_mode_probability": 4.03121294272911e-11
+        },
+        {
+          "mode": 215,
+          "frequency": 64.05380616119409,
+          "particle_weight_per_component": 0.0009472681381753097,
+          "antiparticle_weight_per_component": 0.0009472681381753097,
+          "conditional_first_image_probability": 0.00013057672042767894,
+          "original_pointer_and_mode_probability": 4.10798281751317e-11
+        },
+        {
+          "mode": 216,
+          "frequency": 64.05380616119409,
+          "particle_weight_per_component": 0.0007890008963543152,
+          "antiparticle_weight_per_component": 0.0007890008963543152,
+          "conditional_first_image_probability": 0.00010876028160189084,
+          "original_pointer_and_mode_probability": 3.421631103807032e-11
+        },
+        {
+          "mode": 217,
+          "frequency": 64.05380616119409,
+          "particle_weight_per_component": 0.000905980451712092,
+          "antiparticle_weight_per_component": 0.000905980451712092,
+          "conditional_first_image_probability": 0.00012488539557978728,
+          "original_pointer_and_mode_probability": 3.928932029536198e-11
+        },
+        {
+          "mode": 218,
+          "frequency": 64.0538061611941,
+          "particle_weight_per_component": 0.0008839160426450378,
+          "antiparticle_weight_per_component": 0.0008839160426450378,
+          "conditional_first_image_probability": 0.00012184391444256624,
+          "original_pointer_and_mode_probability": 3.8332461200527034e-11
+        },
+        {
+          "mode": 219,
+          "frequency": 64.0555221371598,
+          "particle_weight_per_component": 0.0007976352973236932,
+          "antiparticle_weight_per_component": 0.0007976352973236932,
+          "conditional_first_image_probability": 0.00010995049556138357,
+          "original_pointer_and_mode_probability": 3.459075592217724e-11
+        },
+        {
+          "mode": 220,
+          "frequency": 64.05552213715983,
+          "particle_weight_per_component": 0.0008550405997514504,
+          "antiparticle_weight_per_component": 0.0008550405997514504,
+          "conditional_first_image_probability": 0.00011786356243663445,
+          "original_pointer_and_mode_probability": 3.708023051235638e-11
+        },
+        {
+          "mode": 221,
+          "frequency": 64.05552213715983,
+          "particle_weight_per_component": 0.0009681374885608418,
+          "antiparticle_weight_per_component": 0.0009681374885608418,
+          "conditional_first_image_probability": 0.00013345346801474345,
+          "original_pointer_and_mode_probability": 4.198486160063642e-11
+        },
+        {
+          "mode": 222,
+          "frequency": 64.05552213715984,
+          "particle_weight_per_component": 0.0008620530628552441,
+          "antiparticle_weight_per_component": 0.0008620530628552441,
+          "conditional_first_image_probability": 0.00011883019943972979,
+          "original_pointer_and_mode_probability": 3.7384337414910073e-11
+        },
+        {
+          "mode": 223,
+          "frequency": 64.05552213715984,
+          "particle_weight_per_component": 0.0007705083583763644,
+          "antiparticle_weight_per_component": 0.0007705083583763644,
+          "conditional_first_image_probability": 0.00010621116708591392,
+          "original_pointer_and_mode_probability": 3.341435196012683e-11
+        },
+        {
+          "mode": 224,
+          "frequency": 64.05659200740948,
+          "particle_weight_per_component": 0.0008963725543472736,
+          "antiparticle_weight_per_component": 0.0008963725543472736,
+          "conditional_first_image_probability": 0.0001235609894506839,
+          "original_pointer_and_mode_probability": 3.887265815191511e-11
+        },
+        {
+          "mode": 225,
+          "frequency": 64.05659200740949,
+          "particle_weight_per_component": 0.000961889919210629,
+          "antiparticle_weight_per_component": 0.000961889919210629,
+          "conditional_first_image_probability": 0.0001325922682303121,
+          "original_pointer_and_mode_probability": 4.1713925563546294e-11
+        },
+        {
+          "mode": 226,
+          "frequency": 64.05659200740949,
+          "particle_weight_per_component": 0.0010864067281924593,
+          "antiparticle_weight_per_component": 0.0010864067281924593,
+          "conditional_first_image_probability": 0.00014975635926190353,
+          "original_pointer_and_mode_probability": 4.7113800120440375e-11
+        },
+        {
+          "mode": 227,
+          "frequency": 64.0565920074095,
+          "particle_weight_per_component": 0.0009123880486864484,
+          "antiparticle_weight_per_component": 0.0009123880486864484,
+          "conditional_first_image_probability": 0.00012576865446395648,
+          "original_pointer_and_mode_probability": 3.956719619144045e-11
+        },
+        {
+          "mode": 228,
+          "frequency": 64.0565920074095,
+          "particle_weight_per_component": 0.0008776458866811889,
+          "antiparticle_weight_per_component": 0.0008776458866811889,
+          "conditional_first_image_probability": 0.00012097960119340899,
+          "original_pointer_and_mode_probability": 3.806054565808901e-11
+        },
+        {
+          "mode": 229,
+          "frequency": 64.05672621507038,
+          "particle_weight_per_component": 0.000930078371359561,
+          "antiparticle_weight_per_component": 0.000930078371359561,
+          "conditional_first_image_probability": 0.00012820718715060635,
+          "original_pointer_and_mode_probability": 4.0334365893964116e-11
+        },
+        {
+          "mode": 230,
+          "frequency": 64.05744996382458,
+          "particle_weight_per_component": 0.0008602461258542014,
+          "antiparticle_weight_per_component": 0.0008602461258542014,
+          "conditional_first_image_probability": 0.00011858112117127871,
+          "original_pointer_and_mode_probability": 3.7305976644042064e-11
+        },
+        {
+          "mode": 231,
+          "frequency": 64.05744996382458,
+          "particle_weight_per_component": 0.0008663706839163903,
+          "antiparticle_weight_per_component": 0.0008663706839163903,
+          "conditional_first_image_probability": 0.0001194253643940794,
+          "original_pointer_and_mode_probability": 3.757157809594773e-11
+        },
+        {
+          "mode": 232,
+          "frequency": 64.0574499638246,
+          "particle_weight_per_component": 0.0008568150287405856,
+          "antiparticle_weight_per_component": 0.0008568150287405856,
+          "conditional_first_image_probability": 0.00011810815961951804,
+          "original_pointer_and_mode_probability": 3.71571815202548e-11
+        },
+        {
+          "mode": 233,
+          "frequency": 64.05813798314706,
+          "particle_weight_per_component": 0.0009331289579022722,
+          "antiparticle_weight_per_component": 0.0009331289579022722,
+          "conditional_first_image_probability": 0.00012862769700423168,
+          "original_pointer_and_mode_probability": 4.0466659556083205e-11
+        },
+        {
+          "mode": 234,
+          "frequency": 64.05813798314708,
+          "particle_weight_per_component": 0.0009379818382570578,
+          "antiparticle_weight_per_component": 0.0009379818382570578,
+          "conditional_first_image_probability": 0.00012929664508325864,
+          "original_pointer_and_mode_probability": 4.067711262960585e-11
+        },
+        {
+          "mode": 235,
+          "frequency": 64.05813798314709,
+          "particle_weight_per_component": 0.0009255961379445407,
+          "antiparticle_weight_per_component": 0.0009255961379445407,
+          "conditional_first_image_probability": 0.00012758933111181662,
+          "original_pointer_and_mode_probability": 4.013998652965387e-11
+        },
+        {
+          "mode": 236,
+          "frequency": 64.05813798314709,
+          "particle_weight_per_component": 0.0008372026318189905,
+          "antiparticle_weight_per_component": 0.0008372026318189905,
+          "conditional_first_image_probability": 0.00011540467750443201,
+          "original_pointer_and_mode_probability": 3.630665793229421e-11
+        },
+        {
+          "mode": 237,
+          "frequency": 64.05813798314709,
+          "particle_weight_per_component": 0.0008989241242288172,
+          "antiparticle_weight_per_component": 0.0008989241242288172,
+          "conditional_first_image_probability": 0.00012391271206611544,
+          "original_pointer_and_mode_probability": 3.89833111424322e-11
+        },
+        {
+          "mode": 238,
+          "frequency": 64.05813798314709,
+          "particle_weight_per_component": 0.000894870031641575,
+          "antiparticle_weight_per_component": 0.000894870031641575,
+          "conditional_first_image_probability": 0.00012335387334556905,
+          "original_pointer_and_mode_probability": 3.8807498803582936e-11
+        },
+        {
+          "mode": 239,
+          "frequency": 64.05813798314709,
+          "particle_weight_per_component": 0.000954378812413724,
+          "antiparticle_weight_per_component": 0.000954378812413724,
+          "conditional_first_image_probability": 0.00013155689540101886,
+          "original_pointer_and_mode_probability": 4.1388194163758817e-11
+        },
+        {
+          "mode": 240,
+          "frequency": 64.05813798314709,
+          "particle_weight_per_component": 0.0009408085513325528,
+          "antiparticle_weight_per_component": 0.0009408085513325528,
+          "conditional_first_image_probability": 0.0001296862949702475,
+          "original_pointer_and_mode_probability": 4.0799697653594315e-11
+        },
+        {
+          "mode": 241,
+          "frequency": 64.0581379831471,
+          "particle_weight_per_component": 0.0009758474191545147,
+          "antiparticle_weight_per_component": 0.0009758474191545147,
+          "conditional_first_image_probability": 0.00013451624782446667,
+          "original_pointer_and_mode_probability": 4.231921531872976e-11
+        },
+        {
+          "mode": 242,
+          "frequency": 64.0581379831471,
+          "particle_weight_per_component": 0.0009616847877344868,
+          "antiparticle_weight_per_component": 0.0009616847877344868,
+          "conditional_first_image_probability": 0.00013256399176419687,
+          "original_pointer_and_mode_probability": 4.1705029702434077e-11
+        },
+        {
+          "mode": 243,
+          "frequency": 64.0581379831471,
+          "particle_weight_per_component": 0.0008705935895656786,
+          "antiparticle_weight_per_component": 0.0008705935895656786,
+          "conditional_first_image_probability": 0.00012000747324809591,
+          "original_pointer_and_mode_probability": 3.775471128863245e-11
+        },
+        {
+          "mode": 244,
+          "frequency": 64.0581379831471,
+          "particle_weight_per_component": 0.0009804441647156912,
+          "antiparticle_weight_per_component": 0.0009804441647156912,
+          "conditional_first_image_probability": 0.0001351498888557961,
+          "original_pointer_and_mode_probability": 4.251856068907197e-11
+        },
+        {
+          "mode": 245,
+          "frequency": 64.0581379831471,
+          "particle_weight_per_component": 0.0009172261965095955,
+          "antiparticle_weight_per_component": 0.0009172261965095955,
+          "conditional_first_image_probability": 0.00012643557172870032,
+          "original_pointer_and_mode_probability": 3.977701036469409e-11
+        },
+        {
+          "mode": 246,
+          "frequency": 64.05813798314712,
+          "particle_weight_per_component": 0.0009074127548346679,
+          "antiparticle_weight_per_component": 0.0009074127548346679,
+          "conditional_first_image_probability": 0.0001250828322261465,
+          "original_pointer_and_mode_probability": 3.9351434456916546e-11
+        },
+        {
+          "mode": 247,
+          "frequency": 64.05851980187674,
+          "particle_weight_per_component": 0.0008462045162309845,
+          "antiparticle_weight_per_component": 0.0008462045162309845,
+          "conditional_first_image_probability": 0.00011664554743008098,
+          "original_pointer_and_mode_probability": 3.669703933539876e-11
+        },
+        {
+          "mode": 248,
+          "frequency": 64.05851980187674,
+          "particle_weight_per_component": 0.001055224590581042,
+          "antiparticle_weight_per_component": 0.001055224590581042,
+          "conditional_first_image_probability": 0.00014545803959808949,
+          "original_pointer_and_mode_probability": 4.5761535852713817e-11
+        },
+        {
+          "mode": 249,
+          "frequency": 64.05851980187674,
+          "particle_weight_per_component": 0.0008473830031512728,
+          "antiparticle_weight_per_component": 0.0008473830031512728,
+          "conditional_first_image_probability": 0.00011680799663629473,
+          "original_pointer_and_mode_probability": 3.674814634326808e-11
+        },
+        {
+          "mode": 250,
+          "frequency": 64.05935858590557,
+          "particle_weight_per_component": 0.0011071191636838002,
+          "antiparticle_weight_per_component": 0.0011071191636838002,
+          "conditional_first_image_probability": 0.00015261147682527778,
+          "original_pointer_and_mode_probability": 4.8012028675569203e-11
+        },
+        {
+          "mode": 251,
+          "frequency": 64.06006573109045,
+          "particle_weight_per_component": 0.001138547551654308,
+          "antiparticle_weight_per_component": 0.001138547551654308,
+          "conditional_first_image_probability": 0.0001569437410112375,
+          "original_pointer_and_mode_probability": 4.9374971991847935e-11
+        },
+        {
+          "mode": 252,
+          "frequency": 64.06006573109046,
+          "particle_weight_per_component": 0.000997359127349748,
+          "antiparticle_weight_per_component": 0.000997359127349748,
+          "conditional_first_image_probability": 0.00013748154159265097,
+          "original_pointer_and_mode_probability": 4.3252105638587866e-11
+        },
+        {
+          "mode": 253,
+          "frequency": 64.06006573109048,
+          "particle_weight_per_component": 0.0008205476577910965,
+          "antiparticle_weight_per_component": 0.0008205476577910965,
+          "conditional_first_image_probability": 0.00011310886304627899,
+          "original_pointer_and_mode_probability": 3.558438781282721e-11
+        },
+        {
+          "mode": 254,
+          "frequency": 64.0617815393857,
+          "particle_weight_per_component": 0.001080620063613219,
+          "antiparticle_weight_per_component": 0.001080620063613219,
+          "conditional_first_image_probability": 0.0001489586931602782,
+          "original_pointer_and_mode_probability": 4.686285197065862e-11
+        },
+        {
+          "mode": 255,
+          "frequency": 64.0617815393857,
+          "particle_weight_per_component": 0.0008102383506227143,
+          "antiparticle_weight_per_component": 0.0008102383506227143,
+          "conditional_first_image_probability": 0.0001116877706800542,
+          "original_pointer_and_mode_probability": 3.513730788897632e-11
+        },
+        {
+          "mode": 256,
+          "frequency": 64.06178153938573,
+          "particle_weight_per_component": 0.0010617454819142305,
+          "antiparticle_weight_per_component": 0.0010617454819142305,
+          "conditional_first_image_probability": 0.0001463569156082055,
+          "original_pointer_and_mode_probability": 4.604432494349027e-11
+        },
+        {
+          "mode": 257,
+          "frequency": 64.06203153938958,
+          "particle_weight_per_component": 0.0009672859746367332,
+          "antiparticle_weight_per_component": 0.0009672859746367332,
+          "conditional_first_image_probability": 0.00013333609058893583,
+          "original_pointer_and_mode_probability": 4.1947934310166703e-11
+        },
+        {
+          "mode": 258,
+          "frequency": 64.06246951218785,
+          "particle_weight_per_component": 0.0009063383253301695,
+          "antiparticle_weight_per_component": 0.0009063383253301695,
+          "conditional_first_image_probability": 0.000124934726874162,
+          "original_pointer_and_mode_probability": 3.930484006864111e-11
+        },
+        {
+          "mode": 259,
+          "frequency": 64.06246951218786,
+          "particle_weight_per_component": 0.0009741994774328843,
+          "antiparticle_weight_per_component": 0.0009741994774328843,
+          "conditional_first_image_probability": 0.00013428908635160122,
+          "original_pointer_and_mode_probability": 4.224774963753668e-11
+        },
+        {
+          "mode": 260,
+          "frequency": 64.06246951218786,
+          "particle_weight_per_component": 0.0009885104082658538,
+          "antiparticle_weight_per_component": 0.0009885104082658538,
+          "conditional_first_image_probability": 0.00013626178482960142,
+          "original_pointer_and_mode_probability": 4.286836649980866e-11
+        },
+        {
+          "mode": 261,
+          "frequency": 64.06246951218786,
+          "particle_weight_per_component": 0.0012945403182226085,
+          "antiparticle_weight_per_component": 0.0012945403182226085,
+          "conditional_first_image_probability": 0.00017844665348981545,
+          "original_pointer_and_mode_probability": 5.6139852799021534e-11
+        },
+        {
+          "mode": 262,
+          "frequency": 64.06246951218787,
+          "particle_weight_per_component": 0.00102731459045352,
+          "antiparticle_weight_per_component": 0.00102731459045352,
+          "conditional_first_image_probability": 0.00014161076960460275,
+          "original_pointer_and_mode_probability": 4.455117316510665e-11
+        },
+        {
+          "mode": 263,
+          "frequency": 64.0628513051013,
+          "particle_weight_per_component": 0.0009496675129871627,
+          "antiparticle_weight_per_component": 0.0009496675129871627,
+          "conditional_first_image_probability": 0.0001309074636263387,
+          "original_pointer_and_mode_probability": 4.118388097816224e-11
+        },
+        {
+          "mode": 264,
+          "frequency": 64.0628513051013,
+          "particle_weight_per_component": 0.0010935064535451526,
+          "antiparticle_weight_per_component": 0.0010935064535451526,
+          "conditional_first_image_probability": 0.00015073502497980437,
+          "original_pointer_and_mode_probability": 4.74216912927763e-11
+        },
+        {
+          "mode": 265,
+          "frequency": 64.06285130510132,
+          "particle_weight_per_component": 0.0011712306030522341,
+          "antiparticle_weight_per_component": 0.0011712306030522341,
+          "conditional_first_image_probability": 0.0001614489549977768,
+          "original_pointer_and_mode_probability": 5.079232583450123e-11
+        },
+        {
+          "mode": 266,
+          "frequency": 64.06285130510132,
+          "particle_weight_per_component": 0.0010376527064576062,
+          "antiparticle_weight_per_component": 0.0010376527064576062,
+          "conditional_first_image_probability": 0.00014303583314132718,
+          "original_pointer_and_mode_probability": 4.4999502431116276e-11
+        },
+        {
+          "mode": 267,
+          "frequency": 64.06285130510133,
+          "particle_weight_per_component": 0.001024990938870007,
+          "antiparticle_weight_per_component": 0.001024990938870007,
+          "conditional_first_image_probability": 0.0001412904645178338,
+          "original_pointer_and_mode_probability": 4.445040422340715e-11
+        },
+        {
+          "mode": 268,
+          "frequency": 64.0643971297921,
+          "particle_weight_per_component": 0.0009602115370150446,
+          "antiparticle_weight_per_component": 0.0009602115370150446,
+          "conditional_first_image_probability": 0.00013236091067283552,
+          "original_pointer_and_mode_probability": 4.1641139781539923e-11
+        },
+        {
+          "mode": 269,
+          "frequency": 64.0643971297921,
+          "particle_weight_per_component": 0.0009918684849094432,
+          "antiparticle_weight_per_component": 0.0009918684849094432,
+          "conditional_first_image_probability": 0.00013672468083274295,
+          "original_pointer_and_mode_probability": 4.3013994971788405e-11
+        },
+        {
+          "mode": 270,
+          "frequency": 64.0643971297921,
+          "particle_weight_per_component": 0.0011404061778938846,
+          "antiparticle_weight_per_component": 0.0011404061778938846,
+          "conditional_first_image_probability": 0.00015719994441245423,
+          "original_pointer_and_mode_probability": 4.945557435087025e-11
+        },
+        {
+          "mode": 271,
+          "frequency": 64.06439712979211,
+          "particle_weight_per_component": 0.0009940320415152658,
+          "antiparticle_weight_per_component": 0.0009940320415152658,
+          "conditional_first_image_probability": 0.0001370229175353857,
+          "original_pointer_and_mode_probability": 4.3107821133603126e-11
+        },
+        {
+          "mode": 272,
+          "frequency": 64.06439712979211,
+          "particle_weight_per_component": 0.0010407118430341502,
+          "antiparticle_weight_per_component": 0.0010407118430341502,
+          "conditional_first_image_probability": 0.00014345752157927564,
+          "original_pointer_and_mode_probability": 4.5132166879400964e-11
+        },
+        {
+          "mode": 273,
+          "frequency": 64.06439712979211,
+          "particle_weight_per_component": 0.0011734522347051084,
+          "antiparticle_weight_per_component": 0.0011734522347051084,
+          "conditional_first_image_probability": 0.00016175519708862707,
+          "original_pointer_and_mode_probability": 5.0888670515474355e-11
+        },
+        {
+          "mode": 274,
+          "frequency": 64.06439712979211,
+          "particle_weight_per_component": 0.0010242047170261654,
+          "antiparticle_weight_per_component": 0.0010242047170261654,
+          "conditional_first_image_probability": 0.00014118208731632125,
+          "original_pointer_and_mode_probability": 4.4416308430515005e-11
+        },
+        {
+          "mode": 275,
+          "frequency": 64.06439712979213,
+          "particle_weight_per_component": 0.0010062839593751388,
+          "antiparticle_weight_per_component": 0.0010062839593751388,
+          "conditional_first_image_probability": 0.0001387117901878252,
+          "original_pointer_and_mode_probability": 4.363914553924493e-11
+        },
+        {
+          "mode": 276,
+          "frequency": 64.06439712979213,
+          "particle_weight_per_component": 0.0009609249487426779,
+          "antiparticle_weight_per_component": 0.0009609249487426779,
+          "conditional_first_image_probability": 0.0001324592513220718,
+          "original_pointer_and_mode_probability": 4.167207804496104e-11
+        },
+        {
+          "mode": 277,
+          "frequency": 64.06439712979213,
+          "particle_weight_per_component": 0.0009892512059477916,
+          "antiparticle_weight_per_component": 0.0009892512059477916,
+          "conditional_first_image_probability": 0.00013636390051143378,
+          "original_pointer_and_mode_probability": 4.290049239981534e-11
+        },
+        {
+          "mode": 278,
+          "frequency": 64.06439712979213,
+          "particle_weight_per_component": 0.000999553950237483,
+          "antiparticle_weight_per_component": 0.000999553950237483,
+          "conditional_first_image_probability": 0.00013778408821387705,
+          "original_pointer_and_mode_probability": 4.33472877137252e-11
+        },
+        {
+          "mode": 279,
+          "frequency": 64.06439712979213,
+          "particle_weight_per_component": 0.0010214235775670788,
+          "antiparticle_weight_per_component": 0.0010214235775670788,
+          "conditional_first_image_probability": 0.00014079871955065455,
+          "original_pointer_and_mode_probability": 4.4295699780750406e-11
+        },
+        {
+          "mode": 280,
+          "frequency": 64.06439712979213,
+          "particle_weight_per_component": 0.0010666923545187162,
+          "antiparticle_weight_per_component": 0.0010666923545187162,
+          "conditional_first_image_probability": 0.00014703882010286268,
+          "original_pointer_and_mode_probability": 4.625885414425911e-11
+        },
+        {
+          "mode": 281,
+          "frequency": 64.06439712979214,
+          "particle_weight_per_component": 0.0012653055072890831,
+          "antiparticle_weight_per_component": 0.0012653055072890831,
+          "conditional_first_image_probability": 0.00017441676419006945,
+          "original_pointer_and_mode_probability": 5.4872037529529776e-11
+        },
+        {
+          "mode": 282,
+          "frequency": 64.06439712979214,
+          "particle_weight_per_component": 0.0010187244103249129,
+          "antiparticle_weight_per_component": 0.0010187244103249129,
+          "conditional_first_image_probability": 0.00014042665129229765,
+          "original_pointer_and_mode_probability": 4.417864598990116e-11
+        },
+        {
+          "mode": 283,
+          "frequency": 64.0650019450022,
+          "particle_weight_per_component": 0.0010789644544849668,
+          "antiparticle_weight_per_component": 0.0010789644544849668,
+          "conditional_first_image_probability": 0.0001487304747693443,
+          "original_pointer_and_mode_probability": 4.679105377986884e-11
+        },
+        {
+          "mode": 284,
+          "frequency": 64.06527016874578,
+          "particle_weight_per_component": 0.0011612779024957381,
+          "antiparticle_weight_per_component": 0.0011612779024957381,
+          "conditional_first_image_probability": 0.00016007701927473082,
+          "original_pointer_and_mode_probability": 5.036071073813902e-11
+        },
+        {
+          "mode": 285,
+          "frequency": 64.06580752671053,
+          "particle_weight_per_component": 0.0010603574201569585,
+          "antiparticle_weight_per_component": 0.0010603574201569585,
+          "conditional_first_image_probability": 0.00014616557743824996,
+          "original_pointer_and_mode_probability": 4.598412938091699e-11
+        },
+        {
+          "mode": 286,
+          "frequency": 64.06718251547831,
+          "particle_weight_per_component": 0.0013222639468764923,
+          "antiparticle_weight_per_component": 0.0013222639468764923,
+          "conditional_first_image_probability": 0.00018226823300050411,
+          "original_pointer_and_mode_probability": 5.734213318362994e-11
+        },
+        {
+          "mode": 287,
+          "frequency": 64.06718251547831,
+          "particle_weight_per_component": 0.0011334469421815795,
+          "antiparticle_weight_per_component": 0.0011334469421815795,
+          "conditional_first_image_probability": 0.00015624064456970177,
+          "original_pointer_and_mode_probability": 4.9153775740983056e-11
+        },
+        {
+          "mode": 288,
+          "frequency": 64.0687282356674,
+          "particle_weight_per_component": 0.0011230199805546497,
+          "antiparticle_weight_per_component": 0.0011230199805546497,
+          "conditional_first_image_probability": 0.00015480333405708136,
+          "original_pointer_and_mode_probability": 4.870159353959702e-11
+        },
+        {
+          "mode": 289,
+          "frequency": 64.0687282356674,
+          "particle_weight_per_component": 0.0011032510937279373,
+          "antiparticle_weight_per_component": 0.0011032510937279373,
+          "conditional_first_image_probability": 0.000152078280501168,
+          "original_pointer_and_mode_probability": 4.7844283511605054e-11
+        },
+        {
+          "mode": 290,
+          "frequency": 64.0687282356674,
+          "particle_weight_per_component": 0.001132913373197503,
+          "antiparticle_weight_per_component": 0.001132913373197503,
+          "conditional_first_image_probability": 0.0001561670944467167,
+          "original_pointer_and_mode_probability": 4.913063665152982e-11
+        },
+        {
+          "mode": 291,
+          "frequency": 64.0687282356674,
+          "particle_weight_per_component": 0.0010090157091065006,
+          "antiparticle_weight_per_component": 0.0010090157091065006,
+          "conditional_first_image_probability": 0.0001390883497981141,
+          "original_pointer_and_mode_probability": 4.375761232289287e-11
+        },
+        {
+          "mode": 292,
+          "frequency": 64.0687282356674,
+          "particle_weight_per_component": 0.001144640219906864,
+          "antiparticle_weight_per_component": 0.001144640219906864,
+          "conditional_first_image_probability": 0.00015778358836491822,
+          "original_pointer_and_mode_probability": 4.9639190490134175e-11
+        },
+        {
+          "mode": 293,
+          "frequency": 64.0687282356674,
+          "particle_weight_per_component": 0.0011595590304826747,
+          "antiparticle_weight_per_component": 0.0011595590304826747,
+          "conditional_first_image_probability": 0.00015984008037511462,
+          "original_pointer_and_mode_probability": 5.028616904914301e-11
+        },
+        {
+          "mode": 294,
+          "frequency": 64.0687282356674,
+          "particle_weight_per_component": 0.0011751117294642704,
+          "antiparticle_weight_per_component": 0.0011751117294642704,
+          "conditional_first_image_probability": 0.00016198395109658486,
+          "original_pointer_and_mode_probability": 5.096063721298751e-11
+        },
+        {
+          "mode": 295,
+          "frequency": 64.06872823566741,
+          "particle_weight_per_component": 0.0011078588917499872,
+          "antiparticle_weight_per_component": 0.0011078588917499872,
+          "conditional_first_image_probability": 0.00015271344506531285,
+          "original_pointer_and_mode_probability": 4.8044108189943903e-11
+        },
+        {
+          "mode": 296,
+          "frequency": 64.06872823566741,
+          "particle_weight_per_component": 0.001071188870005316,
+          "antiparticle_weight_per_component": 0.001071188870005316,
+          "conditional_first_image_probability": 0.00014765864486201004,
+          "original_pointer_and_mode_probability": 4.6453852873903023e-11
+        },
+        {
+          "mode": 297,
+          "frequency": 64.06872823566741,
+          "particle_weight_per_component": 0.0011317049779166301,
+          "antiparticle_weight_per_component": 0.0011317049779166301,
+          "conditional_first_image_probability": 0.0001560005225053648,
+          "original_pointer_and_mode_probability": 4.907823261881156e-11
+        },
+        {
+          "mode": 298,
+          "frequency": 64.06872823566742,
+          "particle_weight_per_component": 0.001315614981306157,
+          "antiparticle_weight_per_component": 0.001315614981306157,
+          "conditional_first_image_probability": 0.00018135170252362847,
+          "original_pointer_and_mode_probability": 5.705378994462068e-11
+        },
+        {
+          "mode": 299,
+          "frequency": 64.06872823566742,
+          "particle_weight_per_component": 0.0011082907719592071,
+          "antiparticle_weight_per_component": 0.0011082907719592071,
+          "conditional_first_image_probability": 0.00015277297784073817,
+          "original_pointer_and_mode_probability": 4.8062837379781505e-11
+        },
+        {
+          "mode": 300,
+          "frequency": 64.06872823566742,
+          "particle_weight_per_component": 0.0011409617353323137,
+          "antiparticle_weight_per_component": 0.0011409617353323137,
+          "conditional_first_image_probability": 0.00015727652554655528,
+          "original_pointer_and_mode_probability": 4.9479667005518214e-11
+        },
+        {
+          "mode": 301,
+          "frequency": 64.06872823566742,
+          "particle_weight_per_component": 0.0011025155545003526,
+          "antiparticle_weight_per_component": 0.0011025155545003526,
+          "conditional_first_image_probability": 0.00015197688967399532,
+          "original_pointer_and_mode_probability": 4.7812385653049976e-11
+        },
+        {
+          "mode": 302,
+          "frequency": 64.07065566497286,
+          "particle_weight_per_component": 0.0011270071080789336,
+          "antiparticle_weight_per_component": 0.0011270071080789336,
+          "conditional_first_image_probability": 0.00015535294194007294,
+          "original_pointer_and_mode_probability": 4.8874501829245e-11
+        },
+        {
+          "mode": 303,
+          "frequency": 64.07065566497289,
+          "particle_weight_per_component": 0.0011324508549587485,
+          "antiparticle_weight_per_component": 0.0011324508549587485,
+          "conditional_first_image_probability": 0.00015610333835451782,
+          "original_pointer_and_mode_probability": 4.911057879355889e-11
+        },
+        {
+          "mode": 304,
+          "frequency": 64.0706556649729,
+          "particle_weight_per_component": 0.0011086824699485067,
+          "antiparticle_weight_per_component": 0.0011086824699485067,
+          "conditional_first_image_probability": 0.00015282697167498595,
+          "original_pointer_and_mode_probability": 4.80798240020994e-11
+        },
+        {
+          "mode": 305,
+          "frequency": 64.07066752433634,
+          "particle_weight_per_component": 0.0012530978545308,
+          "antiparticle_weight_per_component": 0.0012530978545308,
+          "conditional_first_image_probability": 0.00017273399328597563,
+          "original_pointer_and_mode_probability": 5.434263275223203e-11
+        },
+        {
+          "mode": 306,
+          "frequency": 64.0710236388999,
+          "particle_weight_per_component": 0.0011317396019184542,
+          "antiparticle_weight_per_component": 0.0011317396019184542,
+          "conditional_first_image_probability": 0.0001560052952707773,
+          "original_pointer_and_mode_probability": 4.907973414513589e-11
+        },
+        {
+          "mode": 307,
+          "frequency": 64.07134354248818,
+          "particle_weight_per_component": 0.0011888812627359124,
+          "antiparticle_weight_per_component": 0.0011888812627359124,
+          "conditional_first_image_probability": 0.00016388202031687363,
+          "original_pointer_and_mode_probability": 5.15577754867823e-11
+        },
+        {
+          "mode": 308,
+          "frequency": 64.0713435424882,
+          "particle_weight_per_component": 0.0011888812627365594,
+          "antiparticle_weight_per_component": 0.0011888812627365594,
+          "conditional_first_image_probability": 0.00016388202031696283,
+          "original_pointer_and_mode_probability": 5.155777548681036e-11
+        },
+        {
+          "mode": 309,
+          "frequency": 64.07305904877566,
+          "particle_weight_per_component": 0.0014415070474071401,
+          "antiparticle_weight_per_component": 0.0014415070474071401,
+          "conditional_first_image_probability": 0.0001987053666624815,
+          "original_pointer_and_mode_probability": 6.251330477006665e-11
+        },
+        {
+          "mode": 310,
+          "frequency": 64.07305904877566,
+          "particle_weight_per_component": 0.0010961090293556844,
+          "antiparticle_weight_per_component": 0.0010961090293556844,
+          "conditional_first_image_probability": 0.00015109377853680491,
+          "original_pointer_and_mode_probability": 4.75345562386145e-11
+        },
+        {
+          "mode": 311,
+          "frequency": 64.07498634780663,
+          "particle_weight_per_component": 0.0012383631949325889,
+          "antiparticle_weight_per_component": 0.0012383631949325889,
+          "conditional_first_image_probability": 0.00017070288567302587,
+          "original_pointer_and_mode_probability": 5.3703640200788756e-11
+        },
+        {
+          "mode": 312,
+          "frequency": 64.07498634780664,
+          "particle_weight_per_component": 0.0011934235474947695,
+          "antiparticle_weight_per_component": 0.0011934235474947695,
+          "conditional_first_image_probability": 0.000164508154167636,
+          "original_pointer_and_mode_probability": 5.175475907558515e-11
+        },
+        {
+          "mode": 313,
+          "frequency": 64.07498634780664,
+          "particle_weight_per_component": 0.001250134098717284,
+          "antiparticle_weight_per_component": 0.001250134098717284,
+          "conditional_first_image_probability": 0.0001723254526640744,
+          "original_pointer_and_mode_probability": 5.421410464633923e-11
+        },
+        {
+          "mode": 314,
+          "frequency": 64.07498634780666,
+          "particle_weight_per_component": 0.001254910077744763,
+          "antiparticle_weight_per_component": 0.001254910077744763,
+          "conditional_first_image_probability": 0.00017298380023548205,
+          "original_pointer_and_mode_probability": 5.44212227683472e-11
+        },
+        {
+          "mode": 315,
+          "frequency": 64.07498634780666,
+          "particle_weight_per_component": 0.001168336922672074,
+          "antiparticle_weight_per_component": 0.001168336922672074,
+          "conditional_first_image_probability": 0.00016105007396422378,
+          "original_pointer_and_mode_probability": 5.066683666409621e-11
+        },
+        {
+          "mode": 316,
+          "frequency": 64.07498634780666,
+          "particle_weight_per_component": 0.0012652039632497106,
+          "antiparticle_weight_per_component": 0.0012652039632497106,
+          "conditional_first_image_probability": 0.0001744027667936556,
+          "original_pointer_and_mode_probability": 5.486763390660452e-11
+        },
+        {
+          "mode": 317,
+          "frequency": 64.0750922688819,
+          "particle_weight_per_component": 0.001229940264795223,
+          "antiparticle_weight_per_component": 0.001229940264795223,
+          "conditional_first_image_probability": 0.00016954182203179828,
+          "original_pointer_and_mode_probability": 5.3338366094303295e-11
+        },
+        {
+          "mode": 318,
+          "frequency": 64.07567417883038,
+          "particle_weight_per_component": 0.001361238614386225,
+          "antiparticle_weight_per_component": 0.001361238614386225,
+          "conditional_first_image_probability": 0.0001876407184226183,
+          "original_pointer_and_mode_probability": 5.903233322304729e-11
+        },
+        {
+          "mode": 319,
+          "frequency": 64.07567417883038,
+          "particle_weight_per_component": 0.001329174235898796,
+          "antiparticle_weight_per_component": 0.001329174235898796,
+          "conditional_first_image_probability": 0.00018322078575866817,
+          "original_pointer_and_mode_probability": 5.764180914045411e-11
+        },
+        {
+          "mode": 320,
+          "frequency": 64.0776013992046,
+          "particle_weight_per_component": 0.0012896765464691829,
+          "antiparticle_weight_per_component": 0.0012896765464691829,
+          "conditional_first_image_probability": 0.00017777620407968912,
+          "original_pointer_and_mode_probability": 5.592892740222875e-11
+        },
+        {
+          "mode": 321,
+          "frequency": 64.0776013992046,
+          "particle_weight_per_component": 0.001307050591828332,
+          "antiparticle_weight_per_component": 0.001307050591828332,
+          "conditional_first_image_probability": 0.0001801711393383894,
+          "original_pointer_and_mode_probability": 5.6682381223060945e-11
+        },
+        {
+          "mode": 322,
+          "frequency": 64.07760139920461,
+          "particle_weight_per_component": 0.001303213774393658,
+          "antiparticle_weight_per_component": 0.001303213774393658,
+          "conditional_first_image_probability": 0.00017964225103600807,
+          "original_pointer_and_mode_probability": 5.6515991375663185e-11
+        },
+        {
+          "mode": 323,
+          "frequency": 64.07782675901244,
+          "particle_weight_per_component": 0.0014164490661823413,
+          "antiparticle_weight_per_component": 0.0014164490661823413,
+          "conditional_first_image_probability": 0.00019525123485226848,
+          "original_pointer_and_mode_probability": 6.142662453492936e-11
+        },
+        {
+          "mode": 324,
+          "frequency": 64.07931673795919,
+          "particle_weight_per_component": 0.0013082468716552227,
+          "antiparticle_weight_per_component": 0.0013082468716552227,
+          "conditional_first_image_probability": 0.00018033604121803044,
+          "original_pointer_and_mode_probability": 5.673425984935224e-11
+        },
+        {
+          "mode": 325,
+          "frequency": 64.07931673795919,
+          "particle_weight_per_component": 0.0013082468716550902,
+          "antiparticle_weight_per_component": 0.0013082468716550902,
+          "conditional_first_image_probability": 0.0001803360412180122,
+          "original_pointer_and_mode_probability": 5.6734259849346504e-11
+        },
+        {
+          "mode": 326,
+          "frequency": 64.08099669264901,
+          "particle_weight_per_component": 0.0014388646110591592,
+          "antiparticle_weight_per_component": 0.0014388646110591592,
+          "conditional_first_image_probability": 0.0001983411185068084,
+          "original_pointer_and_mode_probability": 6.239871120699392e-11
+        },
+        {
+          "mode": 327,
+          "frequency": 64.08193161264283,
+          "particle_weight_per_component": 0.0013914194749325834,
+          "antiparticle_weight_per_component": 0.0013914194749325834,
+          "conditional_first_image_probability": 0.0001918010164744665,
+          "original_pointer_and_mode_probability": 6.034117547737482e-11
+        },
+        {
+          "mode": 328,
+          "frequency": 64.08193161264285,
+          "particle_weight_per_component": 0.0013917646159521653,
+          "antiparticle_weight_per_component": 0.0013917646159521653,
+          "conditional_first_image_probability": 0.00019184859263649058,
+          "original_pointer_and_mode_probability": 6.035614308074838e-11
+        },
+        {
+          "mode": 329,
+          "frequency": 64.08193161264285,
+          "particle_weight_per_component": 0.0014293890587065827,
+          "antiparticle_weight_per_component": 0.0014293890587065827,
+          "conditional_first_image_probability": 0.00019703495555190993,
+          "original_pointer_and_mode_probability": 6.198778842090917e-11
+        },
+        {
+          "mode": 330,
+          "frequency": 64.08193161264285,
+          "particle_weight_per_component": 0.0014281442567490436,
+          "antiparticle_weight_per_component": 0.0014281442567490436,
+          "conditional_first_image_probability": 0.0001968633651113083,
+          "original_pointer_and_mode_probability": 6.193380555326383e-11
+        },
+        {
+          "mode": 331,
+          "frequency": 64.08193161264286,
+          "particle_weight_per_component": 0.001366409109663045,
+          "antiparticle_weight_per_component": 0.001366409109663045,
+          "conditional_first_image_probability": 0.00018835344831294744,
+          "original_pointer_and_mode_probability": 5.925656018581756e-11
+        },
+        {
+          "mode": 332,
+          "frequency": 64.08385864483468,
+          "particle_weight_per_component": 0.0014282884393705141,
+          "antiparticle_weight_per_component": 0.0014282884393705141,
+          "conditional_first_image_probability": 0.0001968832400475545,
+          "original_pointer_and_mode_probability": 6.19400582678619e-11
+        },
+        {
+          "mode": 333,
+          "frequency": 64.08396373224191,
+          "particle_weight_per_component": 0.0015249054067898848,
+          "antiparticle_weight_per_component": 0.0015249054067898848,
+          "conditional_first_image_probability": 0.00021020146139889324,
+          "original_pointer_and_mode_probability": 6.613001067989532e-11
+        },
+        {
+          "mode": 334,
+          "frequency": 64.086261533495,
+          "particle_weight_per_component": 0.0016333459057698576,
+          "antiparticle_weight_per_component": 0.0016333459057698576,
+          "conditional_first_image_probability": 0.00022514950424726927,
+          "original_pointer_and_mode_probability": 7.08327098268378e-11
+        },
+        {
+          "mode": 335,
+          "frequency": 64.08626153349502,
+          "particle_weight_per_component": 0.0014683886289164649,
+          "antiparticle_weight_per_component": 0.0014683886289164649,
+          "conditional_first_image_probability": 0.00020241087370102535,
+          "original_pointer_and_mode_probability": 6.367906840654451e-11
+        },
+        {
+          "mode": 336,
+          "frequency": 64.08818843549285,
+          "particle_weight_per_component": 0.0015310657708660312,
+          "antiparticle_weight_per_component": 0.0015310657708660312,
+          "conditional_first_image_probability": 0.0002110506403222477,
+          "original_pointer_and_mode_probability": 6.639716491800979e-11
+        },
+        {
+          "mode": 337,
+          "frequency": 64.08818843549287,
+          "particle_weight_per_component": 0.0015540844407489719,
+          "antiparticle_weight_per_component": 0.0015540844407489719,
+          "conditional_first_image_probability": 0.0002142236620895707,
+          "original_pointer_and_mode_probability": 6.739540708989659e-11
+        },
+        {
+          "mode": 338,
+          "frequency": 64.08818843549287,
+          "particle_weight_per_component": 0.0015091785687099271,
+          "antiparticle_weight_per_component": 0.0015091785687099271,
+          "conditional_first_image_probability": 0.00020803358637341873,
+          "original_pointer_and_mode_probability": 6.544799068996167e-11
+        },
+        {
+          "mode": 339,
+          "frequency": 64.09166501762444,
+          "particle_weight_per_component": 0.0016895015444435076,
+          "antiparticle_weight_per_component": 0.0016895015444435076,
+          "conditional_first_image_probability": 0.00023289031050477893,
+          "original_pointer_and_mode_probability": 7.326799070963193e-11
+        },
+        {
+          "mode": 340,
+          "frequency": 64.09251793365063,
+          "particle_weight_per_component": 0.0016224923941270748,
+          "antiparticle_weight_per_component": 0.0016224923941270748,
+          "conditional_first_image_probability": 0.0002236533957027888,
+          "original_pointer_and_mode_probability": 7.036202958814514e-11
+        },
+        {
+          "mode": 341,
+          "frequency": 64.09251793365063,
+          "particle_weight_per_component": 0.0016224923941274634,
+          "antiparticle_weight_per_component": 0.0016224923941274634,
+          "conditional_first_image_probability": 0.00022365339570284235,
+          "original_pointer_and_mode_probability": 7.036202958816198e-11
+        },
+        {
+          "mode": 342,
+          "frequency": 64.09562928554075,
+          "particle_weight_per_component": 0.0017512880904060595,
+          "antiparticle_weight_per_component": 0.0017512880904060595,
+          "conditional_first_image_probability": 0.0002414073124107915,
+          "original_pointer_and_mode_probability": 7.594746507321153e-11
+        }
+      ],
+      "pointer": {
+        "norm_bound": 9604,
+        "success_probability": 3.146030015195865e-07,
+        "failure_probability": 0.9999996853969985,
+        "all_four_scalar_charge_component_branches_retained": true,
+        "mode_projectors_sum_over_all_four_internal_scalar_branches": true,
+        "success_Kraus": "H_Y/B",
+        "failure_Kraus": "positive_sqrt(I-H_Y^2/B^2)",
+        "complete_outcome_count": 344,
+        "probability_total": 1.0
+      },
+      "reference": "Filled negative-energy sea, all fifteen native labels, scalar blank, retained idle conjugate reference.",
+      "interaction_norm_squared": 29.01797916420982,
+      "Ritz_relative_energy": -2.467853182039088,
+      "strict_lowering": "1456224000/169057134218809",
+      "scope": "This is the first image under the full unit interaction. Its modal percentages are conditional on the declared pointer success; original success and failure probabilities remain in the record. The Ritz value is a variational estimate, not the exact interacting ground."
+    },
+    "joined_source": {
+      "CAR_modes": 10290,
+      "scalar_states": 1373,
+      "all_contacts": 343,
+      "finding": "One explicit finite Hamiltonian joins compact-defect hopping, all native unit Yukawa channels and the quantum scalar. Every occupation and all 343 scalar modes remain in its definition; the full spatial ground and charged poles are not evaluated.",
+      "pulse_probability_bounds": [
+        2.7015110929661193e-19,
+        3.894490631422296e-19
+      ],
+      "pulse_time": "1/10000",
+      "pulse_scope": "A distinct three-site texture-off member executes all ninety fermion modes through complete H² and H³ actions. A quantum scalar pulse with its dual reference gives a strictly positive distant-pair record. The yes/no measurement retains its full complement; this is no rest-mass or light-cone derivation."
+    },
+    "native_vertices": {
+      "scalar_first_moment": 9.585234637442849,
+      "canonical_unit_contact": 3.0960030099214775,
+      "scalar_roots": 13,
+      "branch_weight": 0.16024596429540358,
+      "no_operation_probability": 0.3590161428183857,
+      "finding": "The full thirty-mode local native ground supplies all 900 fermion-pair contact components and thirteen scalar target energies. The scalar moment is derived on that local state, independently of the lepton-only and free-blank controls.",
+      "scope": "Three interaction channels and three color components do not count physical generations. The minimal neutral contact null directions and the optional sterile zero-energy spectator do not predict neutrino oscillations."
+    },
+    "dispersion": {
+      "cases": [
+        {
+          "side": 6,
+          "texture_mass": 8,
+          "dimension": 432,
+          "rows": [
+            {
+              "axis": null,
+              "phase": 0.0,
+              "low_energies": [
+                -0.031468399464795516,
+                -0.031182881678786637,
+                0.031182881678785038,
+                0.03146839946482774
+              ],
+              "energy_change": [
+                0,
+                0
+              ],
+              "E2_secant": null
+            },
+            {
+              "axis": 0,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.03146936965376411,
+                -0.031181895739590886,
+                0.031181895739586574,
+                0.031469369653757545
+              ],
+              "energy_change": [
+                -9.859391984640142e-07,
+                9.701889298052713e-07
+              ],
+              "E2_secant": [
+                -8.971235489531258e-07,
+                8.909029694895666e-07
+              ]
+            },
+            {
+              "axis": 0,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.03146936965373833,
+                -0.03118189573959346,
+                0.031181895739583965,
+                0.03146936965373852
+              ],
+              "energy_change": [
+                -9.859392010730383e-07,
+                9.701889107788242e-07
+              ],
+              "E2_secant": [
+                -8.971235513275248e-07,
+                8.909029520193045e-07
+              ]
+            },
+            {
+              "axis": 1,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.03146936965374137,
+                -0.0311818957395958,
+                0.031181895739581245,
+                0.03146936965374462
+              ],
+              "energy_change": [
+                -9.859392037930848e-07,
+                9.70188916878112e-07
+              ],
+              "E2_secant": [
+                -8.97123553803164e-07,
+                8.909029576191531e-07
+              ]
+            },
+            {
+              "axis": 1,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.03146936965375378,
+                -0.031181895739593114,
+                0.031181895739585314,
+                0.03146936965375832
+              ],
+              "energy_change": [
+                -9.859391997234235e-07,
+                9.701889305824274e-07
+              ],
+              "E2_secant": [
+                -8.971235500999874e-07,
+                8.909029702045755e-07
+              ]
+            },
+            {
+              "axis": 2,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.03135185950134593,
+                -0.03106819557665232,
+                0.031068195576653173,
+                0.03135185950134398
+              ],
+              "energy_change": [
+                -0.00011468610213186473,
+                -0.00011653996348375689
+              ],
+              "E2_secant": [
+                -0.00010416466237018295,
+                -0.00010681625482998653
+              ]
+            },
+            {
+              "axis": 2,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.031351859501340486,
+                -0.03106819557665168,
+                0.031068195576659154,
+                0.031351859501343775
+              ],
+              "energy_change": [
+                -0.0001146861021258834,
+                -0.00011653996348396506
+              ],
+              "E2_secant": [
+                -0.00010416466236476028,
+                -0.00010681625483017952
+              ]
+            }
+          ]
+        },
+        {
+          "side": 6,
+          "texture_mass": 64,
+          "dimension": 432,
+          "rows": [
+            {
+              "axis": null,
+              "phase": 0.0,
+              "low_energies": [
+                -0.003906675332430232,
+                -0.003906137596872638,
+                0.0039061375969576045,
+                0.003906675332516544
+              ],
+              "energy_change": [
+                0,
+                0
+              ],
+              "E2_secant": null
+            },
+            {
+              "axis": 0,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.003906675361572684,
+                -0.00390613756776877,
+                0.003906137567875129,
+                0.003906675361444793
+              ],
+              "energy_change": [
+                -2.908247557706356e-11,
+                2.8928248685389235e-11
+              ],
+              "E2_secant": [
+                -3.314909297782856e-12,
+                3.297784033525381e-12
+              ]
+            },
+            {
+              "axis": 0,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.003906675361679568,
+                -0.003906137567780259,
+                0.003906137567868071,
+                0.003906675361458401
+              ],
+              "energy_change": [
+                -2.9089533299525572e-11,
+                2.8941856723696535e-11
+              ],
+              "E2_secant": [
+                -3.315713756958889e-12,
+                3.2993353121933443e-12
+              ]
+            },
+            {
+              "axis": 1,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.003906675361673556,
+                -0.0039061375677445784,
+                0.0039061375679027006,
+                0.003906675361530421
+              ],
+              "energy_change": [
+                -2.9054903882136385e-11,
+                2.9013877238248664e-11
+              ],
+              "E2_secant": [
+                -3.3117666002895607e-12,
+                3.3075455562533592e-12
+              ]
+            },
+            {
+              "axis": 1,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.0039066753617051425,
+                -0.0039061375677819127,
+                0.003906137567862155,
+                0.003906675361524237
+              ],
+              "energy_change": [
+                -2.909544957394039e-11,
+                2.9007692949056807e-11
+              ],
+              "E2_secant": [
+                -3.3163881066593135e-12,
+                3.306840582381149e-12
+              ]
+            },
+            {
+              "axis": 2,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.003906437085725931,
+                -0.003905899408439237,
+                0.003905899408583549,
+                0.003906437085854468
+              ],
+              "energy_change": [
+                -2.381883740555646e-07,
+                -2.3824666207580836e-07
+              ],
+              "E2_secant": [
+                -2.714860997646108e-08,
+                -2.715899183971454e-08
+              ]
+            },
+            {
+              "axis": 2,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.003906437085742348,
+                -0.0039058994083808643,
+                0.0039058994085215686,
+                0.003906437085913016
+              ],
+              "energy_change": [
+                -2.3818843603593334e-07,
+                -2.3824660352802368e-07
+              ],
+              "E2_secant": [
+                -2.7148617040758025e-08,
+                -2.7158985165721305e-08
+              ]
+            }
+          ]
+        },
+        {
+          "side": 8,
+          "texture_mass": 8,
+          "dimension": 1024,
+          "rows": [
+            {
+              "axis": null,
+              "phase": 0.0,
+              "low_energies": [
+                -0.031353170137237096,
+                -0.031065619746487742,
+                0.03106561974649181,
+                0.03135317013722997
+              ],
+              "energy_change": [
+                0,
+                0
+              ],
+              "E2_secant": null
+            },
+            {
+              "axis": 0,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.03135317394709698,
+                -0.031065615823683966,
+                0.03106561582369671,
+                0.031353173947084985
+              ],
+              "energy_change": [
+                -3.922795099170484e-09,
+                3.809855014802466e-09
+              ],
+              "E2_secant": [
+                -6.321873977737599e-09,
+                6.196695417312195e-09
+              ]
+            },
+            {
+              "axis": 0,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.031353173947083895,
+                -0.031065615823682457,
+                0.03106561582369726,
+                0.031353173947087094
+              ],
+              "energy_change": [
+                -3.922794547528419e-09,
+                3.8098571242262125e-09
+              ],
+              "E2_secant": [
+                -6.321873089073623e-09,
+                6.196698848230079e-09
+              ]
+            },
+            {
+              "axis": 1,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.031353173947109785,
+                -0.031065615823667278,
+                0.03106561582369114,
+                0.03135317394708149
+              ],
+              "energy_change": [
+                -3.922800667632842e-09,
+                3.809851517599938e-09
+              ],
+              "E2_secant": [
+                -6.321882954368654e-09,
+                6.196689730987636e-09
+              ]
+            },
+            {
+              "axis": 1,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.0313531739470855,
+                -0.031065615823687737,
+                0.031065615823701164,
+                0.031353173947089155
+              ],
+              "energy_change": [
+                -3.922790644400598e-09,
+                3.809859185077702e-09
+              ],
+              "E2_secant": [
+                -6.3218668009323194e-09,
+                6.196702200405586e-09
+              ]
+            },
+            {
+              "axis": 2,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.031353580267105524,
+                -0.03106601591820304,
+                0.03106601591819044,
+                0.0313535802670965
+              ],
+              "energy_change": [
+                3.961716986307373e-07,
+                4.1012986652655403e-07
+              ],
+              "E2_secant": [
+                6.38464058713469e-07,
+                6.670769154380212e-07
+              ]
+            },
+            {
+              "axis": 2,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.031353580267107356,
+                -0.031066015918188732,
+                0.03106601591819255,
+                0.03135358026711038
+              ],
+              "energy_change": [
+                3.9617170074016106e-07,
+                4.1012988041128073e-07
+              ],
+              "E2_secant": [
+                6.384640621134525e-07,
+                6.670769380202102e-07
+              ]
+            }
+          ]
+        },
+        {
+          "side": 8,
+          "texture_mass": 64,
+          "dimension": 1024,
+          "rows": [
+            {
+              "axis": null,
+              "phase": 0.0,
+              "low_energies": [
+                -0.003906437122429588,
+                -0.003905899328576864,
+                0.0039058993284873307,
+                0.003906437122179852
+              ],
+              "energy_change": [
+                0,
+                0
+              ],
+              "E2_secant": null
+            },
+            {
+              "axis": 0,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.003906437122152293,
+                -0.0039058993283743013,
+                0.0039058993285358097,
+                0.003906437122335188
+              ],
+              "energy_change": [
+                4.8479015940516845e-14,
+                1.553358136563432e-13
+              ],
+              "E2_secant": [
+                9.823023732638465e-15,
+                3.147919888153552e-14
+              ]
+            },
+            {
+              "axis": 0,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.003906437122137864,
+                -0.0039058993283056223,
+                0.00390589932857164,
+                0.003906437122297014
+              ],
+              "energy_change": [
+                8.43092956559488e-14,
+                1.1716235620573556e-13
+              ],
+              "E2_secant": [
+                1.7083097318761144e-14,
+                2.374319968571386e-14
+              ]
+            },
+            {
+              "axis": 1,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.0039064371221628315,
+                -0.0039058993283757983,
+                0.0039058993286090926,
+                0.003906437122312094
+              ],
+              "energy_change": [
+                1.2176197550228807e-13,
+                1.3224230738240195e-13
+              ],
+              "E2_secant": [
+                2.467189396703488e-14,
+                2.6799212454926744e-14
+              ]
+            },
+            {
+              "axis": 1,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.003906437122311635,
+                -0.0039058993284347885,
+                0.0039058993285715905,
+                0.003906437122300852
+              ],
+              "energy_change": [
+                8.425985603688346e-14,
+                1.2100043189633425e-13
+              ],
+              "E2_secant": [
+                1.707307875731609e-14,
+                2.4521044311592482e-14
+              ]
+            },
+            {
+              "axis": 2,
+              "phase": -1.5707963267948966,
+              "low_energies": [
+                -0.003906437136740882,
+                -0.0039058993428928274,
+                0.003905899342994019,
+                0.003906437136858718
+              ],
+              "energy_change": [
+                1.4506688385262922e-11,
+                1.4678866629147524e-11
+              ],
+              "E2_secant": [
+                2.9394057658506153e-12,
+                2.974702827581777e-12
+              ]
+            },
+            {
+              "axis": 2,
+              "phase": 1.5707963267948966,
+              "low_energies": [
+                -0.003906437136763843,
+                -0.003905899342819027,
+                0.003905899343019634,
+                0.003906437136932498
+              ],
+              "energy_change": [
+                1.4532303312109196e-11,
+                1.4752646153304294e-11
+              ],
+              "E2_secant": [
+                2.9445959519129193e-12,
+                2.9896543880709852e-12
+              ]
+            }
+          ]
+        }
+      ],
+      "scope": "anisotropic nearly flat defect bands; no shared relativistic rest interpretation from Gamma energies. These periodic quadratic controls use their own geometry and filled sea; all rows of each sampled Bloch block are retained, while the full momentum continuum and interacting joint source are not computed."
+    },
+    "catalogue": {
+      "rows": [
+        {
+          "species": "up",
+          "native_channel": "up",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 0.0012359411566124987,
+          "parameter_convention": "pure MSbar Standard Model at mu=91.1876 GeV; y*v/sqrt(2)",
+          "attachment": "native contact tensor exists; three source-selected families and physical pole map unproved",
+          "antiparticle_mass_equality": "conditional conjugate calibrated action; not a second fit",
+          "native_source_prediction": false
+        },
+        {
+          "species": "charm",
+          "native_channel": "up",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 0.6242499655172186,
+          "parameter_convention": "pure MSbar Standard Model at mu=91.1876 GeV; y*v/sqrt(2)",
+          "attachment": "native contact tensor exists; three source-selected families and physical pole map unproved",
+          "antiparticle_mass_equality": "conditional conjugate calibrated action; not a second fit",
+          "native_source_prediction": false
+        },
+        {
+          "species": "top",
+          "native_channel": "up",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 169.88959799289776,
+          "parameter_convention": "pure MSbar Standard Model at mu=91.1876 GeV; y*v/sqrt(2)",
+          "attachment": "native contact tensor exists; three source-selected families and physical pole map unproved",
+          "antiparticle_mass_equality": "conditional conjugate calibrated action; not a second fit",
+          "native_source_prediction": false
+        },
+        {
+          "species": "down",
+          "native_channel": "down",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 0.0027017666465740547,
+          "parameter_convention": "pure MSbar Standard Model at mu=91.1876 GeV; y*v/sqrt(2)",
+          "attachment": "native contact tensor exists; three source-selected families and physical pole map unproved",
+          "antiparticle_mass_equality": "conditional conjugate calibrated action; not a second fit",
+          "native_source_prediction": false
+        },
+        {
+          "species": "strange",
+          "native_channel": "down",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 0.053747985146411374,
+          "parameter_convention": "pure MSbar Standard Model at mu=91.1876 GeV; y*v/sqrt(2)",
+          "attachment": "native contact tensor exists; three source-selected families and physical pole map unproved",
+          "antiparticle_mass_equality": "conditional conjugate calibrated action; not a second fit",
+          "native_source_prediction": false
+        },
+        {
+          "species": "bottom",
+          "native_channel": "down",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 2.862404952855039,
+          "parameter_convention": "pure MSbar Standard Model at mu=91.1876 GeV; y*v/sqrt(2)",
+          "attachment": "native contact tensor exists; three source-selected families and physical pole map unproved",
+          "antiparticle_mass_equality": "conditional conjugate calibrated action; not a second fit",
+          "native_source_prediction": false
+        },
+        {
+          "species": "electron",
+          "native_channel": "charged_lepton",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 0.000487788762347831,
+          "parameter_convention": "pure MSbar Standard Model at mu=91.1876 GeV; y*v/sqrt(2)",
+          "attachment": "native contact tensor exists; three source-selected families and physical pole map unproved",
+          "antiparticle_mass_equality": "conditional conjugate calibrated action; not a second fit",
+          "native_source_prediction": false
+        },
+        {
+          "species": "muon",
+          "native_channel": "charged_lepton",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 0.10275975698370234,
+          "parameter_convention": "pure MSbar Standard Model at mu=91.1876 GeV; y*v/sqrt(2)",
+          "attachment": "native contact tensor exists; three source-selected families and physical pole map unproved",
+          "antiparticle_mass_equality": "conditional conjugate calibrated action; not a second fit",
+          "native_source_prediction": false
+        },
+        {
+          "species": "tau",
+          "native_channel": "charged_lepton",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 1.7455139422269061,
+          "parameter_convention": "pure MSbar Standard Model at mu=91.1876 GeV; y*v/sqrt(2)",
+          "attachment": "native contact tensor exists; three source-selected families and physical pole map unproved",
+          "antiparticle_mass_equality": "conditional conjugate calibrated action; not a second fit",
+          "native_source_prediction": false
+        },
+        {
+          "species": "neutrino_mass_eigenstate_1",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 0.0,
+          "parameter_convention": "optional phenomenological Weinberg operator; normal ordering and lightest mass zero supplied",
+          "attachment": "minimal R15 has no right-handed neutrino; complete local neutral-composite energy records exist, physical neutrino dispersion and masses unproved",
+          "native_source_prediction": false
+        },
+        {
+          "species": "neutrino_mass_eigenstate_2",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 8.681589716175258e-12,
+          "parameter_convention": "optional phenomenological Weinberg operator; normal ordering and lightest mass zero supplied",
+          "attachment": "minimal R15 has no right-handed neutrino; complete local neutral-composite energy records exist, physical neutrino dispersion and masses unproved",
+          "native_source_prediction": false
+        },
+        {
+          "species": "neutrino_mass_eigenstate_3",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 5.01098792654702e-11,
+          "parameter_convention": "optional phenomenological Weinberg operator; normal ordering and lightest mass zero supplied",
+          "attachment": "minimal R15 has no right-handed neutrino; complete local neutral-composite energy records exist, physical neutrino dispersion and masses unproved",
+          "native_source_prediction": false
+        },
+        {
+          "species": "W",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 80.84800016627324,
+          "parameter_convention": "tree comparison coefficient at matched v; not a measured pole or the loop action Hessian",
+          "attachment": "dynamical gauge and broken-vacuum response not supplied by the common defect source",
+          "native_source_prediction": false
+        },
+        {
+          "species": "Z",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 92.22644763767904,
+          "parameter_convention": "tree comparison coefficient at matched v; not a measured pole or the loop action Hessian",
+          "attachment": "dynamical gauge and broken-vacuum response not supplied by the common defect source",
+          "native_source_prediction": false
+        },
+        {
+          "species": "Higgs",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 131.2798734485447,
+          "parameter_convention": "tree comparison coefficient at matched v; not a measured pole or the loop action Hessian",
+          "attachment": "dynamical gauge and broken-vacuum response not supplied by the common defect source",
+          "native_source_prediction": false
+        },
+        {
+          "species": "photon",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 0,
+          "parameter_convention": "unbroken calibrated gauge-action quadratic direction",
+          "attachment": "no photon or gluon propagation operator in the common defect source",
+          "native_source_prediction": false
+        },
+        {
+          "species": "gluon",
+          "physical_source_rest_mass_GeV": null,
+          "empirically_calibrated_action_parameter_GeV": 0,
+          "parameter_convention": "unbroken calibrated gauge-action quadratic direction",
+          "attachment": "no photon or gluon propagation operator in the common defect source",
+          "native_source_prediction": false
+        }
+      ],
+      "extra_modes": [
+        {
+          "sector": "compact spatial fermions",
+          "count": 4,
+          "meaning": "complete isolated one-body modes, not four assigned particle species",
+          "source": "model/defect_mode_overlap/results.json"
+        },
+        {
+          "sector": "scalar spatial profiles",
+          "count": 343,
+          "meaning": "each has two doublet and two conjugate components under global occupation cap one",
+          "source": "model/defect_scalar_modes/results.json"
+        },
+        {
+          "sector": "common CAR carrier",
+          "count": 10290,
+          "meaning": "30 modes per spatial site; complete Fock spectrum is not executed",
+          "source": "model/defect_mass_join/results.json"
+        },
+        {
+          "sector": "sterile spectator",
+          "count": 2,
+          "meaning": "optional two-spin R16 spectator modes, not part of minimal R15",
+          "source": "model/defect_family_vertices/results.json"
+        },
+        {
+          "sector": "calibrated sine-regulator valleys",
+          "count": 8,
+          "meaning": "all valleys retained in their separate quadratic source; not identified with antiparticles",
+          "source": "model/charged_lepton_response/relativistic_mass.py"
+        }
+      ],
+      "scope": "Every Standard Model target type has an explicit entry. These seventeen labels do not close the physical catalogue or supply a gravity spectrum. The physical source rest-mass column is unresolved for all seventeen types. The adjacent numbers are empirically calibrated action parameters with their own conventions, including the optional neutrino extension; zero action parameters are not established zero physical masses.",
+      "clock_test": "The specified record-zero uᶜ→up and dᶜ→down dictionary has disjoint GeV-per-source-energy intervals. One common scale cannot match both fixed calibrated targets. This excludes that dictionary, rather than assigning separate clocks."
+    }
+  },
+  "yukawa": {
+    "physical_Yukawa_spectrum_derived": false,
+    "physical_quark_mass_prediction": false,
+    "physical_neutrino_mass_prediction": false,
+    "finding": "The finite source supplies exact interaction tensors, complete response records and an ordered-correlation correction. These calculations expose how a specified Higgs variation becomes a family coupling, and which parts depend on a declared interaction.",
+    "rows": [
+      {
+        "key": "operator",
+        "title": "Extract every family coefficient",
+        "result": "The native Higgs tensors admit an exact dual that recovers all 27 complex coefficients from a specified Higgs variation. It recovers the existing trial action exactly; a dynamical Higgs kinetic residue is a separate input.",
+        "proof": "model/yukawa_source_operator/PROOF.md"
+      },
+      {
+        "key": "feedback",
+        "title": "Keep the order of source records",
+        "result": "Summing every correlation lag gives a nonzero coherent correction I ⊗ J without inserting a phase. The first-order term is not a Yukawa correction. The pairing sector receives the derived second-order term h²Y₃.",
+        "proof": "model/yukawa_source_feedback/PROOF.md"
+      },
+      {
+        "key": "running",
+        "title": "Recover the specified finite coupling",
+        "result": "Complete source records invert the declared coupling. Conditional one-loop running and finite spectral controls retain their supplied interaction parameters; no source-to-physical Yukawa matching is inferred.",
+        "proof": "model/yukawa_source_running/PROOF.md"
+      },
+      {
+        "key": "dynamics",
+        "title": "Normalize the complete response",
+        "result": "Restoring all twelve source modes gives two protected zero directions and a rank-one zero-frequency Schur response. The complete cyclic instrument is dephasing; its full record map has unit singular values.",
+        "proof": "model/yukawa_source_dynamics/PROOF.md"
+      }
+    ],
+    "scope": "No source-derived physical charged-fermion Yukawa spectrum is established. These finite results make no quark or neutrino mass prediction. A physical Higgs intervention, its kinetic residue and the same-source field and clock attachment are required."
+  },
+  "defect_response": {
+    "physical_Yukawa_prediction": false,
+    "principle": "A particle assignment is a readout of how a defect propagates and responds. Its charge class constrains the allowed interaction; the coupling depends on the full mode and its response to a scalar intervention.",
+    "overlap": {
+      "profiles": {
+        "uniform": {
+          "label": "Uniform scalar",
+          "strengths": [
+            0.9999999999999999,
+            0.9999999999999999,
+            0.9999999999999999,
+            0.9999999999999994
+          ],
+          "ratio": 1.0000000000000004,
+          "sites": 343,
+          "complement_leakage_norm": 4.458888968494779e-15
+        },
+        "positive_core_patch": {
+          "label": "Local 27-site scalar patch",
+          "strengths": [
+            0.9999999813660155,
+            0.9999999813660153,
+            6.103143005537515e-05,
+            6.1031430055200516e-05
+          ],
+          "ratio": 16384.99999855083,
+          "sites": 27,
+          "complement_leakage_norm": 0.007812023119517711
+        }
+      },
+      "retained_modes": 4,
+      "complete_scalar_sites": 343,
+      "finding": "One fixed 686-state spatial operator supplies four localized modes. Projecting every local unit scalar insertion onto their complete normalized band gives two doubled response strengths. The local patch reaches the other core through a hopping tail, producing a large overlap hierarchy without family-tagged coefficients.",
+      "scope": "These are finite profile diagnostics. The local patch is a declared intervention, not a scalar mode selected by the source. Uniform scalar response has no hierarchy. Four modes give two doubled strengths, not three generations. The common-source panel supplies its own selected free scalar mode and vacuum metric. Interacting poles and a physical generation assignment require their stated attachments."
+    },
+    "scalar": {
+      "rows": [
+        {
+          "label": "uᶜ",
+          "moment": 0.6924689771531263,
+          "derivative": 0.013666799226072612
+        },
+        {
+          "label": "dᶜ",
+          "moment": 0.6924689771531263,
+          "derivative": 0.013666799226072612
+        },
+        {
+          "label": "Q",
+          "moment": 0.6924151049545202,
+          "derivative": 0.01366919332771488
+        },
+        {
+          "label": "eᶜ",
+          "moment": 0.6739538422219056,
+          "derivative": 0.014489619081487604
+        },
+        {
+          "label": "L",
+          "moment": 0.32840920213645575,
+          "derivative": 0.007625562331028846
+        }
+      ],
+      "finding": "On the separate thirty-mode quantum source, varying the scalar occupation cost changes the actual ground polarization and the complete second energy-transfer moment of each removal probe. Every target energy and the one-half failure probability enter the sum.",
+      "formula": "H(μ) = V + μN_H; M₂(μ) = Σⱼ wⱼ(μ)[Eⱼ(μ) − E₀(μ)]²",
+      "scope": "Decimal summaries of exact enclosed values at μ = 1, in source-clock units. The derivative follows the changed ground state. Scalar occupation cost is not a Higgs field amplitude; these values are neither masses nor Yukawa coefficients."
+    },
+    "vertex": {
+      "source_dimension": 320,
+      "preparation_probability": "1/160",
+      "scalar_spectral_moment": "14/5",
+      "normalized_contact_coefficient": "sqrt(70)/5",
+      "normalized_contact_coefficient_display": "√(14/5)",
+      "pair_pointer_slope": "-3/10",
+      "finding": "The separate 320-state lepton-Higgs source has a declared unit interaction. Complete fermion and scalar records reconstruct its contact vertex, while an actual charged-scalar pulse produces a pair-pointer response with its quantum charge reference retained.",
+      "scope": "The scalar spectral moment is 14/5; its finite contact normalization is √(14/5). This is a measured normalization of the specified unit interaction, not an on-shell Yukawa coupling. The pair-pointer slope is measured at zero scalar-pulse angle on the prepared ground. The original ground-preparation probability is 1/160, with all other preparation outcomes retained."
+    },
+    "source_domains": "The overlap, local cost-response and 320-state contact controls retain their separate preparations. The common-source panel states their proved attachments and keeps the control-only normalizations distinct."
+  },
+  "calibrated_quarks": {
+    "rows": [
+      {
+        "label": "Up",
+        "value_GeV": 0.0012359411566124987,
+        "uncertainty_GeV": null,
+        "role": "empirically calibrated running action parameter",
+        "native_prediction": false
+      },
+      {
+        "label": "Down",
+        "value_GeV": 0.0027017666465740547,
+        "uncertainty_GeV": null,
+        "role": "empirically calibrated running action parameter",
+        "native_prediction": false
+      },
+      {
+        "label": "Strange",
+        "value_GeV": 0.053747985146411374,
+        "uncertainty_GeV": null,
+        "role": "empirically calibrated running action parameter",
+        "native_prediction": false
+      },
+      {
+        "label": "Charm",
+        "value_GeV": 0.6242499655172186,
+        "uncertainty_GeV": null,
+        "role": "empirically calibrated running action parameter",
+        "native_prediction": false
+      },
+      {
+        "label": "Bottom",
+        "value_GeV": 2.862404952855039,
+        "uncertainty_GeV": null,
+        "role": "empirically calibrated running action parameter",
+        "native_prediction": false
+      },
+      {
+        "label": "Top",
+        "value_GeV": 169.88959799289776,
+        "uncertainty_GeV": null,
+        "role": "empirically calibrated running action parameter",
+        "native_prediction": false
+      }
+    ],
+    "scale_GeV": 91.1876,
+    "scheme": "Tadpole-free pure MS-bar Standard Model",
+    "empirically_calibrated": true,
+    "native_predictions": 0,
+    "joint_uncertainty_available": false,
+    "finding": "These six values belong to an empirically calibrated comparison extension. All nine charged Yukawa couplings and the Higgs scale are fitted inputs; each displayed parameter is y v/√2. The action checks the common mass and current conventions. It does not derive six native quark masses.",
+    "scope": "All entries use the tadpole-free pure MS-bar Standard Model scheme at μ = 91.1876 GeV. The pinned SMDR 1.3 calibration fits reference observables and checks its forward output. No joint uncertainty has been propagated, and the displayed digits are numerical values of the fixed calibration. These running action parameters are not isolated free-quark poles. Values quoted at 2 GeV, at a quark’s own scale, or in a direct-reconstruction top-mass convention require matching before comparison. No common native-clock or source-to-physical mass map is supplied.",
+    "provenance": {
+      "authors": "Stephen P. Martin and David G. Robertson",
+      "title": "Standard Model parameters in the tadpole-free pure MSbar scheme",
+      "url": "https://github.com/davidgrobertson/SMDR",
+      "paper": "https://arxiv.org/abs/1907.02500",
+      "version": "1.3",
+      "commit": "5c4dd92c918cadb7f91ad3795694f8398b5c287a",
+      "calibration_inputs": "benchmark_data/ReferenceModel.dat; uncertainties and measurement conventions from src/smdr_pdg.h",
+      "Z_selection": "LEP-only reference; this is not a current all-data fit",
+      "metadata": "Pinned PDG2025 reference inputs; top pole extraction, hadronic alpha input and perturbative matching remain empirical/theory premises."
+    }
+  },
   "lepton": {
-    "finding": "The squared-eigenvalue ratios are μ/e = 206.770316 and τ/e = 3477.472837. The comparison-only muon residual is +9.83213 ppm. Two shape parameters have a nonsingular ratio Jacobian; common normalization cancels. Independence of the two prepared cells fixes the phase 2/9. No phase or round count is fitted here. The mass-read double-load effect has trace 5/18, a common factor 5/4 above the separate native-pair effect; their ratios coincide. A physical pole-mass interpretation is an additional premise."
+    "finding": "The squared-eigenvalue ratios are μ/e = 206.770316 and τ/e = 3477.472837. The comparison-only muon residual is +9.83358 ppm against CODATA 2022, or 442.02 experimental standard uncertainties. The PDG 2024 tau comparison is 30.93584 ppm high (about 0.611 experimental standard uncertainties). These are reference-only discrepancies, with no joint likelihood or invented theory error. Two shape parameters have a nonsingular ratio Jacobian; common normalization cancels. Independence of the two prepared cells fixes the phase 2/9. No phase or round count is fitted here. The mass-read double-load effect has trace 5/18, a common factor 5/4 above the separate native-pair effect; their ratios coincide. A physical pole-mass interpretation is an additional premise."
   },
   "epochs": {
     "rows": [
@@ -1079,6 +4917,66 @@
     "description": "A closed triangular cell has three bounded loads and two opposite face classes. Its 1,296-state kernel executes the native repair and acceptance rule, with all 7,776 attempted records retained. This is a declared finite cell, with no abundance transfer to the full federation.",
     "finding": "For independent uniform initial loads in 0–5 and initial flux zero, the exact persistent occupied-face share is 1007/13824 (7.28443287%). The 128-attempt bracket width is approximately 5.853e-10. For every initial distribution, unresolved probability is at most 25^(−floor(n/32)). The cost is nonincreasing on every branch; it has no physical temperature or energy calibration."
   },
+  "species": {
+    "cases": {
+      "full32": {
+        "label": "Full 32-component fermion menu",
+        "components": 32,
+        "rank": 6,
+        "nullity": 26,
+        "family_label_values": 1,
+        "all_label_values": 2
+      },
+      "restricted30": {
+        "label": "Restricted 30-component fermion menu",
+        "components": 30,
+        "rank": 6,
+        "nullity": 24,
+        "family_label_values": 1,
+        "all_label_values": 2
+      },
+      "full32_bosons": {
+        "label": "Full menu plus Higgs and gauge components",
+        "components": 48,
+        "rank": 6,
+        "nullity": 42,
+        "family_label_values": 2,
+        "all_label_values": 3
+      },
+      "restricted30_bosons": {
+        "label": "Restricted menu plus Higgs and gauge components",
+        "components": 46,
+        "rank": 6,
+        "nullity": 40,
+        "family_label_values": 2,
+        "all_label_values": 3
+      }
+    },
+    "thermal_rows": [
+      {
+        "label": "Quark",
+        "number": 0.5654450261780105,
+        "energy": 0.5901639344262295
+      },
+      {
+        "label": "Lepton",
+        "number": 0.14136125654450263,
+        "energy": 0.14754098360655737
+      },
+      {
+        "label": "Higgs",
+        "number": 0.041884816753926704,
+        "energy": 0.03747072599531616
+      },
+      {
+        "label": "Gauge",
+        "number": 0.2513089005235602,
+        "energy": 0.22482435597189696
+      }
+    ],
+    "finding": "For a census of declared code quanta, q = c₁+c₂+c₄+c₅ identifies the quark-labelled total. With Higgs and gauge components admitted, the lepton total can be anywhere from 0 to c₀+c₃. A fermion/boson bit within classes 0 and 3 resolves the aggregate family totals. Three label values resolve the finer up/down and charged/neutral aggregates. These are minimum information requirements; no particle decoder for native flux-face records is implemented.",
+    "thermal_scope": "Comparison only: a massless ideal Standard Model gas at 1 TeV, a common equilibrium temperature, zero chemical potentials, three active-neutrino families and no populated right-handed neutrinos. Counts include antiparticles, physical helicities and all gauge/Higgs components. Number fractions weight fermions by 3/4; energy fractions use 7/8. Their fermion-only quark/lepton split is 80%/20%. Uniform full-code counting gives 75%/25% instead. Interactions, masses and thermal-mass corrections are omitted. No early-Universe abundance match is inferred from the native runs."
+  },
   "symmetry": {
     "rows": [
       {
@@ -1168,7 +5066,7 @@
     "finding": "The paired contrast (mN − mρ)/√σ is 0.599034 ± 0.042860 statistically. Discarding covariance gives 0.044074 for that error. The common scale cancels from mN/mρ in every replica. These one-spacing quenched results do not bound quenching, volume or continuum effects; the contrast has no fit-systematic allowance."
   },
   "crossover": {
-    "finding": "At matched physical size Lg₃² = 8, the linear cutoff fit gives 160.8546 ± 0.0720 GeV statistically. The finite-design displacement across fit variants reaches 0.3490 GeV. A three-point linear-plus-quadratic fit has zero residual degrees of freedom. This sensitivity is separate from the declared reduction uncertainty and is not a controlled continuum or infinite-volume error bound."
+    "finding": "The declared-chain crossover central value is 161.1298 GeV. Missing shared-reference covariance leaves a compatible statistical SD range [0.11810, 0.13680] GeV under independent run sets, or [0.00000, 0.27631] GeV without that premise. These linearized SD ranges are not confidence intervals. The declared reduction allowance is 1.6113 GeV; no probability law is supplied for that allowance or combined Gaussian significance. At matched physical size Lg₃² = 8, the linear cutoff fit gives 160.8546 ± 0.0720 GeV statistically. The finite-design displacement across fit variants reaches 0.3490 GeV. A three-point linear-plus-quadratic fit has zero residual degrees of freedom. This sensitivity is separate from the declared reduction uncertainty and is not a controlled continuum or infinite-volume error bound."
   },
   "repair": {
     "finding": "A known binary preparation and complete addressed current records reconstruct the pair distance using a seven-bit tracked-state index. Exact quotient powers reach 1% total-variation accuracy after 39 attempts for every initial distance law. The bounded controller uses at most 298 retained logical bits, or 311 including the incoming packet. Missing, incompatible or out-of-order records halt inference. The source halts at tape capacity. Preparation, scheduler, program storage and physical implementation are explicit separate inputs."
