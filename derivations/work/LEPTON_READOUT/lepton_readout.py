@@ -26,7 +26,7 @@ import numpy as np
 from mpmath import mp, mpf, cos, sqrt, pi
 
 mp.dps = 30
-RL = Path('repair-law')
+RL = Path(__file__).resolve().parents[2]
 OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('lepton_readout.json')
 THETA = mpf(2) / 9
 NAMES = {0: 'tau', 1: 'electron', 2: 'muon'}          # character index k of R v_k = w^k v_k
@@ -74,9 +74,14 @@ for t in (0, 4, 8, 16, 32, 64, 128, 256, 512):
 # ------------------------------------------------------------------ 4: the mass readout (phase estimation)
 def readout_table(T):
     """Clock register of T levels: outcome m has amplitude a_m(y_k) = (1/T) sum_t exp(i t (2 pi m/T - y_k))."""
-    t = np.arange(T)
     m = np.arange(T)
-    a = np.exp(1j * np.outer(2 * np.pi * m / T, t)) @ np.exp(-1j * np.outer(t, y)) / T      # shape (T, 3)
+    delta = (2 * np.pi * m[:, None] / T - y + np.pi) % (2 * np.pi) - np.pi
+    # Finite geometric sum, including its removable zero: O(T) storage.
+    a = np.exp(0.5j * (T - 1) * delta) * np.sinc(T * delta / (2 * np.pi)) / np.sinc(delta / (2 * np.pi))
+    if T <= 64:
+        t = np.arange(T)
+        direct = np.exp(1j * np.outer(2 * np.pi * m / T, t)) @ np.exp(-1j * np.outer(t, y)) / T
+        assert np.max(np.abs(a - direct)) < 2e-13
     joint = (np.abs(a) ** 2) * prior                                                        # P(m, k)
     assert abs(joint.sum() - 1) < 1e-9                                                      # all outcomes kept
     pm = joint.sum(axis=1)

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finite predictions · OPH particles</title>
+<link rel="stylesheet" href="finite_results.css">
+</head>
+<body>
+<header><a href="./">← Particle explorer</a><span>OPH · finite measurements</span><a href="#sources">Code & proofs</a></header>
+<main>
+<div class="intro"><p class="eyebrow">Particles and early populations</p><h1>Finite predictions.<br>Explicit error bounds.</h1>
+<p class="lede">Explore complete measurement outcomes, population dynamics and uncertainty in the declared OPH constructions.</p>
+<p class="scope">The clocks count model operations. Physical masses, cosmic time and temperature require the stated interpretation and calibration.</p></div>
+<div id="loading" role="status">Loading verified calculation receipts…</div>
+<div id="content" hidden>
+<section aria-labelledby="lepton-title"><div class="section-head"><span class="number">01</span><div><p class="eyebrow">Complete finite instrument</p><h2 id="lepton-title">Every lepton measurement outcome</h2></div></div>
+<p>A weak round retains both cells’ return flags. Changing the number of rounds changes the finite phase and coherence; the complete outcome probabilities always sum to one.</p>
+<div class="two-col"><div class="panel"><label for="rounds">Rounds per declared clock unit <output id="round-count"></output></label><input id="rounds" type="range" min="0" max="5" step="0.05" value="2" aria-describedby="round-help"><p id="round-help" class="small">Outcome bars use current value 1 and pair reading probability 2/9. Phase and coherence compare current values 0 and 1; the bound includes all three values. A fresh pair is supplied for each round.</p><div class="metrics"><div><span>Phase per unit</span><strong id="phase"></strong></div><div><span>Coherence retained</span><strong id="coherence"></strong></div><div><span>Complete probability</span><strong id="probability"></strong></div></div><p id="cycle-bound" class="small"></p></div>
+<div class="panel"><h3>One round, four outcomes</h3><div id="outcomes" class="bars"></div><p class="small">Nonreturn outcomes are part of the calculation. Their environments are retained through the reset construction.</p></div></div>
+<div id="lepton-shape" class="finding"></div><p class="source" id="lepton-source"></p></section>
+<section aria-labelledby="epochs-title"><div class="section-head"><span class="number">02</span><div><p class="eyebrow">Exact finite population law</p><h2 id="epochs-title">From repair attempts to populations</h2></div></div>
+<p id="epoch-description"></p><div class="panel"><div class="chart-heading"><h3>Class-pair probabilities</h3><label for="epoch-view">Observable <select id="epoch-view"><option value="classes">Class pairs</option><option value="energy">Load plus register cost</option></select></label></div><div id="epoch-chart" class="chart" role="img" aria-label="Exact population probabilities versus attempted repairs"></div><div id="epoch-legend" class="legend"></div><p id="epoch-findings" class="small"></p></div><p class="source" id="epoch-source"></p></section>
+<section aria-labelledby="symmetry-title"><div class="section-head"><span class="number">03</span><div><p class="eyebrow">Conjugation theorem and native check</p><h2 id="symmetry-title">What can create an average asymmetry?</h2></div></div>
+<p>Complementing the loads and repair coins reverses every class and integer lift. Symmetric preparation with fair coins gives zero average signed class imbalance at every finite time. Individual histories can fluctuate.</p>
+<div class="two-col"><div class="panel"><label for="coin-bias">Coin probability <output id="coin-value"></output></label><input id="coin-bias" type="range" min="0.5" max="0.51" step="0.0001" value="0.501"><label for="attempts">Attempt count <output id="attempt-value"></output></label><input id="attempts" type="range" min="1" max="500" step="1" value="100"><div class="metrics"><div><span>Upper bound on an odd mean</span><strong id="bias-bound"></strong></div></div><p class="small">Conservative bound for an observable between −1 and 1, starting from a symmetric ensemble. It is not a predicted asymmetry or a baryon-to-photon ratio.</p></div><div class="panel"><h3>Paired native histories</h3><div id="symmetry-chart" class="chart" role="img" aria-label="Single-history class imbalance and exact cancellation in its conjugate pair"></div><p id="symmetry-findings" class="small"></p></div></div><p class="source" id="symmetry-source"></p></section>
+<section aria-labelledby="lattice-title"><div class="section-head"><span class="number">04</span><div><p class="eyebrow">Retained lattice measurements</p><h2 id="lattice-title">Shared uncertainty across masses</h2></div></div>
+<p>Masses measured on the same configurations share fluctuations. Their covariance matters when taking a difference or forming a joint comparison.</p><div class="panel table-wrap"><table><thead><tr><th>Observable</th><th>Value</th><th>Statistical error</th><th>Fit variation</th></tr></thead><tbody id="hadron-table"></tbody></table><p id="covariance-finding" class="small"></p></div><div id="crossover-finding" class="finding"></div><p class="source" id="lattice-source"></p></section>
+<section aria-labelledby="repair-title"><div class="section-head"><span class="number">05</span><div><p class="eyebrow">Finite theorem to observer</p><h2 id="repair-title">A quotient that the observer can read</h2></div></div><div id="repair-finding" class="finding"></div><p class="source" id="repair-source"></p></section>
+<section id="sources"><h2>Reproduce the calculations</h2><p>Each data file is copied from its owning RER receipt and bound by SHA-256. The linked proofs state the construction, its premises and the scope of each result.</p><div id="source-list" class="source-grid"></div><a href="finite/results.json">Download the displayed data and source bindings ↗</a></section>
+</div>
+</main><footer>OPH particle explorer · Finite calculations with their declared domains.</footer>
+<script type="module" src="finite_results.mjs"></script>
+</body></html>

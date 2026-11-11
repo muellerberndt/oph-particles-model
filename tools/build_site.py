@@ -225,6 +225,10 @@ def main(argv=None):
     sync(out)
     from sync_particle_reference import sync as sync_reference
     sync_reference(out)
+    from sync_thermal_scope import sync as sync_thermal
+    sync_thermal(out)
+    from sync_finite_results import sync as sync_finite
+    sync_finite(out)
     for f in ('particle_map.json', 'findings.json', 'DATASET.md'):
         shutil.copy2(SIM / 'oph_defects' / f, out / f)
     runs = serve.find_runs(a.runs)
