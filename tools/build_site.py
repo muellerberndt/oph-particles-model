@@ -30,7 +30,7 @@ sys.path.insert(0, str(SIM))
 PREFIXES = ('rl/', 'runs/', 'api/', 'lab/', 'particle_map.json', 'findings.json', 'DATASET.md')
 ABS = re.compile(r"""(['"`])/(?=(?:%s))""" % '|'.join(re.escape(p) for p in PREFIXES))
 SKIP = {'research'}                       # copied separately as rl/
-GENERATED = ('index.html', 'api', 'runs', 'lab', 'rl', 'help', 'particle_map.json', 'findings.json', 'DATASET.md')
+GENERATED = ('CNAME', 'index.html', 'api', 'runs', 'lab', 'rl', 'help', 'particle_map.json', 'findings.json', 'DATASET.md')
 
 
 def copy_viewer(viewer: Path, out: Path) -> int:
@@ -85,6 +85,7 @@ def main(argv=None):
     for level in range(1, 6):
         observer_lab.export(level, out / 'lab' / f'L{level}.npz')
     (out / '.nojekyll').write_text('')
+    (out / 'CNAME').write_text('particles.floatingpragma.ai\n')        # the site's address; DNS: CNAME particles -> muellerberndt.github.io
     size = sum(f.stat().st_size for f in out.rglob('*') if f.is_file() and '.git' not in f.parts)
     print(f'{n} viewer files, runs {", ".join(published)}, site {size / 1e6:.1f} MB')
 
