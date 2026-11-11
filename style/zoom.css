@@ -1,0 +1,63 @@
+/* The zoom view of the Screen page (zoom.js): the neighbourhood of the selected defect, in the look of the Defects page.
+   Every rule is scoped to .zm inside #page-universe. The view is one card: the picture on top, one line of facts below.
+   It opens between the heading and the card of the selected defect and takes the width of the side column. */
+#page-universe .zm{display:grid;grid-template-rows:0fr;grid-template-columns:minmax(0,1fr);opacity:0;margin:0;--c:#6fb1ff;container:zm/inline-size;
+  transition:grid-template-rows .42s cubic-bezier(.2,.8,.2,1),opacity .3s ease,margin .42s cubic-bezier(.2,.8,.2,1)}
+#page-universe .zm.on{grid-template-rows:1fr;opacity:1;margin:0 0 6px}
+#page-universe .zm-in{min-height:0;overflow:hidden;border-radius:14px}
+#page-universe .zm-card{border-radius:14px;overflow:hidden;background:color-mix(in srgb,var(--c) 4%,rgba(255,255,255,.028));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 20%,rgba(255,255,255,.04));transition:box-shadow .3s,background .3s}
+
+/* the picture */
+#page-universe .zm-view{position:relative;aspect-ratio:6/5;background:#03050b}
+#page-universe .zm-view canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#page-universe .zm-x{position:absolute;top:7px;right:7px;z-index:6;display:flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;
+  border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(4,7,15,.55);color:rgba(214,224,244,.8);font-size:15px;line-height:1;cursor:pointer;box-shadow:none}
+#page-universe .zm-x:hover{color:#fff;border-color:rgba(160,200,255,.4);background:rgba(4,7,15,.82);box-shadow:none}
+#page-universe .zm-view>.hq.hq-corner{top:11px;right:39px}
+#page-universe .zm-foot{position:absolute;left:12px;right:12px;bottom:10px;display:flex;flex-direction:column;align-items:stretch;gap:7px;pointer-events:none}
+#page-universe .zm-state{align-self:center;max-width:100%;padding:3px 11px;border-radius:999px;background:rgba(4,7,15,.7);color:#dfe6f5;font-size:12.5px;line-height:1.4;text-align:center;
+  opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
+#page-universe .zm-state.on{opacity:1;transform:none}
+#page-universe .zm-state:empty{display:none}
+#page-universe .zm-busy{align-self:stretch}
+#page-universe .zm-busy:empty{display:none}
+#page-universe .zm-busy .pg{min-width:0;font-size:11.5px;text-shadow:0 1px 6px #000}
+#page-universe .zm-busy .pg+.pg{margin-top:6px}
+#page-universe .zm-count{font:11px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:rgba(170,186,214,.62);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#page-universe .zm-count:empty{display:none}
+
+/* the line under the picture: class name, where it is, how long it lived, how often it moved, and the way to the catalogue */
+#page-universe .zm-cap{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name name" "facts facts" "link link";gap:4px 12px;align-items:baseline;padding:10px 13px 11px}
+#page-universe .zm-name{grid-area:name;display:flex;align-items:flex-start;gap:8px;min-width:0;font-size:15px;font-weight:700;line-height:20px;letter-spacing:-.005em;color:var(--c)}
+#page-universe .zm-gl{display:flex;flex:none;margin-top:2px}
+#page-universe .zm-title{min-width:0;text-wrap:balance}
+#page-universe .zm-name>.hq{flex:none;margin:2px 0 0}
+#page-universe .zm-facts{grid-area:facts;display:flex;flex-wrap:wrap;gap:0 14px;font-size:12.5px;line-height:1.55;color:rgba(170,186,214,.72)}
+#page-universe .zm-facts span{white-space:nowrap}
+#page-universe .zm-facts i{font-style:normal}
+#page-universe .zm-facts b{color:#eef2fb;font-weight:600;font-variant-numeric:tabular-nums}
+#page-universe .zm-link{grid-area:link;justify-self:start;margin-top:2px;font-size:12.5px;line-height:1.5;color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(111,177,255,.28)}
+#page-universe .zm-link::after{content:' ›'}
+#page-universe .zm-link:hover{color:var(--teal);border-color:var(--teal)}
+@container zm (min-width:400px){
+  #page-universe .zm-cap{grid-template-areas:"name link" "facts facts"}
+  #page-universe .zm-link{justify-self:end;margin-top:0}
+}
+
+/* folding the heading "Selected defect" hides the view and the card below it */
+#page-universe #side>.k.shut+.zm,#page-universe #side>.k.shut+.zm+.card{display:none}
+
+/* mounted on the stage instead of the side column: a panel floating over its lower left */
+#page-universe .zm.zm-float{position:absolute;left:18px;bottom:16px;width:min(360px,calc(100% - 36px));z-index:3;margin:0}
+#page-universe .zm.zm-float .zm-card{background:rgba(7,11,21,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 28%,rgba(255,255,255,.06)),0 24px 60px -28px #000}
+
+/* narrow screens: tap targets of 36 px */
+@media (max-width:700px){
+  #page-universe .zm-x{top:4px;right:4px;width:36px;height:36px;font-size:18px}
+  #page-universe .zm-view>.hq.hq-corner{top:14px;right:46px}
+  #page-universe .zm-link{display:inline-flex;align-items:center;min-height:36px;margin-top:0;border-bottom:0;text-decoration:underline;text-decoration-color:rgba(111,177,255,.3);text-underline-offset:3px}
+  #page-universe .zm-cap{padding:10px 13px 4px}
+}
+@media (prefers-reduced-motion:reduce){#page-universe .zm{transition:none}#page-universe .zm-state{transition:none}}

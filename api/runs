@@ -1,0 +1,1 @@
+[{"name": "L6", "level": 6, "carriers": 81920, "ports": 983040, "seams": 2580480, "sweeps": 500, "cuts": 180, "identities": 786662, "preparation": "exact06", "backend": "sequential", "observers": 32, "register": true, "twists": false, "sample": 1}]

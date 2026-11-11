@@ -1,0 +1,168 @@
+/* Design pass B: Story, Carrier, Space, Cosmos, Observer.
+   Minimal surfaces, one type scale, the pictures as the hero. Every rule is scoped to one of these five pages, so the
+   other pages keep their own styling. Prose stays reachable: help.js folds it behind "?" badges, and the header "?"
+   button shows every folded text again. */
+:root{--b-surf:rgba(255,255,255,.028);--b-surf2:rgba(255,255,255,.045);--b-line:rgba(255,255,255,.055);--b-ink:#f3f6fc;--b-mid:#a9b5cc;--b-low:#6c7a96;
+  --b-glass:linear-gradient(180deg,rgba(9,13,24,.72),rgba(5,8,16,.86));--b-stage:radial-gradient(ellipse 70% 60% at 50% 46%,rgba(46,70,130,.20),rgba(10,16,32,.06) 55%,rgba(4,6,13,0) 75%)}
+
+/* ---------------------------------------------------------------- shared type and surfaces */
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) h2{font-size:22px;font-weight:600;letter-spacing:-.015em;color:var(--b-ink);line-height:1.25}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) h3{font-weight:600;letter-spacing:-.005em}
+:is(#page-carrier,#page-space,#page-observer,#page-story) .k{font-size:10.5px;letter-spacing:2.2px;color:var(--b-low);font-weight:600;margin:22px 0 8px}
+:is(#page-carrier,#page-space,#page-observer) :is(#car-side,#sp-side,#obs-side)>.k:first-child{margin-top:4px}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) .card{background:var(--b-surf);border:0;border-radius:16px;padding:12px 14px;box-shadow:inset 0 0 0 1px var(--b-line)}
+:is(#page-story,#page-carrier,#page-space,#page-observer) .row{border-bottom-color:var(--b-line);font-size:13px;color:var(--b-mid);padding:5px 0}
+:is(#page-story,#page-carrier,#page-space,#page-observer) .row b{color:var(--b-ink);font-weight:600;font-variant-numeric:tabular-nums}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) table.t td{border-bottom-color:var(--b-line);font-variant-numeric:tabular-nums}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) table.t th{background:transparent;border-bottom-color:var(--b-line);color:var(--b-low);font-size:10.5px;letter-spacing:1.4px}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) :is(button,select){background:var(--b-surf2);border:1px solid transparent;border-radius:999px;padding:6px 14px;color:#dfe6f5;font-size:12.5px;transition:background .15s,border-color .15s,box-shadow .15s}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) select{border-radius:10px;padding:6px 10px}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) :is(button,select):hover{background:rgba(255,255,255,.085);border-color:rgba(127,166,224,.28);box-shadow:none}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) button.on{border-color:rgba(63,224,208,.55);color:var(--teal);background:rgba(63,224,208,.08)}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) input[type=range]{accent-color:var(--teal)}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) .lab-ctl{gap:8px;margin:9px 0}
+
+/* help badges next to controls stay out of sight until the row is hovered; headline and picture badges stay */
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) :is(.lab-ctl,.lk-ctl,.gx-ctl,.cos-fp-ctl,#obs-controls,#cos-mode-row,.card>div[style*="display:flex"]) .hq{opacity:0;transition:opacity .15s}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) :is(.lab-ctl,.lk-ctl,.gx-ctl,.cos-fp-ctl,#obs-controls,#cos-mode-row,.card>div[style*="display:flex"]):hover .hq{opacity:.55}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) .hq.hq-corner{opacity:.32}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) .hq.hq-corner:hover{opacity:1}
+body.hq-full :is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) .hq{opacity:.6}
+
+/* collapsible blocks (dense tables): the label toggles, the numbers stay one click away */
+.bz-tog{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}
+.bz-tog::before{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);transition:transform .18s;margin-right:4px;flex:none}
+.bz-tog.bz-open::before{transform:rotate(45deg)}
+.bz-tog:hover{color:var(--b-mid)}
+.bz-closed{display:none!important}
+details.bz{margin:10px 0 0}
+details.bz>summary{list-style:none;cursor:pointer;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--b-low);font-weight:600;display:inline-flex;align-items:center;gap:8px;padding:4px 0}
+details.bz>summary::-webkit-details-marker{display:none}
+details.bz>summary::before{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);transition:transform .18s}
+details.bz[open]>summary::before{transform:rotate(45deg)}
+details.bz>summary:hover{color:var(--b-mid)}
+
+/* ---------------------------------------------------------------- side panels (Carrier, Space, Observer) */
+#page-carrier #car-left,#page-space #sp-left{right:372px;padding:22px 32px 40px}
+#page-carrier #car-side,#page-space #sp-side,#page-observer #obs-side{width:372px;border-left:0;background:var(--b-glass);padding:18px 20px 30px;box-shadow:-1px 0 0 var(--b-line)}
+#page-observer #obs-left{right:372px}
+@media (max-width:1200px){
+  #page-carrier #car-left,#page-space #sp-left,#page-observer #obs-left{right:330px}
+  #page-carrier #car-side,#page-space #sp-side,#page-observer #obs-side{width:330px;padding:14px 16px 24px}
+  #page-carrier #car-left,#page-space #sp-left{padding:18px 20px 30px}
+}
+:is(#page-carrier,#page-space) .car-head h2{font-size:24px}
+/* the description of the chosen experiment lives in the "?" of its selector (help/carrier.js, help/space.js) */
+#page-carrier #car-scen-text,#page-space #sp-text{display:none}
+body.hq-full #page-carrier #car-scen-text,body.hq-full #page-space #sp-text{display:block}
+#page-carrier .lab-ctl #car-scen+.hq,#page-space .lab-ctl #sp-exp+.hq{opacity:.55}
+
+/* ---------------------------------------------------------------- Carrier */
+#page-carrier #car-svg{max-width:1100px;height:min(68vh,760px);background:var(--b-stage);border-radius:22px;margin-top:6px}
+#page-carrier #car-plot{max-width:1100px;height:150px;border:0;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.022),rgba(255,255,255,.008));margin-top:10px}
+#page-carrier #car-legend{max-width:1100px;margin:14px auto 0!important;gap:8px 28px}
+#page-carrier #car-legend .small{color:var(--b-low)}
+
+/* ---------------------------------------------------------------- Space */
+#page-space #sp-gl{max-width:1240px;height:min(66vh,720px);border-radius:22px;background:radial-gradient(ellipse 65% 60% at 50% 48%,#0d1730 0%,#070b17 55%,#04060d 100%);margin-top:8px}
+#page-space #sp-plot{max-width:1240px;height:150px;border:0;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.022),rgba(255,255,255,.008));margin-top:10px}
+#page-space #sp-legend{max-width:1240px!important;margin:14px auto 0!important;display:flex;flex-wrap:wrap;gap:8px 26px}
+#page-space #sp-legend .lg{align-items:center;font-size:12.5px;color:var(--b-mid);max-width:none}
+#page-space #sp-legend .lg i{width:9px;height:9px;border-radius:50%;flex:none;box-shadow:0 0 10px currentColor}
+#page-space .gx-jump{border:0;background:rgba(63,224,208,.08);border-radius:999px;padding:4px 12px;margin-top:10px}
+#page-space .gx-sec{max-width:1240px;border-top:0;margin-top:56px;padding-top:0}
+#page-space .gx-sec h3{font-size:16px;margin-bottom:10px}
+#page-space .gx-block{margin:40px 0 10px}
+#page-space .gx-cv{border:0;border-radius:16px;background:#05080f;box-shadow:inset 0 0 0 1px var(--b-line)}
+#page-space .gx-lg{color:var(--b-mid);font-size:12px}
+#page-space .gx-tab th{background:transparent;border-bottom-color:var(--b-line);color:var(--b-low)}
+#page-space .gx-tab td{border-bottom-color:var(--b-line)}
+#page-space .gx-claim{font-size:13px}
+
+/* ---------------------------------------------------------------- Observer */
+#page-observer #obsgl{height:66%;background:radial-gradient(ellipse 60% 65% at 50% 45%,#0e1833 0%,#070b17 60%,#04060d 100%)}
+#page-observer #obs-plots{top:66%;border-top:0;background:linear-gradient(180deg,#060912,#04060d);padding:10px 22px 14px}
+#page-observer #obs-controls{gap:12px;height:38px;color:var(--b-low)}
+#page-observer #obsLabel{font-variant-numeric:tabular-nums;font-size:12px;color:var(--b-low)}
+#page-observer #obs-side .card div[title^="port"]{background:linear-gradient(180deg,#7ff7ea,#1aa89c)!important;opacity:.9!important;border-radius:4px 4px 1px 1px!important;box-shadow:0 0 12px -4px #3fe0d0}
+
+/* ---------------------------------------------------------------- Story */
+#page-story{padding:26px 36px 80px}
+#page-story .st-wrap{max-width:1500px}
+#page-story .st-wrap>h2:first-child{font-size:26px;letter-spacing:-.02em}
+#page-story .st-ch,#page-story .lk-ch{gap:36px;margin:44px 0 54px}
+#page-story .lk-ch{border-top:0;padding-top:0}
+#page-story .st-ch h2,#page-story .lk-ch h2,#page-story .st-wrap>div>h2{font-size:19px;display:flex;align-items:center;flex-wrap:wrap;gap:0 2px;margin-bottom:12px}
+#page-story :is(.st-num,.lk-badge){width:26px;height:26px;font-size:13px;font-weight:600;background:transparent;color:#ffe45c;box-shadow:inset 0 0 0 1.5px rgba(255,228,92,.7),0 0 18px -4px rgba(255,228,92,.6);margin-right:12px}
+#page-story #st-born-svg{height:min(64vh,600px);background:var(--b-stage);border-radius:22px}
+#page-story .st-pair{gap:14px}
+#page-story .st-pair canvas{border:0;border-radius:16px;box-shadow:0 18px 40px -26px #000,inset 0 0 0 1px var(--b-line)}
+#page-story .st-recs canvas{border:0;border-radius:14px;margin-bottom:10px;box-shadow:inset 0 0 0 1px var(--b-line)}
+#page-story .st-counts{gap:6px}
+#page-story .st-counts div{border:0;background:color-mix(in srgb,var(--c) 7%,transparent);border-radius:12px;padding:8px 10px}
+#page-story .st-counts b{font-size:20px;font-weight:600}
+#page-story .st-counts span{font-size:11px;color:var(--b-low)}
+#page-story .st-ev{background:transparent;border-left-width:2px;font-size:12.5px;color:var(--b-mid);padding:3px 10px}
+#page-story #st-born-side .st-ev:nth-of-type(n+7){display:none}
+#page-story .st-log div{border-bottom-color:var(--b-line);color:var(--b-mid)}
+#page-story #st-mass-table td{font-size:12.5px}
+#page-story .lk-formula{border:0;background:rgba(255,255,255,.035);border-radius:14px;font-size:17px;padding:12px 18px;box-shadow:inset 0 0 0 1px var(--b-line)}
+#page-story .lk-cv{border:0;border-radius:16px;background:#05080f;box-shadow:inset 0 0 0 1px var(--b-line)}
+#page-story .lk-sub{color:var(--b-low);letter-spacing:2.2px;font-weight:600;font-size:10.5px}
+#page-story .lk-tab td{border-bottom-color:var(--b-line)}
+#page-story .lk-claim{font-size:13px}
+
+/* ---------------------------------------------------------------- Cosmos */
+#page-cosmos{padding:26px 36px 70px}
+#page-cosmos>div:first-child h2{font-size:26px;letter-spacing:-.02em}
+#page-cosmos #cos-eras{gap:6px;margin-top:18px;justify-content:center}
+#page-cosmos .cos-era{border:0;border-radius:999px;padding:8px 18px;background:var(--b-surf2);align-items:center}
+#page-cosmos .cos-era span{font-size:11px;color:var(--b-low)}
+#page-cosmos .cos-era.on{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);border:0}
+#page-cosmos #cos-read{text-align:center;color:var(--b-mid);font-size:12.5px;margin-top:12px;font-variant-numeric:tabular-nums}
+#page-cosmos .cos-grid{gap:28px;margin-top:18px}
+#page-cosmos .cos-col h3{font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-align:center;margin:0 0 10px}
+#page-cosmos .cos-col canvas{border:0;border-radius:22px;width:min(100%,66vh);height:auto;max-height:none;aspect-ratio:1;margin:0 auto;box-shadow:0 30px 70px -40px #000;background:#04060d}
+#page-cosmos .cos-fp-col canvas{width:min(100%,600px,66vh)}
+#page-cosmos .cos-col>p{font-size:13px;color:var(--b-mid);text-align:center;max-width:560px;margin:12px auto 10px;min-height:0;display:none}
+body.hq-full #page-cosmos .cos-col>p{display:block}
+#page-cosmos .cos-bar{height:8px;border-radius:999px;margin:8px 0}
+#page-cosmos .cos-keys{font-size:11.5px;color:var(--b-mid);justify-content:center}
+#page-cosmos .cos-fp{border-top:0;margin-top:70px;padding-top:0}
+#page-cosmos .cos-fp-ctl{justify-content:center}
+#page-cosmos .cos-fp-read{font-size:12.5px;color:var(--b-mid);text-align:center}
+#page-cosmos .cos-fp-steps li{border:0;border-radius:999px;font-size:12.5px}
+#page-cosmos .cos-fp-steps li.on{background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);border:0}
+#page-cosmos .cos-fp-key{justify-content:center;color:var(--b-mid)}
+#page-cosmos .cos-fp-cards{gap:20px;margin-top:40px}
+#page-cosmos .cos-fp-card{padding:18px 20px 16px}
+#page-cosmos .cos-fp-card h3{font-size:15px}
+#page-cosmos .cos-fp-stat{border:0;background:rgba(255,255,255,.03)}
+#page-cosmos .cos-fp-brow{border-bottom-color:var(--b-line)}
+#page-cosmos .cos-tag{font-size:10.5px;letter-spacing:.2px}
+#page-cosmos>div:last-of-type{margin-top:60px!important}
+
+@media (max-width:1000px){
+  #page-story{padding:18px 16px 60px}
+  #page-cosmos{padding:18px 16px 50px}
+  #page-carrier #car-left,#page-space #sp-left{padding:14px 14px 24px}
+  #page-cosmos .cos-col canvas{max-height:none}
+}
+@media (max-width:760px){
+  #page-carrier #car-left,#page-space #sp-left,#page-observer #obs-left{position:relative;right:0;height:auto}
+  #page-carrier #car-side,#page-space #sp-side,#page-observer #obs-side{position:relative;width:auto}
+}
+#page-carrier details.car-ck{margin:0}
+#page-carrier details.car-ck>summary{text-transform:none;letter-spacing:0;font-size:13px;font-weight:600}
+#page-carrier details.car-ck[open]>summary{margin-bottom:6px}
+
+/* a picture's "?" sits inside its lower-left corner instead of taking a line of its own */
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) :is(.st-recs canvas,#st-born-svg,#car-svg,#car-plot,#sp-gl,#sp-plot,.lk-cv,.gx-cv,.cos-col canvas)+.hq:not(.hq-corner){display:flex;width:16px;height:16px;position:relative;margin:-28px 0 12px 12px;opacity:.32}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) :is(.st-recs canvas,#st-born-svg,#car-svg,#car-plot,#sp-gl,#sp-plot,.lk-cv,.gx-cv,.cos-col canvas)+.hq:not(.hq-corner):hover{opacity:1}
+
+/* a control's "?" is a small superscript on the control's corner, so it costs no space in the row */
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) :is(button,select,input,label)+.hq:not(.hq-corner):not(.hq-fold){width:13px;height:13px;font-size:8.5px;margin:0 0 0 -9px;top:-11px;position:relative;align-self:flex-start;flex:none}
+:is(#page-story,#page-carrier,#page-space,#page-cosmos,#page-observer) :is(.lab-ctl,.lk-ctl,.gx-ctl,.cos-fp-ctl,#obs-controls) :is(button,select,input,label)+.hq:not(.hq-corner){margin-top:0}
+
+/* OPH and the standard account stay side by side down to tablet width */
+@media (min-width:700px) and (max-width:1000px){#page-cosmos .cos-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}}

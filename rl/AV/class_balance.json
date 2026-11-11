@@ -1,0 +1,2767 @@
+{
+ "lane": "AV",
+ "title": "Class balance of the seam link",
+ "generated": "2026-11-11",
+ "one_line": "The class balance <A> of one seam link, measured as a ratio of partition functions with one centre-twisted link step.",
+ "map_into_this_step": "defects to field: the class-3 flip of one seam is the centre shift of its link; its expectation sets v = E_cell b <A>",
+ "conventions": {
+  "x": "1/alpha, alpha = g^2/(4 pi)",
+  "S": "2 pi/(4 alpha) = (pi/2) x, the Gaussian cost of a half turn",
+  "form": "<A> = M exp(-c S)",
+  "count": "4/c, defined by <A> proportional to exp(-2 pi/(count alpha))",
+  "x_U": 24.3166,
+  "S_U": 38.196425960140786,
+  "E_cell_GeV": 9.5599e+18,
+  "paper_law": "c = 1 with (prefactor b) x M = 1",
+  "reading_electric_step": "A at the midpoint of the electric step: one twisted time-like plaquette of the seam",
+  "reading_face_step": "A at the midpoint of the face step: that plaquette twisted and the faces of the seam half twisted"
+ },
+ "fields": {
+  "series[].points[]": "x = 1/alpha, S, lnA = ln <A>, err = one standard error (jackknife, 20 blocks per stage)",
+  "series[].fit": "the adopted fit of ln <A> = ln M0 + p ln S - c S over beta >= 4: p = 1 unless its chi2/dof exceeds 4, then p free; count = 4/c",
+  "series[].fit_p1, fit_p_free": "both fits",
+  "series[].c_predicted": "1 - Pi of the Cartan circle (heat kernel) or the classical minimum of the twisted Wilson action over 2 pi^2",
+  "series[].M_at_x_U_with_predicted_c": "multiplicity at the chain coupling: <A>(S_U) exp(c S_U) with c at its prediction",
+  "series[].sector_law": "weight power w and heat time t of p_n proportional to n^w exp(-t (n^2-1)/4), measured at the chain coupling; tau = g^2/2",
+  "series[].candidates": "preregistered candidate values of c with the deviation of the fit",
+  "exact_counts[]": "Cartan circle with the Villain weight: c = 1 - Pi, count = 4/c, <A> at the chain coupling",
+  "one_register[]": "exact laws of a single register for weight powers 0, 1, 2 and the Cartan circle, against x",
+  "flux_density_statements[]": "the flux-density statements behind the counts 8/d and the pair weight, with their status here",
+  "doublet[]": "gauge-Higgs system (compact form), ln <A> on both sides of the Higgs line",
+  "second_reading[]": "the same measurement with A at the midpoint of the face step",
+  "clock": "exact Gaussian coefficient c against the number of electric steps per tick, both readings, three spaces",
+  "statements[]": "text, label (EXACT, MEASURED, ARGUED, IMPORTED, DECLARED), status (derived, one premise, declared, imported, open)",
+  "comparison_not_blind": "v = E_cell exp(-c S_U) for b M = 1 and v = E_cell <A>(S_U) for b = 1 against 246.22 GeV (PDG 2024). NOT BLIND."
+ },
+ "series": [
+  {
+   "id": "cub4_L6_hk",
+   "complex": "cubic lattice, four dimensions, 6^4, one axis is the tick",
+   "action": "SU(2), heat-kernel weight (one tick of the electric term)",
+   "reading": "electric step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 7.853981633974483,
+     "S": 12.337005501361697,
+     "lnA": -2.0636798806026215,
+     "err": 0.007980455076615668,
+     "in_fit": false
+    },
+    {
+     "x": 9.42477796076938,
+     "S": 14.804406601634037,
+     "lnA": -3.163431414533057,
+     "err": 0.009210056182470498,
+     "in_fit": false
+    },
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -5.358645693971449,
+     "err": 0.011917694896537667,
+     "in_fit": true
+    },
+    {
+     "x": 15.707963267948966,
+     "S": 24.674011002723393,
+     "lnA": -7.621156660670051,
+     "err": 0.013345262006125423,
+     "in_fit": true
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -9.895236152393355,
+     "err": 0.016216983936174507,
+     "in_fit": true
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -13.92141325838146,
+     "err": 0.018260731499106876,
+     "in_fit": true
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -16.899820567263344,
+     "err": 0.01807360501273416,
+     "in_fit": true
+    }
+   ],
+   "fit": {
+    "which": "p = 1",
+    "c": 0.5001283979175151,
+    "c_err": 0.0007705142291531867,
+    "p": 1.0,
+    "p_err": 0.0,
+    "count": 7.997946160737127,
+    "count_err": 0.012321898429501753,
+    "ln_M0": 1.5249353608086267,
+    "ln_M0_err": 0.0229107346190676,
+    "chi2": 1.7134220042839519,
+    "dof": 3
+   },
+   "fit_p1": {
+    "c": 0.5001283979175151,
+    "c_err": 0.0007705142291531867,
+    "p": 1.0,
+    "chi2": 1.7134220042839519,
+    "dof": 3
+   },
+   "c_predicted": 0.5003858024691358,
+   "prediction": "1 - Pi of the Cartan circle on the same complex",
+   "M_at_x_U_with_predicted_c": 179.74442793259752,
+   "M_at_x_U_with_predicted_c_err": 3.282264736937729,
+   "fit_p_free": {
+    "c": 0.4977977723335698,
+    "c_err": 0.0066916496183807555,
+    "p": 0.9298849281967705,
+    "p_err": 0.1999741040430257,
+    "chi2": 1.5904870888554075,
+    "dof": 2
+   },
+   "lnA_at_x_U": -13.92141325838146,
+   "lnA_at_x_U_err": 0.018260731499106876,
+   "M_at_x_U_with_fitted_c_p1": 177.9858518668075,
+   "ln_M_at_x_U_with_fitted_c_err": 0.03463569811214048,
+   "candidates": {
+    "paper_law": {
+     "c": 1.0,
+     "deviation": -0.49987160208248493,
+     "agrees": false
+    },
+    "twist_Gaussian_1-Pi": {
+     "c": 0.5003858024691358,
+     "deviation": -0.0002574045516207102,
+     "agrees": true
+    },
+    "LV_density_d/2": {
+     "c": 2.0,
+     "deviation": -1.499871602082485,
+     "agrees": false
+    },
+    "LV_row_N8_2/d": {
+     "c": 0.5,
+     "deviation": 0.00012839791751506624,
+     "agrees": true
+    }
+   },
+   "sector_law": {
+    "w": 2.0049436113221084,
+    "w_err": 0.002182367758182482,
+    "tau_over_t": 0.47550836241885,
+    "tau_over_t_w2": 0.47632172682282886,
+    "tau_over_t_w2_err": 0.00025133927424646636,
+    "c_E_from_second_moment": 0.4332210952910403,
+    "mean_casimir": 2.5149180481077162,
+    "sectors_used": 9
+   },
+   "sector_p_n_at_x_U": [
+    0.09818478806885629,
+    0.2619998591801103,
+    0.2996958633565735,
+    0.20608466485759824,
+    0.09477119559624306,
+    0.03066605074349914,
+    0.007193495916297313,
+    0.0012340174551673097,
+    0.0001527915615601798,
+    1.5075922021800901e-05,
+    1.958860221037429e-06,
+    2.541397914293557e-07,
+    -7.451098864999565e-09,
+    -7.255026988751252e-09,
+    -8.140883775550681e-10,
+    -1.045054333654083e-10,
+    -2.907135888347534e-11,
+    -3.984563582126709e-12,
+    -1.718769155272944e-13,
+    7.440258723801114e-15,
+    5.322999431231318e-16,
+    -4.207336390768826e-17,
+    -4.138996123867488e-18,
+    -1.0541527012205633e-19
+   ]
+  },
+  {
+   "id": "cub4_L6_w",
+   "complex": "cubic lattice, four dimensions, 6^4, one axis is the tick",
+   "action": "SU(2), Wilson weight",
+   "reading": "electric step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 7.853981633974483,
+     "S": 12.337005501361697,
+     "lnA": -1.5863151610400545,
+     "err": 0.007678646122809195,
+     "in_fit": false
+    },
+    {
+     "x": 9.42477796076938,
+     "S": 14.804406601634037,
+     "lnA": -2.58890388843943,
+     "err": 0.007625093944124268,
+     "in_fit": false
+    },
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -4.484306610277901,
+     "err": 0.009781668388319906,
+     "in_fit": true
+    },
+    {
+     "x": 15.707963267948966,
+     "S": 24.674011002723393,
+     "lnA": -6.372310948183179,
+     "err": 0.010373927663283756,
+     "in_fit": true
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -8.261009458173868,
+     "err": 0.010782139836620228,
+     "in_fit": true
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -11.612001384762781,
+     "err": 0.013229694128934037,
+     "in_fit": true
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -14.022274014404818,
+     "err": 0.012779560509795862,
+     "in_fit": true
+    }
+   ],
+   "fit": {
+    "which": "p free (the fit with p = 1 has chi2/dof = 18.0/3)",
+    "c": 0.39991587755883984,
+    "c_err": 0.004883008119594062,
+    "p": 0.40134692875199107,
+    "p_err": 0.14724483119360546,
+    "count": 10.002103503408609,
+    "count_err": 0.12212656551246466,
+    "ln_M0": 2.212357122982212,
+    "ln_M0_err": 0.3495689862640476,
+    "chi2": 1.4758969794827261,
+    "dof": 2
+   },
+   "fit_p1": {
+    "c": 0.41962971465452537,
+    "c_err": 0.0014131371598752646,
+    "p": 1.0,
+    "chi2": 18.00580027405296,
+    "dof": 3
+   },
+   "c_predicted": 0.4052847345693482,
+   "prediction": "classical minimum of the twisted Wilson action",
+   "M_at_x_U_with_predicted_c": 47.86703064831989,
+   "M_at_x_U_with_predicted_c_err": 0.6332661743375833,
+   "fit_p_free": {
+    "c": 0.39991587755883984,
+    "c_err": 0.004883008119594062,
+    "p": 0.40134692875199107,
+    "p_err": 0.14724483119360546,
+    "chi2": 1.4758969794827261,
+    "dof": 2
+   },
+   "lnA_at_x_U": -11.612001384762781,
+   "lnA_at_x_U_err": 0.013229694128934037,
+   "M_at_x_U_with_fitted_c_p1": 82.79386311814487,
+   "ln_M_at_x_U_with_fitted_c_err": 0.055574441486711194,
+   "candidates": {
+    "paper_law": {
+     "c": 1.0,
+     "deviation": -0.5803702853454746,
+     "agrees": false
+    },
+    "twist_Gaussian_1-Pi": {
+     "c": 0.5003858024691358,
+     "deviation": -0.08075608781461041,
+     "agrees": false
+    },
+    "LV_density_d/2": {
+     "c": 2.0,
+     "deviation": -1.5803702853454746,
+     "agrees": false
+    },
+    "LV_row_N8_2/d": {
+     "c": 0.5,
+     "deviation": -0.08037028534547463,
+     "agrees": false
+    },
+    "Wilson_pinned_4/pi^2": {
+     "c": 0.4052847345693511,
+     "deviation": 0.014344980085174264,
+     "agrees": false
+    },
+    "Wilson_classical_minimum": {
+     "c": 0.4052847345693482,
+     "deviation": 0.01434498008517715,
+     "agrees": false
+    }
+   },
+   "sector_law": {
+    "w": 1.9611380539912666,
+    "w_err": 0.012479235401680491,
+    "tau_over_t": 0.4766453193713911,
+    "tau_over_t_w2": 0.4700374488972117,
+    "tau_over_t_w2_err": 0.001929821923396241,
+    "c_E_from_second_moment": 0.42787462927879,
+    "mean_casimir": 2.4838809540835443,
+    "sectors_used": 10
+   },
+   "sector_p_n_at_x_U": [
+    0.10148997144116083,
+    0.2665941789171726,
+    0.2988543338945988,
+    0.20197530176453776,
+    0.09221722795393691,
+    0.030079579125046996,
+    0.0072479558781217476,
+    0.0013229289401670821,
+    0.0001916992713270549,
+    2.457799022795554e-05,
+    2.47893904355819e-06,
+    -1.5375435339555525e-07,
+    -9.851864714478247e-08,
+    8.689211469769079e-09,
+    8.692817855049269e-09,
+    8.722330173648668e-10,
+    -1.4302802990882889e-10,
+    1.956433970742158e-11,
+    2.3863162003582592e-11,
+    3.586308780323916e-12,
+    -3.9363933624580456e-13,
+    -1.7772053073529404e-13,
+    -1.668849750958955e-14,
+    -4.248349427408682e-17
+   ]
+  },
+  {
+   "id": "cub3_L8_hk",
+   "complex": "cubic lattice, three dimensions, 8^3, one axis is the tick",
+   "action": "SU(2), heat-kernel weight (one tick of the electric term)",
+   "reading": "electric step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 7.853981633974483,
+     "S": 12.337005501361697,
+     "lnA": -0.5436880595677602,
+     "err": 0.006710137990436081,
+     "in_fit": false
+    },
+    {
+     "x": 9.42477796076938,
+     "S": 14.804406601634037,
+     "lnA": -1.005419979561176,
+     "err": 0.008916540044626935,
+     "in_fit": false
+    },
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -2.265665648862415,
+     "err": 0.014281836795569903,
+     "in_fit": true
+    },
+    {
+     "x": 15.707963267948966,
+     "S": 24.674011002723393,
+     "lnA": -3.654359305600138,
+     "err": 0.01823561945502499,
+     "in_fit": true
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -5.131673271147667,
+     "err": 0.0208671975388788,
+     "in_fit": true
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -7.794608091281549,
+     "err": 0.021451514047308027,
+     "in_fit": true
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -9.694226960863011,
+     "err": 0.02080411098022347,
+     "in_fit": true
+    }
+   ],
+   "fit": {
+    "which": "p = 1",
+    "c": 0.3347074293843506,
+    "c_err": 0.0011925989054103678,
+    "p": 1.0,
+    "p_err": 0.0,
+    "count": 11.95073562411645,
+    "count_err": 0.04258176835329113,
+    "ln_M0": 1.3730749518037868,
+    "ln_M0_err": 0.03612994189107419,
+    "chi2": 5.1635127960357385,
+    "dof": 3
+   },
+   "fit_p1": {
+    "c": 0.3347074293843506,
+    "c_err": 0.0011925989054103678,
+    "p": 1.0,
+    "chi2": 5.1635127960357385,
+    "dof": 3
+   },
+   "c_predicted": 0.33463541666666674,
+   "prediction": "1 - Pi of the Cartan circle on the same complex",
+   "M_at_x_U_with_predicted_c": 146.53566194326422,
+   "M_at_x_U_with_predicted_c_err": 3.1434118106075126,
+   "fit_p_free": {
+    "c": 0.3447255295708658,
+    "c_err": 0.01124616912062995,
+    "p": 1.3015065150539158,
+    "p_err": 0.3364237982365899,
+    "chi2": 3.6840221601358505,
+    "dof": 2
+   },
+   "lnA_at_x_U": -7.794608091281549,
+   "lnA_at_x_U_err": 0.021451514047308027,
+   "M_at_x_U_with_fitted_c_p1": 146.93928195221906,
+   "ln_M_at_x_U_with_fitted_c_err": 0.050351213516113484,
+   "candidates": {
+    "paper_law": {
+     "c": 1.0,
+     "deviation": -0.6652925706156494,
+     "agrees": false
+    },
+    "twist_Gaussian_1-Pi": {
+     "c": 0.33463541666666674,
+     "deviation": 7.201271768386697e-05,
+     "agrees": true
+    },
+    "LV_density_d/2": {
+     "c": 1.5,
+     "deviation": -1.1652925706156494,
+     "agrees": false
+    },
+    "LV_row_N8_2/d": {
+     "c": 0.6666666666666666,
+     "deviation": -0.331959237282316,
+     "agrees": false
+    }
+   },
+   "sector_law": {
+    "w": 1.999374740554039,
+    "w_err": 0.062459077664948494,
+    "tau_over_t": 0.3038852749714656,
+    "tau_over_t_w2": 0.30382516162347634,
+    "tau_over_t_w2_err": 0.0028049524908367487,
+    "c_E_from_second_moment": 0.2629696844927998,
+    "mean_casimir": 1.526581260295825,
+    "sectors_used": 6
+   },
+   "sector_p_n_at_x_U": [
+    0.17724072422050036,
+    0.3789945212819491,
+    0.2935170698218877,
+    0.11557940805375673,
+    0.02935882666477387,
+    0.005659867500807964,
+    -0.00023739602211017677,
+    -0.00028961423561572403,
+    0.0001429459489638807,
+    4.671250921564612e-05,
+    -1.0579321247851538e-05,
+    -2.9276849345319775e-06,
+    3.850110963471925e-07,
+    6.937392030378895e-08,
+    -1.2590575845350394e-08,
+    -8.483629471025912e-10,
+    3.0195159538400283e-10,
+    1.6707218328007085e-11,
+    -2.544376180923677e-12,
+    -1.4477596392996635e-13,
+    5.238199224474635e-15,
+    -1.2661874890898397e-17,
+    -1.0698280283023054e-17,
+    2.347495260693533e-18
+   ]
+  },
+  {
+   "id": "cub3_L8_w",
+   "complex": "cubic lattice, three dimensions, 8^3, one axis is the tick",
+   "action": "SU(2), Wilson weight",
+   "reading": "electric step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 7.853981633974483,
+     "S": 12.337005501361697,
+     "lnA": -0.3326847746403224,
+     "err": 0.005556899127237077,
+     "in_fit": false
+    },
+    {
+     "x": 9.42477796076938,
+     "S": 14.804406601634037,
+     "lnA": -0.699791266648491,
+     "err": 0.007316506883201271,
+     "in_fit": false
+    },
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -1.8033001604960652,
+     "err": 0.011747188524314256,
+     "in_fit": true
+    },
+    {
+     "x": 15.707963267948966,
+     "S": 24.674011002723393,
+     "lnA": -3.113492895959486,
+     "err": 0.018723307869245132,
+     "in_fit": true
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -4.508358061759977,
+     "err": 0.02043285084840858,
+     "in_fit": true
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -7.041971490252077,
+     "err": 0.02087548167676673,
+     "in_fit": true
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -8.878505536161112,
+     "err": 0.021494113748258496,
+     "in_fit": true
+    }
+   ],
+   "fit": {
+    "which": "p = 1",
+    "c": 0.31972332457167996,
+    "c_err": 0.0013090459970890372,
+    "p": 1.0,
+    "p_err": 0.0,
+    "count": 12.510816986401082,
+    "count_err": 0.05122314713292115,
+    "ln_M0": 1.5396870820812012,
+    "ln_M0_err": 0.037988366311100225,
+    "chi2": 6.947277789188843,
+    "dof": 3
+   },
+   "fit_p1": {
+    "c": 0.31972332457167996,
+    "c_err": 0.0013090459970890372,
+    "p": 1.0,
+    "chi2": 6.947277789188843,
+    "dof": 3
+   },
+   "c_predicted": 0.31926595475150676,
+   "prediction": "classical minimum of the twisted Wilson action",
+   "M_at_x_U_with_predicted_c": 172.92308703137607,
+   "M_at_x_U_with_predicted_c_err": 3.6098527348134297,
+   "fit_p_free": {
+    "c": 0.33811938776045736,
+    "c_err": 0.008068699424887069,
+    "p": 1.5452854307204689,
+    "p_err": 0.2378046268859337,
+    "chi2": 1.689439949820855,
+    "dof": 2
+   },
+   "lnA_at_x_U": -7.041971490252077,
+   "lnA_at_x_U_err": 0.02087548167676673,
+   "M_at_x_U_with_fitted_c_p1": 175.9705769214919,
+   "ln_M_at_x_U_with_fitted_c_err": 0.05418370222337898,
+   "candidates": {
+    "paper_law": {
+     "c": 1.0,
+     "deviation": -0.68027667542832,
+     "agrees": false
+    },
+    "twist_Gaussian_1-Pi": {
+     "c": 0.33463541666666674,
+     "deviation": -0.014912092094986784,
+     "agrees": false
+    },
+    "LV_density_d/2": {
+     "c": 1.5,
+     "deviation": -1.18027667542832,
+     "agrees": false
+    },
+    "LV_row_N8_2/d": {
+     "c": 0.6666666666666666,
+     "deviation": -0.3469433420949867,
+     "agrees": false
+    },
+    "Wilson_pinned_4/pi^2": {
+     "c": 0.4052847345693511,
+     "deviation": -0.08556140999767115,
+     "agrees": false
+    },
+    "Wilson_classical_minimum": {
+     "c": 0.31926595475150676,
+     "deviation": 0.0004573698201731924,
+     "agrees": true
+    }
+   },
+   "sector_law": {
+    "w": 1.9500773358131873,
+    "w_err": 0.03531844358619314,
+    "tau_over_t": 0.2997366581102553,
+    "tau_over_t_w2": 0.29430721018222866,
+    "tau_over_t_w2_err": 0.0022447736847067802,
+    "c_E_from_second_moment": 0.2520906159809981,
+    "mean_casimir": 1.4634265200388903,
+    "sectors_used": 5
+   },
+   "sector_p_n_at_x_U": [
+    0.18897302353766068,
+    0.3841973386862653,
+    0.2857947852329513,
+    0.11294970969585164,
+    0.024946325527130504,
+    0.002311672404551075,
+    0.0006947950381253653,
+    0.00022009682748513293,
+    -0.00011771724219971811,
+    1.6392738940846946e-05,
+    2.043939665043113e-05,
+    -6.18317061530586e-06,
+    -1.3057991888440106e-06,
+    7.089980762749987e-07,
+    -3.621991259656029e-08,
+    -5.517815940902561e-08,
+    7.548573678248556e-09,
+    2.4325803405534113e-09,
+    -4.234422826580724e-10,
+    -4.6118480069584766e-11,
+    1.4879448067339952e-11,
+    3.3728831815415744e-14,
+    -1.5681923926136284e-13,
+    4.3907452338480156e-14
+   ]
+  },
+  {
+   "id": "icoT_NT8_hk",
+   "complex": "icosahedral surface as space (20 faces, 30 seams), 8 ticks",
+   "action": "SU(2), heat-kernel weight (one tick of the electric term)",
+   "reading": "electric step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 7.853981633974483,
+     "S": 12.337005501361697,
+     "lnA": -1.0982130549065894,
+     "err": 0.005462078163744565,
+     "in_fit": false
+    },
+    {
+     "x": 9.42477796076938,
+     "S": 14.804406601634037,
+     "lnA": -1.8769570932465753,
+     "err": 0.006573116243240279,
+     "in_fit": false
+    },
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -3.588220561453138,
+     "err": 0.007846200742149924,
+     "in_fit": true
+    },
+    {
+     "x": 15.707963267948966,
+     "S": 24.674011002723393,
+     "lnA": -5.3356408221936045,
+     "err": 0.009115756731817987,
+     "in_fit": true
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -7.123457863612201,
+     "err": 0.01040436580191272,
+     "in_fit": true
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -10.291720734360315,
+     "err": 0.012234223073516761,
+     "in_fit": true
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -12.616024023553951,
+     "err": 0.011600434404568009,
+     "in_fit": true
+    }
+   ],
+   "fit": {
+    "which": "p = 1",
+    "c": 0.398789984393662,
+    "c_err": 0.0005035565423157346,
+    "p": 1.0,
+    "p_err": 0.0,
+    "count": 10.030342176425965,
+    "count_err": 0.01266542446466971,
+    "ln_M0": 1.2992497548372484,
+    "ln_M0_err": 0.015057001193819258,
+    "chi2": 0.21344916420225324,
+    "dof": 3
+   },
+   "fit_p1": {
+    "c": 0.398789984393662,
+    "c_err": 0.0005035565423157346,
+    "p": 1.0,
+    "chi2": 0.21344916420225324,
+    "dof": 3
+   },
+   "c_predicted": 0.39832772047554266,
+   "prediction": "1 - Pi of the Cartan circle on the same complex",
+   "M_at_x_U_with_predicted_c": 137.41074082214078,
+   "M_at_x_U_with_predicted_c_err": 1.6811136559152662,
+   "fit_p_free": {
+    "c": 0.39683453448930095,
+    "c_err": 0.004367217749698812,
+    "p": 0.9410998423663841,
+    "p_err": 0.1306677111806911,
+    "chi2": 0.010261963800379144,
+    "dof": 2
+   },
+   "lnA_at_x_U": -10.291720734360315,
+   "lnA_at_x_U_err": 0.012234223073516761,
+   "M_at_x_U_with_fitted_c_p1": 139.85852531025262,
+   "ln_M_at_x_U_with_fitted_c_err": 0.022795290860715058,
+   "candidates": {
+    "paper_law": {
+     "c": 1.0,
+     "deviation": -0.601210015606338,
+     "agrees": false
+    },
+    "twist_Gaussian_1-Pi": {
+     "c": 0.39832772047554266,
+     "deviation": 0.0004622639181193211,
+     "agrees": true
+    },
+    "LV_pair_density": {
+     "c": 2.0,
+     "deviation": -1.601210015606338,
+     "agrees": false
+    }
+   },
+   "sector_law": {
+    "w": 1.9287216066843627,
+    "w_err": 0.05274418112039631,
+    "tau_over_t": 0.3868266147603144,
+    "tau_over_t_w2": 0.37802369796134555,
+    "tau_over_t_w2_err": 0.0035127813328068424,
+    "c_E_from_second_moment": 0.33458317939163035,
+    "mean_casimir": 1.9423091017301057,
+    "sectors_used": 6
+   },
+   "sector_p_n_at_x_U": [
+    0.136862246952608,
+    0.3244247669771913,
+    0.3044659956072297,
+    0.1612071546754368,
+    0.05683181739530454,
+    0.014739891370460913,
+    0.001980794268664094,
+    -0.0004042149514399738,
+    -0.0001563249119006927,
+    2.8966629691327266e-05,
+    1.754601558443585e-05,
+    1.6221606309157847e-06,
+    -2.2795045691540067e-07,
+    -3.867896039136945e-08,
+    2.5153364601702264e-09,
+    1.5814457318664726e-09,
+    3.1660262702929607e-10,
+    2.722696853969904e-11,
+    -4.78208386587253e-13,
+    -1.8118680306308016e-13,
+    2.465705838625123e-15,
+    1.2797666256752082e-15,
+    2.192777770811783e-17,
+    -4.136396114232237e-18
+   ]
+  },
+  {
+   "id": "icoT_NT8_w",
+   "complex": "icosahedral surface as space (20 faces, 30 seams), 8 ticks",
+   "action": "SU(2), Wilson weight",
+   "reading": "electric step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 7.853981633974483,
+     "S": 12.337005501361697,
+     "lnA": -0.7582144383134461,
+     "err": 0.0043606636538921885,
+     "in_fit": false
+    },
+    {
+     "x": 9.42477796076938,
+     "S": 14.804406601634037,
+     "lnA": -1.4100806342108256,
+     "err": 0.006092923952657717,
+     "in_fit": false
+    },
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -2.9930738986039684,
+     "err": 0.007192049124368415,
+     "in_fit": true
+    },
+    {
+     "x": 15.707963267948966,
+     "S": 24.674011002723393,
+     "lnA": -4.609423895050084,
+     "err": 0.008951112022820963,
+     "in_fit": true
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -6.232859692376529,
+     "err": 0.009360362687727471,
+     "in_fit": true
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -9.161501782579547,
+     "err": 0.012072405271101339,
+     "in_fit": true
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -11.292847785855148,
+     "err": 0.01183965965205649,
+     "in_fit": true
+    }
+   ],
+   "fit": {
+    "which": "p = 1",
+    "c": 0.36929367113586675,
+    "c_err": 0.000508861926066291,
+    "p": 1.0,
+    "p_err": 0.0,
+    "count": 10.831488088319718,
+    "count_err": 0.014925064580266366,
+    "ln_M0": 1.3087260668129659,
+    "ln_M0_err": 0.014924002561799873,
+    "chi2": 3.2018604844900804,
+    "dof": 3
+   },
+   "fit_p1": {
+    "c": 0.36929367113586675,
+    "c_err": 0.000508861926066291,
+    "p": 1.0,
+    "chi2": 3.2018604844900804,
+    "dof": 3
+   },
+   "c_predicted": 0.3664145291900734,
+   "prediction": "classical minimum of the twisted Wilson action",
+   "M_at_x_U_with_predicted_c": 125.74092663101848,
+   "M_at_x_U_with_predicted_c_err": 1.5179954254534742,
+   "fit_p_free": {
+    "c": 0.36551947329294876,
+    "c_err": 0.004521241832830204,
+    "p": 0.887287161799577,
+    "p_err": 0.1340714150190455,
+    "chi2": 2.3658217346590025,
+    "dof": 2
+   },
+   "lnA_at_x_U": -9.161501782579547,
+   "lnA_at_x_U_err": 0.012072405271101339,
+   "M_at_x_U_with_fitted_c_p1": 140.35803971717667,
+   "ln_M_at_x_U_with_fitted_c_err": 0.022880746130371,
+   "candidates": {
+    "paper_law": {
+     "c": 1.0,
+     "deviation": -0.6307063288641332,
+     "agrees": false
+    },
+    "twist_Gaussian_1-Pi": {
+     "c": 0.39832772047554266,
+     "deviation": -0.029034049339675905,
+     "agrees": false
+    },
+    "LV_pair_density": {
+     "c": 2.0,
+     "deviation": -1.6307063288641332,
+     "agrees": false
+    },
+    "Wilson_pinned_4/pi^2": {
+     "c": 0.4052847345693511,
+     "deviation": -0.03599106343348435,
+     "agrees": false
+    },
+    "Wilson_classical_minimum": {
+     "c": 0.3664145291900734,
+     "deviation": 0.002879141945793362,
+     "agrees": false
+    }
+   },
+   "sector_law": {
+    "w": 1.9568974565201316,
+    "w_err": 0.041341571820189896,
+    "tau_over_t": 0.3779630192910208,
+    "tau_over_t_w2": 0.37205064499277,
+    "tau_over_t_w2_err": 0.0027124026348580364,
+    "c_E_from_second_moment": 0.3287435167839903,
+    "mean_casimir": 1.9084089222456613,
+    "sectors_used": 5
+   },
+   "sector_p_n_at_x_U": [
+    0.1398074727385212,
+    0.32568096486589904,
+    0.3047946755781722,
+    0.1634264541493656,
+    0.05366087616568056,
+    0.010252144671948685,
+    0.0018386744432042387,
+    0.0006334047249001272,
+    -4.123976101195817e-05,
+    -7.57445063514447e-05,
+    1.5002247083111275e-05,
+    9.348016384296281e-06,
+    -1.6182447395565506e-06,
+    -5.905356976923978e-07,
+    1.5967872572570878e-07,
+    2.5967762635968644e-08,
+    -1.0483266336360526e-08,
+    -3.643558312977527e-10,
+    6.432356524445353e-10,
+    2.180351287932976e-11,
+    -1.822446442770998e-11,
+    4.839038306788828e-13,
+    5.041374197231869e-13,
+    -2.293797695499521e-14
+   ]
+  }
+ ],
+ "one_register": [
+  {
+   "id": "cartan",
+   "name": "one tick, Cartan circle",
+   "weight_power": null,
+   "c": 1.0,
+   "M": 2.0,
+   "label": "EXACT",
+   "points": [
+    {
+     "x": 7.854,
+     "S": 12.337034350647118,
+     "lnA": -11.643887170087174
+    },
+    {
+     "x": 9.425,
+     "S": 14.804755380041902,
+     "lnA": -14.111608199481957
+    },
+    {
+     "x": 12.566,
+     "S": 19.73862664250467,
+     "lnA": -19.045479461944726
+    },
+    {
+     "x": 15.708,
+     "S": 24.674068701294235,
+     "lnA": -23.98092152073429
+    },
+    {
+     "x": 18.85,
+     "S": 29.609510760083804,
+     "lnA": -28.916363579523857
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -37.50327877958084
+    },
+    {
+     "x": 28.274,
+     "S": 44.41269534379891,
+     "lnA": -43.71954816323896
+    }
+   ]
+  },
+  {
+   "id": "w2",
+   "name": "one tick, full link",
+   "weight_power": 2,
+   "c": 1.0,
+   "M": "2 (2S - 1)",
+   "label": "EXACT",
+   "points": [
+    {
+     "x": 7.854,
+     "S": 12.337034350647118,
+     "lnA": -8.479506868587297
+    },
+    {
+     "x": 9.425,
+     "S": 14.804755380041902,
+     "lnA": -10.757868992877796
+    },
+    {
+     "x": 12.566,
+     "S": 19.73862664250467,
+     "lnA": -15.395412219022118
+    },
+    {
+     "x": 15.708,
+     "S": 24.674068701294235,
+     "lnA": -20.10249382279133
+    },
+    {
+     "x": 18.85,
+     "S": 29.609510760083804,
+     "lnA": -24.852151447940408
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -33.18056631117922
+    },
+    {
+     "x": 28.274,
+     "S": 44.41269534379891,
+     "lnA": -39.24419751661877
+    }
+   ]
+  },
+  {
+   "id": "w1",
+   "name": "one tick, one-sided register",
+   "weight_power": 1,
+   "c": 0.0,
+   "M": "tau/8 at leading order",
+   "label": "EXACT",
+   "points": [
+    {
+     "x": 7.854,
+     "S": 12.337034350647118,
+     "lnA": -2.1457512732859874
+    },
+    {
+     "x": 9.425,
+     "S": 14.804755380041902,
+     "lnA": -2.3589075312313175
+    },
+    {
+     "x": 12.566,
+     "S": 19.73862664250467,
+     "lnA": -2.681562994496184
+    },
+    {
+     "x": 15.708,
+     "S": 24.674068701294235,
+     "lnA": -2.924381759061286
+    },
+    {
+     "x": 18.85,
+     "S": 29.609510760083804,
+     "lnA": -3.119356964860731
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -3.3878102202299076
+    },
+    {
+     "x": 28.274,
+     "S": 44.41269534379891,
+     "lnA": -3.545120609710364
+    }
+   ]
+  },
+  {
+   "id": "w0",
+   "name": "one tick, labels alone",
+   "weight_power": 0,
+   "c": 0.0,
+   "M": "1/(2 sqrt(pi/tau) - 1)",
+   "label": "EXACT",
+   "points": [
+    {
+     "x": 7.854,
+     "S": 12.337034350647118,
+     "lnA": -1.0863490568180312
+    },
+    {
+     "x": 9.425,
+     "S": 14.804755380041902,
+     "lnA": -1.2064705202313848
+    },
+    {
+     "x": 12.566,
+     "S": 19.73862664250467,
+     "lnA": -1.3895846246508292
+    },
+    {
+     "x": 15.708,
+     "S": 24.674068701294235,
+     "lnA": -1.5271421856335536
+    },
+    {
+     "x": 18.85,
+     "S": 29.609510760083804,
+     "lnA": -1.6370594166478165
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -1.7873750021829864
+    },
+    {
+     "x": 28.274,
+     "S": 44.41269534379891,
+     "lnA": -1.8748499007676962
+    }
+   ]
+  }
+ ],
+ "exact_counts": [
+  {
+   "id": "pinned",
+   "complex": "one free link, one tick, no Gauss projection",
+   "Pi": 0.0,
+   "c": 1.0,
+   "count": 4.0,
+   "M": 2.0,
+   "A_at_x_U": 5.158613290981139e-17,
+   "label": "EXACT"
+  },
+  {
+   "id": "pair2_pinned_boundary",
+   "complex": "two faces on one seam, outer links pinned (Euclidean)",
+   "Pi": 0.5,
+   "c": 0.5,
+   "count": 8.0,
+   "M": 1.9999999999999987,
+   "A_at_x_U": 1.0157374947279576e-08,
+   "label": "EXACT"
+  },
+  {
+   "id": "pair2_free_boundary",
+   "complex": "two faces on one seam, outer links free (Euclidean)",
+   "Pi": 1.0,
+   "c": 0.0,
+   "count": null,
+   "M": 1.0,
+   "A_at_x_U": 1.0,
+   "label": "EXACT"
+  },
+  {
+   "id": "ico2",
+   "complex": "icosahedral surface as a Euclidean two-complex",
+   "Pi": 0.9499999999999995,
+   "c": 0.05000000000000049,
+   "count": 79.99999999999922,
+   "M": 1.9980776239416724,
+   "A_at_x_U": 0.2959289853756057,
+   "label": "EXACT"
+  },
+  {
+   "id": "icoT_NT1_Gauss",
+   "complex": "icosahedral space, one tick with the Gauss law",
+   "Pi": 0.3666666666666666,
+   "c": 0.6333333333333334,
+   "count": 6.31578947368421,
+   "M": 2.0,
+   "A_at_x_U": 6.23708813688365e-11,
+   "label": "EXACT"
+  },
+  {
+   "id": "icoT_NT2",
+   "complex": "icosahedral space, 2 ticks",
+   "Pi": 0.5535834535834534,
+   "c": 0.4464165464165466,
+   "count": 8.960241353302441,
+   "M": 2.0,
+   "A_at_x_U": 7.864125660536841e-08,
+   "label": "EXACT"
+  },
+  {
+   "id": "icoT_NT4",
+   "complex": "icosahedral space, 4 ticks",
+   "Pi": 0.5975060125060125,
+   "c": 0.40249398749398746,
+   "count": 9.938036652186645,
+   "M": 2.0,
+   "A_at_x_U": 4.2097827321714265e-07,
+   "label": "EXACT"
+  },
+  {
+   "id": "icoT_NT8",
+   "complex": "icosahedral space, 8 ticks",
+   "Pi": 0.6016722795244573,
+   "c": 0.39832772047554266,
+   "count": 10.041982504317321,
+   "M": 2.0,
+   "A_at_x_U": 4.935961804883514e-07,
+   "label": "EXACT"
+  },
+  {
+   "id": "icoT_infinite",
+   "complex": "icosahedral space, many ticks",
+   "Pi": 0.6017685668785993,
+   "c": 0.3982314331214007,
+   "count": 10.04441052944357,
+   "M": 2.0,
+   "A_at_x_U": 4.954148871070069e-07,
+   "label": "EXACT"
+  },
+  {
+   "id": "pairT_NT32",
+   "complex": "face pair as space, many ticks",
+   "Pi": 0.6464466094067263,
+   "c": 0.35355339059327373,
+   "count": 11.313708498984761,
+   "M": 2.0,
+   "A_at_x_U": 2.7296730272111268e-06,
+   "label": "EXACT"
+  },
+  {
+   "id": "cub3_infinite",
+   "complex": "cubic lattice, three dimensions",
+   "Pi": 0.6666666666666666,
+   "c": 0.33333333333333337,
+   "count": 11.999999999999998,
+   "M": 2.0,
+   "A_at_x_U": 5.9092312795188845e-06,
+   "label": "EXACT"
+  },
+  {
+   "id": "cub4_infinite",
+   "complex": "cubic lattice, four dimensions",
+   "Pi": 0.5,
+   "c": 0.5,
+   "count": 8.0,
+   "M": 2.0,
+   "A_at_x_U": 1.0157374947279582e-08,
+   "label": "EXACT"
+  },
+  {
+   "id": "torus2_L8",
+   "complex": "square lattice 8 x 8 (two dimensions)",
+   "Pi": 0.984375,
+   "c": 0.015625,
+   "count": 256.0,
+   "M": 1.7035915864855737,
+   "A_at_x_U": 0.9379295539075192,
+   "label": "EXACT"
+  }
+ ],
+ "exact_counts_note": "Cartan circle, Villain weight. c = 1 - Pi, Pi = flux variance of the twisted plaquette over g^2. Many ticks on the icosahedral space: c = (1/30) sum sqrt(lam/(lam+4)) over the nonzero eigenvalues of the face Laplacian.",
+ "face_step_exact_c": {
+  "cub3_L6": {
+   "c": 0.7007645903479239,
+   "faces": 2,
+   "quadratic_part": 0.2007645903479239
+  },
+  "cub4_L4": {
+   "c": 1.2873883928571432,
+   "faces": 4,
+   "quadratic_part": 0.2873883928571433
+  },
+  "icoT_NT8": {
+   "c": 0.7423606804254451,
+   "faces": 2,
+   "quadratic_part": 0.2423606804254451
+  }
+ },
+ "clock": {
+  "note": "c = g^2 <E^2> of the seam link; <A> = 2 exp(-c S) on the Cartan circle. a = 1/(electric steps per tick).",
+  "cubic_space_3d": {
+   "rows": [
+    {
+     "electric_steps_per_tick": 1,
+     "a": 1.0,
+     "c_electric_step": 0.4999998947255192,
+     "c_face_step": 1.2844372677156928
+    },
+    {
+     "electric_steps_per_tick": 2,
+     "a": 0.5,
+     "c_electric_step": 0.673094432530255,
+     "c_face_step": 0.943616744184122
+    },
+    {
+     "electric_steps_per_tick": 3,
+     "a": 0.3333333333333333,
+     "c_electric_step": 0.7328565541476418,
+     "c_face_step": 0.8649490315237347
+    },
+    {
+     "electric_steps_per_tick": 4,
+     "a": 0.25,
+     "c_electric_step": 0.7583180489247595,
+     "c_face_step": 0.8355043640198778
+    },
+    {
+     "electric_steps_per_tick": 8,
+     "a": 0.125,
+     "c_electric_step": 0.7858960311087241,
+     "c_face_step": 0.8059809676471072
+    },
+    {
+     "electric_steps_per_tick": "continuous",
+     "a": 1e-09,
+     "c_electric_step": 0.7958673090470338,
+     "c_face_step": 0.7958673090470338
+    }
+   ],
+   "a_where_face_step_c_is_1": 0.5979393571968123
+  },
+  "cubic_space_2d": {
+   "rows": [
+    {
+     "electric_steps_per_tick": 1,
+     "a": 1.0,
+     "c_electric_step": 0.3333333119088626,
+     "c_face_step": 0.6975395547468695
+    },
+    {
+     "electric_steps_per_tick": 2,
+     "a": 0.5,
+     "c_electric_step": 0.4236423045435904,
+     "c_face_step": 0.5428125182763516
+    },
+    {
+     "electric_steps_per_tick": 3,
+     "a": 0.3333333333333333,
+     "c_electric_step": 0.4515285114772969,
+     "c_face_step": 0.5085049050786676
+    },
+    {
+     "electric_steps_per_tick": 4,
+     "a": 0.25,
+     "c_electric_step": 0.46288276662564265,
+     "c_face_step": 0.4958630757580405
+    },
+    {
+     "electric_steps_per_tick": 8,
+     "a": 0.125,
+     "c_electric_step": 0.4748216035475887,
+     "c_face_step": 0.4833133932912044
+    },
+    {
+     "electric_steps_per_tick": "continuous",
+     "a": 1e-09,
+     "c_electric_step": 0.47904567791716157,
+     "c_face_step": 0.47904567791716157
+    }
+   ],
+   "a_where_face_step_c_is_1": null
+  },
+  "icosahedral_space": {
+   "rows": [
+    {
+     "electric_steps_per_tick": 1,
+     "a": 1.0,
+     "c_electric_step": 0.3982314331214007,
+     "c_face_step": 0.7422440027317656
+    },
+    {
+     "electric_steps_per_tick": 2,
+     "a": 0.5,
+     "c_electric_step": 0.4891985554414961,
+     "c_face_step": 0.5981562157380387
+    },
+    {
+     "electric_steps_per_tick": 3,
+     "a": 0.3333333333333333,
+     "c_electric_step": 0.5154809998676492,
+     "c_face_step": 0.5669656647403293
+    },
+    {
+     "electric_steps_per_tick": 4,
+     "a": 0.25,
+     "c_electric_step": 0.5259196189859766,
+     "c_face_step": 0.5555707438217771
+    },
+    {
+     "electric_steps_per_tick": 8,
+     "a": 0.125,
+     "c_electric_step": 0.5367256354210725,
+     "c_face_step": 0.5443183649524088
+    },
+    {
+     "electric_steps_per_tick": "continuous",
+     "a": 1e-09,
+     "c_electric_step": 0.540506265544088,
+     "c_face_step": 0.540506265544088
+    }
+   ],
+   "a_where_face_step_c_is_1": null
+  }
+ },
+ "wilson_classical": {
+  "pinned": {
+   "s_W": 8.0,
+   "c_W": 0.4052847345693511,
+   "count": 9.869604401089358
+  },
+  "cub3_L6": {
+   "s_W": 6.331275277417108,
+   "c_W": 0.3207461525366859,
+   "count": 12.470921220302067
+  },
+  "cub3_L8": {
+   "s_W": 6.302057344266934,
+   "c_W": 0.31926595475150676,
+   "count": 12.528739567967111
+  },
+  "cub4_L4": {
+   "s_W": 7.999999999999982,
+   "c_W": 0.4052847345693502,
+   "count": 9.86960440108938
+  },
+  "cub4_L6": {
+   "s_W": 7.999999999999943,
+   "c_W": 0.4052847345693482,
+   "count": 9.869604401089429
+  },
+  "icoT_NT8": {
+   "s_W": 7.232732899834867,
+   "c_W": 0.3664145291900734,
+   "count": 10.916597681979596
+  },
+  "icoT_NT16": {
+   "s_W": 7.231480244578573,
+   "c_W": 0.36635106893344166,
+   "count": 10.91848868257763
+  },
+  "ico2": {
+   "s_W": 0.9849327523889793,
+   "c_W": 0.04989727614007849,
+   "count": 80.1646965411629
+  }
+ },
+ "flux_density_statements": [
+  {
+   "statement": "On the icosahedral surface one seam flip creates the pair (+2 pi, -2 pi) on its two faces with the square of the one-face weight.",
+   "status_here": "reproduced as a statement about flux densities",
+   "label": "EXACT",
+   "numbers": {
+    "joint_density_ratio_at_x_U": 2.6611291085887255e-33,
+    "c_density": 2.0
+   }
+  },
+  {
+   "statement": "On cubic complexes the plaquette variance is 2 g^2/d and the count becomes 8/d.",
+   "status_here": "reproduced as the density of the plaquette flux at 2 pi. The class balance has c = 1 - 2/d: count 12 for d = 3 and 8 for d = 4.",
+   "label": "EXACT",
+   "numbers": {
+    "count_density": {
+     "2": 4.0,
+     "3": 2.6666666666666665,
+     "4": 2.0
+    },
+    "count_class_balance": {
+     "2": null,
+     "3": 12.0,
+     "4": 8.0
+    }
+   }
+  },
+  {
+   "statement": "Sector law of a cubic complex with the tick as an axis: electric coefficient 2/3 (d = 3) and 1/2 (d = 4).",
+   "status_here": "d = 4 confirmed. d = 3 is 1/3: the electric variance is (1 - Pi)/g^2, Pi = 2/d.",
+   "label": "EXACT"
+  }
+ ],
+ "doublet": [
+  {
+   "id": "higgs_hk_h00_pole",
+   "action": "heat kernel",
+   "beta_H_over_beta_G": 2.0,
+   "h": 0.0,
+   "start": "pole",
+   "side": "symmetric (pole)",
+   "sin2_theta": 0.040091846007224916,
+   "L_alpha": 0.1724755828612295,
+   "plaquette": 0.9016502458063801,
+   "lnA": -13.984621521147954,
+   "err": 0.01726925709921473,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_hk_h05_pole",
+   "action": "heat kernel",
+   "beta_H_over_beta_G": 2.0,
+   "h": 0.5,
+   "start": "pole",
+   "side": "symmetric (pole)",
+   "sin2_theta": 0.04145286948381918,
+   "L_alpha": 0.19048824324706343,
+   "plaquette": 0.9017772768409467,
+   "lnA": -13.983253066892969,
+   "err": 0.017026113023276477,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_hk_h15_equator",
+   "action": "heat kernel",
+   "beta_H_over_beta_G": 2.0,
+   "h": 1.5,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9890919902852829,
+   "L_alpha": 0.9585897348535314,
+   "plaquette": 0.9236531891162686,
+   "lnA": -18.233869686843516,
+   "err": 0.013208821572720797,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_hk_h15_pole",
+   "action": "heat kernel",
+   "beta_H_over_beta_G": 2.0,
+   "h": 1.5,
+   "start": "pole",
+   "side": "symmetric (pole)",
+   "sin2_theta": 0.045087563752141,
+   "L_alpha": 0.2347987932670465,
+   "plaquette": 0.9016450589351288,
+   "lnA": -14.11122332071881,
+   "err": 0.016853082062375815,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_hk_h30_equator",
+   "action": "heat kernel",
+   "beta_H_over_beta_G": 2.0,
+   "h": 3.0,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9902430203447542,
+   "L_alpha": 0.958562243186049,
+   "plaquette": 0.9236527807780532,
+   "lnA": -18.26243375241927,
+   "err": 0.013025400850053643,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_hk_h40_equator",
+   "action": "heat kernel",
+   "beta_H_over_beta_G": 2.0,
+   "h": 4.0,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9902910100693667,
+   "L_alpha": 0.9586148016596974,
+   "plaquette": 0.9236024394740401,
+   "lnA": -18.274240129514382,
+   "err": 0.013158282769860273,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_hk_stiff32",
+   "action": "heat kernel",
+   "beta_H_over_beta_G": 32.0,
+   "h": 4.0,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9981412300961624,
+   "L_alpha": 0.9947996356263413,
+   "plaquette": 0.980962158819471,
+   "lnA": -29.475956038752955,
+   "err": 0.004236198051248191,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_hk_stiff8",
+   "action": "heat kernel",
+   "beta_H_over_beta_G": 8.0,
+   "h": 4.0,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9966768803689903,
+   "L_alpha": 0.9842937928212837,
+   "plaquette": 0.9529205893027933,
+   "lnA": -24.044137167129158,
+   "err": 0.007133542970252337,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_w_h00_pole",
+   "action": "Wilson",
+   "beta_H_over_beta_G": 2.0,
+   "h": 0.0,
+   "start": "pole",
+   "side": "symmetric (pole)",
+   "sin2_theta": 0.040040758316181674,
+   "L_alpha": 0.1752633826616561,
+   "plaquette": 0.9005479089098829,
+   "lnA": -11.640230663994677,
+   "err": 0.011102548564901686,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_w_h05_pole",
+   "action": "Wilson",
+   "beta_H_over_beta_G": 2.0,
+   "h": 0.5,
+   "start": "pole",
+   "side": "symmetric (pole)",
+   "sin2_theta": 0.04457807446017002,
+   "L_alpha": 0.24633580648577746,
+   "plaquette": 0.9007894576835266,
+   "lnA": -11.63342592044749,
+   "err": 0.011533202466260778,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_w_h15_equator",
+   "action": "Wilson",
+   "beta_H_over_beta_G": 2.0,
+   "h": 1.5,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9886852307646329,
+   "L_alpha": 0.9584083436488198,
+   "plaquette": 0.9234467655513159,
+   "lnA": -13.32817744362296,
+   "err": 0.006091431543703371,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_w_h15_pole",
+   "action": "Wilson",
+   "beta_H_over_beta_G": 2.0,
+   "h": 1.5,
+   "start": "pole",
+   "side": "symmetric (pole)",
+   "sin2_theta": 0.05344313543061967,
+   "L_alpha": 0.3407035674031265,
+   "plaquette": 0.9007764365812239,
+   "lnA": -11.635408077584529,
+   "err": 0.012144832592522402,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_w_h30_equator",
+   "action": "Wilson",
+   "beta_H_over_beta_G": 2.0,
+   "h": 3.0,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9894372740577584,
+   "L_alpha": 0.9586442695041038,
+   "plaquette": 0.9236144269877951,
+   "lnA": -13.33507732526405,
+   "err": 0.005337647774488914,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_w_h40_equator",
+   "action": "Wilson",
+   "beta_H_over_beta_G": 2.0,
+   "h": 4.0,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9905101408900927,
+   "L_alpha": 0.9584368305405867,
+   "plaquette": 0.9234133386357245,
+   "lnA": -13.344544432573597,
+   "err": 0.005436739187534096,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_w_stiff32",
+   "action": "Wilson",
+   "beta_H_over_beta_G": 32.0,
+   "h": 4.0,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9964984995377295,
+   "L_alpha": 0.9948102153537592,
+   "plaquette": 0.9810549684414024,
+   "lnA": -15.151919052246944,
+   "err": 0.0005864744775409387,
+   "label": "MEASURED"
+  },
+  {
+   "id": "higgs_w_stiff8",
+   "action": "Wilson",
+   "beta_H_over_beta_G": 8.0,
+   "h": 4.0,
+   "start": "equator",
+   "side": "Higgs (equator)",
+   "sin2_theta": 0.9949444289038979,
+   "L_alpha": 0.9843558267341098,
+   "plaquette": 0.9533369601271342,
+   "lnA": -14.505030690790072,
+   "err": 0.001793912257959332,
+   "label": "MEASURED"
+  }
+ ],
+ "doublet_change": {
+  "hk": {
+   "lnA_symmetric_side_mean": -14.02734122429945,
+   "lnA_Higgs_side_mean": -18.25694412733437,
+   "difference": -4.229602903034921,
+   "difference_err": 0.012423077142084184,
+   "spread_symmetric": 0.1279702538258416,
+   "spread_Higgs": 0.040370442670866424,
+   "factor": 0.014558170406043555,
+   "gaussian_prediction_heat_kernel": -3.9137485874358107
+  },
+  "w": {
+   "lnA_symmetric_side_mean": -11.636488896811453,
+   "lnA_Higgs_side_mean": -13.336478379998638,
+   "difference": -1.699989483187185,
+   "difference_err": 0.0074197024311199655,
+   "spread_symmetric": 0.0068047435471871864,
+   "spread_Higgs": 0.016366988950636596,
+   "factor": 0.18268544531126427,
+   "gaussian_prediction_heat_kernel": null
+  }
+ },
+ "second_reading": [
+  {
+   "id": "cub4_L4_hk",
+   "complex": "cubic lattice, four dimensions, 4^4",
+   "action": "SU(2), heat-kernel weight (one tick of the electric term)",
+   "reading": "face step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -16.751536529850455,
+     "err": 0.01527837271225957
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -29.139950420603924,
+     "err": 0.020740164619644764
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -39.92235844630457,
+     "err": 0.024417604479259863
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -47.82138295961841,
+     "err": 0.028876440663985325
+    }
+   ],
+   "fit": {
+    "c": 1.2918574368999618,
+    "c_err": 0.0015865173691129327,
+    "p": 1.0,
+    "count": 3.0963168889585067
+   },
+   "c_gaussian": 1.2873883928571432,
+   "lnA_at_x_U": -39.92235844630457,
+   "lnA_at_x_U_err": 0.024417604479259863
+  },
+  {
+   "id": "cub4_L4_w",
+   "complex": "cubic lattice, four dimensions, 4^4",
+   "action": "SU(2), Wilson weight",
+   "reading": "face step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -13.076863277413773,
+     "err": 0.019044374478637723
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -23.38161155905489,
+     "err": 0.026897932814633638
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -32.384740707562656,
+     "err": 0.03394353939737491
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -38.99888790680771,
+     "err": 0.038018990762539145
+    }
+   ],
+   "fit": {
+    "c": 1.0829712159139309,
+    "c_err": 0.0014612646601401495,
+    "p": 1.0,
+    "count": 3.6935423040069977
+   },
+   "c_gaussian": 1.2873883928571432,
+   "lnA_at_x_U": -32.384740707562656,
+   "lnA_at_x_U_err": 0.03394353939737491
+  },
+  {
+   "id": "cub3_L6_hk",
+   "complex": "cubic lattice, three dimensions, 6^3",
+   "action": "SU(2), heat-kernel weight (one tick of the electric term)",
+   "reading": "face step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -6.9955651236572605,
+     "err": 0.014511678788946594
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -13.533971239004218,
+     "err": 0.019975800116996758
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -19.399213855825273,
+     "err": 0.023271713117102223
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -23.527808229340984,
+     "err": 0.025198765163824827
+    }
+   ],
+   "fit": {
+    "c": 0.7045599440843242,
+    "c_err": 0.002240697897400118,
+    "p": 1.0,
+    "count": 5.6773025965854025
+   },
+   "c_gaussian": 0.7007645903479239,
+   "lnA_at_x_U": -19.399213855825273,
+   "lnA_at_x_U_err": 0.023271713117102223
+  },
+  {
+   "id": "cub3_L6_w",
+   "complex": "cubic lattice, three dimensions, 6^3",
+   "action": "SU(2), Wilson weight",
+   "reading": "face step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -4.952058281514226,
+     "err": 0.012903112142210548
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -10.405626613496327,
+     "err": 0.020142415126470255
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -15.325204342392068,
+     "err": 0.025556778904637645
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -18.89122490372771,
+     "err": 0.025712954948753097
+    }
+   ],
+   "fit": {
+    "c": 0.5975793528235744,
+    "c_err": 0.0012771733582417361,
+    "p": 1.0,
+    "count": 6.693671695817333
+   },
+   "c_gaussian": 0.7007645903479239,
+   "lnA_at_x_U": -15.325204342392068,
+   "lnA_at_x_U_err": 0.025556778904637645
+  },
+  {
+   "id": "icoT_NT8_hk",
+   "complex": "icosahedral surface as space (20 faces, 30 seams), 8 ticks",
+   "action": "SU(2), heat-kernel weight (one tick of the electric term)",
+   "reading": "face step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -8.306876769878144,
+     "err": 0.009538569449461822
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -15.262751136306843,
+     "err": 0.012405043804113815
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -21.372441188335415,
+     "err": 0.014902262264529112
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -25.86685422399278,
+     "err": 0.016896065461305395
+    }
+   ],
+   "fit": {
+    "c": 0.7442519082824521,
+    "c_err": 0.0007033762349448657,
+    "p": 1.0,
+    "count": 5.374524345165607
+   },
+   "c_gaussian": 0.7423606804254451,
+   "lnA_at_x_U": -21.372441188335415,
+   "lnA_at_x_U_err": 0.014902262264529112
+  },
+  {
+   "id": "icoT_NT8_w",
+   "complex": "icosahedral surface as space (20 faces, 30 seams), 8 ticks",
+   "action": "SU(2), Wilson weight",
+   "reading": "face step",
+   "label": "MEASURED",
+   "points": [
+    {
+     "x": 12.566370614359172,
+     "S": 19.739208802178716,
+     "lnA": -6.232091797776896,
+     "err": 0.009335665508187553
+    },
+    {
+     "x": 18.84955592153876,
+     "S": 29.608813203268074,
+     "lnA": -12.12539987473423,
+     "err": 0.013506266359340621
+    },
+    {
+     "x": 24.3166,
+     "S": 38.196425960140786,
+     "lnA": -17.383149729720813,
+     "err": 0.016297483504220653
+    },
+    {
+     "x": 28.274333882308138,
+     "S": 44.41321980490211,
+     "lnA": -21.20382443671156,
+     "err": 0.019104155658857067
+    }
+   ],
+   "fit": {
+    "c": 0.6396797254872553,
+    "c_err": 0.0007204800799048677,
+    "p": 1.0,
+    "count": 6.253129246754115
+   },
+   "c_gaussian": 0.7423606804254451,
+   "lnA_at_x_U": -17.383149729720813,
+   "lnA_at_x_U_err": 0.016297483504220653
+  }
+ ],
+ "second_reading_gates": {
+  "fmg_cub3_L6_ab_b5": {
+   "lnA": -26.092514221482002,
+   "lnA_err": 0.01963732152032639,
+   "gaussian_form": -26.073555610152923,
+   "pull": -0.9654377410613523,
+   "difference": -0.01895861132907939
+  },
+  "fmg_cub4_L4_ab_b5": {
+   "lnA": -48.48451708955663,
+   "lnA_err": 0.01979264025874375,
+   "gaussian_form": -48.480488249152565,
+   "pull": -0.2035524493650221,
+   "difference": -0.004028840404068035
+  },
+  "fmg_el_cub4_L4_ab_b5": {
+   "lnA": -18.484079488995707,
+   "lnA_err": 0.013731604945615096,
+   "gaussian_form": -18.47966819396385,
+   "pull": -0.3212512338746267,
+   "difference": -0.004411295031857776
+  },
+  "fmg_icoT_NT8_ab_b5": {
+   "lnA": -27.66777089984473,
+   "lnA_err": 0.014286222841704097,
+   "gaussian_form": -27.662377585030306,
+   "pull": -0.3775185977555317,
+   "difference": -0.005393314814423178
+  }
+ },
+ "gates": {
+  "G1_g1_ico2_hk_a": {
+   "measured": -0.1846919627875776,
+   "error": 0.01267442296711953,
+   "reference": -0.16620198585266663,
+   "deviation": -0.018489976934910973,
+   "pull": -1.4588417147572221,
+   "pass": true
+  },
+  "G1_g1_ico2_hk_b": {
+   "measured": -6.204640949206359,
+   "error": 0.03000324183883678,
+   "reference": -6.245839164344741,
+   "deviation": 0.0411982151383814,
+   "pull": 1.373125456231654,
+   "pass": true
+  },
+  "G1_g1_ico2_w_a": {
+   "measured": -0.14192878370497536,
+   "error": 0.012978670027439052,
+   "reference": -0.12891748690227262,
+   "deviation": -0.013011296802702743,
+   "pull": -1.0025138766294783,
+   "pass": true
+  },
+  "G1_g1_ico2_w_b": {
+   "measured": -3.926866903820918,
+   "error": 0.03285651815515087,
+   "reference": -3.9747091083263024,
+   "deviation": 0.047842204505384345,
+   "pull": 1.4560947778906448,
+   "pass": true
+  },
+  "G2_g2_cub3_ab": {
+   "measured": -6.088787535183881,
+   "error": 0.008362347674678909,
+   "reference": -6.092205845188988,
+   "deviation": 0.0034183100051068394,
+   "pull": 0.40877396373478253,
+   "pass": true
+  },
+  "G2_g2_cub4_ab": {
+   "measured": -9.23294662512151,
+   "error": 0.009788893064487847,
+   "reference": -9.215010362721168,
+   "deviation": -0.017936262400342073,
+   "pull": -1.8323075226361658,
+   "pass": true
+  },
+  "G2_g2_icoT_ab": {
+   "measured": -7.250712872666575,
+   "error": 0.007244420479431602,
+   "reference": -7.251765680205382,
+   "deviation": 0.001052807538806988,
+   "pull": 0.14532667475557567,
+   "pass": true
+  },
+  "G2_g2_cub4_ab_U": {
+   "measured": -18.465566882392825,
+   "error": 0.013011226984362594,
+   "reference": -18.47966819396385,
+   "deviation": 0.014101311571025121,
+   "pull": 1.0837803066515275,
+   "pass": true
+  },
+  "G3_g3_cub4_w23": {
+   "measured": 0.6032016519301837,
+   "error": 0.0006001771859565034,
+   "reference": 0.6024,
+   "deviation": 0.0008016519301836667,
+   "pull": 1.3356921071667738,
+   "pass": true
+  },
+  "G3_g3_cub4_w25": {
+   "measured": 0.6539793583473591,
+   "error": 0.0003893046618722628,
+   "reference": 0.652,
+   "deviation": 0.0019793583473590726,
+   "pull": 5.0843427814089015,
+   "pass": true
+  },
+  "G4_sin2_at_beta_H_0": {
+   "measured": 0.7996148444911847,
+   "error": 0.0002697171356817213,
+   "reference": 0.8,
+   "deviation": -0.0003851555088153491,
+   "pull": -1.427997920272483,
+   "pass": true
+  },
+  "G5_direct_vs_staged": {
+   "measured": -1.61868871050785,
+   "error": 0.006868663947414284,
+   "reference": -1.627152131905393,
+   "deviation": 0.00846342139754297,
+   "pull": 1.2321786976823976,
+   "pass": true
+  }
+ },
+ "gates_summary": {
+  "verdict_rows_pass": 18,
+  "verdict_rows_fail": 0
+ },
+ "chain_coupling_points": {
+  "cub3_L6_hk_b5": {
+   "lnA": -7.859865158042539,
+   "lnA_err": 0.020344520629761654,
+   "complex": "cub3_L6",
+   "kind": 1,
+   "gaussian_link_form": -8.950079159602238
+  },
+  "cub3_L6_w_b5": {
+   "lnA": -7.095992542106468,
+   "lnA_err": 0.019583096715996545,
+   "complex": "cub3_L6",
+   "kind": 0
+  },
+  "cub3_L8_ab_b5": {
+   "lnA": -12.102444393022898,
+   "lnA_err": 0.020727178267564372,
+   "complex": "cub3_L8",
+   "kind": 2,
+   "exact_cartan": -12.088729735789252,
+   "pull": -0.6616750749477249
+  },
+  "cub3_L8_hk_b5": {
+   "lnA": -7.794608091281549,
+   "lnA_err": 0.021451514047308027,
+   "complex": "cub3_L8",
+   "kind": 1,
+   "gaussian_link_form": -8.887457800838753
+  },
+  "cub3_L8_w_b5": {
+   "lnA": -7.041971490252077,
+   "lnA_err": 0.02087548167676673,
+   "complex": "cub3_L8",
+   "kind": 0
+  },
+  "cub4_L4_hk_b5": {
+   "lnA": -13.935907210196982,
+   "lnA_err": 0.015073490467429042,
+   "complex": "cub4_L4",
+   "kind": 1,
+   "gaussian_link_form": -14.859452270511731
+  },
+  "cub4_L4_w_b5": {
+   "lnA": -11.615017588487259,
+   "lnA_err": 0.011212244316154387,
+   "complex": "cub4_L4",
+   "kind": 0
+  },
+  "cub4_L6_ab_b5": {
+   "lnA": -18.42526762795337,
+   "lnA_err": 0.017261457423890358,
+   "complex": "cub4_L6",
+   "kind": 2,
+   "exact_cartan": -18.419802074958035,
+   "pull": -0.31663334451535446
+  },
+  "cub4_L6_hk_b5": {
+   "lnA": -13.92141325838146,
+   "lnA_err": 0.018260731499106876,
+   "complex": "cub4_L6",
+   "kind": 1,
+   "gaussian_link_form": -14.802797359378093
+  },
+  "cub4_L6_w_b5": {
+   "lnA": -11.612001384762781,
+   "lnA_err": 0.013229694128934037,
+   "complex": "cub4_L6",
+   "kind": 0
+  },
+  "icoT_NT16_hk_b5": {
+   "lnA": -10.298981977555151,
+   "lnA_err": 0.011854736381098907,
+   "complex": "icoT_NT16",
+   "kind": 1,
+   "gaussian_link_form": -11.136130025384926
+  },
+  "icoT_NT16_w_b5": {
+   "lnA": -9.152752561183206,
+   "lnA_err": 0.011330771316918764,
+   "complex": "icoT_NT16",
+   "kind": 0
+  },
+  "icoT_NT2_hk_b5": {
+   "lnA": -10.860066154534291,
+   "lnA_err": 0.028593816064685564,
+   "complex": "icoT_NT2",
+   "kind": 1,
+   "gaussian_link_form": -12.858744468635372
+  },
+  "icoT_NT2_w_b5": {
+   "lnA": -9.616339052606603,
+   "lnA_err": 0.023561902763374117,
+   "complex": "icoT_NT2",
+   "kind": 0
+  },
+  "icoT_NT4_hk_b5": {
+   "lnA": -10.269200365851555,
+   "lnA_err": 0.012897524574632868,
+   "complex": "icoT_NT4",
+   "kind": 1,
+   "gaussian_link_form": -11.287934018191837
+  },
+  "icoT_NT4_w_b5": {
+   "lnA": -9.153403437502085,
+   "lnA_err": 0.011057532929934513,
+   "complex": "icoT_NT4",
+   "kind": 0
+  },
+  "icoT_NT8_ab_b5": {
+   "lnA": -14.524250321897652,
+   "lnA_err": 0.01239445359551809,
+   "complex": "icoT_NT8",
+   "kind": 2,
+   "exact_cartan": -14.521548102455775,
+   "pull": -0.21801844034935572
+  },
+  "icoT_NT8_hk_b5": {
+   "lnA": -10.291720734360315,
+   "lnA_err": 0.012234223073516761,
+   "complex": "icoT_NT8",
+   "kind": 1,
+   "gaussian_link_form": -11.13955424834083
+  },
+  "icoT_NT8_w_b5": {
+   "lnA": -9.161501782579547,
+   "lnA_err": 0.012072405271101339,
+   "complex": "icoT_NT8",
+   "kind": 0
+  }
+ },
+ "statements": [
+  {
+   "text": "<A> equals the ratio of partition functions with the seam's time-like plaquette twisted by the centre element.",
+   "label": "EXACT",
+   "status": "derived"
+  },
+  {
+   "text": "One free link in the one-tick thermal law: <A> = M exp(-S) with M = 2 on the Cartan circle and M = 2 (2S - 1) = 150.79 on the full link.",
+   "label": "EXACT",
+   "status": "derived"
+  },
+  {
+   "text": "Weight power 1 (one-sided register) and weight power 0 (labels) give power laws at every heat time: 0.0338 and 0.167 at the chain coupling.",
+   "label": "EXACT",
+   "status": "derived"
+  },
+  {
+   "text": "Cartan circle on a complex: <A> = 2 exp(-c S), c = 1 - Pi. Cubic lattices: c = 1 - 2/d. Icosahedral space with many ticks: c = 0.398231.",
+   "label": "EXACT",
+   "status": "derived"
+  },
+  {
+   "text": "The counts 8/d and the pair weight exp(-2S) are densities of the plaquette flux at a half turn. They are a different object from <A>.",
+   "label": "EXACT",
+   "status": "derived"
+  },
+  {
+   "text": "SU(2) heat kernel: c = 0.5001 (0.0008) on the 6^4 lattice, 0.3347 (0.0012) on the 8^3 lattice, 0.3988 (0.0005) on the icosahedral space.",
+   "label": "MEASURED",
+   "status": "derived"
+  },
+  {
+   "text": "SU(2) Wilson: c = 0.3999 (0.0049), 0.3197 (0.0013), 0.3693 (0.0005) on the same complexes.",
+   "label": "MEASURED",
+   "status": "derived"
+  },
+  {
+   "text": "The measured sector law of the lattice link has weight power 2 and a heat time longer than g^2/2.",
+   "label": "MEASURED",
+   "status": "derived"
+  },
+  {
+   "text": "No lattice ensemble measured here has c = 1. The working law is the law of one pinned link: c = 1 holds where the seam's plaquette cannot move.",
+   "label": "MEASURED",
+   "status": "derived"
+  },
+  {
+   "text": "The class balance changes across the Higgs line of the gauge-Higgs system: by a factor 0.015 with the heat-kernel weight and 0.18 with the Wilson weight. A stiff doublet pins the link and moves it toward the one-link law.",
+   "label": "MEASURED",
+   "status": "derived"
+  },
+  {
+   "text": "Read at the midpoint of the face step the coefficients are 0.70 (three dimensions), 0.74 (icosahedral space) and 1.29 (four dimensions) for the heat kernel. No reading has the coefficient 1.",
+   "label": "MEASURED",
+   "status": "derived"
+  },
+  {
+   "text": "The sector law of the seam link that has c = 1 and b M = 1 is not supplied by any lattice ensemble here.",
+   "label": "MEASURED",
+   "status": "open"
+  },
+  {
+   "text": "The tick equals the cell in every lattice here.",
+   "label": "DECLARED",
+   "status": "declared"
+  }
+ ],
+ "comparison_not_blind": {
+  "label": "NOT BLIND",
+  "v_measured_GeV": 246.22,
+  "source": "Particle Data Group 2024, v from G_F",
+  "source_link": "https://pdg.lbl.gov/",
+  "c_needed_at_bM=1": 1.0000381589442855,
+  "rows": {
+   "one tick, Cartan circle (exact)": {
+    "label": "EXACT",
+    "c": 1.0,
+    "c_err": null,
+    "v_GeV_bM=1": 246.57913600225325,
+    "ratio_bM=1": 1.0014585980109383,
+    "log10_ratio_bM=1": 0.0006329995336793826,
+    "log10_ratio_err": null,
+    "lnA_at_S_U": -37.50327877958084,
+    "lnA_err": null,
+    "v_GeV_b=1": 493.1582720045074,
+    "ratio_b=1": 2.0029171960218806,
+    "log10_ratio_b=1": 0.30166299519766143
+   },
+   "one tick, full link, weight power 2 (exact)": {
+    "label": "EXACT",
+    "c": 1.0,
+    "c_err": null,
+    "v_GeV_bM=1": 246.57913600225325,
+    "ratio_bM=1": 1.0014585980109383,
+    "log10_ratio_bM=1": 0.0006329995336793826,
+    "log10_ratio_err": null,
+    "lnA_at_S_U": -33.18056631117922,
+    "lnA_err": null,
+    "v_GeV_b=1": 37180.60857449758,
+    "ratio_b=1": 151.00563956826244,
+    "log10_ratio_b=1": 2.178993167078869
+   },
+   "one tick, one-sided register, weight power 1 (exact)": {
+    "label": "EXACT",
+    "lnA_at_S_U": -3.3878102202299076,
+    "lnA_err": null,
+    "v_GeV_b=1": 3.22958013467878e+17,
+    "ratio_b=1": 1311664419900406.2,
+    "log10_ratio_b=1": 15.117822738067652
+   },
+   "one tick, labels, weight power 0 (exact)": {
+    "label": "EXACT",
+    "lnA_at_S_U": -1.7873750021829864,
+    "lnA_err": null,
+    "v_GeV_b=1": 1.600317848093018e+18,
+    "ratio_b=1": 6499544505292089.0,
+    "log10_ratio_b=1": 15.812882921909056
+   },
+   "Cartan circle, cub4_infinite (exact)": {
+    "label": "EXACT",
+    "c": 0.5,
+    "c_err": null,
+    "v_GeV_bM=1": 48551744379.24904,
+    "ratio_bM=1": 197188467.14015532,
+    "log10_ratio_bM=1": 8.29488151099131,
+    "log10_ratio_err": null,
+    "lnA_at_S_U": -18.40506579951045,
+    "lnA_err": null,
+    "v_GeV_b=1": 97103488758.49792,
+    "ratio_b=1": 394376934.28031,
+    "log10_ratio_b=1": 8.595911506655291
+   },
+   "Cartan circle, cub3_infinite (exact)": {
+    "label": "EXACT",
+    "c": 0.33333333333333337,
+    "c_err": null,
+    "v_GeV_bM=1": 28245830054536.242,
+    "ratio_bM=1": 114717854173.24443,
+    "log10_ratio_bM=1": 11.05963101481052,
+    "log10_ratio_err": null,
+    "lnA_at_S_U": -12.03899480615365,
+    "lnA_err": null,
+    "v_GeV_b=1": 56491660109072.59,
+    "ratio_b=1": 229435708346.4893,
+    "log10_ratio_b=1": 11.360661010474502
+   },
+   "Cartan circle, icoT_infinite (exact)": {
+    "label": "EXACT",
+    "c": 0.3982314331214007,
+    "c_err": null,
+    "v_GeV_bM=1": 2368058389627.134,
+    "ratio_bM=1": 9617652463.760595,
+    "log10_ratio_bM=1": 9.983069079683307,
+    "log10_ratio_err": null,
+    "lnA_at_S_U": -14.517870269662392,
+    "lnA_err": null,
+    "v_GeV_b=1": 4736116779254.275,
+    "ratio_b=1": 19235304927.52122,
+    "log10_ratio_b=1": 10.284099075347289
+   },
+   "Cartan circle, icoT_NT1_Gauss (exact)": {
+    "label": "EXACT",
+    "c": 0.6333333333333334,
+    "c_err": null,
+    "v_GeV_bM=1": 298129694.398969,
+    "ratio_bM=1": 1210826.473880956,
+    "log10_ratio_bM=1": 6.08308190793594,
+    "log10_ratio_err": null,
+    "lnA_at_S_U": -23.497922594195888,
+    "lnA_err": null,
+    "v_GeV_b=1": 596259388.7979391,
+    "ratio_b=1": 2421652.9477619166,
+    "log10_ratio_b=1": 6.384111903599922
+   },
+   "Cartan circle, pair2_pinned_boundary (exact)": {
+    "label": "EXACT",
+    "c": 0.5,
+    "c_err": null,
+    "v_GeV_bM=1": 48551744379.24904,
+    "ratio_bM=1": 197188467.14015532,
+    "log10_ratio_bM=1": 8.29488151099131,
+    "log10_ratio_err": null,
+    "lnA_at_S_U": -18.40506579951045,
+    "lnA_err": null,
+    "v_GeV_b=1": 97103488758.49792,
+    "ratio_b=1": 394376934.28031,
+    "log10_ratio_b=1": 8.595911506655291
+   },
+   "Cartan circle, ico2 (exact)": {
+    "label": "EXACT",
+    "c": 0.05000000000000049,
+    "c_err": null,
+    "v_GeV_bM=1": 1.4158866869803041e+18,
+    "ratio_bM=1": 5750494220535717.0,
+    "log10_ratio_bM=1": 15.75970517130317,
+    "log10_ratio_err": null,
+    "lnA_at_S_U": -1.2176357677137117,
+    "lnA_err": null,
+    "v_GeV_b=1": 2.8290515072922527e+18,
+    "ratio_b=1": 1.1489933828658324e+16,
+    "log10_ratio_b=1": 16.060317527562844
+   },
+   "SU(2) cub4_L6_hk, electric step": {
+    "label": "MEASURED",
+    "c": 0.5001283979175151,
+    "c_err": 0.0007705142291531867,
+    "v_GeV_bM=1": 48314212985.619316,
+    "ratio_bM=1": 196223755.11989,
+    "log10_ratio_bM=1": 8.292751582518862,
+    "log10_ratio_err": 0.012781672996421483,
+    "lnA_at_S_U": -13.92141325838146,
+    "lnA_err": 0.018260731499106876,
+    "v_GeV_b=1": 8599246355519.828,
+    "ratio_b=1": 34925052211.517456,
+    "log10_ratio_b=1": 10.543137064039103
+   },
+   "SU(2) cub4_L6_w, electric step": {
+    "label": "MEASURED",
+    "c": 0.41962971465452537,
+    "c_err": 0.0014131371598752646,
+    "v_GeV_bM=1": 1045748083042.7405,
+    "ratio_bM=1": 4247210149.633419,
+    "log10_ratio_bM=1": 9.628103750175566,
+    "log10_ratio_err": 0.02344182156956175,
+    "lnA_at_S_U": -11.612001384762781,
+    "lnA_err": 0.013229694128934037,
+    "v_GeV_b=1": 86581523643503.06,
+    "ratio_b=1": 351642935762.74493,
+    "log10_ratio_b=1": 11.546101897193546
+   },
+   "SU(2) cub3_L8_hk, electric step": {
+    "label": "MEASURED",
+    "c": 0.3347074293843506,
+    "c_err": 0.0011925989054103678,
+    "v_GeV_bM=1": 26801564962455.95,
+    "ratio_bM=1": 108852103657.11945,
+    "log10_ratio_bM=1": 11.036836826559021,
+    "log10_ratio_err": 0.019783423391931884,
+    "lnA_at_S_U": -7.794608091281549,
+    "lnA_err": 0.021451514047308027,
+    "v_GeV_b=1": 3938202710779030.5,
+    "ratio_b=1": 15994649950365.65,
+    "log10_ratio_b=1": 13.203974739806926
+   },
+   "SU(2) cub3_L8_w, electric step": {
+    "label": "MEASURED",
+    "c": 0.31972332457167996,
+    "c_err": 0.0013090459970890372,
+    "v_GeV_bM=1": 47503316515853.95,
+    "ratio_bM=1": 192930373307.8302,
+    "log10_ratio_bM=1": 11.285400604635058,
+    "log10_ratio_err": 0.02171510562557063,
+    "lnA_at_S_U": -7.041971490252077,
+    "lnA_err": 0.02087548167676673,
+    "v_GeV_b=1": 8359186012979054.0,
+    "ratio_b=1": 33950069096657.68,
+    "log10_ratio_b=1": 13.530840662512444
+   },
+   "SU(2) icoT_NT8_hk, electric step": {
+    "label": "MEASURED",
+    "c": 0.398789984393662,
+    "c_err": 0.0005035565423157346,
+    "v_GeV_bM=1": 2318071783234.188,
+    "ratio_bM=1": 9414636435.846754,
+    "log10_ratio_bM=1": 9.973803553566256,
+    "log10_ratio_err": 0.008353246203074066,
+    "lnA_at_S_U": -10.291720734360315,
+    "lnA_err": 0.012234223073516761,
+    "v_GeV_b=1": 324202101166441.06,
+    "ratio_b=1": 1316717168249.6997,
+    "log10_ratio_b=1": 12.119492498226974
+   },
+   "SU(2) icoT_NT8_w, electric step": {
+    "label": "MEASURED",
+    "c": 0.36929367113586675,
+    "c_err": 0.000508861926066291,
+    "v_GeV_bM=1": 7151981546153.7705,
+    "ratio_bM=1": 29047118618.121075,
+    "log10_ratio_bM=1": 10.463103058230168,
+    "log10_ratio_err": 0.008441254545625594,
+    "lnA_at_S_U": -9.161501782579547,
+    "lnA_err": 0.012072405271101339,
+    "v_GeV_b=1": 1003838109911565.5,
+    "ratio_b=1": 4076996628671.7793,
+    "log10_ratio_b=1": 12.610340352327837
+   },
+   "SU(2) cub4_L4_hk, face step": {
+    "label": "MEASURED",
+    "c": 1.2918574368999618,
+    "c_err": 0.0015865173691129327,
+    "v_GeV_bM=1": 0.0035520584482712906,
+    "ratio_bM=1": 1.4426360361754897e-05,
+    "log10_ratio_bM=1": -4.840843223597017,
+    "log10_ratio_err": 0.026317938654333232,
+    "lnA_at_S_U": -39.92235844630457,
+    "lnA_err": 0.024417604479259863,
+    "v_GeV_b=1": 43.89280863930054,
+    "ratio_b=1": 0.1782666259414367,
+    "log10_ratio_b=1": -0.748929955344813
+   },
+   "SU(2) cub4_L4_w, face step": {
+    "label": "MEASURED",
+    "c": 1.0829712159139309,
+    "c_err": 0.0014612646601401495,
+    "v_GeV_bM=1": 10.365459481746509,
+    "ratio_bM=1": 0.04209836520894529,
+    "log10_ratio_bM=1": -1.3757347686422217,
+    "log10_ratio_err": 0.02424018446442615,
+    "lnA_at_S_U": -32.384740707562656,
+    "lnA_err": 0.03394353939737491,
+    "v_GeV_b=1": 82402.26744766577,
+    "ratio_b=1": 334.6692691400608,
+    "log10_ratio_b=1": 2.5246158352868675
+   },
+   "SU(2) cub3_L6_hk, face step": {
+    "label": "MEASURED",
+    "c": 0.7045599440843242,
+    "c_err": 0.002240697897400118,
+    "v_GeV_bM=1": 19627401.86074348,
+    "ratio_bM=1": 79714.89668078744,
+    "log10_ratio_bM=1": 4.901539487540785,
+    "log10_ratio_err": 0.03716981040027434,
+    "lnA_at_S_U": -19.399213855825273,
+    "lnA_err": 0.023271713117102223,
+    "v_GeV_b=1": 35932035375.49299,
+    "ratio_b=1": 145934673.76936474,
+    "log10_ratio_b=1": 8.164158491602919
+   },
+   "SU(2) cub3_L6_w, face step": {
+    "label": "MEASURED",
+    "c": 0.5975793528235744,
+    "c_err": 0.0012771733582417361,
+    "v_GeV_bM=1": 1168180719.7720416,
+    "ratio_bM=1": 4744459.100690608,
+    "log10_ratio_bM=1": 6.676186707179447,
+    "log10_ratio_err": 0.021186386450939725,
+    "lnA_at_S_U": -15.325204342392068,
+    "lnA_err": 0.025556778904637645,
+    "v_GeV_b=1": 2112524087032.524,
+    "ratio_b=1": 8579823276.064186,
+    "log10_ratio_b=1": 9.933478342508312
+   },
+   "SU(2) icoT_NT8_hk, face step": {
+    "label": "MEASURED",
+    "c": 0.7442519082824521,
+    "c_err": 0.0007033762349448657,
+    "v_GeV_bM=1": 4309558.541406734,
+    "ratio_bM=1": 17502.877676089407,
+    "log10_ratio_bM=1": 4.243109457606482,
+    "log10_ratio_err": 0.011667954579372248,
+    "lnA_at_S_U": -21.372441188335415,
+    "lnA_err": 0.014902262264529112,
+    "v_GeV_b=1": 4994822696.970689,
+    "ratio_b=1": 20286015.339820847,
+    "log10_ratio_b=1": 7.307196749553092
+   },
+   "SU(2) icoT_NT8_w, face step": {
+    "label": "MEASURED",
+    "c": 0.6396797254872553,
+    "c_err": 0.0007204800799048677,
+    "v_GeV_bM=1": 233952735.49900237,
+    "ratio_bM=1": 950177.6277272454,
+    "log10_ratio_bM=1": 5.977804800584356,
+    "log10_ratio_err": 0.011951681660571645,
+    "lnA_at_S_U": -17.383149729720813,
+    "lnA_err": 0.016297483504220653,
+    "v_GeV_b=1": 269803353691.36597,
+    "ratio_b=1": 1095781633.05729,
+    "log10_ratio_b=1": 9.039724016733187
+   },
+   "doublet higgs_hk_h00_pole (symmetric (pole))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -13.984621521147954,
+    "lnA_err": 0.01726925709921473,
+    "v_GeV_b=1": 8072524862721.404,
+    "ratio_b=1": 32785821065.39438,
+    "log10_ratio_b=1": 10.515686064308925
+   },
+   "doublet higgs_hk_h05_pole (symmetric (pole))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -13.983253066892969,
+    "lnA_err": 0.017026113023276477,
+    "v_GeV_b=1": 8083579305742.954,
+    "ratio_b=1": 32830717674.205807,
+    "log10_ratio_b=1": 10.516280376440601
+   },
+   "doublet higgs_hk_h15_equator (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -18.233869686843516,
+    "lnA_err": 0.013208821572720797,
+    "v_GeV_b=1": 115234987934.66527,
+    "ratio_b=1": 468016359.0880727,
+    "log10_ratio_b=1": 8.670261033709828
+   },
+   "doublet higgs_hk_h15_pole (symmetric (pole))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -14.11122332071881,
+    "lnA_err": 0.016853082062375815,
+    "v_GeV_b=1": 7112576136523.428,
+    "ratio_b=1": 28887077152.64165,
+    "log10_ratio_b=1": 10.460703601356279
+   },
+   "doublet higgs_hk_h30_equator (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -18.26243375241927,
+    "lnA_err": 0.013025400850053643,
+    "v_GeV_b=1": 111989974207.59665,
+    "ratio_b=1": 454837032.7658056,
+    "log10_ratio_b=1": 8.657855817649555
+   },
+   "doublet higgs_hk_h40_equator (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -18.274240129514382,
+    "lnA_err": 0.013158282769860273,
+    "v_GeV_b=1": 110675552886.24341,
+    "ratio_b=1": 449498630.8433247,
+    "log10_ratio_b=1": 8.652728373225878
+   },
+   "doublet higgs_hk_stiff32 (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -29.475956038752955,
+    "lnA_err": 0.004236198051248191,
+    "v_GeV_b=1": 1510804.5808688519,
+    "ratio_b=1": 6135.994561241377,
+    "log10_ratio_b=1": 3.7878849659956986
+   },
+   "doublet higgs_hk_stiff8 (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -24.044137167129158,
+    "lnA_err": 0.007133542970252337,
+    "v_GeV_b=1": 345316440.52526605,
+    "ratio_b=1": 1402471.1255189101,
+    "log10_ratio_b=1": 6.146893928639861
+   },
+   "doublet higgs_w_h00_pole (symmetric (pole))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -11.640230663994677,
+    "lnA_err": 0.011102548564901686,
+    "v_GeV_b=1": 84171565366439.61,
+    "ratio_b=1": 341855110740.1495,
+    "log10_ratio_b=1": 11.533842076995027
+   },
+   "doublet higgs_w_h05_pole (symmetric (pole))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -11.63342592044749,
+    "lnA_err": 0.011533202466260778,
+    "v_GeV_b=1": 84746284473116.48,
+    "ratio_b=1": 344189279803.0886,
+    "log10_ratio_b=1": 11.536797339568338
+   },
+   "doublet higgs_w_h15_equator (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -13.32817744362296,
+    "lnA_err": 0.006091431543703371,
+    "v_GeV_b=1": 15563219111089.533,
+    "ratio_b=1": 63208590330.15,
+    "log10_ratio_b=1": 10.8007761048561
+   },
+   "doublet higgs_w_h15_pole (symmetric (pole))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -11.635408077584529,
+    "lnA_err": 0.012144832592522402,
+    "v_GeV_b=1": 84578470392393.81,
+    "ratio_b=1": 343507718269.8149,
+    "log10_ratio_b=1": 11.535936499661457
+   },
+   "doublet higgs_w_h30_equator (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -13.33507732526405,
+    "lnA_err": 0.005337647774488914,
+    "v_GeV_b=1": 15456204360391.625,
+    "ratio_b=1": 62773959712.41827,
+    "log10_ratio_b=1": 10.797779524333588
+   },
+   "doublet higgs_w_h40_equator (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -13.344544432573597,
+    "lnA_err": 0.005436739187534096,
+    "v_GeV_b=1": 15310569274331.42,
+    "ratio_b=1": 62182476136.509705,
+    "log10_ratio_b=1": 10.793668011869466
+   },
+   "doublet higgs_w_stiff32 (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -15.151919052246944,
+    "lnA_err": 0.0005864744775409387,
+    "v_GeV_b=1": 2512224894025.3013,
+    "ratio_b=1": 10203171529.629198,
+    "log10_ratio_b=1": 10.008735187813343
+   },
+   "doublet higgs_w_stiff8 (Higgs (equator))": {
+    "label": "MEASURED",
+    "lnA_at_S_U": -14.505030690790072,
+    "lnA_err": 0.001793912257959332,
+    "v_GeV_b=1": 4797318586121.311,
+    "ratio_b=1": 19483870465.930107,
+    "log10_ratio_b=1": 10.2896752336015
+   }
+  }
+ }
+}

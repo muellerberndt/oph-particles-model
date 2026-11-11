@@ -1,0 +1,49 @@
+/* The page "No wave function" (nowave.js). Grid, type scale and chips follow the site checklist. */
+#page-nowave .nw{max-width:1600px;margin:0 auto;padding:22px 24px 48px}
+#page-nowave .nw-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:16px}
+#page-nowave .nw-kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700}
+#page-nowave h2{font-size:30px;font-weight:800;margin:6px 0 8px;letter-spacing:-.4px;background:linear-gradient(90deg,#fff,#9fd0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+#page-nowave .nw-lead{font-size:17px;line-height:1.5;color:var(--soft);max-width:760px;margin:0}
+#page-nowave .nw-chips{display:flex;gap:8px;flex-wrap:wrap}
+#page-nowave .nw-chip{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid;border-radius:999px;padding:4px 10px;white-space:nowrap}
+#page-nowave .nw-declared{color:var(--amber);border-color:rgba(255,180,74,.6)}
+#page-nowave .nw-derived{color:var(--teal);border-color:rgba(63,224,208,.6)}
+#page-nowave .nw-stage{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#page-nowave .nw-panel{margin:0;border:1px solid #1d2a45;border-radius:16px;background:#05080f;overflow:hidden;position:relative;box-shadow:0 30px 60px -40px #000}
+#page-nowave .nw-panel figcaption{position:absolute;left:16px;top:12px;z-index:2;display:flex;flex-direction:column;gap:2px;pointer-events:none}
+#page-nowave .nw-panel figcaption b{font-size:15px;font-weight:700}
+#page-nowave .nw-panel figcaption span{font-size:12px;color:var(--muted)}
+#page-nowave .nw-panel canvas{display:block;width:100%;aspect-ratio:1.18/1}
+#page-nowave .nw-busy{max-width:520px;margin:12px auto 0}
+#page-nowave .nw-controls{display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:16px;margin-top:16px;padding:12px 16px;border:1px solid #1d2a45;border-radius:14px;background:rgba(12,18,32,.7)}
+#page-nowave .nw-play{width:48px;height:48px;border-radius:50%;border:0;background:var(--teal);color:#04121a;font-size:16px;font-weight:800;box-shadow:0 0 24px -6px var(--teal)}
+#page-nowave .nw-play:hover{background:#6ff0e3}
+#page-nowave .nw-count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+#page-nowave .nw-count b{color:var(--text);font-weight:700;margin-right:4px}#page-nowave .nw-count span{margin:0 8px;color:var(--faint)}
+#page-nowave .nw-switches{display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:center}
+#page-nowave .nw-switch{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--soft);cursor:pointer;white-space:nowrap}
+#page-nowave .nw-switch input{display:none}
+#page-nowave .nw-track{display:block;flex:none;width:34px;height:20px;border-radius:999px;background:#1d2a45;position:relative;transition:background .2s}
+#page-nowave .nw-track::after{content:'';position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#cfd8ea;transition:left .2s}
+#page-nowave .nw-switch input:checked+.nw-track{background:var(--amber)}#page-nowave .nw-switch input:checked+.nw-track::after{left:17px}
+#page-nowave .nw-slider{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--soft);white-space:nowrap}
+#page-nowave .nw-slider input{width:130px;accent-color:var(--amber)}#page-nowave .nw-slider b{min-width:34px;font-variant-numeric:tabular-nums;color:var(--amber)}
+#page-nowave .nw-pace{display:flex;gap:6px}
+#page-nowave .nw-pace button{font-size:12px;padding:5px 10px;border-radius:999px}
+#page-nowave .nw-pace button.on{border-color:var(--teal);color:var(--teal)}
+#page-nowave .nw-duality{display:grid;grid-template-columns:1fr 1fr auto;gap:16px;align-items:center;margin-top:16px}
+#page-nowave .nw-bar{display:grid;grid-template-columns:150px 1fr 56px;align-items:center;gap:12px;font-size:13px;color:var(--soft)}
+#page-nowave .nw-bar div{height:8px;border-radius:999px;background:#152038;overflow:hidden}
+#page-nowave .nw-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--teal),var(--blue));transition:width .4s}
+#page-nowave .nw-bar:nth-child(2) i{background:linear-gradient(90deg,#ffcf86,var(--amber))}
+#page-nowave .nw-bar b{font-variant-numeric:tabular-nums;text-align:right}
+#page-nowave .nw-rel{font-size:15px;color:var(--text);white-space:nowrap}
+#page-nowave .nw-note{font-size:14px;color:var(--muted);max-width:980px;margin:18px 0 0;line-height:1.55}
+#page-nowave .nw-sources{margin-top:22px;border-top:1px solid #16213a;padding-top:12px}
+#page-nowave .nw-sources h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:0 0 4px}
+@media (max-width:1100px){#page-nowave .nw-controls{grid-template-columns:auto 1fr;}#page-nowave .nw-switches,#page-nowave .nw-pace{grid-column:1/-1;justify-content:flex-start}
+  #page-nowave .nw-duality{grid-template-columns:1fr}}
+@media (max-width:760px){#page-nowave .nw{padding:16px 16px 40px}#page-nowave .nw-stage{grid-template-columns:1fr}#page-nowave h2{font-size:26px}
+  #page-nowave .nw-lead{font-size:15px}#page-nowave .nw-bar{grid-template-columns:120px 1fr 48px}#page-nowave .nw-count{white-space:normal}
+  #page-nowave .nw-switches{flex-direction:column;align-items:flex-start}}
+#page-nowave .nw-seek{display:flex;align-items:center;gap:14px;margin:10px 0 0}

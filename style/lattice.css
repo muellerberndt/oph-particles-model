@@ -1,0 +1,170 @@
+/* The Lattice page (lattice.js): one stage, one timeline, six chapters. Rules of the page are scoped to #page-lattice;
+   the guided explainer (.lx) is styled on its own because the Journey page shows it in its overlay.
+   Site scale: one column of at most 1600 px with 24 px side padding (16 px below 700 px), gaps 16 px, page title
+   26 px / 700, card title 15 px / 700, kicker 11 px uppercase .14em, body 14 px, small 12.5 px. */
+#page-lattice{overflow-x:hidden;overflow-y:auto;background:radial-gradient(ellipse 85% 60% at 50% 0%,rgba(46,70,130,.18),rgba(4,6,13,0) 70%)}
+#page-lattice .lt-wrap{max-width:1600px;margin:0 auto;padding:16px 24px 32px;box-sizing:border-box}
+#page-lattice .lt-head{display:flex;flex-direction:column;gap:8px;margin:0 0 16px}
+#page-lattice .lt-headrow{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap}
+#page-lattice .lt-head h2{margin:0;font-size:26px;font-weight:700;letter-spacing:-.02em;color:#f3f6fc;line-height:1.15}
+#page-lattice .lt-open{display:inline-flex;align-items:center;gap:10px;min-height:40px;border:1px solid rgba(63,224,208,.6);background:linear-gradient(100deg,rgba(63,224,208,.2),rgba(111,177,255,.12));color:#eafffb;border-radius:999px;padding:6px 18px 6px 8px;font-size:14px;font-weight:600;box-shadow:0 0 26px -8px #3fe0d0;cursor:pointer}
+#page-lattice .lt-open:hover{background:linear-gradient(100deg,rgba(63,224,208,.34),rgba(111,177,255,.2));box-shadow:0 0 34px -6px #3fe0d0}
+#page-lattice .lt-open i{width:26px;height:26px;border-radius:50%;background:#3fe0d0;position:relative;flex:none}
+#page-lattice .lt-open i::after{content:'';position:absolute;left:10px;top:7.5px;border-style:solid;border-width:5.5px 0 5.5px 9px;border-color:transparent transparent transparent #06212a}
+#page-lattice .lt-into,#page-lattice .lt-limits{font-size:12.5px;color:rgba(180,194,222,.82);line-height:1.5}
+#page-lattice .lt-into{cursor:pointer}
+#page-lattice .lt-into:hover{color:#eef2fb}
+#page-lattice .lt-into b,#page-lattice .lt-limits b{font-weight:700;letter-spacing:.14em;font-size:11px;text-transform:uppercase;margin-right:10px;white-space:nowrap}
+#page-lattice .lt-into b{color:var(--teal)}#page-lattice .lt-limits b{color:var(--amber)}
+
+/* ---------------------------------------------------------------- the stage */
+#page-lattice .lt-stagewrap{position:relative}
+#page-lattice .lt-stagebox{position:relative;height:clamp(380px,calc(100vh - 388px),900px);border-radius:22px;overflow:hidden;background:#03050b;
+  box-shadow:0 0 0 1px rgba(140,170,230,.1),0 40px 110px -50px #000,inset 0 0 120px -50px rgba(70,110,200,.35);user-select:none;-webkit-user-select:none;touch-action:pan-y}
+#page-lattice #lt-stage{position:absolute;inset:0;width:100%;height:100%;display:block}
+#page-lattice .lt-title{position:absolute;left:24px;top:20px;max-width:58%;pointer-events:none;display:flex;flex-direction:column;gap:4px;text-shadow:0 2px 18px #02040a}
+#page-lattice .lt-title span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700}
+#page-lattice .lt-title b{font-size:clamp(20px,2.2vw,34px);font-weight:700;letter-spacing:-.02em;color:#f5f8ff;line-height:1.1}
+#page-lattice .lt-title.in{animation:lt-in .7s ease both}
+@keyframes lt-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#page-lattice .lt-nums{position:absolute;right:16px;top:14px;display:flex;flex-direction:column;align-items:flex-end;gap:12px;transition:opacity .5s;text-shadow:0 2px 14px #02040a;pointer-events:none;
+  padding:10px 12px 11px 16px;border-radius:16px;background:linear-gradient(200deg,rgba(4,7,15,.62),rgba(4,7,15,.18));backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+#page-lattice .lt-nums.off{opacity:0}
+#page-lattice .lt-nums>div{display:flex;flex-direction:column;align-items:flex-end}
+#page-lattice .lt-nums b{font:600 clamp(19px,1.8vw,27px)/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#f3f6fc;font-variant-numeric:tabular-nums;white-space:nowrap}
+#page-lattice .lt-nums b small{font-size:.5em;color:rgba(170,186,214,.8);font-weight:500}
+#page-lattice .lt-nums b i{font-style:normal;font-size:.72em;letter-spacing:-.02em}
+#page-lattice .lt-nums span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(170,186,214,.78);margin-top:3px;white-space:nowrap;font-weight:600}
+#page-lattice .lt-seg{position:absolute;right:24px;top:192px;display:none;align-items:center;border-radius:999px;background:rgba(8,12,24,.78);padding:3px;box-shadow:0 0 0 1px rgba(140,170,230,.2)}
+#page-lattice .lt-seg.on{display:inline-flex}
+#page-lattice .lt-seg .hq{margin:0 6px 0 2px}
+#page-lattice .lt-seg button{border:0;background:none;box-shadow:none;border-radius:999px;min-height:36px;padding:4px 14px;font-size:12.5px;font-weight:600;color:rgba(197,208,230,.85)}
+#page-lattice .lt-seg button.on{background:rgba(63,224,208,.16);color:var(--teal)}
+#page-lattice .lt-busy{position:absolute;left:24px;bottom:20px;width:min(300px,60%);display:flex;flex-direction:column;gap:8px;pointer-events:none}
+#page-lattice .lt-busy .pg{background:rgba(6,10,22,.8);border-radius:12px;padding:9px 12px;box-shadow:0 0 0 1px rgba(140,170,230,.16)}
+
+/* tiles of the large runs: over the stage in the last chapter, below it on narrow screens */
+#page-lattice .lt-tiles{position:absolute;left:24px;right:24px;top:92px;bottom:24px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;opacity:0;pointer-events:none;align-items:stretch}
+#page-lattice .lt-tile{position:relative;border-radius:18px;background:rgba(6,10,22,.84);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(140,170,230,.16),0 30px 60px -30px #000;padding:20px;display:flex;flex-direction:column;gap:9px;min-width:0;overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .2s;box-sizing:border-box}
+#page-lattice .lt-tile:hover{box-shadow:inset 0 0 0 1px rgba(63,224,208,.6),0 0 40px -14px #3fe0d0;transform:translateY(-2px)}
+#page-lattice .lt-tilehead{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+#page-lattice .lt-tile h4{margin:0;font-size:15px;font-weight:700;color:#f3f6fc;line-height:1.25;letter-spacing:-.005em}
+#page-lattice .lt-tile .lt-tv{font:600 15px/1.35 ui-monospace,Menlo,monospace;color:#f3f6fc;font-variant-numeric:tabular-nums}
+#page-lattice .lt-tile .lt-tv small{display:block;font:500 12.5px/1.4 Inter,Helvetica,Arial,sans-serif;color:rgba(170,186,214,.82)}
+#page-lattice .lt-tile p{margin:0;font-size:12.5px;line-height:1.45;color:rgba(204,214,236,.88)}
+#page-lattice .lt-tile p.lt-gate{color:rgba(150,230,190,.92);border-top:1px solid rgba(140,170,230,.14);padding-top:8px}
+#page-lattice .lt-tile canvas{width:100%;flex:1 1 60px;min-height:54px;max-height:150px;display:block;margin-top:auto}
+#page-lattice .lt-tile .pg{min-width:0}
+#page-lattice .lt-ph,#page-lattice .lt-real{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font:700 11px/1.5 Inter,Helvetica,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:1px 10px;background:transparent}
+#page-lattice .lt-ph{color:var(--amber)}
+#page-lattice .lt-ph::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--amber);flex:none;box-shadow:0 0 8px var(--amber)}
+#page-lattice .lt-real{color:var(--teal)}
+#page-lattice .lt-tile.ph{box-shadow:inset 0 0 0 1.5px rgba(255,180,74,.6),0 30px 60px -30px #000;background:repeating-linear-gradient(135deg,rgba(255,180,74,.06) 0 10px,rgba(6,10,22,.88) 10px 20px)}
+#page-lattice .lt-tile.ph .lt-tv,#page-lattice .lt-tile.ph p:not(.lt-gate){color:rgba(255,208,140,.82);font-style:italic}
+
+/* ---------------------------------------------------------------- caption, timeline, limits, sources */
+#page-lattice .lt-caps{position:relative;min-height:22px;margin:14px 0 14px}
+#page-lattice .lt-capline{display:none;font-size:14px;line-height:1.5;color:#dfe6f5}
+#page-lattice .lt-capline.on{display:block;animation:lt-in .6s ease both}
+#page-lattice .lt-capline .tex{font-size:1em}
+#page-lattice .lt-timeline{display:flex;align-items:flex-start;gap:16px}
+#page-lattice .lt-playbox{display:flex;align-items:center;gap:14px;flex:none;width:340px;min-width:0}
+#page-lattice .lt-play{flex:none;width:56px;height:56px;border-radius:50%;border:0;background:#3fe0d0;box-shadow:0 0 0 6px rgba(63,224,208,.16),0 0 34px -4px #3fe0d0;position:relative;cursor:pointer;transition:transform .15s,box-shadow .15s;padding:0}
+#page-lattice .lt-play:hover{transform:scale(1.06);background:#62efe1;box-shadow:0 0 0 7px rgba(63,224,208,.24),0 0 44px -2px #3fe0d0}
+#page-lattice .lt-play::before,#page-lattice .lt-play::after{content:'';position:absolute;top:18px;width:6px;height:20px;border-radius:2px;background:#05222b}
+#page-lattice .lt-play::before{left:19px}#page-lattice .lt-play::after{left:31px}
+#page-lattice .lt-play.paused::before{left:22px;top:16px;width:0;height:0;border-radius:0;background:none;border-style:solid;border-width:12px 0 12px 19px;border-color:transparent transparent transparent #05222b}
+#page-lattice .lt-play.paused::after{display:none}
+#page-lattice .lt-playtext{display:flex;flex-direction:column;gap:3px;min-width:0}
+#page-lattice .lt-playtext b{font-size:15px;font-weight:700;color:#f3f6fc;line-height:1.25}
+#page-lattice .lt-playtext span{font-size:12.5px;color:rgba(170,186,214,.8);white-space:nowrap}
+#page-lattice .lt-playtext kbd{font:600 11px/1 ui-monospace,Menlo,monospace;color:#eef2fb;border:1px solid rgba(160,178,210,.45);border-radius:5px;padding:1px 6px;margin:0 2px}
+#page-lattice .lt-playtext .lt-count{font:500 11.5px/1.3 ui-monospace,Menlo,monospace;color:rgba(124,236,224,.9);font-variant-numeric:tabular-nums;min-height:15px}
+#page-lattice .lt-track{position:relative;flex:1;height:56px;cursor:pointer;touch-action:none;min-width:0}
+#page-lattice .lt-track::before{content:'';position:absolute;left:0;right:0;top:12px;height:5px;border-radius:5px;background:rgba(140,170,230,.16)}
+#page-lattice .lt-fill{position:absolute;left:0;top:12px;height:5px;border-radius:5px;background:linear-gradient(90deg,#6fb1ff,#3fe0d0);box-shadow:0 0 14px #3fe0d0;pointer-events:none}
+#page-lattice .lt-knob{position:absolute;top:14.5px;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(63,224,208,.3),0 0 18px #3fe0d0;pointer-events:none;z-index:1}
+#page-lattice .lt-mark{position:absolute;top:0;height:56px;border:0;background:none;box-shadow:none;border-radius:0;padding:27px 6px 0 0;text-align:left;font-size:12.5px;color:rgba(170,186,214,.75);cursor:pointer;display:flex;align-items:flex-start;gap:8px;overflow:hidden;border-left:1px solid rgba(140,170,230,.3);box-sizing:border-box}
+#page-lattice .lt-mark:hover{color:#fff;background:none;box-shadow:none}
+#page-lattice .lt-mark i{flex:none;font:700 11px/19px Inter,Helvetica,Arial,sans-serif;width:19px;height:19px;border-radius:50%;text-align:center;background:rgba(140,170,230,.18);color:#dfe6f5;margin-left:7px;font-style:normal}
+#page-lattice .lt-mark span{line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#page-lattice .lt-mark.on{color:#f3f6fc}
+#page-lattice .lt-mark.on i{background:#3fe0d0;color:#05222b}
+#page-lattice .lt-limits{margin:14px 0 0}
+#page-lattice .lt-foot{display:flex;flex-direction:column;gap:10px;margin:10px 0 0}
+#page-lattice .lt-src{display:flex;gap:6px 16px;flex-wrap:wrap;align-items:baseline}
+#page-lattice .lt-src>span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(160,178,210,.6);font-weight:700}
+#page-lattice .lt-src .src-links{margin:0}
+@media (max-width:1100px){
+  #page-lattice .lt-wrap{display:flex;flex-direction:column}
+  #page-lattice .lt-stagewrap{display:contents}
+  #page-lattice .lt-head{order:0}#page-lattice .lt-stagebox{order:1}#page-lattice .lt-caps{order:2}#page-lattice .lt-timeline{order:3}#page-lattice .lt-limits{order:4}#page-lattice .lt-tiles{order:5}#page-lattice .lt-foot{order:6}
+  #page-lattice .lt-tiles{position:static;opacity:1!important;pointer-events:auto!important;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:16px}
+  #page-lattice .lt-tile canvas{flex:none;height:90px}
+  #page-lattice .lt-mark span{display:none}
+  #page-lattice .lt-playbox{width:280px}
+  #page-lattice .lt-seg button span{display:none}
+  #page-lattice .lt-seg{top:186px}
+}
+@media (max-width:700px){
+  #page-lattice .lt-wrap{padding:12px 16px 28px}
+  #page-lattice .lt-head h2{font-size:22px}
+  #page-lattice .lt-open{width:100%;justify-content:flex-start}
+  #page-lattice .lt-stagebox{height:clamp(320px,50vh,480px);border-radius:16px}
+  #page-lattice .lt-title{left:16px;top:14px;max-width:68%}
+  #page-lattice .lt-nums{left:16px;right:16px;top:auto;bottom:12px;flex-direction:row;justify-content:space-between;align-items:flex-end;gap:8px}
+  #page-lattice .lt-nums>div{align-items:flex-start;min-width:0;flex:1 1 0}
+  #page-lattice .lt-nums b{font-size:16px}
+  #page-lattice .lt-nums span{font-size:9.5px;letter-spacing:.05em;white-space:normal;line-height:1.2}
+  #page-lattice .lt-seg{right:14px;top:12px}
+  #page-lattice .lt-busy{left:16px;bottom:70px}
+  #page-lattice .lt-tiles{grid-template-columns:minmax(0,1fr)}
+  #page-lattice .lt-tile{padding:16px}
+  #page-lattice .lt-timeline{flex-direction:column;gap:10px}
+  #page-lattice .lt-playbox{width:100%}
+  #page-lattice .lt-track{width:100%;flex:none;height:44px}
+  #page-lattice .lt-mark{height:44px}
+}
+
+/* ================================================================ the guided explainer (also shown by the Journey page) */
+.lx{--teal:#3fe0d0;--amber:#ffb44a;--blue:#6fb1ff;--red:#ff6480;display:flex;flex-direction:column;gap:16px;width:100%;height:100%;box-sizing:border-box;color:#eef2fb;font-family:Inter,Helvetica,Arial,sans-serif;container-type:inline-size}
+.lx *{box-sizing:border-box}
+.lx-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex:none}
+.lx-steps{display:flex;align-items:center;gap:0;min-width:0;flex:1}
+.lx-steps i{flex:1 1 8px;max-width:26px;height:1px;background:rgba(140,170,230,.35)}
+.lx-steps button{width:36px;height:36px;flex:none;border-radius:50%;border:1px solid rgba(140,170,230,.35);background:rgba(10,16,30,.7);color:rgba(197,208,230,.85);font:700 12.5px/1 Inter,Helvetica,Arial,sans-serif;padding:0;cursor:pointer;box-shadow:none}
+.lx-steps button:hover{border-color:#3fe0d0;color:#fff}
+.lx-steps button.on{background:#3fe0d0;border-color:#3fe0d0;color:#05222b;box-shadow:0 0 18px -2px #3fe0d0}
+.lx-ctl{display:flex;align-items:center;gap:8px;flex:none}
+.lx-ctl button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(140,170,230,.35);background:rgba(10,16,30,.7);color:#eef2fb;font:500 20px/1 Inter,Helvetica,Arial,sans-serif;padding:0 0 2px;cursor:pointer;position:relative;box-shadow:none}
+.lx-ctl button:hover{border-color:#3fe0d0;color:#3fe0d0}
+.lx-ctl button[data-a="play"]{background:#3fe0d0;border-color:#3fe0d0;width:46px;height:46px;box-shadow:0 0 22px -4px #3fe0d0}
+.lx-ctl button[data-a="play"]::before,.lx-ctl button[data-a="play"]::after{content:'';position:absolute;top:14px;width:5px;height:16px;border-radius:2px;background:#05222b}
+.lx-ctl button[data-a="play"]::before{left:15px}.lx-ctl button[data-a="play"]::after{left:25px}
+.lx-ctl button[data-a="play"].paused::before{left:18px;top:13px;width:0;height:0;background:none;border-radius:0;border-style:solid;border-width:9px 0 9px 14px;border-color:transparent transparent transparent #05222b}
+.lx-ctl button[data-a="play"].paused::after{display:none}
+.lx-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;flex:1;min-height:0}
+.lx-stage{position:relative;border-radius:18px;overflow:hidden;background:#03050b;aspect-ratio:1.36;min-height:260px;width:100%;box-shadow:0 0 0 1px rgba(140,170,230,.12),inset 0 0 80px -40px rgba(70,110,200,.4)}
+.lx-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.lx-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.06)}
+.lx-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6fb1ff,#3fe0d0)}
+.lx-text{display:flex;flex-direction:column;gap:12px;min-width:0;padding:2px 0}
+.lx-k{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(160,178,210,.75);font-weight:700}
+.lx-label{font:700 11px/1.5 Inter,Helvetica,Arial,sans-serif;letter-spacing:.06em;border-radius:999px;padding:1px 10px;border:1px solid currentColor;background:transparent}
+.lx-label.EXACT,.lx-label.DERIVED,.lx-label.MEASURED{color:var(--teal)}.lx-label.DECLARED{color:var(--amber)}.lx-label.ARGUED,.lx-label.IMPORTED{color:var(--blue)}.lx-label.OPEN{color:var(--red)}
+.lx-text h3{margin:0;font-size:22px;line-height:1.18;font-weight:700;letter-spacing:-.02em;color:#f5f8ff}
+.lx-p{margin:0;font-size:14px;line-height:1.52;color:#dfe6f5}
+.lx-formula{font-size:13.5px;color:#cfe3ff;background:rgba(255,255,255,.035);border-radius:12px;padding:4px 10px;overflow-x:auto;overflow-y:hidden}
+.lx-formula:empty{display:none}
+.lx-formula .tex-d{margin:8px 0}
+.lx-note{margin:0;font-size:12.5px;line-height:1.48;color:rgba(180,194,222,.85)}
+.lx-src{margin-top:auto;font-size:12.5px;color:#7fb8ff;text-decoration:none;border-bottom:1px solid rgba(127,184,255,.3);align-self:flex-start;min-height:20px}
+.lx-src:hover{color:#3fe0d0;border-color:#3fe0d0}
+@container (max-width:640px){.lx-body{grid-template-columns:minmax(0,1fr)}.lx-steps button{width:32px;height:32px}.lx-text h3{font-size:19px}}
+.lx-over{position:fixed;inset:0;z-index:90;background:rgba(2,4,10,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:max(16px,6vh) 16px 16px;overflow:auto}
+.lx-box{position:relative;width:min(960px,100%);background:linear-gradient(160deg,rgba(17,26,46,.98),rgba(7,11,21,.99));border:1px solid #2b3d63;border-radius:22px;padding:20px 24px 24px;box-shadow:0 40px 120px -30px #000}
+.lx-boxhead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 14px}
+.lx-boxhead b{font-size:18px;font-weight:700;color:#f5f8ff;letter-spacing:-.01em}
+.lx-close{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid #2b3d63;background:#0b1222;color:#eef2fb;font-size:20px;line-height:1;padding:0 0 2px;cursor:pointer}
+.lx-close:hover{border-color:#3fe0d0;color:#3fe0d0}
+@media (max-width:700px){.lx-box{padding:14px 16px 16px;border-radius:16px}}

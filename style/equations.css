@@ -1,0 +1,110 @@
+/* "Equations and sources" (equations.js): the section at the foot of every main page, and its bottom-sheet form on
+   the fixed full-height pages. Every rule is scoped to .eq-sec, .eq-dock or .page.eq-docked. The section uses no h2,
+   p, button or .card, so the page styles of design-a.css and design-b.css do not reach it.
+   Layout rules of the site (ADDENDUM_SITE.md): one centred column of at most 1600 px with 24 px at the sides (16 px
+   below 700 px); a grid of three equal columns, two below 1100 px, one below 700 px; gaps 16 px; card padding 20 px
+   (16 px below 700 px); section title 18 px, card title 15 px, kicker 11 px, body 14 px, small 12.5 px. */
+
+.eq-sec{--eq-line:rgba(140,170,230,.13);--eq-label:rgba(160,178,210,.68);--eq-ink:#f3f6fc;--eq-soft:rgba(206,216,238,.9);
+  position:relative;clear:both;box-sizing:border-box;max-width:1600px;margin:48px auto 0;padding:0 0 40px;
+  color:#dfe6f5;font-size:14px;line-height:1.5;text-align:left;letter-spacing:0;text-transform:none;font-weight:400;font-variant-numeric:tabular-nums}
+.eq-sec *{box-sizing:border-box}
+.eq-sec.eq-pad{padding-left:24px;padding-right:24px}
+.eq-sec::before{content:'';display:block;height:1px;margin-bottom:28px;background:var(--eq-line)}     /* as wide as the cards */
+
+.eq-head{display:flex;align-items:center;justify-content:space-between;gap:10px 24px;flex-wrap:wrap}
+.eq-title{display:flex;align-items:center;font-size:18px;line-height:1.3;font-weight:700;letter-spacing:-.005em;color:var(--eq-ink)}
+.eq-legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.eq-lead{margin:6px 0 0;max-width:1100px;font-size:14px;color:var(--eq-soft)}
+.eq-sub{display:flex;align-items:baseline;gap:4px 12px;flex-wrap:wrap;margin:40px 0 0}
+.eq-sub i,.eq-more>i,.eq-links a i,.eq-std{font-style:normal;font-size:11px;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--eq-label)}
+.eq-sub b{font-size:15px;font-weight:700;color:var(--eq-ink)}
+.eq-sub span{flex:1 1 320px;font-size:12.5px;color:rgba(170,186,214,.8)}
+.eq-head+.eq-sub{margin-top:24px}
+
+/* three equal columns; the last card of a broken row takes the rest of the row */
+.eq-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-flow:row dense;gap:16px;margin-top:16px}
+.eq-grid[data-cols="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+.eq-card{--c:#93a3c0;display:grid;grid-template-rows:auto 1fr auto auto;align-content:stretch;min-width:0;border-radius:16px;padding:20px;
+  background:color-mix(in srgb,var(--c) 4%,rgba(255,255,255,.024));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 17%,rgba(255,255,255,.05));transition:box-shadow .2s}
+.eq-card:hover{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 46%,transparent),0 0 40px -20px var(--c)}
+.eq-card.eq-wide,.eq-card.eq-l2{grid-column:span 2}
+.eq-card.eq-l3{grid-column:1 / -1}
+/* the four parts of the cards of one row share their heights: titles, formulas, texts and links line up */
+@supports (grid-template-rows:subgrid){
+  .eq-grid{row-gap:0;margin-bottom:-16px}
+  .eq-card{grid-row:span 4;grid-template-rows:subgrid;margin-bottom:16px}
+}
+
+.eq-top{display:flex;align-items:center;gap:10px;min-height:24px;min-width:0}
+.eq-name{display:inline-flex;align-items:center;min-width:0;font-size:15px;line-height:1.35;font-weight:700;color:var(--eq-ink)}
+.eq-top .eq-st,.eq-top .eq-std{margin-left:auto;flex:none}
+.eq-st{--c:#93a3c0;display:inline-flex;align-items:center;height:22px;padding:0 9px;border:1px solid var(--c);border-radius:999px;background:transparent;white-space:nowrap;cursor:default;
+  font-size:11px;line-height:1;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.eq-std{white-space:nowrap;cursor:default}
+
+.eq-math{display:flex;align-items:center;min-width:0;min-height:104px;padding:14px 0 12px;font-size:14.5px;color:var(--eq-ink);overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+.eq-math::-webkit-scrollbar{display:none}
+.eq-math .tex.tex-d{margin:0 auto;overflow:visible;flex:none;max-width:none}
+.eq-math .tex:not([data-done]){font-size:11.5px;color:rgba(190,205,235,.7);white-space:normal;overflow-wrap:anywhere;max-width:100%;flex:0 1 auto}
+.eq-math .katex-display{margin:0}
+.eq-what{font-size:14px;color:var(--eq-soft)}
+.eq-links{display:flex;flex-wrap:wrap;align-content:flex-start;gap:4px 18px;margin-top:14px;padding-top:12px;border-top:1px solid var(--eq-line)}
+.eq-sec .eq-links a{font-size:12.5px;line-height:1.5;color:#8fbcff;text-decoration:none;border:0}
+.eq-sec .eq-links a:hover,.eq-sec .eq-links a:focus-visible{color:var(--teal,#3fe0d0);outline:none}
+.eq-links a i{margin-right:7px}
+
+.eq-more{display:flex;align-items:baseline;gap:4px 18px;flex-wrap:wrap;margin-top:24px}
+.eq-more .src-links{margin:0;gap:4px 18px}
+.eq-sec .eq-more .src-links a{font-size:12.5px;line-height:1.5;color:rgba(143,188,255,.86);border-bottom:0}
+.eq-sec .eq-more .src-links a:hover{color:var(--teal,#3fe0d0)}
+.eq-more:not(:has(.src-links a)),.eq-more[hidden]{display:none}
+
+@media (max-width:1099px){
+  .eq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .eq-card.eq-l2,.eq-card.eq-l3{grid-column:auto}
+  .eq-card.eq-wide,.eq-card.eq-m2{grid-column:1 / -1}
+}
+@media (max-width:699px){
+  .eq-sec.eq-pad{padding-left:16px;padding-right:16px}
+  .eq-grid,.eq-grid[data-cols="2"]{grid-template-columns:minmax(0,1fr)}
+  .eq-card.eq-wide,.eq-card.eq-l2,.eq-card.eq-l3,.eq-card.eq-m2{grid-column:auto}
+  .eq-card{padding:16px}
+  .eq-math{min-height:88px}
+  .eq-links{flex-direction:column;gap:0}
+  .eq-sec .eq-links a,.eq-sec .eq-more .src-links a{display:flex;align-items:center;min-height:36px}      /* tap targets */
+  .eq-more,.eq-more .src-links{flex-direction:column;gap:0}
+}
+
+/* ---------------------------------------------------------------- fixed pages: a strip with the chip, and the bottom sheet */
+.page.eq-docked{bottom:34px}                                      /* the page gives up a strip at its foot: nothing is covered */
+.eq-dock{position:static}
+.eq-dock::before{content:'';position:fixed;left:0;right:0;bottom:34px;height:1px;background:rgba(140,170,230,.10);pointer-events:none}
+.eq-open{position:fixed;left:50%;bottom:5px;transform:translateX(-50%);z-index:9;display:inline-flex;align-items:center;gap:8px;height:24px;padding:0 14px 0 11px;border-radius:999px;
+  font:700 11px/1 Inter,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:rgba(214,224,244,.9);
+  background:rgba(255,255,255,.04);border:1px solid rgba(140,170,230,.26);cursor:pointer;user-select:none;transition:color .15s,border-color .15s,box-shadow .15s}
+.eq-open span{font-size:13px;line-height:1;letter-spacing:0;color:var(--teal,#3fe0d0)}
+.eq-open:hover,.eq-open:focus-visible{color:#fff;outline:none;border-color:rgba(63,224,208,.7);box-shadow:0 0 22px -8px var(--teal,#3fe0d0)}
+.eq-back{display:none;position:fixed;left:0;right:0;top:0;bottom:0;z-index:39;background:rgba(2,4,10,.5)}
+.eq-sheet{position:fixed;left:0;right:0;bottom:0;z-index:40;max-height:78vh;display:flex;flex-direction:column;
+  background:linear-gradient(180deg,rgba(12,18,33,.98),rgba(6,9,18,.995));border-top:1px solid rgba(140,170,230,.22);border-radius:20px 20px 0 0;box-shadow:0 -30px 80px -30px #000;
+  transform:translateY(103%);visibility:hidden;transition:transform .28s cubic-bezier(.2,.8,.2,1),visibility 0s .28s}
+.eq-dock.open .eq-sheet{transform:none;visibility:visible;transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.eq-dock.open .eq-back{display:block}
+.eq-dock.open .eq-open{visibility:hidden}
+.eq-sheet-bar{flex:none;position:relative;height:44px}
+.eq-sheet-bar i{position:absolute;left:50%;top:10px;width:44px;height:4px;margin-left:-22px;border-radius:4px;background:rgba(160,178,210,.3)}
+.eq-close{position:absolute;right:20px;top:8px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1;
+  color:rgba(214,224,244,.84);background:rgba(255,255,255,.06);cursor:pointer;user-select:none}
+.eq-close:hover,.eq-close:focus-visible{color:#fff;background:rgba(255,255,255,.14);outline:none}
+.eq-sheet-body{overflow:auto;padding:0 24px 12px;overscroll-behavior:contain}
+.eq-sec.eq-in-sheet{margin:0 auto;padding:0 0 12px}
+.eq-sec.eq-in-sheet::before{display:none}
+@media (min-width:1400px){.eq-in-sheet .eq-grid[data-cols="2"]{grid-template-columns:repeat(4,minmax(0,1fr))}}     /* four cards in one row: the sheet stays low */
+@media (max-width:699px){
+  .page.eq-docked{bottom:46px}.eq-dock::before{bottom:46px}
+  .eq-open{height:36px;font-size:11px}
+  .eq-close{width:36px;height:36px;right:12px;top:4px}
+  .eq-sheet-body{padding:0 16px 12px}
+}
+@media (prefers-reduced-motion:reduce){.eq-sheet,.eq-dock.open .eq-sheet{transition:none}}
