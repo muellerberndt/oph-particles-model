@@ -8,7 +8,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from sync_finite_results import RER, SOURCES, EXTRA, load_receipt, projection, sync, calibrated_quark_projection, defect_projection, yukawa_projection, joined_projection
+from sync_finite_results import RER, SOURCES, EXTRA, load_receipt, projection, sync, calibrated_quark_projection, defect_projection, yukawa_projection, joined_projection, extended_mass_projection
 
 
 class FiniteProjectionTests(unittest.TestCase):
@@ -43,7 +43,7 @@ class FiniteProjectionTests(unittest.TestCase):
             self.assertEqual(sync(root,check=True),paths)
             self.assertEqual(before,{p:(root/p).read_bytes() for p in paths})
             summary = json.loads((root/'finite/results.json').read_text())
-            self.assertEqual(len(summary['sources']),22)
+            self.assertEqual(len(summary['sources']),29)
             self.assertEqual(len(summary['yukawa']['rows']),4)
             self.assertFalse(summary['defect_response']['physical_Yukawa_prediction'])
             self.assertTrue(all(abs(r['p0']+r['p1']+r['p2']+r['p3']-1)<1e-12 for r in summary['epochs']['rows']))
@@ -219,6 +219,46 @@ class FiniteProjectionTests(unittest.TestCase):
         with self.assertRaises(ValueError):joined_projection(changed)
         changed=copy.deepcopy(receipts);changed['dispersion']['cases'][0]['rows'][0]['complete_energies'].pop()
         with self.assertRaises(ValueError):joined_projection(changed)
+
+    def test_added_sources_keep_complete_original_laws_and_scale_roles(self):
+        receipts={key:load_receipt(RER/'model'/relative,RER) for key,(relative,_) in SOURCES.items()}
+        data=extended_mass_projection(receipts)
+        self.assertEqual([r['display_GeV'] for r in data['compiler']['rows']],['0.00051099895069','0.1056594144959','1.7769849708134'])
+        self.assertEqual(len(data['compiler']['records']),36)
+        self.assertEqual(sum(r['probability']==0 for r in data['compiler']['records']),30)
+        self.assertEqual(len(data['quadratic']['targets']),17)
+        self.assertEqual([len(r['records']) for r in data['quadratic']['readouts']],[84,375,96])
+        self.assertEqual([len(c['probes'][0]['records']) for c in data['neutrinos']['controls']],[67,182])
+        self.assertEqual(len(data['scalar_density']['records']),6)
+        self.assertEqual(len(data['composites']['pion_rows']),3)
+        self.assertEqual(len(data['composites']['rows']),6)
+        self.assertTrue(all(not r['common_scale_matches'] for r in data['quarks']['mechanisms']))
+        self.assertTrue(all(r['failure_probability']==.5 for r in data['quarks']['dressed']))
+
+    def test_added_receipts_reject_physical_promotions_and_lost_records(self):
+        receipts={key:load_receipt(RER/'model'/relative,RER) for key,(relative,_) in SOURCES.items()}
+        changes=[('lepton_compiler',('scope','physical_Standard_Model_leptons_or_gauge_continuum_derived'),True),
+            ('lepton_compiler',('same_source_kinetic_attachment','canonical_physical_Higgs_kinetic_residue_derived'),True),
+            ('lepton_compiler',('electron_anchored_compiled_source','rows',1,'electron_anchored_GeV'),'2'),
+            ('conditional_spectrum',('acceptance_flags','physical_target_acceptance'),True),
+            ('conditional_spectrum',('fermion_readout','zero_outside_projector_retained_per_pointer'),False),
+            ('neutrino_response',('scope','neutrino_rest_mass_or_Lorentz_limit_proved'),True),
+            ('quark_resolution',('scope','one_scale_fixed_target_fit_obtained'),True),
+            ('quark_dressing',('scope','physical_rest_mass_or_GeV_output'),True),
+            ('scalar_density',('scope','observed_Higgs_identification'),True),
+            ('pion',('particles',0,'physical_source_derived_mass_GeV'),.14)]
+        for name,path,bad in changes:
+            changed=copy.deepcopy(receipts);target=changed[name]
+            for key in path[:-1]:target=target[key]
+            target[path[-1]]=bad
+            with self.subTest(name=name,path=path),self.assertRaises(ValueError):extended_mass_projection(changed)
+        for name,path in [('lepton_compiler',('exact_limiting_rest_mass_instrument','complete_records')),
+                          ('scalar_density',('complete_occupation_energy_records',)),
+                          ('conditional_spectrum',('boson_readout','records'))]:
+            changed=copy.deepcopy(receipts);target=changed[name]
+            for key in path:target=target[key]
+            target.pop()
+            with self.subTest(name=name),self.assertRaises(ValueError):extended_mass_projection(changed)
 
     def test_every_page_mount_target_exists_once(self):
         class Elements(HTMLParser):

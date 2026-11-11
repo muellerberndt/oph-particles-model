@@ -38,6 +38,13 @@ SOURCES = {
     'family_vertices': ('defect_family_vertices/results.json', 'Full native contact vertices and scalar spectrum'),
     'dispersion': ('defect_dispersion/results.json', 'Complete periodic defect band controls'),
     'mass_catalogue': ('defect_mass_catalogue/results.json', 'Conditional GeV map and seventeen-species catalogue'),
+    'lepton_compiler': ('lepton_mass_compiler/results.json', 'Native lepton analyzer compiled into free rest energies'),
+    'quark_resolution': ('quark_flavour_resolution/results.json', 'Complete quark response splitting and scale tests'),
+    'quark_dressing': ('quark_gauge_dressing/results.json', 'Positive Gauss-law electric dressing'),
+    'scalar_density': ('native_scalar_density_pole/results.json', 'Exact neutral scalar-density pole and complete readout'),
+    'pion': ('pion_mass_readout/results.json', 'Conditional pion triplet and archived scale choices'),
+    'conditional_spectrum': ('conditional_particle_spectrum/results.json', 'Complete empirically calibrated quadratic particle spectrum'),
+    'neutrino_response': ('neutrino_mass_response/results.json', 'Native neutral transport and coupled sterile controls'),
 }
 
 
@@ -406,6 +413,189 @@ def joined_projection(receipts):
             'clock_test':'The specified record-zero uᶜ→up and dᶜ→down dictionary has disjoint GeV-per-source-energy intervals. One common scale cannot match both fixed calibrated targets. This excludes that dictionary, rather than assigning separate clocks.'}}
 
 
+def extended_mass_projection(receipts):
+    """Keep each added mass construction, preparation and calibration separate."""
+    def interval(value):
+        bounds=tuple(map(Fraction,value))
+        if len(bounds)!=2 or bounds[0]>bounds[1]:raise ValueError('ordered rational enclosure required')
+        return [float(x) for x in bounds]
+    def complete(boxes,total=Fraction(1)):
+        pairs=[tuple(map(Fraction,x)) for x in boxes]
+        if any(len(x)!=2 or not 0<=x[0]<=x[1]<=1 for x in pairs) or not sum(x[0] for x in pairs)<=total<=sum(x[1] for x in pairs):
+            raise ValueError('complete original probability intervals do not contain their total')
+    c=receipts['lepton_compiler'];cs=c['scope'];rest=c['exact_limiting_rest_mass_instrument'];finite=c['finite_compiler_mass_readout']
+    if (c['schema']!='oph.lepton_mass_compiler.v1'
+            or cs['actual_lepton_effect_compiled_into_full_CAR_mass_coefficient'] is not True
+            or cs['same_source_free_Dirac_limit_with_complete_archive_bound'] is not True
+            or any(cs[k] is not False for k in ('finite_N_evolution_identified_with_exact_unitary_mass_spectrum','physical_Standard_Model_leptons_or_gauge_continuum_derived','programmed_phase_two_ninths_is_passive_source_prediction','neutral_background_is_selected_interacting_Higgs_VEV','quantum_archives_or_failure_records_discarded'))
+            or len(rest['complete_records'])!=36 or rest['zero_probability_records']!=30
+            or rest['full_16_state_CAR_intertwiner_energy_and_electric_charge_checked'] is not True
+            or sum(Fraction(r['probability_exact']) for r in rest['complete_records'])!=1
+            or len(c['same_source_kinetic_attachment']['all_eight_valleys'])!=8
+            or any(len(r['complete_180_energy_rows'])!=180 for r in c['same_source_kinetic_attachment']['all_eight_valleys'])
+            or c['existing_charged_family_frame_witness']['prepared_to_native_pair_factor_exact']!='5/4'
+            or c['existing_charged_family_frame_witness']['admission']['literal_effect_to_existing_configured_action_frame_map'] is not True
+            or c['same_source_kinetic_attachment']['canonical_physical_Higgs_kinetic_residue_derived'] is not False
+            or c['electron_anchored_compiled_source']['observed_interacting_lepton_identification_proved'] is not False):
+        raise ValueError('compiled free-mass bridge exceeds its verified source domain')
+    compiler_rows=[]
+    for row in c['electron_anchored_compiled_source']['rows']:
+        compiler_rows.append({'label':row['species'],'character':row['character'],
+            'source_mass':float(row['compiled_source_rest_energy']),'GeV':float(row['electron_anchored_GeV']),
+            'display_GeV':format(float(row['electron_anchored_GeV']),'.14g')})
+    if ([r['label'] for r in compiler_rows]!=['electron','muon','tau']
+            or [r['character'] for r in compiler_rows]!=[1,2,0]
+            or any(not math.isclose(r['GeV'],r['source_mass']*float(c['electron_anchored_compiled_source']['source_energy_unit_GeV']),rel_tol=2e-13) for r in compiler_rows)
+            or not math.isclose(compiler_rows[0]['GeV'],float(Fraction(finite['electron_anchor_GeV_exact'])),rel_tol=1e-14)):
+        raise ValueError('compiled masses lost the single electron anchor or family assignment')
+    compiler_records=[]
+    for row in rest['complete_records']:
+        if Fraction(row['probability_exact']) and row['native_electric_charge']-row['reservoir_out']+row['idle_dual_charge_reference_occupation']!=0:
+            raise ValueError('source, reservoir and reference charge accounting differs')
+        compiler_records.append({**row,'probability':float(Fraction(row['probability_exact']))})
+    epsilon=Fraction(finite['compiler']['complete_unhalved_trace_error_exact'])
+    if (finite['compiler']['vacuum_postselection'] is not False or finite['finite_shot_noise_included'] is not False
+            or finite['physical_model_error_included'] is not False
+            or Fraction(finite['complete_channel_error_to_energy_error_exact'])>=Fraction(finite['certified_denominator_floor_exact'])):
+        raise ValueError('finite compiler precision does not resolve its denominator')
+    compiler={'rows':compiler_rows,'records':compiler_records,
+        'steps':str(finite['compiler']['steps']),'trace_error':float(epsilon),
+        'energy_error':float(Fraction(finite['complete_channel_error_to_energy_error_exact'])),
+        'enlarged_modes_per_site':c['full_CAR_operator']['enlarged_modes_per_site'],
+        'ratio_intervals':[{**r,'ratio_interval':interval(r['ratio_interval']),'electron_anchored_GeV_interval':interval(r['electron_anchored_GeV_interval'])} for r in finite['ratio_bounds']],
+        'source_energy_unit_GeV':float(c['electron_anchored_compiled_source']['source_energy_unit_GeV']),
+        'scope':'The literal analyzer is compiled into a declared free Dirac source, with m=e at background norm 1. The same source supplies the rest-frequency readout; one-fermion addition/removal reads m and a failed probe can read 2m. The fixed phase 2/9, background, fresh ancillary vacuum and pulse clock are supplied architecture. Eight valleys and 39 zero internal coefficients remain. Observed interacting leptons, the weak scale and a canonically normalized physical Higgs coupling are unproved.',
+        'precision_scope':'The finite-round bound uses committed classical vacuum/nonvacuum flags and retains quantum coherence within each history. These are exact probability-law bounds, without finite-shot, anchor or physical-model uncertainty. The enormous round count is a resource formula, not an executed run at that precision.'}
+    density=receipts['scalar_density'];dr=density['complete_occupation_energy_records']
+    if (density['schema']!='oph.native_scalar_density_pole.v1' or len(dr)!=6
+            or density['scope']['physical_rest_mass_GeV'] is not None
+            or density['scope']['observed_Higgs_identification'] is not False
+            or density['scope']['propagation_calculated'] is not False
+            or density['outside_pair_weight_exact']!='0'):
+        raise ValueError('neutral density pole is not an observed Higgs mass')
+    complete([r['original_probability']['interval'] for r in dr])
+    scalar_density={'gap':interval(density['positive_pole_source_energy']['interval']),
+        'weight':interval(density['connected_positive_pole_weight']['interval']),
+        'moment':interval(density['retarded_first_moment']['interval']),
+        'records':[{'label':r['occupation_outcome']+' / '+r['energy_outcome'],
+            'probability':interval(r['original_probability']['interval']),
+            'energy':None if r['source_energy_transfer'] is None else interval(r['source_energy_transfer']['interval'])} for r in dr],
+        'scope':'An exact neutral occupation-density pole of the interacting one-cell source. Its normalized response has unit oscillator residue. No propagation or physical Higgs mass is assigned, and it is distinct from the elementary charged scalar response.'}
+    q=receipts['quark_resolution'];g=receipts['quark_dressing']
+    if (q['schema']!='oph.quark_flavour_resolution.v1' or q['scope']['physical_quark_rest_masses_derived'] is not False
+            or q['scope']['one_scale_fixed_target_fit_obtained'] is not False
+            or g['schema']!='oph.quark_gauge_dressing.v1' or g['scope']['positive_Gauss_electric_energy_derived'] is not True
+            or g['scope']['physical_rest_mass_or_GeV_output'] is not False
+            or g['scope']['compact_343_internal_sites_locally_gauged'] is not False):
+        raise ValueError('quark response controls exceed their finite source domain')
+    mechanisms=[]
+    for name,m in q['mechanisms'].items():
+        test=m['one_scale_test'];channels=[]
+        if test['one_scale_matches_frozen_two_targets'] is not False or test['dictionary_is_physical_mass_identification'] is not False:
+            raise ValueError('the frozen quark scale obstruction was changed')
+        for label,ch in m['channels'].items():
+            records=ch['complete_records'];failure=Fraction(ch['failure_probability'])
+            if failure!=Fraction(1,2) or ch['per_success_conditioning_applied'] is not False:raise ValueError('quark failure weight lost')
+            complete([r['original_probability_interval'] for r in records],1-failure)
+            channels.append({'label':label,'failure_probability':float(failure),
+                'records':[{'label':str(r['native_energy_record'])+' / '+r['branch'],
+                    'probability':interval(r['original_probability_interval']),
+                    'source_energy':interval(r['source_or_relational_excitation_interval']),
+                    'total_energy':interval(r['total_source_plus_reference_excitation_interval'])} for r in records]})
+        mechanisms.append({'key':name,'label':name.replace('_',' '),'law':m['law'],'ratio':test['ratio_numeric'],
+            'u_anchored_d_GeV':test['u_anchored_d_GeV_numeric'],'common_scale_matches':False,'channels':channels})
+    dressed=[]
+    for label,row in g['literal_one_cell_complete_energy_example']['channels'].items():
+        complete([r['original_probability_interval'] for r in row['complete_energy_records']],Fraction(1,2))
+        if row['pump_failure']!='1/2' or row['parent_reference_cost_four_imported'] is not False:raise ValueError('electric dressing reference was changed')
+        dressed.append({'label':label,'charge':row['source_hypercharge_after_removal'],
+            'electric_energy':float(Fraction(row['positive_electric_energy'])),'failure_probability':.5,
+            'records':[{'energy':interval(r['energy_transfer_interval']),'probability':interval(r['original_probability_interval'])} for r in row['complete_energy_records']]})
+    quarks={'mechanisms':mechanisms,'dressed':dressed,
+        'target_ratio':float(Fraction(next(iter(q['mechanisms'].values()))['one_scale_test']['frozen_target_ratio'])),
+        'electric_shift_difference':float(Fraction(g['literal_one_cell_complete_energy_example']['uc_minus_dc_corresponding_line_shift'])),
+        'scope':'Shared unit-coefficient constructions split complete up/down response measures while preserving the stated current symmetries. None of the four frozen record dictionaries fits both calibrated running targets with one common scale. The positive Gauss-law energy is a geometry-dependent electrostatic dressing of one charge island; it supplies no quark rest mass, transverse photon or 343-site local gauge theory.'}
+    n=receipts['neutrino_response'];ns=n['scope'];neutral_controls=[]
+    if (n['schema']!='oph.neutrino_mass_response.v1' or ns['neutrino_rest_mass_or_Lorentz_limit_proved'] is not False
+            or ns['three_observed_generations_or_mixing_matrix_derived'] is not False
+            or ns['full32_all_unit_ground_or_spatial_neutral_poles_computed'] is not False):
+        raise ValueError('neutral control gaps were promoted to neutrino rest masses')
+    for name,key,energies in [('Dirac','complete_unit_Dirac_lepton_sterile_control',12),('Majorana option','complete_unit_sterile_Majorana_lepton_control',35)]:
+        control=n[key];prepared=control['complete_original_preparation_energy_records'];probes=[]
+        if (control['full_control_carrier_dimension']!=1280 or control['full_physical_Gauss_dimension']!=80
+                or len(prepared)!=energies or sum(Fraction(r['original_preparation_probability']) for r in prepared)!=1
+                or control['ground_original_preparation_probability']!='1/80'
+                or control['same_scalar_ground_or_spectrum_transferred_to_full32_all_unit_source'] is not False):
+            raise ValueError('complete neutral ground preparation differs')
+        for label,probe in control['complete_neutral_probe_records'].items():
+            records=[{'label':'Preparation / energy '+str(i+1),'energy':interval(r['energy_interval']),
+                'energy_kind':'source energy','probability':[float(Fraction(r['original_preparation_probability']))]*2} for i,r in enumerate(control['terminal_preparation_records_before_ground_probe_refinement'])]
+            boxes=[]
+            for setting in probe['four_settings']:
+                if len(setting['complete_energy_records'])!=energies or setting['outside_complete_physical_target_probability']!='0':raise ValueError('neutral target rows lost')
+                prefix=setting['operation']+' / spin '+str(setting['spin'])
+                for i,r in enumerate(setting['complete_energy_records']):
+                    boxes.append(r['complete_preparation_joint_probability_interval'])
+                    records.append({'label':prefix+' / energy '+str(i),'energy':interval(r['energy_transfer_interval']),
+                        'energy_kind':'gap','probability':interval(r['complete_preparation_joint_probability_interval'])})
+                failure=setting['joint_complete_preparation_failure_probability_interval'];boxes.append(failure)
+                records.extend([{'label':prefix+' / failure','energy':None,'energy_kind':'not measured','probability':interval(failure)},
+                    {'label':prefix+' / outside','energy':None,'energy_kind':'zero outside','probability':[0.,0.]}])
+            complete(boxes,Fraction(1,80))
+            if len(records)!=({12:67,35:182}[energies]):raise ValueError('neutral preparation tree was not fully refined')
+            probes.append({'label':label.replace('_',' '),'records':records})
+        neutral_controls.append({'label':name,'ground':interval(control['ground_energy_interval']),'energy_count':energies,'probes':probes})
+    nc=n['conditional_one_scale_GeV_comparison'];cal=nc['comparison_calibration']
+    if nc['physical_rest_pole_attachment_proved'] is not False or cal['independent_mass_prediction'] is not False or cal['active_or_sterile_species_assigned_to_either_value'] is not False:
+        raise ValueError('neutral empirical scale became a species prediction')
+    neutrinos={'controls':neutral_controls,'conditional_GeV':cal['conditional_GeV_values_numeric'],
+        'scale_role':cal['role'],'scope':'These coupled lepton/sterile controls recompute the complete 80-state Gauss ground inside a 1,280-state carrier. The Dirac option has visible gaps 1 and 5; the Majorana option has 12 visible neutral roots among 35 target energies. All preparation failures, probe failures and zero rows remain. They are separate from the full 32-mode all-unit and spatial sources. No observed flavor, mixing matrix or neutrino rest-mass assignment follows.',
+        'clock':'exp(-it H_control) in source units; the optional GeV unit uses one empirical oscillation splitting and assigns neither value to a species.'}
+    p=receipts['conditional_spectrum'];flags=p['acceptance_flags'];inventory=p['mode_inventory']
+    if (p['schema']!='oph.conditional_particle_spectrum.v1' or len(p['elementary_particles'])!=17
+            or flags['conditional_construction_acceptance'] is not True
+            or flags['physical_target_acceptance'] is not False
+            or flags['all_yukawas_weak_background_and_gauge_parameters_are_empirical_inputs'] is not True
+            or flags['common_source_native_clock_to_GeV_derived'] is not False
+            or len(inventory['fermion_modes'])!=180 or len(inventory['boson_modes'])!=56
+            or any(r['native_source_prediction'] is not False for r in p['elementary_particles'])):
+        raise ValueError('conditional quadratic spectrum lost its empirical input boundary')
+    if (p['fermion_readout']['zero_outside_projector_retained_per_pointer'] is not True
+            or any(r['other_source_energy_projectors_probability']!='0' for r in p['fermion_readout']['records'])
+            or p['boson_readout']['source_Hilbert_dimension']!=1653
+            or p['boson_readout']['all_column_count']!=1653):
+        raise ValueError('quadratic outside projectors or capped carrier were changed')
+    readouts=[]
+    for label,key,count in [('Fermions','fermion_readout',84),('Bosons','boson_readout',375),('Neutrino flavor','neutrino_flavour_readout',96)]:
+        rows=list(p[key]['records'])
+        if key=='neutrino_flavour_readout':
+            if len(rows)!=72 or p[key]['outside_energy_projector_probability_per_pointer']!='0':
+                raise ValueError('neutral-flavor outside outcome differs')
+            pointers={(r['flavour'],r['orientation'],tuple(r['momentum_GeV']),r['pointer']):r for r in rows}
+            if len(pointers)!=24:raise ValueError('neutral-flavor pointer alphabet differs')
+            rows.extend({**r,'mass_eigenstate':'outside','source_energy_GeV':None,'probability':{'exact':'0','numeric':0.},'outside':True} for r in pointers.values())
+        if len(rows)!=count or not math.isclose(sum(r['probability']['numeric'] for r in rows),1,abs_tol=2e-12):
+            raise ValueError('quadratic original records are incomplete')
+        if any(not math.isfinite(r['probability']['numeric']) or not 0<=r['probability']['numeric']<=1 for r in rows):
+            raise ValueError('quadratic record probabilities are invalid')
+        readouts.append({'label':label,'records':rows,'reference_cost_GeV':p[key]['reference_nonblank_energy_GeV']})
+    pion=receipts['pion']
+    if (pion['schema']!='oph.pion_mass_readout.v1' or len(pion['particles'])!=3
+            or any(r['physical_source_derived_mass_GeV'] is not None for r in pion['particles'])
+            or pion['calibrations']['anchor_and_model_uncertainty_GeV'] is not None
+            or pion['pion_charged_neutral_splitting']['source_GeV']!=0
+            or any(r['physical_source_derived_mass_GeV'] is not None or r['shares_calibrated_quadratic_elementary_source'] is not False for r in p['composite_controls'])):
+        raise ValueError('conditional composite conversions became physical source masses')
+    return {'compiler':compiler,'scalar_density':scalar_density,'quarks':quarks,'neutrinos':neutrinos,
+        'quadratic':{'targets':p['elementary_particles'],'readouts':readouts,
+            'fermion_modes':180,'boson_modes':56,'extra_candidates':p['extra_source_candidates'],
+            'clock':p['source_state_reference_clock']['clock'],
+            'scope':'One declared quadratic action gives conditional GeV coefficients for 17 Standard Model target types, with 180 fermion modes and 56 physical boson modes at two momenta. All Yukawas, the weak background and gauge parameters are empirical inputs; the optional neutrino action also uses a calibrated hierarchy and mixing prescription. This recovers supplied action parameters and supplies complete detector records, without deriving interacting poles, confinement or a physical source clock.'},
+        'composites':{'rows':p['composite_controls'],'pion_rows':pion['particles'],'calibrations':pion['calibrations'],
+            'empirical_inputs':pion['empirical_inputs'],'splitting':pion['pion_charged_neutral_splitting'],
+            'scope':'The pion triplet, proton/neutron assignment and rho comparison use archived quenched Wilson correlator fits. Rho and string anchors give different conditional GeV conversions. The pion/rho ratio is a tuning input; zero fit error at that calibrated point is not zero physical uncertainty. Quark loops, volume/continuum control, electromagnetic splitting and a native source/clock transfer are outside these fits.'}}
+
+
 def projection(receipts, sources):
     lepton, epochs, symmetry, hadron, crossover, repair = [receipts[k] for k in ('lepton','epochs','symmetry','hadron','crossover','repair')]
     comparison = receipts['lepton_comparison']
@@ -462,6 +652,7 @@ def projection(receipts, sources):
     return {
         'schema': 'oph.viewer.finite_results.v1', 'sources': sources,
         'joined_defect': joined_projection(receipts),
+        'mass_sources': extended_mass_projection(receipts),
         'yukawa': yukawa_projection(receipts),
         'defect_response': defect_projection(receipts),
         'calibrated_quarks': calibrated_quark_projection(receipts['calibrated_quarks']),

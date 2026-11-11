@@ -50,6 +50,110 @@ export function catalogueRows(catalogue, filter='all') {
   return catalogue.rows.filter(row=>filter==='all' || (filter==='charged' ? Boolean(row.native_channel) : filter==='neutral' ? row.species.startsWith('neutrino_') : !row.native_channel && !row.species.startsWith('neutrino_')));
 }
 
+export function compilerMassReadout(compiler,index) {
+  if(!Number.isInteger(index)||index<0||index>=3||compiler.rows.length!==3||compiler.records.length!==36)throw new RangeError('Complete compiled family and 36 records required');
+  const family=compiler.rows[index];
+  if(!(family.source_mass>0&&family.GeV>0)||Math.abs(compiler.records.reduce((x,r)=>x+r.probability,0)-1)>1e-12)throw new Error('Complete original compiled mass law required');
+  return {family,records:compiler.records.map(r=>({...r,source_energy:r.energy_in_units_of_same_m*family.source_mass,GeV_energy:r.energy_in_units_of_same_m*family.GeV}))};
+}
+
+export function originalIntervalTotal(records) {
+  if(!Array.isArray(records)||!records.length)throw new Error('Original probability records required');
+  const totals=[0,0];
+  for(const r of records) {
+    const p=r.probability;
+    if(!Array.isArray(p)||p.length!==2||!p.every(Number.isFinite)||p[0]<0||p[0]>p[1]||p[1]>1)throw new Error('Valid original probability interval required');
+    totals[0]+=p[0];totals[1]+=p[1];
+  }
+  if(totals[0]>1+2e-12||totals[1]<1-2e-12)throw new Error('Original records do not sum to one');
+  return totals;
+}
+
+export function quarkRecordReadout(quarks,key,label) {
+  let rows;
+  if(key==='electric_dressing') {
+    const channel=quarks.dressed.find(r=>r.label===label);if(!channel)throw new RangeError('Unknown dressed channel');
+    rows=channel.records.map((r,i)=>({label:`Energy ${i}`,source_energy:null,total_energy:r.energy,probability:r.probability}));
+    rows.push({label:'Failure',source_energy:null,total_energy:null,probability:[channel.failure_probability,channel.failure_probability]});
+  } else {
+    const mechanism=quarks.mechanisms.find(r=>r.key===key),channel=mechanism?.channels.find(r=>r.label===label);
+    if(!channel)throw new RangeError('Unknown response mechanism or channel');
+    rows=[...channel.records,{label:'Failure',source_energy:null,total_energy:null,probability:[channel.failure_probability,channel.failure_probability]}];
+  }
+  originalIntervalTotal(rows);return rows;
+}
+
+function mountMassSources(data,$) {
+  const all=data.mass_sources;
+  if(!all)throw new Error('Source-separated mass constructions required');
+  const bounds=p=>p===null?'Not measured':p[0]===p[1]?format(p[0],9):`[${format(p[0],9)}, ${format(p[1],9)}]`;
+  const row=(target,values,zero=false)=>{const tr=document.createElement('tr');if(zero)tr.dataset.zero='true';for(const value of values){const td=document.createElement('td');td.textContent=value;tr.append(td);}target.append(tr);};
+  const option=(target,value,label)=>{const element=document.createElement('option');element.value=value;element.textContent=label;target.append(element);};
+  const c=all.compiler;
+  $('compiler-scope').textContent=c.scope;$('compiler-mode-count').textContent=c.enlarged_modes_per_site.toLocaleString();
+  $('compiler-precision').textContent=`At source time 1 and one site, N=${BigInt(c.steps).toLocaleString()} rounds bounds the complete unhalved trace error by ${c.trace_error.toExponential(2)} and the rest-frequency error by ${c.energy_error.toExponential(2)} source units.`;
+  $('compiler-precision-scope').textContent=c.precision_scope;
+  $('compiler-scale').textContent=`One electron anchor sets the source energy unit to ${format(c.source_energy_unit_GeV,12)} GeV. Converting the declared unit scalar background literally gives that same value; matching the empirical weak scale and dynamical Higgs normalization is unproved.`;
+  c.rows.forEach((r,i)=>option($('compiler-family'),i,r.label));
+  const updateCompiler=()=>{
+    const {family,records}=compilerMassReadout(c,Number($('compiler-family').value));
+    $('compiler-family-summary').textContent=`${family.label}: source rest coefficient ${format(family.source_mass,12)}, electron-anchored free mass ${family.display_GeV} GeV.`;
+    const range=c.ratio_intervals.find(r=>r.label===family.label);
+    $('compiler-ratio-range').textContent=range?`The finite-compiler ratio lies in ${bounds(range.ratio_interval)}. Conditional GeV interval ${bounds(range.electron_anchored_GeV_interval)}; empirical-anchor uncertainty is separate.`:'The electron value fixes the one empirical energy unit.';
+    $('compiler-records').replaceChildren();for(const r of records)row($('compiler-records'),[`${r.setting} / ${r.reservoir_out}${r.success?' / success':' / failure'}`,r.native_electric_charge,format(r.source_energy,10),format(r.GeV_energy,10),format(r.probability,9)],r.probability===0);
+  };
+  $('compiler-family').addEventListener('change',updateCompiler);updateCompiler();
+  proofLinks($('compiler-source'),[['Full analyzer, family map, CAR law and mass readout','model/lepton_mass_compiler/PROOF.md']]);
+  const action=all.quadratic;$('action-scope').textContent=action.scope;$('action-clock').textContent=`Declared clock: ${action.clock}. Source energy subtracts the stated reference cost once.`;
+  for(const r of action.targets)row($('action-targets'),[r.species.replace('neutrino_mass_eigenstate_','Neutrino ν'),format(r.rest_coefficient_GeV.numeric,12),`${r.mass_convention}. ${r.missing_physical_attachment}.`]);
+  action.readouts.forEach((r,i)=>option($('action-readout'),i,r.label));
+  const updateAction=()=>{
+    const readout=action.readouts[Number($('action-readout').value)];$('action-records').replaceChildren();
+    const probability=readout.records.reduce((x,r)=>x+r.probability.numeric,0),zeros=readout.records.filter(r=>r.probability.numeric===0).length;
+    $('action-readout-summary').textContent=`${readout.records.length} original rows, ${zeros} with zero probability; total ${probability.toFixed(12)}. The fermion pointer rows also retain their explicitly zero outside-energy complement. Color/reference components remain coherent. Approximate displayed energies do not resolve the tiny neutrino splittings at momentum 1 GeV; the exact source blocks do.`;
+    for(const r of readout.records)row($('action-records'),[`${r.species??r.flavour} / ${r.orientation}`,`${r.pointer}${r.outside?' / outside':r.mass_eigenstate?` / ν${r.mass_eigenstate}`:r.energy_projector_index!==undefined?` / ${r.energy_projector_index}`:''}`,r.source_energy_GeV===null?'Outside':format(r.source_energy_GeV.numeric,12),r.reference_energy_GeV??readout.reference_cost_GeV,format(r.probability.numeric,10)],r.probability.numeric===0);
+  };
+  $('action-readout').addEventListener('change',updateAction);updateAction();
+  for(const r of action.extra_candidates){const p=document.createElement('p');p.textContent=`${r.candidate}: ${r.classification}`;$('action-extra').append(p);}
+  proofLinks($('action-source'),[['Complete quadratic action and original instruments','model/conditional_particle_spectrum/PROOF.md'],['Empirical common-scale inputs','model/common_source/calibrated_matter_parameters.json']]);
+  const neutral=all.neutrinos;$('neutral-scope').textContent=neutral.scope;$('neutral-clock').textContent=neutral.clock;
+  $('neutral-calibration').textContent=`Optional empirical-unit comparison: ${neutral.conditional_GeV.map(x=>x.toExponential(9)+' GeV').join(' and ')}. Neither value is assigned to an active or sterile species; these are not independent predictions.`;
+  neutral.controls.forEach((r,i)=>option($('neutral-control'),i,r.label));
+  const updateNeutral=()=>{
+    const control=neutral.controls[Number($('neutral-control').value)];
+    const index=Number($('neutral-probe').value)||0,probe=control.probes[index];originalIntervalTotal(probe.records);
+    $('neutral-summary').textContent=`Physical Gauss ground ${bounds(control.ground)}, ${control.energy_count} target energies, ${probe.records.length} complete preparation-plus-probe records. Ground preparation weight 1/80 is retained.`;
+    $('neutral-records').replaceChildren();for(const r of probe.records)row($('neutral-records'),[r.label,r.energy_kind,bounds(r.energy),bounds(r.probability)],r.probability[1]===0);
+  };
+  const chooseNeutral=()=>{const control=neutral.controls[Number($('neutral-control').value)];$('neutral-probe').replaceChildren();control.probes.forEach((r,i)=>option($('neutral-probe'),i,r.label));updateNeutral();};
+  $('neutral-control').addEventListener('change',chooseNeutral);$('neutral-probe').addEventListener('change',updateNeutral);chooseNeutral();
+  proofLinks($('neutral-source'),[['Neutral transport, complete coupled spectra and scale ancestry','model/neutrino_mass_response/PROOF.md']]);
+  const density=all.scalar_density;originalIntervalTotal(density.records);$('density-gap').textContent=bounds(density.gap);$('density-weight').textContent=bounds(density.weight);$('density-scope').textContent=density.scope;
+  for(const r of density.records)row($('density-records'),[r.label,bounds(r.energy),bounds(r.probability)],r.probability[1]===0);
+  proofLinks($('density-source'),[['Exact density pole and all six records','model/native_scalar_density_pole/PROOF.md']]);
+  const quarks=all.quarks;$('resolution-scope').textContent=quarks.scope;
+  quarks.mechanisms.forEach(r=>option($('resolution-mechanism'),r.key,r.label));option($('resolution-mechanism'),'electric_dressing','Positive Gauss electric dressing');
+  for(const r of quarks.dressed){const p=document.createElement('p');p.textContent=`${r.label}, hypercharge ${r.charge}: positive electric energy ${format(r.electric_energy,11)} source units.`;$('dressing-summary').append(p);}
+  const updateQuarks=()=>{
+    const key=$('resolution-mechanism').value,label=$('resolution-channel').value,records=quarkRecordReadout(quarks,key,label),mechanism=quarks.mechanisms.find(r=>r.key===key);
+    $('resolution-law').textContent=mechanism?mechanism.law:'Positive longitudinal field energy from the complete cone Gauss problem; one common coefficient.';
+    $('resolution-result').textContent=mechanism?`Selected up/down response ratio ${format(mechanism.ratio,10)}, frozen running-target ratio ${format(quarks.target_ratio,10)}. One shared scale does not match both targets. With the up anchor, the conditional down value is ${format(mechanism.u_anchored_d_GeV,11)} GeV.`:`The corresponding up-minus-down electric shift is ${format(quarks.electric_shift_difference,11)} source units. This is a static dressing difference, with no rest-mass or GeV assignment.`;
+    $('resolution-record-summary').textContent=`All ${records.length} selected energy/branch records, including failure probability 1/2. Energies on failure are unmeasured. Source/relational and total-with-reference columns retain their distinct definitions; the Gauss extension displays the total dressed gap.`;
+    $('resolution-records').replaceChildren();for(const r of records)row($('resolution-records'),[r.label,bounds(r.source_energy),bounds(r.total_energy),bounds(r.probability)],r.probability[1]===0);
+  };
+  $('resolution-mechanism').addEventListener('change',updateQuarks);$('resolution-channel').addEventListener('change',updateQuarks);updateQuarks();
+  proofLinks($('resolution-source'),[['Complete response measures and shared-scale tests','model/quark_flavour_resolution/PROOF.md'],['Positive electric dressing and native symmetry','model/quark_gauge_dressing/PROOF.md']]);
+  const composites=all.composites;$('composite-scope').textContent=composites.scope;
+  const updateComposites=()=>{
+    const key=$('composite-anchor').value;$('composite-records').replaceChildren();
+    for(const r of composites.rows){const v=r[key];row($('composite-records'),[r.particle,format(v.value_GeV,11),format(v.statistical_GeV,5),format(v.fit_sensitivity_GeV,5),r.experimental_reference?format(r.experimental_reference.value_GeV,10):'No extra reference inserted']);}
+    $('composite-inputs').textContent=`Declared tuning mπ/mρ=${composites.empirical_inputs.light_quark_tuning_mpi_over_mrho}; rho anchor ${composites.empirical_inputs.rho_anchor_GeV} GeV; alternative √σ=${composites.empirical_inputs.alternative_sqrt_sigma_GeV} GeV. Statistical errors are paired jackknife errors; fit sensitivity is a finite choice envelope. Total anchor/model uncertainty is not supplied.`;
+  };
+  $('composite-anchor').addEventListener('change',updateComposites);updateComposites();
+  $('composite-splitting').textContent=`The degenerate-isospin source gives zero charged/neutral pion splitting. The quoted measured difference is ${format(composites.splitting.experimental_difference_GeV,9)} GeV; electromagnetic and nondegenerate up/down terms are absent.`;
+  proofLinks($('composite-source'),[['Pion triplet, nucleon comparison and two scale choices','model/pion_mass_readout/PROOF.md'],['Archived lattice measurements','model/quenched_hadron_binding/README.md']]);
+}
+
 function chart(element, rows, series, {zero = true, xLabel = 'Attempted repairs'} = {}) {
   const w = Math.max(240, Math.min(700, Math.round(element.getBoundingClientRect().width) || 700)), h = 235, l = 55, r = 18, t = 15, b = 42;
   const xs = rows.map(row => row.x), vals = series.flatMap(s => rows.map(row => row[s.key]));
@@ -78,14 +182,15 @@ async function mount() {
     $('content').hidden = false; // Measure each visible chart at its rendered width.
     const joined = data.joined_defect;
     if (!joined || joined.physical_mass_map_proved !== false) throw new Error('Conditional mass-map boundary required');
-    for (const row of joined.conditional_leptons) {
+    mountMassSources(data,$);
+    for (const row of data.mass_sources.compiler.rows) {
       const card=document.createElement('article'), title=document.createElement('span'), value=document.createElement('strong'), role=document.createElement('small');
-      card.className='mass-card'; title.textContent=row.species[0].toUpperCase()+row.species.slice(1); value.textContent=row.display_GeV+' GeV';
-      role.textContent=row.role==='empirical_anchor'?'Empirical electron anchor':'Conditional fixed-effect ratio'; card.append(title,value,role); $('conditional-lepton-cards').append(card);
+      card.className='mass-card'; title.textContent=row.label[0].toUpperCase()+row.label.slice(1); value.textContent=row.display_GeV+' GeV';
+      role.textContent=row.label==='electron'?'Empirical electron anchor':'Compiled free-source mass'; card.append(title,value,role); $('conditional-lepton-cards').append(card);
     }
-    $('conditional-lepton-scope').textContent=joined.lepton_scope;
+    $('conditional-lepton-scope').textContent='A declared full fermion source compiles the native analyzer effect into free Dirac rest energies. The same-source mass readout is proved in its controlled limit. Identification with observed interacting leptons, a physical clock and the Higgs weak scale remains conditional; the fixed phase and architecture retain their retrospective ancestry.';
     $('conditional-comparison').textContent=`Fixed-reference comparison: muon +${format(joined.lepton_comparison.muon_residual_ppm,7)} ppm; tau +${format(joined.lepton_comparison.tau_residual_ppm,7)} ppm. ${joined.lepton_comparison.uncertainty}.`;
-    proofLinks($('conditional-source'),[['Conditional GeV map and scale test','model/defect_mass_catalogue/PROOF.md'],['Fixed lepton comparison','model/lepton_cycle/COMPARISON.md']]);
+    proofLinks($('conditional-source'),[['Compiled free-source mass and complete readout','model/lepton_mass_compiler/PROOF.md'],['Fixed lepton comparison','model/lepton_cycle/COMPARISON.md']]);
     $('joined-finding').textContent=joined.joined_source.finding;
     const selectedProfiles={profiles:{...data.defect_response.overlap.profiles,...joined.selected_scalar.profiles}};
     const updateSelectedScalar=()=>{
