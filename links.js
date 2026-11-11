@@ -6,6 +6,7 @@ export const SITE = 'https://github.com/muellerberndt/oph-particles-model/blob/g
 export const DER = 'https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/';
 export const PAPER = (f) => RER + 'paper/' + f + '.pdf';
 export const PAPERS = [
+  ['Finite predictions and error bounds', './finite_results.html'],
   ['Synthesis paper (PhilPapers)', 'https://philpapers.org/rec/MUEFOC'],
   ['Execution model: an executable observer for OPH', PAPER('executable_observer_construction')],
   ['Particles from native overlap transport', PAPER('deriving_the_particle_zoo_from_observer_consistency')],
