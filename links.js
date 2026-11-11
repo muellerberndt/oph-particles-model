@@ -6,7 +6,6 @@ export const SITE = 'https://github.com/muellerberndt/oph-particles-model/blob/g
 export const DER = 'https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/';
 export const PAPER = (f) => RER + 'paper/' + f + '.pdf';
 export const PAPERS = [
-  ['Finite predictions and error bounds', './finite_results.html'],
   ['Synthesis paper (PhilPapers)', 'https://philpapers.org/rec/MUEFOC'],
   ['Execution model: an executable observer for OPH', PAPER('executable_observer_construction')],
   ['Particles from native overlap transport', PAPER('deriving_the_particle_zoo_from_observer_consistency')],
@@ -35,7 +34,7 @@ export const SRC = {
   run: [['Paper: the execution model', PAPER('executable_observer_construction')], ['Executable model: the federated observer source', RER + 'model/federated_observer/source.py'],
     ['Data format of the runs', SITE + 'DATASET.md'], ['The complete runs, for download', 'https://oph-particles-data-20261111.s3.amazonaws.com/index.html']],
   continuum: [['Code: the continuum Dirac field of the box', SITE + 'readout_field.js'], ['Code: the routing tick (CF-1)', SITE + 'cf1_engine.js']],
-  register: [['Certificate: the charged-lepton generation register (99 checks)', RER + 'model/lepton_register_round/PROOF.md']],
+  register: [['Certificate: the charged-lepton generation register (80 checks)', RER + 'model/lepton_register_round/PROOF.md']],
   scope: [['Proof: scope of the particle constructions', RER + 'model/particle_construction_scope/PROOF.md']],
   tables: [['Source table: candidate confirmation', RER + 'model/particle_candidate_confirmation/results.json'], ['Source table: internal gauge weights', RER + 'model/standard_model_source_map/candidates/correspondence.json']],
   status: [['Status of every lane', DER + 'CONSOLIDATED_STATUS.md']],
@@ -92,7 +91,7 @@ document.head.appendChild(st);
 function papersMenu() {
   const top = document.getElementById('top'); if (!top || document.getElementById('papers-btn')) return;
   const wrap = document.createElement('div'); wrap.id = 'papers-btn';
-  wrap.innerHTML = `<button title="the papers behind this site">papers</button><div class="papers-pop">${PAPERS.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join('')}<a href="https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/README.md" target="_blank" rel="noopener">All derivations behind this site ↗</a><a href="${BOOK_PDF}" target="_blank" rel="noopener">The book: Reverse Engineering Reality (PDF) ↗</a><a href="https://oph-particles-data-20261111.s3.amazonaws.com/index.html" target="_blank" rel="noopener">The complete simulation runs, for download ↗</a></div>`;
+  wrap.innerHTML = `<button title="the papers behind this site">papers</button><div class="papers-pop"><a href="https://oph-book.floatingpragma.ai/" target="_blank" rel="noopener"><b>Read the book online</b> ↗</a><a href="https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a" target="_blank" rel="noopener"><b>Ask the OPH Notebook</b> ↗</a>${PAPERS.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join('')}<a href="https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/README.md" target="_blank" rel="noopener">All derivations behind this site ↗</a><a href="${BOOK_PDF}" target="_blank" rel="noopener">The book: Reverse Engineering Reality (PDF) ↗</a><a href="https://oph-particles-data-20261111.s3.amazonaws.com/index.html" target="_blank" rel="noopener">The complete simulation runs, for download ↗</a></div>`;
 
   const pop = wrap.querySelector('.papers-pop'); document.body.appendChild(pop);   // outside the header, whose blur would clip it
   pop.addEventListener('click', (e) => e.stopPropagation());
@@ -101,9 +100,12 @@ function papersMenu() {
     e.stopPropagation(); const r = e.currentTarget.getBoundingClientRect();
     pop.style.left = Math.min(r.left, innerWidth - 350) + 'px'; pop.style.top = (r.bottom + 6) + 'px'; pop.classList.toggle('open');
   };
+  const about = document.createElement('a'); about.id = 'about-link'; about.href = 'about.html'; about.textContent = 'about';
+  about.title = 'what OPH is, with the paper, the book and the repository';
+  top.appendChild(about);
   top.appendChild(wrap);
   const st2 = document.createElement('style');
-  st2.textContent = `#papers-btn{position:relative}#papers-btn>button{border-color:rgba(63,224,208,.45);color:#3fe0d0}.papers-pop{display:none;position:fixed;z-index:30;min-width:330px;padding:8px;border-radius:12px;background:rgba(9,14,26,.97);border:1px solid #2b3d63;box-shadow:0 18px 50px -20px #000}
+  st2.textContent = `#about-link{background:rgba(20,30,52,.85);color:var(--text);border:1px solid var(--edge);border-radius:9px;padding:6px 11px;font-size:13px;text-decoration:none;white-space:nowrap}#about-link:hover{border-color:#3a5586;background:#17233b}#papers-btn{position:relative}#papers-btn>button{border-color:rgba(63,224,208,.45);color:#3fe0d0}.papers-pop{display:none;position:fixed;z-index:30;min-width:330px;padding:8px;border-radius:12px;background:rgba(9,14,26,.97);border:1px solid #2b3d63;box-shadow:0 18px 50px -20px #000}
 .papers-pop.open{display:flex;flex-direction:column}.papers-pop a{padding:7px 10px;border-radius:8px;color:#dfe6f5;text-decoration:none;font-size:13px}.papers-pop a:hover{background:rgba(63,224,208,.12);color:#3fe0d0}`;
   document.head.appendChild(st2);
 }
