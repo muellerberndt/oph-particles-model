@@ -30,7 +30,7 @@ sys.path.insert(0, str(SIM))
 PREFIXES = ('rl/', 'runs/', 'api/', 'lab/', 'particle_map.json', 'findings.json', 'DATASET.md')
 ABS = re.compile(r"""(['"`])/(?=(?:%s))""" % '|'.join(re.escape(p) for p in PREFIXES))
 SKIP = {'research'}                       # copied separately as rl/
-GENERATED = ('CNAME', 'index.html', 'api', 'runs', 'lab', 'rl', 'help', 'particle_map.json', 'findings.json', 'DATASET.md')
+GENERATED = ('CNAME', 'index.html', 'fp-analytics.js', 'og.jpg', 'api', 'runs', 'lab', 'rl', 'help', 'particle_map.json', 'findings.json', 'DATASET.md')
 
 
 def copy_viewer(viewer: Path, out: Path) -> int:
@@ -46,6 +46,32 @@ def copy_viewer(viewer: Path, out: Path) -> int:
             shutil.copy2(f, dst)
         n += 1
     return n
+
+
+EXTRA = Path(__file__).resolve().parent / 'site_extra'     # fp-analytics.js (GA, Ads, X pixel under one cookie choice), og.jpg
+DESCRIPTION = 'Watch observer universes settle and read off the particles: the defects that no repair can remove.'
+
+
+def add_tags(out: Path) -> None:
+    """Copy the measurement script and share image, and put tags, description and share card into every top-level page."""
+    for f in EXTRA.iterdir():
+        shutil.copy2(f, out / f.name)
+    for page in out.glob('*.html'):
+        s = page.read_text()
+        if 'fp-analytics.js' in s or '</title>' not in s:
+            continue
+        url = 'https://particles.floatingpragma.ai/' + ('' if page.name == 'index.html' else page.name)
+        title = 'OPH universe viewer' if page.name == 'index.html' else 'OPH field records'
+        head = (f'<link rel="canonical" href="{url}">\n<meta name="description" content="{DESCRIPTION}">\n'
+                '<meta property="og:type" content="website">\n<meta property="og:site_name" content="Pragma Research">\n'
+                f'<meta property="og:title" content="{title}">\n<meta property="og:description" content="{DESCRIPTION}">\n'
+                f'<meta property="og:url" content="{url}">\n'
+                '<meta property="og:image" content="https://particles.floatingpragma.ai/og.jpg">\n'
+                '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
+                '<meta name="twitter:card" content="summary_large_image">\n'
+                '<meta name="twitter:image" content="https://particles.floatingpragma.ai/og.jpg">\n'
+                '<script src="fp-analytics.js"></script>\n')
+        page.write_text(s.replace('</title>', '</title>\n' + head, 1))
 
 
 def main(argv=None):
@@ -84,6 +110,7 @@ def main(argv=None):
     (out / 'lab').mkdir()
     for level in range(1, 6):
         observer_lab.export(level, out / 'lab' / f'L{level}.npz')
+    add_tags(out)
     (out / '.nojekyll').write_text('')
     (out / 'CNAME').write_text('particles.floatingpragma.ai\n')        # the site's address; DNS: CNAME particles -> muellerberndt.github.io
     size = sum(f.stat().st_size for f in out.rglob('*') if f.is_file() and '.git' not in f.parts)
