@@ -30,6 +30,7 @@ sys.path.insert(0, str(SIM))
 PREFIXES = ('rl/', 'runs/', 'api/', 'lab/', 'particle_map.json', 'findings.json', 'DATASET.md')
 ABS = re.compile(r"""(['"`])/(?=(?:%s))""" % '|'.join(re.escape(p) for p in PREFIXES))
 SKIP = {'research'}                       # copied separately as rl/
+DEV_ONLY = {'equations_dev.html'}         # development harnesses that are not part of the site
 GENERATED = ('CNAME', 'index.html', 'fp-analytics.js', 'og.jpg', 'api', 'runs', 'lab', 'rl', 'help', 'particle_map.json', 'findings.json', 'DATASET.md')
 
 
@@ -37,10 +38,10 @@ def copy_viewer(viewer: Path, out: Path) -> int:
     n = 0
     for f in viewer.rglob('*'):
         rel = f.relative_to(viewer)
-        if f.is_dir() or rel.parts[0] in SKIP or f.name.endswith('.mjs') or '__pycache__' in rel.parts:
+        if f.is_dir() or rel.parts[0] in SKIP or '__pycache__' in rel.parts or f.name in DEV_ONLY:   # check scripts (.mjs) are published: pages link them
             continue
         dst = out / rel; dst.parent.mkdir(parents=True, exist_ok=True)
-        if f.suffix in ('.js', '.html', '.css'):
+        if f.suffix in ('.js', '.mjs', '.html', '.css'):
             dst.write_text(ABS.sub(r'\1', f.read_text()))
         else:
             shutil.copy2(f, dst)
@@ -91,7 +92,7 @@ def main(argv=None):
             t.unlink()
     viewer = SIM / 'oph_defects' / 'viewer2'
     n = copy_viewer(viewer, out)
-    shutil.copytree(viewer / 'research', out / 'rl')
+    shutil.copytree(viewer / 'research', out / 'rl', ignore=shutil.ignore_patterns('_dev', '__pycache__'))
     for f in ('particle_map.json', 'findings.json', 'DATASET.md'):
         shutil.copy2(SIM / 'oph_defects' / f, out / f)
     runs = serve.find_runs(a.runs)

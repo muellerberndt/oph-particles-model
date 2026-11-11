@@ -1,3 +1,5 @@
+> Working document of the campaign. One correction applies throughout: the cell coupling 1/alpha = 16.2453 and every statement built on it (the bound 18.24, the value 10.03, unification at the cell) are retired. The current state of the coupling chain is in [COUPLING_FIX.md](COUPLING_FIX.md) and the reports CA_ANCHOR, CU_UNIFICATION, CH_HYPERCHARGE and CG_COLLAR.
+
 # Consolidated status: source-derived spectrum and obstruction map (2026-11-11 07:45, +07)
 
 Covers three teams: the theory session (this directory), the audit team (Codex; public repository, now at

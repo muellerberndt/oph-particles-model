@@ -1,3 +1,5 @@
+> Working document of the campaign. One correction applies throughout: the cell coupling 1/alpha = 16.2453 and every statement built on it (the bound 18.24, the value 10.03, unification at the cell) are retired. The current state of the coupling chain is in [COUPLING_FIX.md](../COUPLING_FIX.md) and the reports CA_ANCHOR, CU_UNIFICATION, CH_HYPERCHARGE and CG_COLLAR.
+
 ## GL report: continuous seam links in S(U(3)xU(2)) from the source, their action, bare couplings, waves
 
 **Short answer.** Today's seam transports form a finite group (order at most 3600 on the code). One continuous symmetry the source already has, the record law's covariance under independent port phases, read on the protected code, gives exactly G = S(U(3)xU(2)) = (SU(3)xSU(2)xU(1))/Z6. With continuous links:

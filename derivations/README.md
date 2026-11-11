@@ -27,3 +27,16 @@ NOT BLIND (compared with measurement after the value was known).
 
 The executable model, papers and Lean proofs are in the public theory repository
 [FloatingPragma/observer-patch-holography](https://github.com/FloatingPragma/observer-patch-holography).
+
+## Simulation lanes behind the new pages
+
+| Result in the viewer | Report |
+| --- | --- |
+| Integer lift of the defect register: exact, Stokes holds, not a member label | [lanes/IL.md](lanes/IL.md) |
+| The two-cell lepton register run over many ticks; rates read off the executed register | [lanes/LR.md](lanes/LR.md) |
+| Class balance of the seam link behind the electroweak scale | [lanes/AV.md](lanes/AV.md) |
+| Decoder from the five-level code to particle names and charges | [lanes/PD.md](lanes/PD.md) |
+| Colour deconfinement of the source's colour links on the lattice | [lanes/QCD.md](lanes/QCD.md) |
+| The electroweak crossover for the chain's couplings on the lattice | [lanes/EW.md](lanes/EW.md) |
+| Quarks bind: static potential and hadron masses on the lattice | [lanes/HAD.md](lanes/HAD.md) |
+| The coupling chain, computed in the browser | [lanes/COUPLINGS.md](lanes/COUPLINGS.md) |
