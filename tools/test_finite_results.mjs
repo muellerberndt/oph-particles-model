@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import {weakRound, asymmetryBound} from './site_extra/finite_results.mjs';
+import {weakRound, asymmetryBound, overlapReadout, scalarModeReadout, catalogueRows} from './site_extra/finite_results.mjs';
+import {readFileSync} from 'node:fs';
 
 for (const n of [1, 2, 10, 100, 10000, 100000]) {
   const value = weakRound(n);
@@ -35,4 +36,36 @@ for (const n of [1, 10, 100, 1000]) {
   assert.ok(error <= bound + 2e-12);
   if (n === 1000) assert.ok(error > 0.999*bound);
 }
+const source = JSON.parse(readFileSync(new URL('../../reverse-engineering-reality/model/defect_mode_overlap/results.json',import.meta.url),'utf8'));
+const profiles = Object.fromEntries(['uniform','positive_core_patch'].map(key => {
+  const row=source.profiles[key];
+  return [key,{strengths:row.singular_values,ratio:Math.max(...row.singular_values)/Math.min(...row.singular_values),complement_leakage_norm:row.complement_leakage_norm}];
+}));
+const patch=overlapReadout({profiles},'positive_core_patch');
+assert.ok(Math.abs(patch.ratio-16385)<0.001);
+assert.equal(patch.strengths.length,2);
+assert.ok(patch.widths[0]>99 && patch.widths[1]>25 && patch.widths[1]<35);
+assert.ok(Math.abs(overlapReadout({profiles},'uniform').ratio-1)<1e-10);
+assert.throws(()=>overlapReadout({profiles},'unknown'));
+assert.throws(()=>overlapReadout({profiles:{patch:{...profiles.positive_core_patch,ratio:1}}},'patch'));
+assert.throws(()=>overlapReadout({profiles:{patch:{...profiles.positive_core_patch,strengths:[1,0.5,0.1,0.1]}}},'patch'));
 console.log('Finite-result interactive calculations passed.');
+
+const scalarSource=JSON.parse(readFileSync(new URL('../../reverse-engineering-reality/model/defect_scalar_modes/results.json',import.meta.url),'utf8'));
+const selected=scalarSource.lowest_mode;
+assert.ok(Math.abs(overlapReadout({profiles:{selected:{strengths:selected.unit_ladder_strengths,ratio:selected.strong_to_weak_ratio,complement_leakage_norm:selected.complement_leakage_norm}}},'selected').ratio-1.000122033061)<1e-10);
+const first=scalarSource.native_filled_sea_first_image,sea={modes:first.complete_scalar_mode_records,pointer:first.complete_pointer};
+assert.ok(Math.abs(scalarModeReadout(sea,1).conditional-.964506586904)<1e-10);
+assert.ok(scalarModeReadout(sea,1).original<1e-6);
+assert.throws(()=>scalarModeReadout(sea,343));
+assert.throws(()=>scalarModeReadout({...sea,modes:sea.modes.slice(0,2)},1));
+const catalogueSource=JSON.parse(readFileSync(new URL('../../reverse-engineering-reality/model/defect_mass_catalogue/results.json',import.meta.url),'utf8'));
+const catalogue={rows:catalogueSource.target_catalogue};
+assert.equal(catalogueRows(catalogue).length,17);
+assert.equal(catalogueRows(catalogue,'charged').length,9);
+assert.equal(catalogueRows(catalogue,'neutral').length,3);
+assert.equal(catalogueRows(catalogue,'bosons').length,5);
+assert.throws(()=>catalogueRows(catalogue,'made-up'));
+const promoted=structuredClone(catalogue);promoted.rows[0].physical_source_rest_mass_GeV=0;
+assert.throws(()=>catalogueRows(promoted));
+console.log('Joined-source scalar, mass-map and catalogue controls passed.');
