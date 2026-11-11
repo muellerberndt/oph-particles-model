@@ -51,7 +51,7 @@
     document.body.appendChild(bar);
   }
   // "Particles: go deeper click": the visitor leaves for the book, the papers, the derivations, the textbooks or the Notebook
-  const DEEPER = /(^|\.)(philpapers\.org|oph-book\.floatingpragma\.ai|learn\.floatingpragma\.ai|notebooklm\.google\.com|notebook\.google\.com)$/;
+  const DEEPER = /(^|\.)(philpapers\.org|oph-book\.floatingpragma\.ai|learn\.floatingpragma\.ai|status\.floatingpragma\.ai|notebooklm\.google\.com|notebook\.google\.com)$/;
   const DEEPER_GH = /^\/(FloatingPragma\/observer-patch-holography|muellerberndt\/oph-particles-model\/(blob|tree)\/main\/derivations)/;
   document.addEventListener("click", (ev) => {
     const a = ev.target.closest && ev.target.closest("a[href]"); if (!a) return;
