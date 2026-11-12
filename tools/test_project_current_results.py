@@ -22,6 +22,7 @@ class CurrentProjectionTests(unittest.TestCase):
   for key,path,value in [
    ('finite_spectroscopy',('scope','neutrino_species_resolved_by_executed_five_qubit_pointer'),True),
    ('finite_spectroscopy',('adaptive_pointer','classical_history_erased'),True),
+   ('finite_spectroscopy',('uniform_confidence','all_source_unconditional_65_over72_coverage_claimed'),True),
    ('archive_compression',('scope','original_record_histories_erased_or_coarsened'),True),
    ('neutrino_observables',('mass_observables','all_masses_are_conditional_calibration'),False),
    ('paired_quark_scale',('scope','identified_up_down_or_strange_mass'),True),

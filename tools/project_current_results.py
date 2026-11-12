@@ -38,6 +38,14 @@ def project(r):
          not s['scope']['neutrino_species_resolved_by_executed_five_qubit_pointer'] and
          not s['scope']['calibrated_action_coefficients_are_independent_predictions'],'finite spectroscopy scope or complete law differs')
  require(abs(math.fsum(x['probability'] for x in s['complete_records'])-1)<1e-12,'finite spectroscopy original law differs')
+ confidence=s['uniform_confidence']
+ require(confidence.get('coverage_domain')=='normalized one-excitation inputs at detector entrance' and
+         confidence.get('all_input_bad_phase_effect_bound')=='F_bad <= (7/72) P_one' and
+         confidence.get('complete_original_probe_bound')=='sum A^dagger F_bad A <= (7/72) sum A^dagger P_one A' and
+         confidence.get('vacuum_many_excitation_outcomes_supply_mass_interval') is False and
+         confidence.get('all_source_unconditional_65_over72_coverage_claimed') is False,'mass confidence domain or original-weight bound differs')
+ require(F(confidence['original_good_mass_interval_weight_lower_exact'])==F(65,72)*F(confidence['original_one_excitation_weight_exact']) and
+         F(confidence['original_one_excitation_weight_exact'])+F(confidence['original_terminal_no_mass_interval_weight_exact'])==1,'unconditional mass coverage bookkeeping differs')
  require(s['adaptive_pointer']['exact_all_input_instrument_equivalence'] and s['adaptive_pointer']['reusable_quantum_qubits']==1 and
          s['adaptive_pointer']['retained_original_classical_bits']==5 and len(s['adaptive_pointer']['all_original_histories'])==32 and
          not s['adaptive_pointer']['classical_history_erased'] and not s['adaptive_pointer']['postselection'],'adaptive pointer instrument or complete history differs')
@@ -116,7 +124,7 @@ def project(r):
   ('clock_energy','Complete native event timeline',f"Six controls retain {sum(x['complete_record_count'] for x in clock['timeline_runs']):,} clock/return/detector records. At full activity q=1 and cap three, timeout is 15806/16875. Fresh coherent services are supplied; an absolute GeV or SI clock is not derived."),
   ('archive_compression','48 archive qubits → at most 2','All 8 original classical bits and every quantum reference correlation survive. Exact rank certificates retain rare directions; compression costs 1,767,798 additional native pulses in the worst four-round history.'),
   ('sector_measure','The stationary quantum algebra is explicit',f"The admitted ten-dimensional Gauss source has a {sec['stationarity']['complex_fixed_operator_dimension']}-dimensional fixed operator algebra and a {sec['stationarity']['density_family_real_affine_dimension']}-dimensional density family. Sector weights remain preparation inputs; scalar sector counts do not close all coherences."),
-  ('finite_spectroscopy','Finite-time mass confidence sets','An exactly equivalent adaptive pointer uses one reusable qubit plus five retained bits and preserves all 8,010 original records. Its ideal confidence coverage is at least 65/72. Neutrino labels remain unresolved; large precision plans are separate from execution.'),
+  ('finite_spectroscopy','Finite-time mass confidence sets','An exactly equivalent adaptive pointer uses one reusable qubit plus five retained bits and preserves all 8,010 original records. Its ideal coverage is at least 65/72 for normalized one-excitation inputs at the phase detector. Vacuum and many-excitation records remain terminal without a mass interval. Neutrino labels remain unresolved; large precision plans are separate from execution.'),
   ('neutrino_observables','Conditional neutrino observables','The same calibrated Majorana block yields beta mass, mass sum and the full relative-phase envelope of mₑₑ. Six success outcomes, failure and the full spectator complement survive; no nuclear or beta-decay rate is computed.'),
   ('flavour_transport','One source phase pulse gives nonzero CP',f"A declared rank-one pulse gives J={fl['minimal_rank_one_pulse']['single_pulse_J_numeric']:.9g}; the three-pulse control gives {fl['primary']['J_numeric']:.9g}. All 18 current-loop records remain. The word is a declared architectural choice; no physical CKM match is claimed."),
   ('bath_mixing','Certified cooling lag on the finite bath','Rational spectral bounds control mixing within each of the 26 preserved components of the declared reversible repair-bath extension. Complete bath records retain initial information. Temperature and cooling schedule are supplied; no unique global Gibbs law is claimed.'),
@@ -125,6 +133,7 @@ def project(r):
   ('paired_quark_scale','Paired bare Wilson masses in GeV','All 32 paired archive streams propagate critical/tuned hopping parameters and three scale assignments. Values below are bare Wilson action coordinates, not identified physical quark masses. Statistical and fit-sensitivity errors stay separate.'),
  ]
  return {'cards':[{'key':key,'title':title,'text':text,'proof':'model/'+SOURCES[key][0].replace('results.json','PROOF.md')} for key,title,text in cards],
-  'archive':archive,'spectroscopy':spectroscopy,'neutrino':neutrino,'bare_quarks':bare,'scales':scales,
+  'archive':archive,'spectroscopy':spectroscopy,
+  'confidence':{k:confidence[k] for k in ('coverage_domain','all_input_bad_phase_effect_bound','all_input_no_valid_mass_interval_effect_bound','complete_original_probe_bound','original_one_excitation_weight_exact','original_terminal_no_mass_interval_weight_exact','original_good_mass_interval_weight_lower_exact')},'neutrino':neutrino,'bare_quarks':bare,'scales':scales,
   'expansion':expansion,'expansion_ordering':{k:interval(ordering[k]) for k in ('duration8_interval','duration1_interval','quench_interval')},'bath_mixing':bath_rows,'quantum_mixing':quantum_rows,
   'counts':{'source_receipts':10,'spectroscopy_records':8010,'spectroscopy_zero_records':6533,'neutrino_records':8}}
