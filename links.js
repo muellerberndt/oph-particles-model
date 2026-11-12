@@ -76,7 +76,7 @@ const READ_STEP = {
 };
 const STEP_OF = { journey: 'journey', universe: 'screen', carrier: 'screen', observer: 'screen', defects: 'defects', lattice: 'lattice',
   readout: 'field', nowave: 'nowave', space: 'field', cosmos: 'early', timeline: 'early', transitions: 'early',
-  classes: 'particles', decoder: 'particles', map: 'particles', leptons: 'masses', spectrum: 'masses', couplings: 'couplings', results: 'results' };
+  classes: 'particles', decoder: 'particles', map: 'particles', masses: 'masses', cosmology: 'early', leptons: 'masses', spectrum: 'masses', couplings: 'couplings', results: 'results', matches: 'results', constructions: 'results', openwave: 'results' };
 export function readLinks(page) { return READ_STEP[STEP_OF[page]] || []; }
 export function linkList(keys) {
   const items = [].concat(...keys.map((k) => SRC[k] || []));

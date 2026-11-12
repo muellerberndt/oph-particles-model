@@ -1,0 +1,47 @@
+/* The model beside our universe: tiles and comparison rows shared by Journey, Results, Masses and Early universe. */
+.mt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(204px,1fr));gap:10px}
+.mt{position:relative;display:flex;flex-direction:column;gap:2px;min-width:0;padding:12px 14px 11px;border:1px solid var(--edge,#1f2c48);border-radius:12px;
+  background:linear-gradient(180deg,rgba(18,27,46,.66),rgba(8,12,22,.62));color:var(--text,#eef2fb);text-align:left;text-decoration:none;font:inherit;cursor:pointer;
+  transition:border-color .15s,transform .15s,box-shadow .15s}
+.mt:hover,.mt:focus-visible{border-color:rgba(63,224,208,.6);box-shadow:0 0 22px -10px #3fe0d0;transform:translateY(-1px);outline:none;background:linear-gradient(180deg,rgba(21,33,56,.8),rgba(9,14,26,.7))}
+.mt-n{font-size:11.5px;line-height:1.3;color:var(--muted,#93a3c0);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mt-v{font-size:19px;line-height:1.3;font-weight:650;letter-spacing:-.3px;font-variant-numeric:tabular-nums;color:#eafffb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mt-v i,.mr-v i,.mr-m i{font-style:normal;font-size:.62em;font-weight:500;letter-spacing:0;color:var(--muted,#93a3c0);margin-left:4px}
+.mt-v sub,.mt-v sup,.mr sub,.mr sup{font-size:.68em;line-height:0}
+.mt-f{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:11.5px;line-height:1.35;color:var(--faint,#62718f);min-height:16px}
+.mt-nat{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mt-nat b{font-weight:500;color:var(--soft,#c5d0e6);font-variant-numeric:tabular-nums}
+.mt-same{display:inline-flex;align-items:center;gap:5px;color:var(--teal,#3fe0d0);white-space:nowrap}
+.mt-same svg,.mt-part svg{width:11px;height:11px;flex:none}
+.mt-part{display:inline-flex;align-items:center;gap:5px;color:var(--blue,#6fb1ff);white-space:nowrap}
+.mt-v.mt-t{font-size:15px;line-height:1.25;letter-spacing:-.1px;font-weight:650;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:25px}
+.mt-is-part{border-style:dashed;border-color:rgba(111,177,255,.28);background:rgba(10,15,28,.5)}.mt-is-part .mt-v{color:#dbe6fa}
+.mt-dev{flex:none;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--blue,#6fb1ff)}
+.mt-dev.mt-x,.mt-dev.mt-a{color:var(--teal,#3fe0d0)}.mt-dev.mt-b{color:var(--blue,#6fb1ff)}.mt-dev.mt-c{color:var(--amber,#ffb44a)}
+
+/* comparison table: quantity, OPH, our universe, match */
+.mr-table{display:flex;flex-direction:column;min-width:0}
+.mr{display:grid;grid-template-columns:minmax(150px,1.5fr) minmax(96px,1fr) minmax(120px,1.15fr) minmax(86px,.7fr);gap:14px;align-items:baseline;padding:9px 12px;border:0;border-bottom:1px solid rgba(140,170,230,.09);
+  background:none;color:var(--text,#eef2fb);font:inherit;text-align:left;text-decoration:none;border-radius:8px;min-width:0}
+button.mr,a.mr{cursor:pointer}button.mr:hover,a.mr:hover,button.mr:focus-visible,a.mr:focus-visible{background:rgba(63,224,208,.06);outline:none}
+.mr-h{padding-top:2px;padding-bottom:7px;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint,#62718f);border-bottom-color:rgba(140,170,230,.16)}
+.mr-h span:nth-child(n+2){text-align:right}
+.mr-g{margin:16px 12px 2px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal,#3fe0d0)}
+.mr-g:first-child{margin-top:4px}.mr-g i{font-style:normal;letter-spacing:.02em;text-transform:none;color:var(--faint,#62718f);margin-left:10px;font-size:11.5px}
+.mr-q{display:flex;align-items:baseline;gap:9px;min-width:0}.mr-q b{flex:none;min-width:34px;font-size:15px;font-weight:650}
+.mr-q>span{min-width:0;font-size:13px;color:var(--soft,#c5d0e6)}.mr-q>span i{display:block;font-style:normal;font-size:11.5px;color:var(--faint,#62718f)}
+.mr-v,.mr-m,.mr-d{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mr-v{font-size:15px;font-weight:650;color:#eafffb}.mr-lead .mr-v{font-size:19px;letter-spacing:-.3px}
+.mr-m{font-size:13px;color:var(--soft,#c5d0e6)}.mr-m em{display:block;font-style:normal;font-size:11px;color:var(--faint,#62718f);white-space:normal}
+.mr-d{font-size:12.5px}.mr-d .mt-same{justify-content:flex-end}
+.mr-open{color:var(--faint,#62718f);font-size:11.5px;white-space:normal}
+.mr-is-open .mr-v{color:var(--faint,#62718f);font-weight:400}
+@media (max-width:720px){
+  .mt-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.mt{padding:10px 11px 9px}.mt-v{font-size:17px}
+  .mr{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:8px;padding:9px 6px}
+  .mr-d{grid-column:2 / -1}.mr-h span:nth-child(4){display:none}.mr-q b{min-width:26px}
+}
+
+/* a value that answers a criterion of the OpenWave comparison */
+.ow-tag{display:inline-flex;align-items:center;height:15px;padding:0 5px;border-radius:4px;font-size:9.5px;font-weight:700;letter-spacing:.06em;line-height:1;color:#c9b8ff;background:rgba(169,149,255,.13);box-shadow:inset 0 0 0 1px rgba(169,149,255,.35);white-space:nowrap;font-variant-numeric:tabular-nums;text-transform:none;vertical-align:middle}
+.mt>.ow-tag{position:absolute;top:9px;right:9px}.mt:has(>.ow-tag) .mt-n{padding-right:44px}
+.mr-q .ow-tag{margin-left:8px}

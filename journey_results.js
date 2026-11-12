@@ -109,6 +109,5 @@ export function renderJourneyResults(){
 export function mountJourneyResults(host){
  if(host.querySelector('#particle-results'))return;
  if(!document.getElementById('journey-results-css')){const css=document.createElement('link');css.id='journey-results-css';css.rel='stylesheet';css.href=new URL('./journey_results.css',import.meta.url).href;document.head.appendChild(css);}
- const idea=host.querySelector('.jy-idea');
- if(idea)idea.insertAdjacentHTML('afterend',renderJourneyResults());
+ host.insertAdjacentHTML('beforeend',renderJourneyResults());
 }

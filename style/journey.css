@@ -16,13 +16,19 @@
 .jy-wrap .jy-results:hover{background:rgba(63,224,208,.1);box-shadow:inset 0 0 0 1px rgba(63,224,208,.5),0 0 26px -10px #3fe0d0}
 .jy-results b,.jy-name b{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;color:#0b1222;background:#9fb0cf;flex:none}
 .jy-results i{font-style:normal;color:#3fe0d0}
-.jy-idea{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 16px}
-.jy-idea>div{padding:14px 20px 16px;border-radius:14px;background:rgba(255,255,255,.028);box-shadow:inset 0 0 0 1px rgba(140,170,230,.08)}
+.jy-sides{display:grid;grid-template-columns:minmax(0,1fr) minmax(90px,.55fr) minmax(0,1fr);gap:18px;align-items:center;margin:0 0 10px}
+.jy-side{padding:2px 2px 4px}
+.jy-side-r{text-align:right}
 .jy-kick{margin-bottom:6px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6fb1ff}
-.jy-idea>div:nth-child(2) .jy-kick{color:#ff9d4a}
-.jy-idea>div:nth-child(3) .jy-kick{color:#3fe0d0}
-.jy-say{font-size:14px;line-height:1.5;color:rgba(214,224,244,.92)}
+.jy-side .jy-kick{color:#3fe0d0;font-size:12px}
+.jy-side-r .jy-kick{color:#ffb44a}
+.jy-say{font-size:15px;line-height:1.5;color:rgba(214,224,244,.92)}
 .jy-say b{color:#fff;font-weight:700}
+.jy-side .jy-say{max-width:520px}.jy-side-r .jy-say{margin-left:auto}
+.jy-arrow{position:relative;height:18px}
+.jy-arrow i{position:absolute;left:0;right:6px;top:8px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(63,224,208,.9),rgba(255,180,74,.9))}
+.jy-arrow::after{content:'';position:absolute;right:0;top:3px;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent #ffb44a;filter:drop-shadow(0 0 6px rgba(255,180,74,.7))}
+.jy-wrap-more{padding-top:0}
 .jy-ownbar{position:relative;margin:0 0 12px;border-radius:12px;background:rgba(255,255,255,.022);box-shadow:inset 0 0 0 1px rgba(140,170,230,.07)}
 .jy-ownbar>.hq{position:absolute;right:8px;top:9px;margin:0}
 .jy-pic{position:relative;width:100%}
@@ -157,3 +163,5 @@
 .jbar .jb-sec{display:inline-flex;align-items:center;padding:0 5px;font-size:9.5px;letter-spacing:.5px;color:rgba(127,166,224,.6);transition:color .2s}
 .jbar .jb-sec:hover{color:#3fe0d0}
 .jbar .jb-sec.on{color:#ffb44a}
+
+@media (max-width:820px){.jy-sides{grid-template-columns:1fr;gap:8px}.jy-arrow{display:none}.jy-side-r{text-align:left}.jy-side-r .jy-say{margin-left:0}.jy-say{font-size:14px}}

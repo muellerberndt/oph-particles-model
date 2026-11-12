@@ -16,7 +16,7 @@ import { tex, typeset } from './math.js';
 import { linkList } from './links.js';
 import { CARDS, STATUS, blocksOf } from './equations_data.js';
 
-const SHEET_PAGES = new Set(['universe', 'carrier', 'readout', 'space', 'observer']);
+const SHEET_PAGES = new Set(['universe', 'carrier', 'readout', 'space', 'observer', 'journey']);     // journey: the entry page keeps its equations behind the chip
 const ORDER = ['derived', 'conditional', 'premise', 'declared', 'open'];
 const SIDES = ['maxWidth', 'marginLeft', 'marginRight', 'paddingLeft', 'paddingRight'];
 const mounted = new WeakMap();          // page element -> { name, mode, section, dock, ro, ref }

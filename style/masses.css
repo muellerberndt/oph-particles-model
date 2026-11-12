@@ -1,0 +1,126 @@
+/* The Masses overview (masses.js): relative masses and rest masses beside the measured values.
+   Every rule is scoped to #page-masses and every class carries the prefix ms-. Colours: the CSS variables of index.html.
+   Layout: one column of at most 1600 px; two cards side by side, the strip of every particle, three link buttons.
+   Type scale of the site: page title 26, kicker 11 uppercase, body 14, small 12.5.
+   Leptons: electron teal, muon violet, tau amber, as on the Leptons page.
+   Rows and tiles of the comparison come from style/match.css; the rules on .mr and .mt below only fit them to this page. */
+#page-masses{background:radial-gradient(ellipse 80% 560px at 50% 0%,rgba(46,70,130,.2),rgba(4,6,13,0) 70%)}
+#page-masses .ms-wrap{box-sizing:border-box;max-width:1600px;margin:0 auto;padding:22px 24px 40px;font-size:14px;color:var(--soft)}
+#page-masses .ms-head h2{margin:0;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.2;color:#f3f6fc}
+#page-masses .ms-lead{margin-top:4px;font-size:14px;color:rgba(197,208,230,.8)}
+
+/* cards */
+#page-masses .ms-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:18px;align-items:stretch}
+#page-masses .ms-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:18px 20px 16px;border:1px solid var(--edge);border-radius:16px;
+  background:linear-gradient(180deg,rgba(18,27,46,.5),rgba(8,12,22,.46))}
+#page-masses .ms-kick{display:flex;align-items:center;justify-content:space-between;gap:6px 14px;flex-wrap:wrap;min-height:20px;margin-bottom:8px;
+  font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+#page-masses .ms-kick em{font-style:normal;font-weight:500;letter-spacing:0;text-transform:none;font-size:12.5px;color:var(--muted)}
+
+/* ---------------------------------------------------------------- relative masses */
+#page-masses .ms-leps{display:flex;flex-direction:column;flex:1;justify-content:space-around}
+#page-masses .ms-lep,#page-masses .ms-axis{display:grid;grid-template-columns:96px minmax(0,1fr) 252px;column-gap:20px;padding:0 10px}
+#page-masses .ms-lep{--c:var(--teal);align-items:center;min-height:80px;margin:0;border:0;border-radius:12px;background:none;box-shadow:none;color:inherit;font:inherit;text-align:left;cursor:pointer;transition:background .15s}
+#page-masses .ms-lep:hover,#page-masses .ms-lep:focus-visible{background:rgba(140,170,230,.06);outline:none}
+#page-masses .ms-who{display:flex;align-items:center;gap:12px;min-width:0}
+#page-masses .ms-dial{position:relative;flex:none;width:32px;height:32px;border-radius:50%;background:color-mix(in srgb,var(--c) 9%,transparent);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--c) 60%,transparent),0 0 16px -6px var(--c)}
+#page-masses .ms-dial::after{content:'';position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:var(--c)}
+#page-masses .ms-hand{position:absolute;left:50%;bottom:50%;width:2px;height:12px;margin-left:-1px;border-radius:1px;background:var(--c);transform-origin:50% 100%;animation:ms-turn var(--d,10s) linear infinite}
+@keyframes ms-turn{to{transform:rotate(360deg)}}
+#page-masses .ms-id{display:flex;flex-direction:column;min-width:0}
+#page-masses .ms-sym{font-size:20px;font-weight:700;line-height:1.1;color:#f3f6fc}
+#page-masses .ms-nm{font-size:11.5px;line-height:1.3;color:var(--muted)}
+/* the track: one decade per quarter, the model value as a dot at the end of its line, the measured value as a white line */
+#page-masses .ms-track{position:relative;align-self:stretch;min-height:30px;border-right:1px solid rgba(140,170,230,.1);
+  background:linear-gradient(to right,rgba(140,170,230,.1) 1px,transparent 1px) 0 0/25% 100%}
+#page-masses .ms-stem{position:absolute;left:0;top:50%;width:0;height:2px;margin-top:-1px;border-radius:1px;background:linear-gradient(to right,color-mix(in srgb,var(--c) 22%,transparent),var(--c));box-shadow:0 0 10px -1px var(--c);
+  transition:width .9s cubic-bezier(.2,.7,.2,1)}
+#page-masses .ms-meas{position:absolute;left:0;top:50%;width:2px;height:24px;margin:-12px 0 0 -1px;border-radius:1px;background:#fff;opacity:0;transition:left .9s cubic-bezier(.2,.7,.2,1),opacity .3s}
+#page-masses .ms-dot{position:absolute;left:0;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--c);box-shadow:0 0 0 2px #070b16,0 0 14px 1px var(--c);transition:left .9s cubic-bezier(.2,.7,.2,1)}
+#page-masses .ms-in .ms-stem{width:var(--x)}
+#page-masses .ms-in .ms-meas{left:var(--xm);opacity:1}
+#page-masses .ms-in .ms-dot{left:var(--x)}
+#page-masses .ms-num{display:flex;flex-direction:column;align-items:flex-end;min-width:0;text-align:right;font-variant-numeric:tabular-nums}
+#page-masses .ms-num b{font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:1.2;color:#f3f6fc}
+#page-masses .ms-sub{font-size:12.5px;line-height:1.4;color:var(--muted);white-space:nowrap}
+#page-masses .ms-sub i{font-style:normal;color:var(--soft)}
+#page-masses .ms-dev{font-size:12.5px;line-height:1.4;color:var(--teal);white-space:nowrap}
+#page-masses .ms-dev em{font-style:normal;margin-left:8px;color:var(--muted)}
+#page-masses .ms-axis{margin-top:2px}
+#page-masses .ms-ticks{position:relative;grid-column:2;height:24px;border-top:1px solid rgba(140,170,230,.24)}
+#page-masses .ms-ticks span{position:absolute;top:6px;transform:translateX(-50%);font-size:11px;line-height:1.3;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+#page-masses .ms-rel .mt-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}
+
+/* ---------------------------------------------------------------- rest masses */
+#page-masses .ms-rest .mr-table{flex:1;justify-content:space-between}
+#page-masses .ms-rest .mr{grid-template-columns:minmax(132px,1.1fr) minmax(150px,1.2fr) minmax(156px,1.2fr) minmax(116px,.85fr);padding:9px 10px;box-shadow:none}
+#page-masses .ms-rest .mr:hover{border-color:rgba(140,170,230,.09);box-shadow:none}
+#page-masses .ms-rest .mr-h{padding-top:0;padding-bottom:7px}
+#page-masses .ms-rest .mr-g{margin:12px 10px 0}
+#page-masses .ms-rest .mr-g:nth-child(2){margin-top:8px}
+#page-masses .ms-rest .mr-q b{min-width:22px}
+#page-masses .ms-rest .mr-q>span i{display:inline;margin-left:8px}
+#page-masses .ms-rest .mr-v i{font-size:11px}
+#page-masses .ms-rest .mr-m i{font-size:10.5px}
+#page-masses .ms-input{display:inline-block;padding:1px 9px;border:1px solid rgba(147,163,192,.45);border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.5;color:var(--muted)}
+
+/* ---------------------------------------------------------------- the mass ladder */
+#page-masses .ms-strip{margin-top:16px;padding-bottom:10px}
+#page-masses .ms-keys{display:inline-flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+#page-masses .ms-key{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--soft);white-space:nowrap}
+#page-masses .ms-plot{position:relative;min-width:0}
+#page-masses .ms-svg{min-height:158px;overflow:hidden}
+#page-masses .ms-svg svg{display:block;max-width:100%;overflow:visible}
+#page-masses .ms-svg text{font-family:inherit;font-variant-numeric:tabular-nums}
+#page-masses .ms-lb{paint-order:stroke;stroke:#080d19;stroke-width:4px;stroke-linejoin:round}
+#page-masses .ms-p{cursor:pointer;outline:none;transition:opacity .15s}
+#page-masses .ms-plot.hov .ms-p:not(.on){opacity:.4}
+#page-masses .ms-p.on .ms-lb,#page-masses .ms-p:focus-visible .ms-lb{fill:#fff}
+#page-masses .ms-p:focus-visible>rect{stroke:rgba(63,224,208,.6);stroke-width:1}
+#page-masses .ms-tip{position:absolute;left:0;top:0;z-index:5;display:none;min-width:200px;padding:9px 12px;border:1px solid #2b3d63;border-radius:10px;background:rgba(9,14,26,.97);box-shadow:0 18px 50px -20px #000;
+  font-size:12.5px;line-height:1.5;color:#dfe6f5;font-variant-numeric:tabular-nums;white-space:nowrap;pointer-events:none}
+#page-masses .ms-tip div{display:flex;justify-content:space-between;gap:18px}
+#page-masses .ms-tip span{color:var(--muted)}
+#page-masses .ms-tip .ms-th{justify-content:flex-start;gap:8px;margin-bottom:2px;font-size:13px;color:#fff}
+#page-masses .ms-tip .ms-th i{font-style:normal;color:var(--muted)}
+#page-masses .ms-tip .ms-tn{color:var(--muted)}
+
+/* ---------------------------------------------------------------- links into the detail pages */
+#page-masses .ms-foot{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+#page-masses .ms-go{flex:1 1 240px;padding:10px 16px;border:1px solid var(--edge);border-radius:12px;background:rgba(18,27,46,.45);box-shadow:none;color:var(--soft);font:inherit;font-size:13.5px;text-align:left;cursor:pointer;transition:border-color .15s,color .15s,background .15s}
+#page-masses .ms-go:hover,#page-masses .ms-go:focus-visible{border-color:rgba(63,224,208,.6);background:rgba(21,33,56,.7);color:#fff;outline:none}
+
+/* ---------------------------------------------------------------- narrower screens */
+@media (max-width:1180px){
+  #page-masses .ms-hero{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  #page-masses .ms-wrap{padding:16px 16px 32px}
+  #page-masses .ms-head h2{font-size:22px}
+  #page-masses .ms-card{padding:14px 14px 12px}
+  #page-masses .ms-lep,#page-masses .ms-axis{grid-template-columns:minmax(0,1fr) auto;column-gap:12px;padding:0 4px}
+  #page-masses .ms-lep{row-gap:2px;padding-top:8px;padding-bottom:2px;min-height:0}
+  #page-masses .ms-track{grid-row:2;grid-column:1 / -1;min-height:30px;margin:0 6px}
+  #page-masses .ms-num{grid-row:1;grid-column:2}
+  #page-masses .ms-num b{font-size:24px}
+  #page-masses .ms-ticks{grid-column:1 / -1;margin:0 6px}
+  #page-masses .ms-ticks span:last-child{transform:translateX(-100%)}
+  #page-masses .ms-ticks span:first-child{transform:none}
+  /* rest masses: the name with the model value, the measured value with the deviation below it */
+  #page-masses .ms-rest .mr{grid-template-columns:minmax(0,1fr) auto;gap:1px 10px;padding:8px 4px}
+  #page-masses .ms-rest .mr-h{display:none}
+  #page-masses .ms-rest .mr-g{margin:10px 4px 0}
+  #page-masses .ms-rest .mr-q{grid-row:1;grid-column:1}
+  #page-masses .ms-rest .mr-v{grid-row:1;grid-column:2}
+  #page-masses .ms-rest .mr-m{grid-row:2;grid-column:1;padding-left:31px;text-align:left;font-size:12px}
+  #page-masses .ms-rest .mr-m::before{content:'measured ';color:var(--faint)}
+  #page-masses .ms-rest .mr-d{grid-row:2;grid-column:2}
+  #page-masses .ms-go{flex-basis:100%}
+}
+@media (max-width:520px){
+  #page-masses .ms-rel .mt-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  #page-masses .ms-hand{animation:none}
+  #page-masses .ms-stem,#page-masses .ms-meas,#page-masses .ms-dot{transition:none}
+}

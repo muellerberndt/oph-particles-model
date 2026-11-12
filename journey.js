@@ -1,4 +1,3 @@
-import { mountJourneyResults } from './journey_results.js';
 // The journey of the particle viewer: the overview page, the map panels and the compact journey bar.
 //
 // The page shows the whole chain as one animated picture: the steps (holographic screen, defects, lattice, field, early
@@ -34,8 +33,8 @@ export const STEPS = [
   { id: 'field', n: 4, name: 'Field', line: 'the Dirac equation and gauge waves in 3 + 1', pages: [['readout', 'Continuum field'], ['nowave', 'No wave function'], ['space', 'Forces']] },
   { id: 'early', n: 5, name: 'Early universe', line: 'cooling, then quarks bind into hadrons', pages: [['cosmos', 'First defects'], ['timeline', 'Timeline'], ['transitions', 'Phase transitions']] },
   { id: 'particles', n: 6, name: 'Particles', line: 'class k is the centre class 6Y mod 6', pages: [['classes', 'Classes'], ['decoder', 'Decoder'], ['map', 'Map']] },
-  { id: 'masses', n: 7, name: 'Masses', line: 'rest mass is a rest phase per tick', pages: [['leptons', 'Leptons'], ['spectrum', 'Spectrum'], ['couplings', 'Couplings']] },
-  { id: 'results', n: 8, name: 'Results', line: 'derived, conditional and open, with every number', pages: [['results', 'Board']] },
+  { id: 'masses', n: 7, name: 'Masses', line: 'rest mass is a rest phase per tick', pages: [['masses', 'Masses'], ['leptons', 'Lepton derivation'], ['spectrum', 'Full spectrum'], ['couplings', 'Couplings']] },
+  { id: 'results', n: 8, name: 'Results', line: 'every match with nature in one list', pages: [['matches', 'Matches to nature'], ['results', 'Numbers and status'], ['constructions', 'Finite constructions'], ['openwave', 'OpenWave status']] },
 ];
 export const STEP_OF_PAGE = {};
 for (const s of STEPS) for (const [p] of s.pages) STEP_OF_PAGE[p] = s.id;
@@ -1020,14 +1019,12 @@ export function setJourneyPage(page) {
 }
 
 // ================================================================================================ the page
-// The idea in three statements. Wording after the public repository: README.md ("compare records on shared
-// boundaries, repair their disagreements", "protected defects that local repairs cannot undo", "effective descriptions
-// of the records", "the public record, what survives every comparison") and the consensus paper ("the protected
-// defects ... carry the centre classes of the Standard Model particles").
-const IDEA = [
-  ['Observers', 'Observers on a holographic screen compare records and repair their disagreements.'],
-  ['Particles', 'What no repair can undo are <b>protected defects</b>: they carry the classes of the Standard Model particles.'],
-  ['Field', 'What survives every comparison is the public record, and <b>the field</b> is its effective description.'],
+// The two sides of the picture. Left: the simulation, a network of observers that repair their disagreements.
+// Right: what those observers measure. Wording after the public repository: README.md ("compare records on shared
+// boundaries, repair their disagreements", "protected defects that local repairs cannot undo") and the consensus paper.
+const SIDES = [
+  ['The simulation', 'A network of simple observers on a holographic screen. Each one runs <b>one local repair law</b> until the network settles.'],
+  ['What its observers measure', '<b>Particles in a field in three dimensions of space</b>, with the charges, forces and masses of our universe.'],
 ];
 // One row on wide screens, two rows below 1100 px, one step per row below 700 px.
 const modeOf = (w) => (w >= 1100 ? 1 : w >= 700 ? 2 : 3);
@@ -1066,11 +1063,20 @@ function paintPage(t) {                       // every visible row, and the coun
 }
 export function mount(host) {
   css();
+  // The page: the journey as one running picture, then every match with nature (matches.js), then the maps between
+  // the steps. No result block is mounted here: results live on the pages of the Results group.
   host.innerHTML = `<div class="jy-wrap">
-    <div class="jy-head"><h2>Journey</h2><button class="jy-results" data-page="results" title="the board of results"><b>8</b><span>Results</span><i>›</i></button></div>
-    <div class="jy-idea">${IDEA.map(([k, t]) => `<div><div class="jy-kick">${k}</div><div class="jy-say">${t}</div></div>`).join('')}</div>
+    <div class="jy-head"><h2>Journey</h2><button class="jy-results" data-page="matches" title="every match with nature in one list"><b>8</b><span>Results</span><i>›</i></button></div>
+    <div class="jy-sides">
+      <div class="jy-side"><div class="jy-kick">${SIDES[0][0]}</div><div class="jy-say">${SIDES[0][1]}</div></div>
+      <div class="jy-arrow" aria-hidden="true"><i></i></div>
+      <div class="jy-side jy-side-r"><div class="jy-kick">${SIDES[1][0]}</div><div class="jy-say">${SIDES[1][1]}</div></div>
+    </div>
     <div class="jy-ownbar"></div>
     <div class="jy-film"></div>
+  </div>
+  <div class="mw" id="journey-matches"></div>
+  <div class="jy-wrap jy-wrap-more">
     <h3 class="jy-sec-title">The maps between the steps</h3>
     <div class="jy-cards">${MAPS.map((m, i) => `<div class="jy-card" data-map="${m.id}" role="button" tabindex="0" title="open the map ${m.name}">
       <div class="jy-card-h"><span class="jy-kick">${i < MAIN.length ? 'map ' + (i + 1) : 'secondary map'} · ${m.name}</span><span class="jy-card-chips">${m.status.map(chip).join('')}</span></div>
@@ -1078,8 +1084,8 @@ export function mount(host) {
       <div class="jy-card-pic"><canvas></canvas></div>
       <div class="jy-card-f"><span>${RULE_CAP[m.id]}</span><i>›</i></div></div>`).join('')}</div>
     <div class="jy-foot"><div class="jy-legend">${Object.keys(STATUS).map(chip).join('')}</div><div class="jy-live"><i></i><span></span></div></div></div>`;
-  mountJourneyResults(host);
-  const wrap = host.querySelector('.jy-wrap'), page = host.closest ? host.closest('.page') : null;
+  import('./matches.js').then((m) => { const el = host.querySelector('#journey-matches'); if (el) m.wall(el); }).catch(() => {});
+  const wrap = host.querySelector('.jy-wrap'), pageEl = host.closest ? host.closest('.page') : null, page = pageEl;
   PG = { host, wrap, film: host.querySelector('.jy-film'), own: host.querySelector('.jy-ownbar'), live: host.querySelector('.jy-live span'), mode: modeOf(wrap.clientWidth || 1200), pics: [], told: -9, io: null };
   if (typeof IntersectionObserver === 'function') PG.io = new IntersectionObserver((es) => es.forEach((e) => { if (e.target.__pic) e.target.__pic.vis = e.isIntersecting; }));
   buildFilm();

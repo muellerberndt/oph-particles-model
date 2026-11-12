@@ -27,7 +27,7 @@ const REG = { top, universe, readout, classes, spectrum, story, carrier, space, 
 // pages added later register their entries when their help file exists (a missing file is not an error);
 // the entries of the equations section apply on every page
 let EQ = [];
-for (const p of ['results', 'decoder', 'leptons', 'couplings', 'timeline', 'transitions', 'lattice', 'journey', 'nowave']) {
+for (const p of ['results', 'decoder', 'leptons', 'couplings', 'timeline', 'transitions', 'lattice', 'journey', 'nowave', 'masses', 'matches', 'constructions', 'openwave']) {
   import(`./help/${p}.js`).then((m) => { REG[p] = (m.default || []).concat(EQ); }).catch(() => {});
 }
 import('./help/zoom.js').then((m) => { REG.universe = REG.universe.concat(m.default || []); }).catch(() => {});      // the zoom view lives on the Screen page

@@ -261,19 +261,19 @@ function render(host) {
   if (selected && !findRow(selected)) selected = B.groups[0].rows[0].id;
   const key = (shape, hollow, colour, text) => `<span><i style="color:${colour}">${glyph(shape, hollow, 12)}</i>${text}</span>`;
   host.innerHTML = `<div class="rs-wrap">
-    <div class="rs-head"><div><h2>Results</h2><div class="rs-lead">What each step of the journey yields, set against measurement.</div></div>
+    <div class="rs-head"><div><h2>Numbers and status</h2><div class="rs-lead">Every value of the model beside the Standard Model and the measured value.</div></div>
       <div class="rs-legend">${Object.keys(STATUS).map((k) => `<span class="rs-st" data-s="${k}">${chip(k, STATUS[k].long)}</span>`).join('')}</div></div>
 
-    <section class="rs-sec" data-b="derived" style="--c:var(--teal)"><div class="rs-bh"><h3>Derived</h3><span>exact, with an executable certificate</span></div>
+    <section class="rs-sec" data-b="derived" style="--c:var(--teal)"><div class="rs-bh"><h3>The same as the Standard Model</h3><span>every cell equals the Standard Model value · exact, with an executable certificate</span></div>
       <div class="rs-two"><div class="rs-mxwrap rs-box">${matrixHtml(B.matrix)}</div>
         <div class="rs-list rs-box">${B.statements.map(statement).join('')}</div></div></section>
 
-    <section class="rs-sec" data-b="conditional" style="--c:#dfe6f5"><div class="rs-bh"><h3>Conditional</h3><span>stated premises: what the model computes, against measurement</span>
+    <section class="rs-sec" data-b="conditional" style="--c:#dfe6f5"><div class="rs-bh"><h3>Numbers beside measurement</h3><span>what the model computes, against the measured value</span>
         <span class="rs-key">${key('diamond', false, 'var(--blue)', 'conditional')}${key('square', false, 'var(--amber)', 'declared')}${key('diamond', true, 'var(--blue)', 'second reading')}${key('cross', false, 'var(--red)', 'the source as built')}<span><b class="rs-sigkey"></b>one σ</span></span></div>
       ${chart(B.groups)}
       <div class="rs-thirds${B.constructions.length + B.lanes.length === 4 ? ' rs-n4' : ''}">${cards(B.constructions.concat(B.lanes))}</div></section>
 
-    <section class="rs-sec" data-b="open" style="--c:var(--red)"><div class="rs-bh"><h3>Open</h3><span>the source does not give these yet</span></div>
+    <section class="rs-sec" data-b="open" style="--c:var(--red)"><div class="rs-bh"><h3>Open</h3><span>what the model does not give</span></div>
       <div class="rs-olist rs-box">${B.open.map(openItem).join('')}</div></section>
   </div>`;
   wire(host);
