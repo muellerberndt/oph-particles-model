@@ -48,7 +48,7 @@ class CurrentProjectionTests(unittest.TestCase):
   with self.assertRaises(ValueError):project(changed)
 
  def test_homepage_values_and_idempotence(self):
-  v=project(self.receipts);original='<main><div id="journey-host"></div></main>'
+  v=project(self.receipts);original='<main><div id="journey-host"></div><div id="constructions-host"></div></main>'
   html=homepage_highlights(original,v)
   self.assertEqual(homepage_highlights(html,v),html)
   self.assertIn('Bare Wilson, not identified quark masses',html)

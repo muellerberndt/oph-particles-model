@@ -726,7 +726,7 @@ def projection(receipts, sources):
 
 
 def homepage_highlights(html, current):
-    """Render compact source-bound numbers without fetching large receipts on home."""
+    """Render compact source-bound numbers above the finite constructions, without fetching large receipts."""
     n=current['neutrino'];q=next(r for r in current['bare_quarks'] if r['key']=='rho')
     tuned=next(r for r in q['rows'] if r['label']=='ratio_tuned')
     begin='<!-- oph-current-highlights:start -->';end='<!-- oph-current-highlights:end -->'
@@ -743,8 +743,8 @@ def homepage_highlights(html, current):
 <div><h3 style="margin:0 0 8px;font-size:15px">Finite-time mass spectroscopy</h3><p style="font-size:13px;line-height:1.7;margin:0">1 reusable pointer qubit + 5 bits<br>8,010 complete records<br>≥65/72 ideal coverage on one-excitation inputs</p><p style="font-size:12px;color:#a9bbd1">Calibrated source; neutrino species remain unresolved. <a style="color:#75dcca" href="finite_results.html#finite-spectroscopy">Inspect every phase bin</a></p></div>
 </div><p style="margin:12px 0 0;font-size:12px"><a style="color:#75dcca" href="finite_results.html#current-results">Ten finite constructions, complete proofs and downloadable receipts →</a></p></section>
 {end}"""
-    anchor='<div id="journey-host"></div>'
-    if html.count(anchor)!=1:raise ValueError('expected one homepage journey host')
+    anchor='<div id="constructions-host"></div>'       # the page "Finite constructions"; the Journey page carries no result block
+    if html.count(anchor)!=1:raise ValueError('expected one constructions host')
     return html.replace(anchor,section+anchor)
 
 

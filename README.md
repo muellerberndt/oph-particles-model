@@ -40,11 +40,12 @@ lepton-cycle outcomes, reference-inclusive error budgets, exact closed-cell popu
 conjugation symmetry, correlated hadron errors and cutoff sensitivity. Its data projector rejects stale RER
 source bindings. All reported clocks, preparations and physical interpretations retain their stated domains.
 
-The [Journey page](https://particles.floatingpragma.ai/?page=journey#particle-results)
-highlights the source-bound charged-lepton GeV branches, fixed comparison
-residuals, localized-packet bound, magnetic response, neutral preparation and
-finite radiation conversion. Each card separates its numerical result from
-calibration and physical-identification assumptions. Refresh an existing site
+The [Journey page](https://particles.floatingpragma.ai/) shows the journey from the holographic screen to the
+particles, and every match of the model with nature as one wall of tiles. The Results group holds the full list
+([Matches to nature](https://particles.floatingpragma.ai/?page=matches)), the board of numbers and status, the
+[finite constructions](https://particles.floatingpragma.ai/?page=constructions) with their proofs, and the
+[OpenWave status](https://particles.floatingpragma.ai/?page=openwave) of the 31 OpenWave criteria. Values that
+answer an OpenWave criterion carry the tag OW n. Refresh the finite constructions on an existing site
 without copying pending simulation changes:
 
 ```sh
@@ -55,7 +56,13 @@ node tools/test_journey_results.mjs site
 ```
 
 The normal full-site builder applies the same overlay. It validates every
-source hash before writing; a changed Journey mount contract requires review.
+source hash before writing, and it refuses a site whose Journey page mounts the results.
+The OpenWave status data come from the project's assessment:
+
+```sh
+python tools/sync_openwave_status.py
+python tools/sync_openwave_status.py --check
+```
 
 The Journey projection binds23 RER receipts and presents ten focused tasks:
 native charge, quantum precession, photon-cap removal, neutral flight,

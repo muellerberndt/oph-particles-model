@@ -1,7 +1,10 @@
-"""Project verified RER particle results and install them on the Journey page.
+"""Project verified RER particle results for the page "Finite constructions" (Results group).
 
 The overlay can update an existing published site without rebuilding unrelated
 simulation files. Every displayed value is projected from a bound source receipt.
+The Journey page is the entry point of the site and shows the journey and the
+matches with nature only: this overlay writes no result into it. The viewer page
+constructions.js imports journey_results.js and renders it.
 """
 from __future__ import annotations
 import argparse
@@ -50,9 +53,9 @@ SOURCES={
  'six_quark':'model/openwave_six_quark/results.json',
 
 }
-IMPORT="import { mountJourneyResults } from './journey_results.js';\n"
-HOOK="  mountJourneyResults(host);\n"
-ANCHOR="  const wrap = host.querySelector('.jy-wrap'), page = host.closest ? host.closest('.page') : null;"
+CONSUMER='constructions.js'        # the viewer page that renders journey_results.js
+IMPORT="import('./journey_results.js')"
+LEGACY_HOOK='mountJourneyResults(host)'  # the retired hook inside journey.js
 
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
@@ -359,17 +362,16 @@ def frontier(receipts):
    'energy_lapse_and_isotropic_gluing_declared':True,'physical_G_or_clock_calibrated':False},
  }
 
-def patched_journey(source):
- if source.count(ANCHOR)!=1:raise ValueError('Journey mount structure changed; inspect before overlaying')
- if IMPORT not in source:source=IMPORT+source
- if HOOK not in source:source=source.replace(ANCHOR,HOOK+ANCHOR)
- return source
+def check_placement(consumer,journey):
+ """The constructions page renders the results; the Journey page carries none."""
+ if IMPORT not in consumer:raise ValueError('constructions.js does not import journey_results.js; inspect before overlaying')
+ if LEGACY_HOOK in journey:raise ValueError('journey.js still mounts the results; the Journey page shows the journey and the matches only')
 
 def sync(out,rer=RER,check=False):
  data=project(rer);body=json.dumps(data,indent=2,ensure_ascii=False)+'\n'
  outputs={'journey_results.json':body,'journey_results_data.js':'export const JOURNEY_RESULTS = '+body.rstrip()+';\n'}
  for name in ('journey_results.js','journey_results.css'):outputs[name]=(EXTRA/name).read_text()
- path=out/'journey.js';outputs['journey.js']=patched_journey(path.read_text())
+ check_placement((out/CONSUMER).read_text(),(out/'journey.js').read_text())
  for name,body in outputs.items():
   p=out/name
   if check:

@@ -2,7 +2,7 @@
 import copy,json,os,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
-from sync_journey_results import project,read_bound,patched_journey,digest,ANCHOR,IMPORT,HOOK,RER,SOURCES
+from sync_journey_results import project,read_bound,check_placement,digest,IMPORT,LEGACY_HOOK,RER,SOURCES
 
 class JourneyProjectionTest(unittest.TestCase):
  def test_source_ancestry_and_distinct_accuracy_meanings(self):
@@ -104,10 +104,9 @@ class JourneyProjectionTest(unittest.TestCase):
    receipt=r/'receipt.json';receipt.write_text(json.dumps({'verdict':'PASS_TEST','source_sha256':{'model/source.py':digest(source)}}))
    read_bound(receipt,r);source.write_text('source=2\n')
    with self.assertRaisesRegex(ValueError,'stale source'):read_bound(receipt,r)
- def test_complete_overlay_is_idempotent_and_structure_checked(self):
-  old='export function mount(host) {\n'+ANCHOR+'\n}\n'
-  patched=patched_journey(old)
-  self.assertEqual(patched_journey(patched),patched)
-  self.assertEqual(patched.count(IMPORT),1);self.assertEqual(patched.count(HOOK),1)
-  with self.assertRaisesRegex(ValueError,'mount structure changed'):patched_journey('an unrelated viewer')
+ def test_results_render_on_the_constructions_page_only(self):
+  consumer='export function mount(host) { '+IMPORT+'.then((m) => m.renderJourneyResults()); }\n'
+  check_placement(consumer,'export function mount(host) {}\n')
+  with self.assertRaisesRegex(ValueError,'does not import'):check_placement('an unrelated viewer','export function mount(host) {}\n')
+  with self.assertRaisesRegex(ValueError,'still mounts the results'):check_placement(consumer,'export function mount(host) {\n  '+LEGACY_HOOK+';\n}\n')
 if __name__=='__main__':unittest.main()
