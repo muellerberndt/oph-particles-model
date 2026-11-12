@@ -263,7 +263,7 @@
       "file": "finite_spectroscopy.json",
       "label": "Finite-time joint mass spectroscopy",
       "path": "model/finite_particle_spectroscopy/results.json",
-      "sha256": "7318c9c9cacecb1bba33ddda7593fc867bd2d497d55d3299cf5a78127fa0e6dd"
+      "sha256": "8490991a64525222da100cdb74681e7c37cc0823ac21f5f27c1d1f26a2699823"
     },
     {
       "file": "neutrino_observables.json",
@@ -11401,7 +11401,7 @@
       {
         "key": "finite_spectroscopy",
         "title": "Finite-time mass confidence sets",
-        "text": "An exactly equivalent adaptive pointer uses one reusable qubit plus five retained bits and preserves all 8,010 original records. Its ideal confidence coverage is at least 65/72. Neutrino labels remain unresolved; large precision plans are separate from execution.",
+        "text": "An exactly equivalent adaptive pointer uses one reusable qubit plus five retained bits and preserves all 8,010 original records. Its ideal coverage is at least 65/72 for normalized one-excitation inputs at the phase detector. Vacuum and many-excitation records remain terminal without a mass interval. Neutrino labels remain unresolved; large precision plans are separate from execution.",
         "proof": "model/finite_particle_spectroscopy/PROOF.md"
       },
       {
@@ -18319,6 +18319,15 @@
         "planned_exposure_GeV_inverse": 442139859501771.25
       }
     ],
+    "confidence": {
+      "coverage_domain": "normalized one-excitation inputs at detector entrance",
+      "all_input_bad_phase_effect_bound": "F_bad <= (7/72) P_one",
+      "all_input_no_valid_mass_interval_effect_bound": "F_no_valid <= I - P_one + F_bad <= I - (65/72) P_one",
+      "complete_original_probe_bound": "sum A^dagger F_bad A <= (7/72) sum A^dagger P_one A",
+      "original_one_excitation_weight_exact": "57/58",
+      "original_terminal_no_mass_interval_weight_exact": "1/58",
+      "original_good_mass_interval_weight_lower_exact": "1235/1392"
+    },
     "neutrino": {
       "masses": [
         0.0,
