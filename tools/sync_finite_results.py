@@ -11,6 +11,7 @@ import json
 import math
 from fractions import Fraction
 from pathlib import Path
+from project_joint_results import SOURCES as JOINT_SOURCES, project as project_joint
 
 ROOT = Path(__file__).resolve().parents[1]
 RER = ROOT.parent / 'reverse-engineering-reality'
@@ -47,6 +48,7 @@ SOURCES = {
     'neutrino_response': ('neutrino_mass_response/results.json', 'Native neutral transport and coupled sterile controls'),
 }
 
+SOURCES.update(JOINT_SOURCES)
 
 def load_receipt(path, rer):
     value = json.loads(path.read_text())
@@ -593,7 +595,7 @@ def extended_mass_projection(receipts):
             'scope':'One declared quadratic action gives conditional GeV coefficients for 17 Standard Model target types, with 180 fermion modes and 56 physical boson modes at two momenta. All Yukawas, the weak background and gauge parameters are empirical inputs; the optional neutrino action also uses a calibrated hierarchy and mixing prescription. This recovers supplied action parameters and supplies complete detector records, without deriving interacting poles, confinement or a physical source clock.'},
         'composites':{'rows':p['composite_controls'],'pion_rows':pion['particles'],'calibrations':pion['calibrations'],
             'empirical_inputs':pion['empirical_inputs'],'splitting':pion['pion_charged_neutral_splitting'],
-            'scope':'The pion triplet, proton/neutron assignment and rho comparison use archived quenched Wilson correlator fits. Rho and string anchors give different conditional GeV conversions. The pion/rho ratio is a tuning input; zero fit error at that calibrated point is not zero physical uncertainty. Quark loops, volume/continuum control, electromagnetic splitting and a native source/clock transfer are outside these fits.'}}
+            'scope':'This diagonal-fit control assigns the pion triplet, proton/neutron and rho labels using the archived quenched Wilson correlators. The correlated-covariance fit is displayed separately above. Rho and string anchors give different conditional GeV conversions. The pion/rho ratio is a tuning input; zero fit error at that calibrated point is not zero physical uncertainty. Quark loops, volume/continuum control, electromagnetic splitting and a native source/clock transfer are outside these fits.'}}
 
 
 def projection(receipts, sources):
@@ -652,6 +654,7 @@ def projection(receipts, sources):
     return {
         'schema': 'oph.viewer.finite_results.v1', 'sources': sources,
         'joined_defect': joined_projection(receipts),
+        'joint_measurements': project_joint(receipts),
         'mass_sources': extended_mass_projection(receipts),
         'yukawa': yukawa_projection(receipts),
         'defect_response': defect_projection(receipts),
@@ -695,7 +698,7 @@ def projection(receipts, sources):
                 'The dashed curve is its exact paired mean with the conjugated history. The theorem covers '
                 'all finite attempt counts under the stated symmetry premises.'},
         'hadron': {'rows': mass_rows, 'finding':
-            f"The paired contrast (mN − mρ)/√σ is {contrast['value']:.6f} ± {contrast['stat']:.6f} statistically. "
+            f"In the archived diagonal-fit control, the paired contrast (mN − mρ)/√σ is {contrast['value']:.6f} ± {contrast['stat']:.6f} statistically. "
             f"Discarding covariance gives {contrast['independent_stat_control']:.6f} for that error. "
             'The common scale cancels from mN/mρ in every replica. These one-spacing quenched results '
             'do not bound quenching, volume or continuum effects; the contrast has no fit-systematic allowance.'},

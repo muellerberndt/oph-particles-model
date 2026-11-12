@@ -43,7 +43,7 @@ class FiniteProjectionTests(unittest.TestCase):
             self.assertEqual(sync(root,check=True),paths)
             self.assertEqual(before,{p:(root/p).read_bytes() for p in paths})
             summary = json.loads((root/'finite/results.json').read_text())
-            self.assertEqual(len(summary['sources']),29)
+            self.assertEqual(len(summary['sources']),40)
             self.assertEqual(len(summary['yukawa']['rows']),4)
             self.assertFalse(summary['defect_response']['physical_Yukawa_prediction'])
             self.assertTrue(all(abs(r['p0']+r['p1']+r['p2']+r['p3']-1)<1e-12 for r in summary['epochs']['rows']))

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {weakRound, asymmetryBound, overlapReadout, scalarModeReadout, catalogueRows} from './site_extra/finite_results.mjs';
+import {weakRound, asymmetryBound, overlapReadout, scalarModeReadout, catalogueRows, jointGroupRows, serviceHistoryRows} from './site_extra/finite_results.mjs';
 import {readFileSync} from 'node:fs';
 
 for (const n of [1, 2, 10, 100, 10000, 100000]) {
@@ -69,3 +69,16 @@ assert.throws(()=>catalogueRows(catalogue,'made-up'));
 const promoted=structuredClone(catalogue);promoted.rows[0].physical_source_rest_mass_GeV=0;
 assert.throws(()=>catalogueRows(promoted));
 console.log('Joined-source scalar, mass-map and catalogue controls passed.');
+
+const jointSource=JSON.parse(readFileSync(new URL('../../reverse-engineering-reality/model/particle_joint_mass_identity/results.json',import.meta.url),'utf8'));
+const joint={targets:jointSource.conditional_GeV_targets.map(r=>r.species),groups:jointSource.complete_calibrated_joint_instrument.joint_groups.map(r=>({species:r.candidate_species,rank:r.projector_rank}))};
+assert.equal(jointGroupRows(joint,'up').length,8);
+assert.ok(jointGroupRows(joint,'up').every(r=>r.rank===3));
+assert.ok(jointGroupRows(joint,'gluon').every(r=>r.rank===8));
+assert.throws(()=>jointGroupRows(joint,'extra_particle'));
+const cycles=[1,2,3].map(n=>({cycles:n,records:Array.from({length:4**n},()=>({probability:1/4**n}))}));
+assert.equal(serviceHistoryRows({cycles},2).records.length,64);
+assert.throws(()=>serviceHistoryRows({cycles},3));
+const missing=structuredClone(cycles);missing[2].records.pop();
+assert.throws(()=>serviceHistoryRows({cycles:missing},2));
+console.log('Complete joint identity and service-history controls passed.');
