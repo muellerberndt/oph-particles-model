@@ -175,18 +175,18 @@ export function matches(live = {}) {
         open: 'The mixing angles of the model are not the measured ones.', tip: 'Three neutral families are produced, fly and are detected, and their records show appearance and disappearance.', src: [PKG('openwave_neutrino_oscillation')] },
     ] },
     { id: 'cosmos', title: 'Gravity and the cosmos', rows: [
-      { id: 'ns', kind: 'number', short: 'Primordial tilt n<sub>s</sub>', name: 'Tilt of the primordial spectrum n<sub>s</sub>', value: COSMOLOGY_LEDGER.P_C_tilt.toFixed(4), nature: tilt.measurement.value.toFixed(4) + ' ± ' + tilt.measurement.sigma, natureWord: 'Planck', rel: COSMOLOGY_LEDGER.P_C_tilt / tilt.measurement.value - 1, page: 'cosmos',
+      { id: 'ns', kind: 'number', short: 'Primordial tilt n<sub>s</sub>', name: 'Tilt of the primordial spectrum n<sub>s</sub>', value: COSMOLOGY_LEDGER.P_C_tilt.toFixed(4), nature: tilt.measurement.value.toFixed(4) + ' ± ' + tilt.measurement.sigma, natureWord: 'Planck', rel: COSMOLOGY_LEDGER.P_C_tilt / tilt.measurement.value - 1, page: 'cosmology',
         tip: 'The slope of the first density ripples, against the Planck 2018 measurement. The distance is ' + tilt.sigma_distance.toFixed(2) + ' standard deviations.', src: ledger },
       // row running_zero_planck2018_running: 0 against -0.0045 +- 0.0067
-      { id: 'running_ns', kind: 'number', name: 'Running of the tilt', value: '0', nature: '−0.0045 ± 0.0067', natureWord: 'Planck', dev: 'within 0.7 σ', page: 'cosmos', src: ledger },
+      { id: 'running_ns', kind: 'number', name: 'Running of the tilt', value: '0', nature: '−0.0045 ± 0.0067', natureWord: 'Planck', dev: 'within 0.7 σ', page: 'cosmology', src: ledger },
       // row tensor_zero_bk18_r_0p05: 0 against < 0.036 at 95 percent
-      { id: 'r', kind: 'number', short: 'Primordial waves r', name: 'Primordial gravitational waves r', value: '0', nature: '< 0.036', natureWord: 'BICEP/Keck', dev: 'within the bound', page: 'cosmos', src: ledger },
+      { id: 'r', kind: 'number', short: 'Primordial waves r', name: 'Primordial gravitational waves r', value: '0', nature: '< 0.036', natureWord: 'BICEP/Keck', dev: 'within the bound', page: 'cosmology', src: ledger },
       // row curvature_zero_planck2018_vi_omegak_bao: 0 against 0.0007 +- 0.0019
-      { id: 'flat', kind: 'number', name: 'Curvature of space Ω<sub>K</sub>', value: '0', nature: '0.0007 ± 0.0019', natureWord: 'Planck + BAO', dev: 'within 0.4 σ', page: 'cosmos', src: ledger },
+      { id: 'flat', kind: 'number', name: 'Curvature of space Ω<sub>K</sub>', value: '0', nature: '0.0007 ± 0.0019', natureWord: 'Planck + BAO', dev: 'within 0.4 σ', page: 'cosmology', src: ledger },
       // row fnl_zero_planck2018_ix_fnl_local: 0 against -0.9 +- 5.1
-      { id: 'fnl', kind: 'number', name: 'Non-Gaussianity f<sub>NL</sub>', value: '0', nature: '−0.9 ± 5.1', natureWord: 'Planck', dev: 'within 0.2 σ', page: 'cosmos', src: ledger },
+      { id: 'fnl', kind: 'number', name: 'Non-Gaussianity f<sub>NL</sub>', value: '0', nature: '−0.9 ± 5.1', natureWord: 'Planck', dev: 'within 0.2 σ', page: 'cosmology', src: ledger },
       // row isocurvature_zero_planck2018_x_cdi_general_100beta_klow: 0 against < 2.5 at 95 percent
-      { id: 'iso', kind: 'number', short: 'Isocurvature share', name: 'Isocurvature share of the ripples', value: '0', nature: '< 2.5 %', natureWord: 'Planck', dev: 'within the bound', page: 'cosmos', src: ledger },
+      { id: 'iso', kind: 'number', short: 'Isocurvature share', name: 'Isocurvature share of the ripples', value: '0', nature: '< 2.5 %', natureWord: 'Planck', dev: 'within the bound', page: 'cosmology', src: ledger },
       { id: 'attract', kind: 'part', name: 'Masses', value: 'attract each other', text: true, page: 'constructions',
         open: 'The strength G is not derived.', tip: 'Two sources of energy lower their energy by approaching: an attractive force in the model’s geometry.', src: [PKG('openwave_energy_lapse'), PKG('openwave_quantum_geometry')] },
       { id: 'slow', kind: 'part', name: 'Clocks near a mass', value: 'run slower', text: true, page: 'constructions',
@@ -194,9 +194,9 @@ export function matches(live = {}) {
       { id: 'bend', kind: 'part', name: 'A wave passing a mass', value: 'bends toward it, arrives late', text: true, page: 'constructions',
         open: 'No measured lensing angle is derived.', tip: 'A wave packet passing a source is deflected toward it and arrives later than in empty space.', src: [PKG('openwave_wave_deflection'), PKG('openwave_dynamic_wave')] },
       // rows w0wa_fixed_capacity_*: (w0, wa) = (-1, 0), the value of LambdaCDM
-      { id: 'w', kind: 'part', name: 'Dark energy', value: 'w = −1', page: 'cosmos', open: 'The capacity of the cosmos is not derived.', tip: 'The equation of state of a cosmological constant, the same as in ΛCDM.', src: ledger },
+      { id: 'w', kind: 'part', name: 'Dark energy', value: 'w = −1', page: 'cosmology', open: 'The capacity of the cosmos is not derived.', tip: 'The equation of state of a cosmological constant, the same as in ΛCDM.', src: ledger },
       // row lambda_capacity_candidate_a_planck2018_central: 1.0959e-52 against 1.0891e-52 per square metre
-      { id: 'lambda', kind: 'part', name: 'Cosmological constant Λ', value: '1.096 × 10⁻⁵²', unit: 'm⁻²', nature: '1.089 × 10⁻⁵²', natureWord: 'Planck', rel: 1.0959 / 1.0891 - 1, page: 'cosmos',
+      { id: 'lambda', kind: 'part', name: 'Cosmological constant Λ', value: '1.096 × 10⁻⁵²', unit: 'm⁻²', nature: '1.089 × 10⁻⁵²', natureWord: 'Planck', rel: 1.0959 / 1.0891 - 1, page: 'cosmology',
         open: 'The capacity that sets Λ is chosen with the measured value in view.', src: ledger },
     ] },
   ];
@@ -211,7 +211,7 @@ export function matches(live = {}) {
     { id: 'nucleon_mass', title: 'Proton and neutron masses', sub: 'the bound three-quark states of the model lie near 1.7 MeV, against 938 MeV', page: 'constructions' },
     { id: 'beta', title: 'Beta decay of the neutron', sub: 'energetically forbidden in the construction tested', page: 'constructions' },
     { id: 'nuclei', title: 'Nuclei beyond the deuteron', sub: 'not computed', page: 'constructions' },
-    { id: 'btfr', title: 'Rotation of galaxies', sub: 'the model’s Tully–Fisher exponent is 4, the measured one 3.75 ± 0.09', page: 'cosmos' },
+    { id: 'btfr', title: 'Rotation of galaxies', sub: 'the model’s Tully–Fisher exponent is 4, the measured one 3.75 ± 0.09', page: 'cosmology' },
   ]);
   for (const o of open) if (OW[o.id]) o.ow = OW[o.id];
   counts.open = open.length;

@@ -1,0 +1,39 @@
+/* The page "Against ΛCDM" (cosmology.js). Tiles and rows: match.css. OPH is teal, ΛCDM and measurement amber. */
+.cs-wrap{max-width:1600px;margin:0 auto;padding:22px 24px 56px}
+.cs-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin:0 0 16px}
+.cs-head h2{margin:0;font-size:26px;font-weight:700;letter-spacing:-.015em;color:#f3f6fc;display:flex;align-items:center}
+.cs-lead{margin:6px 0 0;max-width:780px;font-size:14px;line-height:1.5;color:var(--muted,#93a3c0)}
+.cs-band{display:flex;align-items:center;gap:12px;padding:10px 16px;border:1px solid rgba(63,224,208,.35);border-radius:14px;background:rgba(63,224,208,.06)}
+.cs-band b{font-size:26px;line-height:1;font-weight:750;letter-spacing:-.02em;color:#eafffb;white-space:nowrap}
+.cs-band span{max-width:250px;font-size:12.5px;line-height:1.35;color:var(--soft,#c5d0e6)}
+.cs-card{margin:0 0 16px;padding:16px 18px 14px;border:1px solid var(--edge,#1f2c48);border-radius:16px;background:linear-gradient(180deg,rgba(15,23,41,.72),rgba(8,12,22,.66))}
+.cs-k{margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal,#3fe0d0)}
+.cs-k i{font-style:normal;font-weight:500;letter-spacing:.02em;text-transform:none;color:var(--faint,#62718f);margin-left:10px}
+.cs-card .mt-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.cs-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.cs-two .cs-card{margin:0}
+.cs-hero{padding:8px 10px 4px;overflow:hidden}
+.cs-tlwrap{overflow-x:auto;overflow-y:hidden}
+.cs-tlsvg{display:block;width:100%;min-width:900px;height:auto;font-family:inherit}
+.cs-lane{font-size:12px;font-weight:700;letter-spacing:.12em}.cs-lo{fill:#3fe0d0}.cs-ll{fill:#ffb44a}
+.cs-rail{stroke-width:2;stroke-linecap:round}.cs-ro{stroke:rgba(63,224,208,.45)}.cs-rl{stroke:rgba(255,180,74,.42)}
+.cs-axis{stroke:rgba(140,170,230,.25);stroke-width:1}.cs-tk{stroke:rgba(140,170,230,.35)}
+.cs-tl{font-size:11px;fill:#7d8cab}.cs-today{fill:#93a3c0}
+.cs-tie{stroke:rgba(234,255,251,.22);stroke-width:1;stroke-dasharray:3 4}
+.cs-name{font-size:12.5px;font-weight:650;fill:#dfe6f5}
+.cs-v{font-size:11.5px;font-variant-numeric:tabular-nums}.cs-vo{fill:#bdfbf3}.cs-vl{fill:#ffd9a0}.cs-v.cs-dim{fill:#62718f}
+.cs-dot.cs-o{fill:#3fe0d0}.cs-dot.cs-l{fill:#ffb44a}.cs-dot.cs-faint{fill:none;stroke:#62718f;stroke-width:1.3;stroke-dasharray:2 2}
+.cs-glow{opacity:.28;filter:blur(4px)}.cs-glow.cs-o{fill:#3fe0d0}.cs-glow.cs-l{fill:#ffb44a}
+.cs-both .cs-glow{animation:cs-pulse 3.2s ease-in-out infinite}
+@keyframes cs-pulse{0%,100%{opacity:.18}50%{opacity:.5}}
+.cs-sweep{animation:cs-sweep 11s linear infinite}
+@keyframes cs-sweep{from{transform:translateX(60px)}to{transform:translateX(1150px)}}
+@media (prefers-reduced-motion:reduce){.cs-sweep,.cs-both .cs-glow{animation:none}.cs-sweep{display:none}}
+.cs-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-top:4px;font-size:12.5px;line-height:1.5;color:var(--faint,#62718f)}
+.cs-links{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.cs-links a{color:#7fb8ff;text-decoration:none;border-bottom:1px solid rgba(127,184,255,.3);margin-right:6px}.cs-links a:hover{color:#3fe0d0;border-color:#3fe0d0}
+.cs-links button{padding:5px 12px;border-radius:999px;font:inherit;font-size:12.5px;color:var(--teal,#3fe0d0);border:1px solid rgba(63,224,208,.4);background:none;cursor:pointer}
+.cs-links button:hover{background:rgba(63,224,208,.1);box-shadow:none}
+.cs-wrap .mr{grid-template-columns:minmax(150px,1.5fr) minmax(90px,.9fr) minmax(120px,1.2fr) minmax(76px,.6fr)}
+.cs-wrap .mr-m{white-space:normal}.cs-wrap .mr-q .ow-tag{margin-left:8px}
+@media (max-width:1180px){.cs-two{grid-template-columns:1fr}}
+@media (max-width:720px){.cs-wrap{padding:16px 12px 44px}.cs-card{padding:14px 10px 10px}.cs-band{width:100%}.cs-wrap .mr{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr)}}

@@ -31,7 +31,7 @@ export const STEPS = [
   { id: 'defects', n: 2, name: 'Defects', line: 'faces of nonzero class, born in neutral sets', pages: [['defects', 'Catalogue']] },
   { id: 'lattice', n: 3, name: 'Lattice', line: 'links, plaquettes and the weight exp(−S)', pages: [['lattice', 'From defects to the lattice']] },
   { id: 'field', n: 4, name: 'Field', line: 'the Dirac equation and gauge waves in 3 + 1', pages: [['readout', 'Continuum field'], ['nowave', 'No wave function'], ['space', 'Forces']] },
-  { id: 'early', n: 5, name: 'Early universe', line: 'cooling, then quarks bind into hadrons', pages: [['cosmos', 'First defects'], ['timeline', 'Timeline'], ['transitions', 'Phase transitions']] },
+  { id: 'early', n: 5, name: 'Early universe', line: 'cooling, then quarks bind into hadrons', pages: [['cosmos', 'First defects'], ['cosmology', 'Against ΛCDM'], ['timeline', 'Timeline'], ['transitions', 'Phase transitions']] },
   { id: 'particles', n: 6, name: 'Particles', line: 'class k is the centre class 6Y mod 6', pages: [['classes', 'Classes'], ['decoder', 'Decoder'], ['map', 'Map']] },
   { id: 'masses', n: 7, name: 'Masses', line: 'rest mass is a rest phase per tick', pages: [['masses', 'Masses'], ['leptons', 'Lepton derivation'], ['spectrum', 'Full spectrum'], ['couplings', 'Couplings']] },
   { id: 'results', n: 8, name: 'Results', line: 'every match with nature in one list', pages: [['matches', 'Matches to nature'], ['results', 'Numbers and status'], ['constructions', 'Finite constructions'], ['openwave', 'OpenWave status']] },

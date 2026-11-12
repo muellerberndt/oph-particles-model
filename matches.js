@@ -29,7 +29,7 @@ const natureOf = (r) => (r.kind === 'part' ? (r.nature ? `${r.nature}${r.unit ? 
   : r.kind === 'number' ? `${r.nature}${r.unit && !/^×/.test(r.unit) ? `<i>${r.unit}</i>` : ''}<em>${r.natureWord || 'measured'}</em>`
     : `<span class="mx-eq">${r.value}${r.unit ? `<i>${r.unit}</i>` : ''}</span>`);
 const PAGE_NAME = { readout: 'Field', observer: 'One observer', space: 'Forces', classes: 'Classes', decoder: 'Decoder', matches: 'the particle table below', constructions: 'Finite constructions',
-  openwave: 'OpenWave status', defects: 'Defects', carrier: 'One carrier', leptons: 'Lepton derivation', couplings: 'Couplings', spectrum: 'Full spectrum', transitions: 'Phase transitions', cosmos: 'Early universe', results: 'Numbers and status' };
+  openwave: 'OpenWave status', defects: 'Defects', carrier: 'One carrier', leptons: 'Lepton derivation', couplings: 'Couplings', spectrum: 'Full spectrum', transitions: 'Phase transitions', cosmos: 'First defects', cosmology: 'Against ΛCDM', results: 'Numbers and status' };
 function rowHtml(r) {
   const links = (r.src || []).map(([t, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${t} ↗</a>`).join('');
   const page = r.page && r.page !== 'matches' ? `<button type="button" class="mx-go" data-page="${esc(r.page)}">${PAGE_NAME[r.page] || r.page} ›</button>` : '';
