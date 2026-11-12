@@ -10,3 +10,5 @@
 
 .jr-criteria{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.jr-criteria a{font:600 10px/1.2 ui-monospace,SFMono-Regular,monospace;border:1px solid rgba(111,177,255,.35);border-radius:4px;padding:4px 6px;text-decoration:none}.jr .jr-supporting{margin-top:20px}.jr-supporting>.jr-grid{margin-top:14px}.jr-supporting>summary{font-size:14px}.jr-supporting .jr-grid p{font-size:13px}
 .jr-neutral-mass{display:block;white-space:nowrap;font-size:22px;margin:3px 0}
+
+.jr-neutrinos tbody th{min-width:0;width:25%}.jr-neutrinos td{padding-right:0}.jr-neutral-energy{display:block;white-space:nowrap}.jr-neutrinos td small{display:block;margin-top:5px;color:var(--muted,#93a3c0);font-size:11px}
