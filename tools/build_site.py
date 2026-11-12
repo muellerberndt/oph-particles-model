@@ -250,6 +250,8 @@ def main(argv=None):
     for level in range(1, 6):
         observer_lab.export(level, out / 'lab' / f'L{level}.npz')
     add_tags(out)
+    from sync_journey_results import sync as sync_journey
+    sync_journey(out)
     print(f'{preload_graph(out)} modules preloaded')
     (out / '.nojekyll').write_text('')
     (out / 'CNAME').write_text('particles.floatingpragma.ai\n')        # the site's address; DNS: CNAME particles -> muellerberndt.github.io

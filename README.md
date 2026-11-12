@@ -39,3 +39,20 @@ The [finite predictions page](https://particles.floatingpragma.ai/finite_results
 lepton-cycle outcomes, reference-inclusive error budgets, exact closed-cell population dynamics, native
 conjugation symmetry, correlated hadron errors and cutoff sensitivity. Its data projector rejects stale RER
 source bindings. All reported clocks, preparations and physical interpretations retain their stated domains.
+
+The [Journey page](https://particles.floatingpragma.ai/?page=journey#particle-results)
+highlights the source-bound charged-lepton GeV branches, fixed comparison
+residuals, localized-packet bound, magnetic response, neutral preparation and
+finite radiation conversion. Each card separates its numerical result from
+calibration and physical-identification assumptions. Refresh an existing site
+without copying pending simulation changes:
+
+```sh
+python tools/sync_journey_results.py --out site
+python tools/sync_journey_results.py --out site --check
+python -m unittest discover -s tools -p 'test_journey_results.py'
+node tools/test_journey_results.mjs site
+```
+
+The normal full-site builder applies the same overlay. It validates every
+source hash before writing; a changed Journey mount contract requires review.
