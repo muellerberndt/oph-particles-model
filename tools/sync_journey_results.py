@@ -51,6 +51,17 @@ SOURCES={
  'dynamic_wave':'model/openwave_dynamic_wave/results.json',
  'dynamic_stress':'model/openwave_dynamic_stress/results.json',
  'six_quark':'model/openwave_six_quark/results.json',
+ 'calibrated_hadrons':'model/openwave_calibrated_hadrons/results.json',
+ 'nuclear_exchange':'model/openwave_nuclear_exchange/results.json',
+ 'nuclear_refinement':'model/openwave_nuclear_refinement/results.json',
+ 'baryon_weak_formfactors':'model/openwave_baryon_weak_formfactors/results.json',
+ 'baryon_beta':'model/openwave_baryon_beta/results.json',
+ 'reachable_averaging':'model/openwave_reachable_averaging/results.json',
+ 'meson_ring':'model/openwave_meson_ring/results.json',
+ 'dirac_neutral_current':'model/openwave_dirac_neutral_current/results.json',
+ 'geometry_refinement':'model/openwave_geometry_refinement/results.json',
+ 'relational_clock':'model/openwave_relational_clock/results.json',
+
 
 }
 CONSUMER='constructions.js'        # the viewer page that renders journey_results.js
@@ -140,12 +151,102 @@ def project(rer=RER):
    'lower_bound_time_in_inverse_native_mass':'1e-8','physical_scattering_rate_proved':False},
   **frontier(receipts),
   'previous_tasks':previous_tasks(receipts),
+  'reference_tasks':reference_tasks(receipts),
   'current_tasks':current_tasks(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }
 
 def current_tasks(receipts):
+ hadron=receipts['calibrated_hadrons'];form=receipts['baryon_weak_formfactors'];beta=receipts['baryon_beta']
+ assert hadron['three_calibrated_coefficients']==['mbar','delta','A']
+ assert all(r['status']=='CALIBRATION_INPUT_REPRODUCED_NOT_INDEPENDENT_PREDICTION'for r in hadron['fits'])
+ assert all(r['physical_assignment_supported']is False for r in hadron['held_out_comparisons'])
+ assert form['observed_axial_ratio_reproduced']is False
+ assert form['native_vector_charge_normalization_proved']is True
+ b=next(r for r in beta['records']if r['source_parameter']==512)
+ assert beta['calibrated_threshold']['target_independent_mass_prediction']is False
+ assert beta['calibrated_threshold']['virtual_two_electron_channel_retained']is True
+ assert beta['calibrated_threshold']['on_shell_two_electron_channel_allowed']is False
+ nuclear=receipts['nuclear_exchange'];refinement=receipts['nuclear_refinement'];averaging=receipts['reachable_averaging']
+ assert nuclear['physical_deuteron_binding_reproduced']is False
+ assert all(not r['bound_below_two_baryons']for r in nuclear['complete_spin_zero_isotriplet_partners'])
+ assert averaging['source_truncation_or_added_penalty']is False
+ assert averaging['source_unchanged_except_supplied_G']is True
+ assert averaging['physical_weak_coupling_lifetime_or_irreversibility_claimed']is False
+ assert len(refinement['same_source_graphs'])==5
+ ring=receipts['meson_ring'];dirac=receipts['dirac_neutral_current'];dm=dirac['conditional_GeV_catalogue']
+ assert ring['physical_strange_decay_lifetime_or_observed_meson_identity_claimed']is False
+ assert ring['initial_quadratic_emission_coefficient_exact']=='3/512'
+ assert dm['declared_neutral_to_charged_mass_scale']=='1/4294967296'
+ assert dm['physical_neutrino_mass_identity_or_oscillation_fit_claimed']is False
+ assert dm['active_and_sterile_chiralities_share_each_Dirac_mass']is True
+ assert dm['source_scale_or_mixing_fitted_to_neutrino_data']is False
+ assert all(r['independent_sterile_mass_branch']is False for r in dm['rows'])
+ assert dirac['same_native_current_added_sterile_entries_zero']is True
+ geometry=receipts['geometry_refinement'];clock=receipts['relational_clock']
+ assert geometry['infinite_geometry_cap_or_spatial_continuum_limit_proved']is False
+ assert geometry['same_matter_field_reference_and_observer_source']is True
+ assert clock['same_master_source']=='model/openwave_geometry_refinement/source.py'
+ assert clock['physical_seconds_Einstein_proper_time_or_fundamental_global_clock_assumed']is False
+ assert clock['phase_statistic_is_a_circular_coherence_statistic_not_the_mean_arrival_time']is True
+ assert clock['finite_sampling_guarantee']['large_repetition_experiment_executed']is False
+ return {
+  'task_count':10,
+  'calibrated_hadrons':{'fits':hadron['fits'],'held_out':hadron['held_out_comparisons'],
+   'fitted_coefficients':hadron['three_calibrated_coefficients'],
+   'beta_available_energy_GeV':float(Fraction(hadron['exact_beta_available_energy_GeV'])),
+   'independent_mass_prediction':False},
+  'nuclear_exchange':{'energy_GeV_interval':[float(Fraction(v))for v in nuclear['stationary_energy_GeV_interval']],
+   'binding_lower_GeV':float(Fraction(nuclear['binding_lower_GeV'])),
+   'deuteron_reference_binding_GeV':float(Fraction(nuclear['held_out_deuteron_binding_GeV'])),
+   'partner_threshold_gaps':[float(Fraction(r['ground_above_same_charge_two_baryon_threshold_lower']))for r in nuclear['complete_spin_zero_isotriplet_partners']],
+   'quadrupole_interval':[float(Fraction(v))for v in nuclear['complete_original_records']['stationary_ground_quadrupole_interval']],
+   'physical_deuteron_fit':False},
+  'nuclear_refinement':{'graphs':[{'graph':r['graph'],'vertices':r['vertices'],
+   'complete_low_dimension':r['nuclear_total_low_dimension_including_magnetic_components'],
+   'binding_channels':[{'spin':c['spin'],'isospin':c['isospin'],'strictly_bound':c['strictly_bound'],
+    'excluded_below_two_baryons':c['excluded_below_two_baryons'],
+    'binding_GeV_interval':[float(Fraction(v))for v in c['binding_GeV_interval']]}for c in r['binding_channels']]}for r in refinement['same_source_graphs']],
+   'unassigned_bound_channel':refinement['additional_unassigned_bound_channel']},
+  'reachable_averaging':{'scenarios':averaging['coupling_scenarios'],'native_CAR_modes':averaging['full_native_CAR_modes'],
+   'source_truncation_or_added_penalty':False,'physical_weak_lifetime':False},
+  'meson_ring':{'ring_probabilities':[{'length':r['ring_sites'],
+    'probability':next(t for t in r['complete_coarse_time_records']if t['time']==720)['conditional_pair_probability'],
+    'original_input_probability':next(t for t in r['complete_coarse_time_records']if t['time']==720)['original_input_pair_probability'],
+    'preparation_success':r['prepared_parent_success_probability']}for r in ring['finite_rings']],
+   'initial_quadratic_emission_coefficient':ring['initial_quadratic_emission_coefficient_exact'],
+   'physical_meson_lifetime':False},
+  'dirac_neutral_current':{'masses_GeV':[float(r['conditional_neutrino_and_antineutrino_GeV'])for r in dm['rows']],
+   'masses_eV':[float(r['conditional_eV'])for r in dm['rows']],
+   'neutral_to_charged_mass_scale':dm['declared_neutral_to_charged_mass_scale'],
+   'autonomous_short_time_probability_interval':[float(Fraction(v))for v in dirac['autonomous_unfiltered_short_time_control']['total_three_body_probability_interval']],
+   'physical_neutrino_fit':False,'independent_heavy_sterile_particles':False},
+  'formfactors':{'gV':form['exact_local_current_algebra']['gV'],
+   'axial_ratio_interval':form['finite_hopping_certificate']['axial_ratio_interval'],
+   'comparison_magnitude':form['comparison']['axial_ratio_magnitude'],
+   'comparison_uncertainty':form['comparison']['quoted_uncertainty'],'physical_axial_fit':False},
+  'beta':{'source_parameter':b['source_parameter'],'conditional_one_electron_probability':b['conditional_electron_count_probability'][1],
+   'unconditional_one_electron_probability':b['original_electron_count_probability'][1],
+   'preparation_success_probability':b['preparation_success_probability'],
+   'endpoint_GeV':beta['calibrated_threshold']['electron_endpoint_GeV'],
+   'complete_charge_sector_dimension':beta['construction']['complete_charge_zero_dimension'],
+   'filled_neutral_reference_contact_shifts':beta['filled_neutral_reference_contact_shifts'],
+   'virtual_two_electron_channels_retained':True,'observed_neutron_lifetime_matched':False},
+  'geometry_refinement':{'master_dimension':geometry['full_source_dimension'],
+   'cap_three_arrival_TV_upper':next(r for r in geometry['certified_compression_comparisons']if r['nested_cap']==3)['full_arrival_instrument_reference_stable_TV_upper'],
+   'delay_interval':geometry['master_same_source_arrival_delay_interval'],
+   'bending_interval':geometry['master_time4_bending_interval'],
+   'infinite_cap_limit_proved':False,'compression_domain_is_the_right_cell_clock_superposition':False},
+  'relational_clock':{'delay_cycles_interval':clock['delay_in_calibrated_native_clock_cycles_interval'],
+   'arrival_phase_response_cycles_interval':clock['actual_aggregate_arrival_clock_phase_response_cycles_interval'],
+   'arrival_clock_visibilities':[r['total_arrival_clock_visibility']for r in clock['complete_experiments']],
+   'sampling_trials_per_background':clock['finite_sampling_guarantee']['independent_prepared_trials_per_background'],
+   'sampling_phase_cycles_interval':clock['finite_sampling_guarantee']['positive_arrival_phase_response_cycles_interval_with_sampling'],
+   'physical_proper_time_identified':False},
+ }
+
+def reference_tasks(receipts):
  gauss=receipts['local_gauss_quantum'];pair=gauss['same_quantum_charged_block']
  assert gauss['all_reference_and_flux_outcomes_retained']is True
  assert pair['star_field_energy_is_intrinsic_isolated_electron_rest_mass']is False
@@ -367,11 +468,31 @@ def check_placement(consumer,journey):
  if IMPORT not in consumer:raise ValueError('constructions.js does not import journey_results.js; inspect before overlaying')
  if LEGACY_HOOK in journey:raise ValueError('journey.js still mounts the results; the Journey page shows the journey and the matches only')
 
+def apply_data_hooks(name,body):
+ """Small idempotent data hooks preserve the current Fable renderer and layout."""
+ if name=='matches_data.js':
+  patches=[
+   ("import { COSMOLOGY_LEDGER, TILT_COMPARISONS } from './cosmos_evidence.js';", "import { COSMOLOGY_LEDGER, TILT_COMPARISONS } from './cosmos_evidence.js';\nimport { applyConstructionEvidence, updateConstructionOpenItems } from './construction_matches.js';"),
+   ('  for (const g of groups) g.rows = g.rows.filter(Boolean);','  applyConstructionEvidence(groups);\n  for (const g of groups) g.rows = g.rows.filter(Boolean);'),
+   ('  for (const o of open) if (OW[o.id]) o.ow = OW[o.id];','  updateConstructionOpenItems(open);\n  for (const o of open) if (OW[o.id]) o.ow = OW[o.id];')]
+ elif name=='openwave.js':
+  patches=[("const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/';", "const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/' + OPENWAVE.evaluated_RER_commit + '/';"),
+   ('const PLAIN = {',"import { CONSTRUCTION_SUMMARIES } from './construction_matches.js';\nconst PLAIN = {"),
+   ("${PLAIN[r.id] || ''}","${esc(CONSTRUCTION_SUMMARIES[r.id] || PLAIN[r.id] || '')}")]
+ else:raise ValueError(name)
+ for old,new in patches:
+  if new in body:continue
+  if body.count(old)!=1:raise ValueError(f'Fable data hook changed in {name}; review its current source')
+  body=body.replace(old,new)
+ return body
+
 def sync(out,rer=RER,check=False):
  data=project(rer);body=json.dumps(data,indent=2,ensure_ascii=False)+'\n'
  outputs={'journey_results.json':body,'journey_results_data.js':'export const JOURNEY_RESULTS = '+body.rstrip()+';\n'}
- for name in ('journey_results.js','journey_results.css'):outputs[name]=(EXTRA/name).read_text()
+ for name in ('journey_results.js','journey_results.css','construction_matches.js'):outputs[name]=(EXTRA/name).read_text()
  check_placement((out/CONSUMER).read_text(),(out/'journey.js').read_text())
+ for name in ('matches_data.js','openwave.js'):
+  outputs[name]=apply_data_hooks(name,(out/name).read_text())
  for name,body in outputs.items():
   p=out/name
   if check:

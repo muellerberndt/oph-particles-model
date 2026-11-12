@@ -64,14 +64,24 @@ python tools/sync_openwave_status.py
 python tools/sync_openwave_status.py --check
 ```
 
-The Journey projection binds23 RER receipts and presents ten focused tasks:
-native charge, quantum precession, photon-cap removal, neutral flight,
-inclusive decay, baryon binding, meson binding, autonomous quantum geometry,
-planar wave deflection and common GeV conversion. The lepton comparisons and
-other finite results are retained. The common-scale table labels all13
-stationary energies and displays the failed physical hadron assignments;
-the infinite-photon GeV interval is a convergence certificate at the same
-electron anchor. Static wave bending and autonomous quantum geometry use
-distinct declared sources and are identified separately.
+The current projection binds43 RER receipts to one committed source revision. The finite-constructions page
+shows ten current tasks and the charged-lepton comparison;29 supporting constructions stay available in a
+collapsed section. Current highlights include calibrated proton/neutron/charged-pion masses, held-out nuclear
+binding, complete native beta conversion, stronger current bounds, finite-volume meson tests, conditional Dirac
+neutral branches, geometry-cap refinement and operational native-clock arrival records. Calibration targets,
+independent comparisons and actual failed fits are labelled separately.
 
-The current Journey projection adds ten further constructive results: native orbital-tree Gauss constraints, infinite-photon current response, full spatial completion, unfiltered-current averaging, semileptonic meson conversion, vectorlike quark branches, baryon ordering, autonomous wave/geometry observations, source-derived stress and clock bounds, and six-quark binding. Thirty result cards retain the earlier lepton comparison and conditional GeV numbers. Thirty-three source receipts are pinned to one committed RER revision. The new tables retain all heavy branches and expose the unmatched quark/nucleon masses and beta-decay obstruction. Construction choices are legitimate explicit model inputs; observed identities and successful physical fits are assessed separately.
+The overlay preserves the Fable viewer and Journey layout. Small, fail-closed data hooks update its existing
+Matches rows and OpenWave summaries; the three calibrated masses use a visible “calibrated” label. Match kinds
+read the final assessment rather than duplicating its statuses. OpenWave tags identify relevant criteria and do
+not imply an official award. The old balanced-source mass and beta-threshold failures remain distinct controls.
+
+For a clean publication worktree, write the assessment to that same worktree before testing:
+
+```sh
+python tools/sync_openwave_status.py --source /path/to/openwave-tuning/application_assessment.json --rer /path/to/reverse-engineering-reality --out /path/to/site/openwave_data.js
+python tools/sync_journey_results.py --rer /path/to/reverse-engineering-reality --out /path/to/site
+```
+
+Use a current published checkout when applying the overlay: it updates only the bound Results assets and data
+hooks. It must not replace concurrently edited simulation files or revert the Early Universe/cosmology page.

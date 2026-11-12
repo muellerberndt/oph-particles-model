@@ -2,7 +2,7 @@
 import copy,json,os,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
-from sync_journey_results import project,read_bound,check_placement,digest,IMPORT,LEGACY_HOOK,RER,SOURCES
+from sync_journey_results import project,read_bound,check_placement,digest,IMPORT,LEGACY_HOOK,RER,SOURCES,apply_data_hooks
 
 class JourneyProjectionTest(unittest.TestCase):
  def test_source_ancestry_and_distinct_accuracy_meanings(self):
@@ -31,7 +31,7 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(p['weak']['receiver_probability_interval'][0],0)
   self.assertGreater(p['neutral_transfer']['receiver_probability_interval'][0],0)
   self.assertFalse(p['neutral_transfer']['earlier_flat_band_transferred'])
-  self.assertEqual(len(p['source_sha256']),33)
+  self.assertEqual(len(p['source_sha256']),43)
   current=p['previous_tasks'];self.assertEqual(current['task_count'],10)
   self.assertEqual(current['native_charge']['neutral_reference_charge'],'0')
   self.assertLess(current['infinite_photon']['photon_tail_above_three_upper'],8.278e-16)
@@ -44,7 +44,7 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertLess(current['geometry']['witness_interval'][1],0)
   self.assertLess(current['wave']['transverse_shift'],0)
   self.assertGreater(current['wave']['gamma_minus_one_shift'],0)
-  latest=p['current_tasks'];self.assertEqual(latest['task_count'],10)
+  latest=p['reference_tasks'];self.assertEqual(latest['task_count'],10)
   self.assertFalse(latest['gauss']['intrinsic_electron_mass'])
   self.assertLess(latest['infinite_current']['g_interval'][1],2)
   self.assertFalse(latest['spatial']['normalizable_threshold_state'])
@@ -61,6 +61,22 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(latest['six_quark']['binding_lower'],.246)
   self.assertGreater(latest['six_quark']['quadrupole_interval'][0],0)
   self.assertFalse(latest['six_quark']['physical_deuteron_fit'])
+  new=p['current_tasks'];self.assertEqual(new['task_count'],10)
+  self.assertEqual(len(new['calibrated_hadrons']['fits']),3)
+  self.assertFalse(new['calibrated_hadrons']['independent_mass_prediction'])
+  self.assertFalse(new['nuclear_exchange']['physical_deuteron_fit'])
+  self.assertGreater(new['beta']['conditional_one_electron_probability'],.96)
+  self.assertLess(new['beta']['unconditional_one_electron_probability'],.33)
+  self.assertGreater(new['relational_clock']['delay_cycles_interval'][0],0)
+  self.assertLess(new['geometry_refinement']['cap_three_arrival_TV_upper'],.000358)
+  self.assertFalse(new['geometry_refinement']['compression_domain_is_the_right_cell_clock_superposition'])
+ def test_small_data_hooks_are_idempotent_and_fail_closed(self):
+  original="const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/'; const PLAIN = { }; const s = `${PLAIN[r.id] || ''}`;"
+  out=apply_data_hooks('openwave.js',original)
+  self.assertEqual(out,apply_data_hooks('openwave.js',out))
+  self.assertIn('CONSTRUCTION_SUMMARIES',out)
+  with self.assertRaisesRegex(ValueError,'Fable data hook changed'):
+   apply_data_hooks('openwave.js','a changed Fable renderer')
  def test_changed_display_domains_are_rejected(self):
   mutations=[
    ('openwave_localized_rest_packet',lambda x:x['near_rest_localized_source'].__setitem__('source_time_horizon',100)),
