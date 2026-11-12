@@ -1,3 +1,4 @@
+import { mountJourneyResults } from './journey_results.js';
 // The journey of the particle viewer: the overview page, the map panels and the compact journey bar.
 //
 // The page shows the whole chain as one animated picture: the steps (holographic screen, defects, lattice, field, early
@@ -1077,6 +1078,7 @@ export function mount(host) {
       <div class="jy-card-pic"><canvas></canvas></div>
       <div class="jy-card-f"><span>${RULE_CAP[m.id]}</span><i>›</i></div></div>`).join('')}</div>
     <div class="jy-foot"><div class="jy-legend">${Object.keys(STATUS).map(chip).join('')}</div><div class="jy-live"><i></i><span></span></div></div></div>`;
+  mountJourneyResults(host);
   const wrap = host.querySelector('.jy-wrap'), page = host.closest ? host.closest('.page') : null;
   PG = { host, wrap, film: host.querySelector('.jy-film'), own: host.querySelector('.jy-ownbar'), live: host.querySelector('.jy-live span'), mode: modeOf(wrap.clientWidth || 1200), pics: [], told: -9, io: null };
   if (typeof IntersectionObserver === 'function') PG.io = new IntersectionObserver((es) => es.forEach((e) => { if (e.target.__pic) e.target.__pic.vis = e.isIntersecting; }));
