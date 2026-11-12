@@ -8,6 +8,57 @@ export function weakRound(N, p = 2 / 9) {
           halfDiamondBound: Math.min(1, p * (1 - p) / N)};
 }
 
+export function jointGroupRows(joint,species) {
+  if(joint.groups.length!==112||!joint.targets.includes(species))throw new RangeError('Complete joint detector and known target required');
+  return joint.groups.filter(r=>r.species.includes(species));
+}
+
+export function serviceHistoryRows(compiler,index) {
+  if(!Number.isInteger(index)||index<0||index>=3)throw new RangeError('One through three complete cycles required');
+  const run=compiler.cycles[index];
+  if(run.cycles!==index+1||run.records.length!==4**run.cycles||Math.abs(run.records.reduce((v,r)=>v+r.probability,0)-1)>3e-8)throw new Error('Original service histories must be complete');
+  return run;
+}
+
+function mountJointMeasurements(data,$) {
+  const all=data.joint_measurements;if(!all)throw new Error('Joint particle and thermal calculations required');
+  const row=(target,values,zero=false)=>{const tr=document.createElement('tr');if(zero)tr.dataset.zero='true';for(const value of values){const td=document.createElement('td');td.textContent=value;tr.append(td);}target.append(tr);};
+  const option=(target,value,label)=>{const item=document.createElement('option');item.value=value;item.textContent=label;target.append(item);};
+  const label=x=>x.replace('neutrino_mass_eigenstate_','Neutrino ν').replaceAll('_',' ');
+  const j=all.joint;$('joint-scope').textContent=j.scope;$('joint-resolution').textContent=j.resolution;
+  j.targets.forEach(s=>option($('joint-species'),s,label(s)));
+  const updateGroups=()=>{const rows=jointGroupRows(j,$('joint-species').value);$('joint-groups').replaceChildren();$('joint-count').textContent=`${rows.length} measured groups for this label, from all 112 one-excitation groups. The separate compiled-lepton rest instrument retains ${j.compiled_rest_records} charge/spin/energy records per family.`;rows.forEach(r=>row($('joint-groups'),[r.orientation.join(', '),r.charge,r.color,r.helicity,r.momentum,format(r.energy,12),format(r.mass,12),r.rank]));};
+  $('joint-species').addEventListener('change',updateGroups);updateGroups();
+  const pointers=[...new Set(j.records.map(r=>r.pointer))];pointers.forEach(s=>option($('joint-pointer'),s,label(s)));
+  const updatePointer=()=>{const records=j.records.filter(r=>r.pointer===$('joint-pointer').value);$('joint-records').replaceChildren();const total=records.reduce((v,r)=>v+r.probability,0);$('joint-record-total').textContent=`All ${records.length} detector outcomes for this pointer have original total weight ${format(total,10)}. Across all five pointers, all 570 original records sum to one; 457 have zero weight.`;records.forEach(r=>{const group=j.groups.find(g=>g.index===r.joint_index);const name=r.projector_kind==='one_excitation'?`${group.species.map(label).join(', ')} · h=${group.helicity} · p=${group.momentum} · rank ${group.rank}`:label(r.projector_kind);row($('joint-records'),[name,format(r.probability,10)],r.probability===0);});};
+  $('joint-pointer').addEventListener('change',updatePointer);updatePointer();
+  proofLinks($('joint-source'),[['Complete same-source joint detector','model/particle_joint_mass_identity/PROOF.md']]);
+  const c=all.compiler;$('compact-scope').textContent=c.scope;
+  $('compact-resources').textContent=c.resource_examples.map(r=>`${r.sites} site${r.sites===1?'':'s'}: ${r.rounds.toLocaleString()} certified rounds at time 1 for unhalved error ≤10⁻¹², a ${format(r.round_reduction_factor,6)}× round reduction.`).join(' ')+' These precision-scale round counts are certified resource formulas, not executed campaigns.';
+  c.cycles.forEach((r,i)=>option($('service-cycles'),i,`${r.cycles} cycle${r.cycles===1?'':'s'} · ${r.records.length} histories`));
+  const updateService=()=>{const index=Number($('service-cycles').value),run=serviceHistoryRows(c,index),res=c.service_resources[index];$('service-records').replaceChildren();run.records.forEach(r=>row($('service-records'),[r.history.map(label).join(' → '),format(r.probability,10)]));$('service-summary').textContent=`${res.native_source_pulses.toLocaleString()} emitted native pulses, ${res.coherent_load_export_service_events.toLocaleString()} coherent load/export events, ${res.fresh_address_pairs_including_terminal_active_pair} fresh source pairs. The quantum archive has ${BigInt(run.archive_dimension).toLocaleString()} coordinates represented by full tensor factors; all original return histories are retained.`;};
+  $('service-cycles').addEventListener('change',updateService);updateService();
+  proofLinks($('compact-source'),[['Exact compression and complete-archive bound','model/lepton_compiler_compression/PROOF.md'],['Native preparation, cycles and services','model/lepton_service_compiler/PROOF.md']]);
+  const t=all.thermal;$('thermal-history-scope').textContent=t.scope;
+  t.rows.forEach((r,i)=>option($('thermal-temperature'),i,`${format(r.temperature,5)} GeV`));$('thermal-temperature').value=String(t.rows.length-1);
+  const updateThermal=()=>{const r=t.rows[Number($('thermal-temperature').value)];$('thermal-degrees').textContent=format(r.g_energy,7);$('thermal-sound').textContent=format(r.sound_speed_squared,7);$('thermal-shares').replaceChildren();Object.entries(r.fractions).forEach(([k,v])=>row($('thermal-shares'),[label(k),`${format(100*v.number,6)}%`,`${format(100*v.energy,6)}%`]));$('thermal-expansion').textContent=`Assuming a homogeneous adiabatic Friedmann comparison, a/a(T=10 GeV)=${format(r.scale_factor_relative_to_T10,7)}. This is a conditional comparison and supplies no native cosmological clock.`;};
+  $('thermal-temperature').addEventListener('change',updateThermal);updateThermal();
+  $('native-thermal-classification').textContent=`The unchanged 1,296-state repair kernel has ${t.stationary_classes} closed recurrent classes. Every nontrivial total-load sector excludes a full-support finite-temperature Gibbs stationary law. The exact mean absorption time is ${format(t.native_mean_absorption_attempts,8)} attempts for the specified uniform preparation; the largest statewise mean is ${t.native_max_mean_attempts}.`;
+  $('native-thermal-bath').textContent=`An explicitly declared bath extension adds ${t.bath_reverse_edges.toLocaleString()} reverse edges and satisfies detailed balance on ${t.bath_components} components. This changes the law; its temperature and component weights are supplied.`;
+  $('thermal-limit').textContent='The formal high-temperature free-gas limit has g*=106.75 and an 80% quark / 20% lepton split among fermions. These percentages follow the declared particle content and equilibrium assumptions; they are not a native early-Universe abundance prediction.';
+  $('thermal-particle-scope').textContent=all.thermal_particles?.scope??'The complete number detector measures occupation groups on the same calibrated finite source. Its Gibbs preparation and temperature are supplied.';
+  all.thermal_particles.rows.forEach((r,i)=>option($('thermal-number-temperature'),i,`${r.temperature} GeV`));
+  const updateNumbers=()=>{const r=all.thermal_particles.rows[Number($('thermal-number-temperature').value)];$('thermal-number-records').replaceChildren();r.species.forEach(s=>row($('thermal-number-records'),[label(s.species),format(s.mean_number,8),`${format(100*s.fraction_of_expected_counts,6)}%`]));$('thermal-particle-values').textContent=`Mean total particle count: ${format(r.mean_number,9)}. Before any probe, P(total count ≤ 1)=${format(r.at_most_one,7)}; the complementary many-excitation sector is retained. Shares are ratios of expected counts across all trials, including empty trials.`;};
+  $('thermal-number-temperature').addEventListener('change',updateNumbers);updateNumbers();
+  proofLinks($('thermal-history-source'),[['Thermal comparison and finite Gibbs source','model/particle_thermal_history/PROOF.md'],['Native stationary classes','model/native_thermal_admission/PROOF.md'],['Complete native lifetimes and boundary response','model/native_freezeout_response/PROOF.md'],['Explicit thermal bath extension','model/native_thermal_completion/PROOF.md'],['Same-source particle number records','model/thermal_particle_records/PROOF.md']]);
+  $('flavour-count').textContent=`The exact family-basis quotient has ${all.flavour.charged_invariants} charged-sector invariants, ${all.flavour.weinberg_invariants} with generic Majorana masses, or ${all.flavour.rank_two_invariants} for rank-two neutrino masses.`;$('flavour-scope').textContent=all.flavour.scope;
+  proofLinks($('flavour-source'),[['Exact quotient and current-loop readout','model/source_flavour_identifiability/PROOF.md']]);
+  $('frequency-scope').textContent=all.frequency.scope;all.frequency.rows.forEach(r=>row($('frequency-values'),[r.frequencies.join(', '),`${format(Math.min(...r.coefficients),8)} to ${format(Math.max(...r.coefficients),8)}`]));
+  proofLinks($('frequency-source'),[['Complete frequency-dependent three-point response','model/frequency_yukawa_vertex/PROOF.md']]);
+  $('correlated-hadron-scope').textContent=all.hadron.scope;all.hadron.rows.forEach(r=>row($('correlated-hadron-values'),[r.label,format(r.GeV,10),format(r.stat,6),format(r.fit_sensitivity,6)]));
+  proofLinks($('correlated-hadron-source'),[['Correlated fits and paired scale uncertainty','model/correlated_hadron_spectrum/PROOF.md']]);
+}
+
 export function asymmetryBound(p, attempts, initial = 0) {
   if (![p, initial].every(x => Number.isFinite(x) && x >= 0 && x <= 1) || !Number.isSafeInteger(attempts) || attempts < 0) throw new Error('Invalid bias budget');
   const defect = Math.abs(2 * p - 1);
@@ -91,7 +142,7 @@ function mountMassSources(data,$) {
   const option=(target,value,label)=>{const element=document.createElement('option');element.value=value;element.textContent=label;target.append(element);};
   const c=all.compiler;
   $('compiler-scope').textContent=c.scope;$('compiler-mode-count').textContent=c.enlarged_modes_per_site.toLocaleString();
-  $('compiler-precision').textContent=`At source time 1 and one site, N=${BigInt(c.steps).toLocaleString()} rounds bounds the complete unhalved trace error by ${c.trace_error.toExponential(2)} and the rest-frequency error by ${c.energy_error.toExponential(2)} source units.`;
+  $('compiler-precision').textContent=`For the uncompressed compiler, one sufficient bound at source time 1 and one site uses N=${BigInt(c.steps).toLocaleString()} rounds bounds the complete unhalved trace error by ${c.trace_error.toExponential(2)} and the rest-frequency error by ${c.energy_error.toExponential(2)} source units.`;
   $('compiler-precision-scope').textContent=c.precision_scope;
   $('compiler-scale').textContent=`One electron anchor sets the source energy unit to ${format(c.source_energy_unit_GeV,12)} GeV. Converting the declared unit scalar background literally gives that same value; matching the empirical weak scale and dynamical Higgs normalization is unproved.`;
   c.rows.forEach((r,i)=>option($('compiler-family'),i,r.label));
@@ -183,6 +234,7 @@ async function mount() {
     const joined = data.joined_defect;
     if (!joined || joined.physical_mass_map_proved !== false) throw new Error('Conditional mass-map boundary required');
     mountMassSources(data,$);
+    mountJointMeasurements(data,$);
     for (const row of data.mass_sources.compiler.rows) {
       const card=document.createElement('article'), title=document.createElement('span'), value=document.createElement('strong'), role=document.createElement('small');
       card.className='mass-card'; title.textContent=row.label[0].toUpperCase()+row.label.slice(1); value.textContent=row.display_GeV+' GeV';
