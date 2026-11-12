@@ -8,7 +8,7 @@ const html=renderJourneyResults();
 assert.equal((html.match(/<article /g)||[]).length,5);
 assert.equal((html.match(/<details>/g)||[]).length,5);
 for(const r of D.leptons.rows)assert(html.includes(Number(r.mass_GeV).toPrecision(r.name==='electron'?11:13)));
-for(const phrase of ['conditional masses','not an experimental mass-fit uncertainty','exactly identical','not physical positron annihilation rates','prior exposure to lepton masses','exceeds the reference measurement uncertainty'])assert(html.includes(phrase),phrase);
+for(const phrase of ['conditional masses','not an experimental mass-fit uncertainty','exactly identical','not physical positron annihilation rates','At source time 50/m','prior exposure to lepton masses','exceeds the reference measurement uncertainty'])assert(html.includes(phrase),phrase);
 assert(html.includes('3.544%')&&html.includes('2.865%'));
 assert.equal((html.match(/id="particle-results"/g)||[]).length,1);
 assert(!html.includes('undefined')&&!html.includes('NaN'));
