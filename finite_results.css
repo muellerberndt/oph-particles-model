@@ -8,3 +8,7 @@ select{max-width:100%;min-width:0}#species-menu{width:100%}
 .record-scroll{max-height:430px;overflow:auto}.record-scroll thead{position:sticky;top:0;background:var(--panel);z-index:1}.record-scroll td{font-size:12px;white-space:nowrap}#compiler-family,#action-readout,#neutral-control,#neutral-probe,#resolution-mechanism,#resolution-channel,#composite-anchor{display:block;width:100%;margin:10px 0 18px}#dressing-summary p{font-size:13px;color:var(--muted)}#action-extra p{font-size:13px}#compiler-records tr[data-zero="true"],#action-records tr[data-zero="true"]{color:var(--muted)}
 #joint-species,#joint-pointer,#service-cycles,#thermal-temperature{display:block;width:100%;margin:10px 0 18px}#joint-records tr[data-zero="true"]{color:var(--muted)}#joint-groups td{white-space:nowrap}#thermal-particle-values{overflow-wrap:anywhere}
 .two-col>.panel{min-width:0}
+
+#finite-target,#bare-scale,#archive-rounds{display:block;width:100%;margin:10px 0 18px}#nu-envelope{font-size:14px;white-space:normal}#current-result-cards p{font-size:14px}#finite-pointer-records tr[data-zero="true"]{color:var(--muted)}
+
+#expansion-protocol,#expansion-preparation{display:block;width:100%;margin:10px 0 18px}

@@ -59,6 +59,45 @@ function mountJointMeasurements(data,$) {
   proofLinks($('correlated-hadron-source'),[['Correlated fits and paired scale uncertainty','model/correlated_hadron_spectrum/PROOF.md']]);
 }
 
+export function neutrinoPhaseMass(neutrino,degrees){
+  if(!Number.isFinite(degrees)||degrees<0||degrees>360||!(neutrino.a>0&&neutrino.b>0))throw new RangeError('Positive conditional amplitudes and a phase in 0–360 degrees required');
+  return Math.sqrt((neutrino.a-neutrino.b)**2+4*neutrino.a*neutrino.b*Math.cos(degrees*Math.PI/360)**2);
+}
+
+function mountCurrentMeasurements(data,$){
+ const v=data.current_measurements;if(!v||v.cards.length!==10)throw new Error('Ten complete current measurements required');
+ const label=x=>x.replace('neutrino_mass_eigenstate_','Neutrino ν').replaceAll('_',' ');
+ const row=(target,values,zero=false)=>{const tr=document.createElement('tr');if(zero)tr.dataset.zero='true';for(const x of values){const td=document.createElement('td');td.textContent=x;tr.append(td);}target.append(tr);};
+ const option=(target,value,text)=>{const item=document.createElement('option');item.value=value;item.textContent=text;target.append(item);};
+ v.spectroscopy.forEach((r,i)=>option($('finite-target'),i,label(r.species)));
+ const finite=()=>{const r=v.spectroscopy[Number($('finite-target').value)];$('finite-target-mass').textContent=`Conditional source coefficient: ${format(r.mass_GeV,10)} GeV. ${r.convention}. Inputs: ${r.input_ancestry.join(', ')}.`;
+  $('finite-budget').textContent=`Executed 32-outcome law, also checked as 1 reusable qubit + 5 retained bits: range R=${r.range_GeV} GeV and maximum ideal exposure ${format(r.exposure_GeV_inverse,7)} GeV⁻¹. A sufficient finer plan can use 1 reusable qubit, ${r.planned_qubits} retained classical bits and ${r.planned_qubits} sequential source services, with the unchanged exposure ${format(r.planned_exposure_GeV_inverse,7)} GeV⁻¹. That larger plan is not executed; a native physical clock and control precision are not certified.`;
+  $('finite-candidates').textContent=`Source types compatible with the most probable pointer record: ${r.modal_candidates.map(label).join(', ')}. This illustrative record is one outcome of the complete law; it is not a claimed laboratory observation.`;
+  $('finite-pointer-records').replaceChildren();r.records.forEach(x=>row($('finite-pointer-records'),[x.bin,format(x.probability,9),x.mass_interval?`[${format(x.mass_interval[0],8)}, ${format(x.mass_interval[1],8)}]`:'Inconclusive; record retained'],x.probability===0));};
+ $('finite-target').addEventListener('change',finite);finite();proofLinks($('finite-pointer-source'),[['Finite pointer, all outcomes and confidence theorem','model/finite_particle_spectroscopy/PROOF.md']]);
+ const n=v.neutrino;$('nu-beta').textContent=format(n.beta,8);$('nu-sum').textContent=format(n.sum,8);$('nu-envelope').textContent=`${format(n.envelope[0],7)} to ${format(n.envelope[1],7)}`;
+ const phase=()=>{const degrees=Number($('nu-phase').value);$('nu-phase-value').textContent=degrees+'°';$('nu-phase-result').textContent=`Conditional mₑₑ = ${format(neutrinoPhaseMass(n,degrees),10)} GeV (${format(neutrinoPhaseMass(n,degrees)*1e9,7)} eV).`;};
+ $('nu-phase').addEventListener('input',phase);phase();proofLinks($('nu-observable-source'),[['Complete neutral contraction and Majorana phase envelope','model/neutrino_mass_observables/PROOF.md']]);
+ v.bare_quarks.forEach((r,i)=>option($('bare-scale'),i,r.label));
+ const bare=()=>{const i=Number($('bare-scale').value),r=v.bare_quarks[i],s=v.scales[i];$('bare-scale-summary').textContent=`Conditional inverse spacing: ${format(s.value,9)} ± ${format(s.stat,6)} GeV statistically, with separate ${format(s.fit,6)} GeV fit sensitivity. External anchor errors are not propagated.`;
+  $('bare-quark-records').replaceChildren();r.rows.forEach(x=>row($('bare-quark-records'),[x.label.startsWith('input_')?'κ = '+x.label.slice(6):x.label==='ratio_tuned'?'Pion/rho-ratio-tuned κ':'Critical κᶜ (defined zero)',format(x.GeV,10),format(x.stat,6),format(x.fit,6)]));};
+ $('bare-scale').addEventListener('change',bare);bare();proofLinks($('bare-quark-source'),[['All paired scales, covariance and bare mass definitions','model/paired_hadron_quark_scale/PROOF.md']]);
+ v.archive.forEach((r,i)=>option($('archive-rounds'),i,r.rounds+' rounds'));
+ const archive=()=>{const r=v.archive[Number($('archive-rounds').value)];$('archive-summary').textContent=`${r.original_qubits} original archive qubits → at most ${r.quantum_qubits} quantum qubits, plus all ${r.classical_bits} classical bits. ${r.records.length} histories remain; ranks 1/2/3 occur ${r.ranks['1']??0}/${r.ranks['2']??0}/${r.ranks['3']??0} times. Worst compression cost: ${r.compression_pulses.toLocaleString()} extra native pulses, beyond preparation, cycles and transport.`;
+  $('archive-records').replaceChildren();r.records.forEach(x=>row($('archive-records'),[x.history.map(label).join(' → '),x.rank,format(x.probability,9)]));};
+ $('archive-rounds').addEventListener('change',archive);archive();proofLinks($('archive-source'),[['Exact ranks, complete decoders and native compression words','model/lepton_archive_compression/PROOF.md']]);
+ const order=v.expansion_ordering;$('expansion-ordering').textContent=`Certified on this supplied expansion law: vacuum mean at τ=8 lies in [${format(order.duration8_interval[0],6)}, ${format(order.duration8_interval[1],7)}], strictly below τ=1 in [${format(order.duration1_interval[0],8)}, ${format(order.duration1_interval[1],8)}], itself below the sudden-quench mean ${format(order.quench_interval[0],9)}. This is a finite-source result, not a physical early-Universe abundance prediction.`;
+ v.expansion.forEach((r,i)=>option($('expansion-protocol'),i,r.segments?`Cubic ramp · τ=${r.duration} GeV⁻¹ · ${r.segments} segments`:'Instantaneous 1→4 quench'));
+ const expansion=()=>{const r=v.expansion[Number($('expansion-protocol').value)],prep=r.preparations[Number($('expansion-preparation').value)];
+  $('expansion-summary').textContent=`Finite-word mean count (numeric): ${format(prep.mean_number,10)}. ${prep.continuous_mean_interval?`The exact continuous-ramp mean lies in [${format(prep.continuous_mean_interval[0],8)}, ${format(prep.continuous_mean_interval[1],8)}]. `:''}All 181 total-count outcomes remain. ${r.trace_error_bound===null?'The sudden quench is its own declared protocol.':`The complete source/reference unhalved trace error from replacing the continuous cubic ramp by this finite word is bounded by ${format(r.trace_error_bound,7)}; interval arithmetic error is separately enclosed in the receipt.`}`;
+  $('expansion-species').replaceChildren();prep.species.forEach(x=>row($('expansion-species'),[label(x.species),format(x.mean,9),format(r.pair_creation.find(y=>y.species===x.species).probability,9)]));
+  $('expansion-counts').replaceChildren();prep.total_count_probabilities.forEach((p,k)=>row($('expansion-counts'),[k,format(p,9)],p===0));};
+ $('expansion-protocol').addEventListener('change',expansion);$('expansion-preparation').addEventListener('change',expansion);expansion();
+ v.bath_mixing.forEach(r=>row($('bath-mixing-table'),[r.q,r.max_steps.toLocaleString()]));v.quantum_mixing.forEach(r=>row($('quantum-mixing-table'),[r.temperature,r.sweeps.toLocaleString()]));
+ proofLinks($('expansion-source'),[['Complete expansion and count laws','model/expanding_quadratic_particles/PROOF.md'],['Certified native bath mixing','model/native_bath_mixing/PROOF.md'],['Quantum bath and full archives','model/quantum_thermal_relaxation/PROOF.md']]);
+ v.cards.forEach(r=>{const article=document.createElement('article');article.className='panel';const h=document.createElement('h3'),p=document.createElement('p'),links=document.createElement('p');h.textContent=r.title;p.textContent=r.text;links.className='source';proofLinks(links,[['Proof and source contract',r.proof]]);const a=document.createElement('a');a.href='finite/'+r.key+'.json';a.textContent='Complete receipt';links.append(a);article.append(h,p,links);$('current-result-cards').append(article);});
+}
+
 export function asymmetryBound(p, attempts, initial = 0) {
   if (![p, initial].every(x => Number.isFinite(x) && x >= 0 && x <= 1) || !Number.isSafeInteger(attempts) || attempts < 0) throw new Error('Invalid bias budget');
   const defect = Math.abs(2 * p - 1);
@@ -235,6 +274,7 @@ async function mount() {
     if (!joined || joined.physical_mass_map_proved !== false) throw new Error('Conditional mass-map boundary required');
     mountMassSources(data,$);
     mountJointMeasurements(data,$);
+    mountCurrentMeasurements(data,$);
     for (const row of data.mass_sources.compiler.rows) {
       const card=document.createElement('article'), title=document.createElement('span'), value=document.createElement('strong'), role=document.createElement('small');
       card.className='mass-card'; title.textContent=row.label[0].toUpperCase()+row.label.slice(1); value.textContent=row.display_GeV+' GeV';
