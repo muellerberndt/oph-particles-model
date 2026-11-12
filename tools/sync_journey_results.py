@@ -20,6 +20,14 @@ SOURCES={
  'neutral':'model/openwave_neutral_preparation/results.json',
  'flatness':'model/openwave_neutral_dispersion/results.json',
  'radiation':'model/openwave_radiative_pair/results.json',
+ 'compiler':'model/openwave_factorized_compiler/results.json',
+ 'higgs':'model/openwave_full_higgs_floor/results.json',
+ 'gravity':'model/openwave_energy_lapse/results.json',
+ 'clocks':'model/openwave_lapse_observations/results.json',
+ 'quantum':'model/openwave_quantum_rotational/results.json',
+ 'oscillation':'model/openwave_neutrino_oscillation/results.json',
+ 'weak':'model/openwave_weak_decay/results.json',
+ 'transfer':'model/openwave_neutral_transfer/results.json',
 }
 IMPORT="import { mountJourneyResults } from './journey_results.js';\n"
 HOOK="  mountJourneyResults(host);\n"
@@ -96,8 +104,80 @@ def project(rer=RER):
   'radiation':{'time_in_inverse_native_mass':50,'caps':caps,
    'full_evolution_probability_lower':radiation['exact_short_time_certificate']['original_two_photon_radiation_probability_lower_float'],
    'lower_bound_time_in_inverse_native_mass':'1e-8','physical_scattering_rate_proved':False},
+  **frontier(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
+ }
+
+def frontier(receipts):
+ compiler=receipts['compiler']['resources']['state_sensitive_same_packet']
+ higgs=receipts['higgs'];gravity=receipts['gravity'];clocks=receipts['clocks']
+ assert compiler['same_physical_record_and_energy_guarantees']is True
+ assert compiler['all_ancilla_outputs_retained']is True
+ assert compiler['full_large_carrier_executed']is False
+ assert compiler['cycle_reduction_factor']>1e34
+ assert higgs['exact_native_symbol']['native_internal_rank']==14
+ assert higgs['charged_sector_theorem']['all_neutral_zero_modes_retained']is True
+ assert higgs['countercontrols']['shared_up_down_mass_spectrum_equal']is True
+ assert higgs['countercontrols']['unequal_observed_quark_masses_derived']is False
+ assert higgs['architecture']['relative_channel_choice_source_forced']is False
+ force=[float(Fraction(v))for v in gravity['attractive_central_difference_force_at_six']]
+ assert 0<force[0]<=force[1]<1.534e-7
+ assert gravity['geometry_register_has_autonomous_relaxation']is False
+ assert clocks['clock_records']['all64_joint_clock_outcomes_retained']is True
+ assert len(clocks['clock_records']['rows'])==7
+ assert clocks['physical_gravitational_redshift_or_Einstein_completion_claimed']is False
+ assert clocks['metric_and_curvature']['isotropic_gamma_one_wave_gluing_is_declared']is True
+ quantum=receipts['quantum'];qb=next(r for r in quantum['interval_certificates']if r['cap']==2)
+ assert quantum['declared_source']['charge']==-1
+ assert all(r['Casimir_residual']<1e-9 and r['Jz_residual']<1e-9 for r in quantum['stationary_records'])
+ assert quantum['calibration']['physical_electron_identity_proved']is False
+ assert quantum['calibration']['muon_tau_spectrum_transferred']is False
+ assert quantum['calibration']['other_caps_reuse_same_unit']is True
+ assert quantum['calibration']['electron_anchor_GeV']==.00051099895069
+ gi=qb['rest_energy_normalized_static_g_interval']
+ assert 1.99827<gi[0]<=gi[1]<1.99828
+ oscillation=receipts['oscillation'];weak=receipts['weak']
+ assert oscillation['imported_PMNS_angles_mass_splittings_or_neutrino_GeV_scale']is False
+ assert oscillation['measured_PMNS_fit_or_observed_neutrino_identification']is False
+ assert oscillation['full45_mass_kernel_and90_CAR_pairing_retained']is True
+ assert len(oscillation['complete_records'])==36
+ assert weak['observed_muon_lifetime_weak_scale_or_continuum_S_matrix_derived']is False
+ wp=weak['original_receiver_probability_decimal_interval']
+ assert 0<wp[0]<=wp[1]<1
+ assert weak['neutral_masses']=='0'
+ transfer=receipts['transfer']
+ assert transfer['same_side_two_low_energy_band_or_ground_transferred']is False
+ assert transfer['relativistic_mass_or_observed_neutrino_identified']is False
+ tp=transfer['original_receiver_probability_decimal_interval']
+ assert 0<tp[0]<=tp[1]<1e-120
+ return {
+  'neutral_transfer':{'receiver_probability_interval':tp,'source_sites':64,'total_spin_Casimir':'3/4',
+   'earlier_flat_band_transferred':False,'physical_neutrino_identified':False},
+  'quantum':{'g_interval':gi,'total_spin_Casimir':'3/4','total_spin_z':'1/2',
+   'cap':2,'source_rest_energy_interval':qb['actual_ground_energy_interval'],
+   'electron_anchor_GeV':quantum['calibration']['electron_anchor_GeV'],
+   'finite_cap_comparisons':quantum['finite_cap_comparisons'],
+   'physical_electron_identity_proved':False,'muon_tau_spectrum_transferred':False},
+  'oscillation':{'maximum_contrast':oscillation['maximum_executed_neutral_antineutral_probability_contrast'],
+   'record_count':len(oscillation['complete_records']),'declared_port_word':oscillation['declared_port_word'],
+   'mixing_parameters':oscillation['model_mixing_parameters'],'physical_neutrino_fit':False},
+  'weak':{'receiver_probability_interval':wp,'source_time':float(Fraction(weak['time'])),
+   'contact_coefficient':weak['architecture_contact_coefficient_G'],
+   'native_CAR_modes':270,'physical_lifetime_or_weak_scale_derived':False},
+  'compiler':{'cycle_reduction_factor':compiler['cycle_reduction_factor'],
+   'certified_cycles':str(compiler['cycles']),'full_large_carrier_executed':False,
+   'same_physical_record_and_energy_guarantees':True,'continuing_controls_required':True},
+  'higgs':{'massive_internal_rank':14,'native_internal_dimension':15,
+   'charged_floor':higgs['charged_sector_theorem']['operator_bound'],
+   'neutral_zero_modes_retained':True,'shared_quark_spectra_equal':True,
+   'observed_quark_mass_fit':False,'shared_family_coefficients_declared':True},
+  'gravity':{'attractive_force_source_units_interval':force,
+   'clock_shift_ppm_interval':clocks['clock_records']['relative_frequency_shift_ppm_interval'],
+   'clock_gap_count':len(clocks['clock_records']['rows']),
+   'metric_ray_delay_source_units_interval':clocks['isotropic_piecewise_metric_delay_decimal'],
+   'complete_wave_TV_by_time':[{'time':r['curved']['duration'],'TV':r['complete_probability_total_variation']}for r in clocks['wave_runs']],
+   'energy_lapse_and_isotropic_gluing_declared':True,'physical_G_or_clock_calibrated':False},
  }
 
 def patched_journey(source):

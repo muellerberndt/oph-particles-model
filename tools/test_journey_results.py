@@ -17,12 +17,33 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertFalse(p['localized']['full_volume_enumerated'])
   self.assertGreater(p['radiation']['caps'][0]['pair_probability'],p['radiation']['caps'][1]['pair_probability'])
   self.assertGreater(p['radiation']['caps'][1]['vacuum_probability'],0)
+  self.assertGreater(p['compiler']['cycle_reduction_factor'],1e34)
+  self.assertFalse(p['compiler']['full_large_carrier_executed'])
+  self.assertEqual(p['higgs']['massive_internal_rank'],14)
+  self.assertTrue(p['higgs']['shared_quark_spectra_equal'])
+  self.assertFalse(p['higgs']['observed_quark_mass_fit'])
+  self.assertLess(p['gravity']['clock_shift_ppm_interval'][1],0)
+  self.assertEqual(p['gravity']['clock_gap_count'],7)
+  self.assertLess(p['quantum']['g_interval'][1],2)
+  self.assertEqual(p['quantum']['electron_anchor_GeV'],e)
+  self.assertFalse(p['quantum']['muon_tau_spectrum_transferred'])
+  self.assertEqual(p['oscillation']['record_count'],36)
+  self.assertGreater(p['weak']['receiver_probability_interval'][0],0)
+  self.assertGreater(p['neutral_transfer']['receiver_probability_interval'][0],0)
+  self.assertFalse(p['neutral_transfer']['earlier_flat_band_transferred'])
  def test_changed_display_domains_are_rejected(self):
   mutations=[
    ('openwave_localized_rest_packet',lambda x:x['near_rest_localized_source'].__setitem__('source_time_horizon',100)),
    ('openwave_rotational_g_limit',lambda x:next(r for r in x['rows']if r['mass']==16384)['analytic_rational_bounds'].__setitem__('static_g_error_from_two','1')),
    ('openwave_neutral_preparation',lambda x:x['finite_filter_and_polar_service'].__setitem__('conditional_reduced_density_trace_error_decimal_upper',1e-6)),
-   ('openwave_neutral_dispersion',lambda x:x['neutral_band_flatness_and_records'].__setitem__('exact_all_order_momentum_splitting','1'))]
+   ('openwave_neutral_dispersion',lambda x:x['neutral_band_flatness_and_records'].__setitem__('exact_all_order_momentum_splitting','1')),
+   ('openwave_full_higgs_floor',lambda x:x['countercontrols'].__setitem__('unequal_observed_quark_masses_derived',True)),
+   ('openwave_factorized_compiler',lambda x:x['resources']['state_sensitive_same_packet'].__setitem__('full_large_carrier_executed',True)),
+   ('openwave_lapse_observations',lambda x:x.__setitem__('physical_gravitational_redshift_or_Einstein_completion_claimed',True)),
+   ('openwave_quantum_rotational',lambda x:x['calibration'].__setitem__('muon_tau_spectrum_transferred',True)),
+   ('openwave_neutrino_oscillation',lambda x:x.__setitem__('measured_PMNS_fit_or_observed_neutrino_identification',True)),
+   ('openwave_weak_decay',lambda x:x.__setitem__('observed_muon_lifetime_weak_scale_or_continuum_S_matrix_derived',True)),
+   ('openwave_neutral_transfer',lambda x:x.__setitem__('same_side_two_low_energy_band_or_ground_transferred',True))]
   for package,mutate in mutations:
    def changed(path,rer):
     value=read_bound(path,rer)
