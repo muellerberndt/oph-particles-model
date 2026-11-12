@@ -12,6 +12,7 @@ import math
 from fractions import Fraction
 from pathlib import Path
 from project_joint_results import SOURCES as JOINT_SOURCES, project as project_joint
+from project_current_results import SOURCES as CURRENT_SOURCES, project as project_current
 
 ROOT = Path(__file__).resolve().parents[1]
 RER = ROOT.parent / 'reverse-engineering-reality'
@@ -49,6 +50,7 @@ SOURCES = {
 }
 
 SOURCES.update(JOINT_SOURCES)
+SOURCES.update(CURRENT_SOURCES)
 
 def load_receipt(path, rer):
     value = json.loads(path.read_text())
@@ -655,6 +657,7 @@ def projection(receipts, sources):
         'schema': 'oph.viewer.finite_results.v1', 'sources': sources,
         'joined_defect': joined_projection(receipts),
         'joint_measurements': project_joint(receipts),
+        'current_measurements': project_current(receipts),
         'mass_sources': extended_mass_projection(receipts),
         'yukawa': yukawa_projection(receipts),
         'defect_response': defect_projection(receipts),
@@ -722,6 +725,29 @@ def projection(receipts, sources):
     }
 
 
+def homepage_highlights(html, current):
+    """Render compact source-bound numbers without fetching large receipts on home."""
+    n=current['neutrino'];q=next(r for r in current['bare_quarks'] if r['key']=='rho')
+    tuned=next(r for r in q['rows'] if r['label']=='ratio_tuned')
+    begin='<!-- oph-current-highlights:start -->';end='<!-- oph-current-highlights:end -->'
+    if begin in html:
+        if html.count(begin)!=1 or html.count(end)!=1:raise ValueError('ambiguous home highlights')
+        first=html.index(begin);last=html.index(end,first)+len(end);html=html[:first]+html[last:]
+    section=f"""{begin}
+<section id="current-highlights" aria-label="Conditional finite results" style="max-width:1420px;margin:24px auto 0;padding:24px;border:1px solid #355363;border-radius:16px;background:#101d2d;color:#dce8f5">
+<p style="margin:0 0 8px;color:#75dcca;font-size:12px;letter-spacing:.08em">CONDITIONAL PARTICLE READOUTS · 50 SOURCE-BOUND RECEIPTS</p>
+<h2 style="margin:0 0 16px;font-size:clamp(22px,3vw,31px)">Finite measurements, explicit calibration</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:20px">
+<div><h3 style="margin:0 0 8px;font-size:15px">Conditional neutrino observables</h3><p style="font-size:13px;line-height:1.7;margin:0">mᵦ = {n['beta']:.7g} GeV<br>mₑₑ ∈ [{n['envelope'][0]:.7g}, {n['envelope'][1]:.7g}] GeV</p><p style="font-size:12px;color:#a9bbd1">Supplied mass and mixing inputs; full Majorana phase envelope. <a style="color:#75dcca" href="finite_results.html#neutrino-observables">Explore the phase</a></p></div>
+<div><h3 style="margin:0 0 8px;font-size:15px">Bare Wilson, not identified quark masses</h3><p style="font-size:13px;line-height:1.7;margin:0">Ratio-tuned: {tuned['GeV']:.7g} GeV<br>± {tuned['stat']:.5g} statistical<br>± {tuned['fit']:.5g} fit sensitivity</p><p style="font-size:12px;color:#a9bbd1">Conditional rho-anchored action coordinate; no total physical error. <a style="color:#75dcca" href="finite_results.html#paired-quarks">Compare all scale choices</a></p></div>
+<div><h3 style="margin:0 0 8px;font-size:15px">Finite-time mass spectroscopy</h3><p style="font-size:13px;line-height:1.7;margin:0">1 reusable pointer qubit + 5 bits<br>8,010 complete records<br>At least 65/72 ideal coverage</p><p style="font-size:12px;color:#a9bbd1">Calibrated source; neutrino species remain unresolved. <a style="color:#75dcca" href="finite_results.html#finite-spectroscopy">Inspect every phase bin</a></p></div>
+</div><p style="margin:12px 0 0;font-size:12px"><a style="color:#75dcca" href="finite_results.html#current-results">Ten finite constructions, complete proofs and downloadable receipts →</a></p></section>
+{end}"""
+    anchor='<div id="journey-host"></div>'
+    if html.count(anchor)!=1:raise ValueError('expected one homepage journey host')
+    return html.replace(anchor,section+anchor)
+
+
 def sync(site, *, rer=RER, check=False):
     site, rer = Path(site), Path(rer)
     receipts, sources, writes = {}, [], {}
@@ -732,7 +758,10 @@ def sync(site, *, rer=RER, check=False):
         sources.append({'file': key+'.json', 'label': label, 'path': 'model/'+relative,
                         'sha256': hashlib.sha256(raw).hexdigest()})
         writes['finite/'+key+'.json'] = raw
-    writes['finite/results.json'] = (json.dumps(projection(receipts, sources), indent=2, ensure_ascii=False)+'\n').encode()
+    summary=projection(receipts,sources)
+    writes['finite/results.json'] = (json.dumps(summary, indent=2, ensure_ascii=False)+'\n').encode()
+    if (site/'index.html').exists():
+        writes['index.html']=homepage_highlights((site/'index.html').read_text(),summary['current_measurements']).encode()
     for name in ('finite_results.html', 'finite_results.css', 'finite_results.mjs'):
         writes[name] = (EXTRA / name).read_bytes()
     links = (site / 'links.js').read_text()
