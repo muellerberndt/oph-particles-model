@@ -66,3 +66,5 @@ stationary energies and displays the failed physical hadron assignments;
 the infinite-photon GeV interval is a convergence certificate at the same
 electron anchor. Static wave bending and autonomous quantum geometry use
 distinct declared sources and are identified separately.
+
+The current Journey projection adds ten further constructive results: native orbital-tree Gauss constraints, infinite-photon current response, full spatial completion, unfiltered-current averaging, semileptonic meson conversion, vectorlike quark branches, baryon ordering, autonomous wave/geometry observations, source-derived stress and clock bounds, and six-quark binding. Thirty result cards retain the earlier lepton comparison and conditional GeV numbers. Thirty-three source receipts are pinned to one committed RER revision. The new tables retain all heavy branches and expose the unmatched quark/nucleon masses and beta-decay obstruction. Construction choices are legitimate explicit model inputs; observed identities and successful physical fits are assessed separately.

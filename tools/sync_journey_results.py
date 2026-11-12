@@ -38,6 +38,17 @@ SOURCES={
  'composite_scale':'model/openwave_composite_scale/results.json',
  'dynamic_geometry':'model/openwave_quantum_geometry/results.json',
  'wave_deflection':'model/openwave_wave_deflection/results.json',
+ 'local_gauss_quantum':'model/openwave_local_gauss_quantum/results.json',
+ 'infinite_current':'model/openwave_infinite_current/results.json',
+ 'spatial_completion':'model/openwave_spatial_completion/results.json',
+ 'current_averaging':'model/openwave_current_averaging/results.json',
+ 'meson_weak_current':'model/openwave_meson_weak_current/results.json',
+ 'vectorlike_flavour':'model/openwave_vectorlike_flavour/results.json',
+ 'baryon_ordering':'model/openwave_baryon_ordering/results.json',
+ 'dynamic_wave':'model/openwave_dynamic_wave/results.json',
+ 'dynamic_stress':'model/openwave_dynamic_stress/results.json',
+ 'six_quark':'model/openwave_six_quark/results.json',
+
 }
 IMPORT="import { mountJourneyResults } from './journey_results.js';\n"
 HOOK="  mountJourneyResults(host);\n"
@@ -125,12 +136,85 @@ def project(rer=RER):
    'full_evolution_probability_lower':radiation['exact_short_time_certificate']['original_two_photon_radiation_probability_lower_float'],
    'lower_bound_time_in_inverse_native_mass':'1e-8','physical_scattering_rate_proved':False},
   **frontier(receipts),
+  'previous_tasks':previous_tasks(receipts),
   'current_tasks':current_tasks(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }
 
 def current_tasks(receipts):
+ gauss=receipts['local_gauss_quantum'];pair=gauss['same_quantum_charged_block']
+ assert gauss['all_reference_and_flux_outcomes_retained']is True
+ assert pair['star_field_energy_is_intrinsic_isolated_electron_rest_mass']is False
+ infinite=receipts['infinite_current'];spatial=receipts['spatial_completion']['analytic_full_source']
+ assert infinite['all_photon_field_reference_and_failure_outputs_retained']is True
+ assert spatial['untrapped_threshold_is_normalizable_eigenstate']is False
+ assert spatial['translation_invariant_physical_electron_dispersion_derived']is False
+ averaging=receipts['current_averaging'];a=averaging['uniform_complete_source_comparison']
+ assert averaging['added_occupation_penalty_or_two_state_source']is False
+ assert averaging['all_native_current_spectators_retained']is True
+ assert a['original_G_1_over_64_averaging_certified']is False
+ meson=receipts['meson_weak_current'];mr=next(r for r in meson['complete_records']if r['source_time']==720)
+ assert meson['physical_kaon_decay_or_lifetime_identified']is False
+ assert len(meson['empirical_hadron_mass_lifetime_or_mixing_inputs'])==0
+ flavour=receipts['vectorlike_flavour'];baryon=receipts['baryon_ordering']
+ assert flavour['extra_branches_retained']==6
+ assert flavour['source_parameters']=={'heavy_mass':1,'hypercharge_mixing':1,'neutral_Higgs_background_norm':1}
+ assert baryon['exact_beta_threshold_obstruction']['n_to_p_e_antinu_ground_channel_energetically_allowed']is False
+ wave=receipts['dynamic_wave'];stress=receipts['dynamic_stress'];clocks=stress['dressed_clocks']
+ assert wave['native_geometry_wave_reference_and_clock_shared']is True
+ assert wave['geometry_refresh_or_static_profile_service_used']is False
+ assert wave['physical_G_or_observed_lensing_or_Einstein_dynamics_claimed']is False
+ assert stress['stress_backreaction']['finite_CCR_boundary_correction_discarded']is False
+ assert clocks['exact_universal_finite_strength_clock_ratio']is False
+ nuclear=receipts['six_quark'];units=nuclear['conditional_common_electron_unit']
+ assert nuclear['inserted_composite_projector_or_transition_action']is False
+ assert units['physical_deuteron_mass_or_binding_identified']is False
+ return {
+  'task_count':10,
+  'gauss':{'pair_energy_GeV':pair['conditional_GeV_using_unchanged_electron_unit'],
+   'electric_energy_increment':pair['star_exact_electric_energy_increment'],'intrinsic_electron_mass':False},
+  'infinite_current':{'g_interval':infinite['rest_energy_normalized_infinite_g_interval'],
+   'current_interval':infinite['actual_infinite_current_derivative_interval'],
+   'remainder_upper':infinite['global_differentiated_remainder_upper']},
+  'spatial':{'threshold_GeV_interval':spatial['threshold_GeV_interval_unchanged_cap_two_electron_unit'],
+   'threshold_source':spatial['untrapped_infimum_exact'],'normalizable_threshold_state':False,
+   'spin_band_domain':spatial['uniform_exact_spin_half_band_domain']},
+  'averaging':{'peak_interval':a['original_receiver_peak_probability_decimal_interval'],
+   'ideal_peak':averaging['exact_resonant_orbit']['first_peak_receiver_probability'],
+   'coupling':a['declared_source_G'],'full_unitary_error_upper':float(Fraction(a['uniform_full_source_unitary_error_upper'])),
+   'contact_words':averaging['full_source_frequency_certificate']['native_quartic_words'],
+   'full_large_carrier_executed':False},
+  'meson_current':{'time':mr['source_time'],'conditional_pair_probability':mr['conditional_total_lepton_pair_probability'],
+   'unconditional_pair_probability':mr['unconditional_total_lepton_pair_probability'],
+   'preparation_success_probability':mr['preparation_success_probability'],
+   'conditional_bound_target_probability':mr['conditional_light_bound_spin_zero_receiver_probability'],
+   'untuned_box_conditional_pair_probability':meson['untuned_free_gap_box_control']['conditional_total_lepton_pair_probability'],
+   'physical_decay_fit':False},
+  'vectorlike':{'rows':[{k:r[k]for k in('family','channel','conditional_light_GeV','conditional_heavy_GeV')}for r in flavour['quark_branches']],
+   'light_down_minus_up_GeV':flavour['light_down_minus_up_conditional_GeV'],
+   'added_heavy_branches':flavour['extra_branches_retained'],'physical_quark_mass_fit':False},
+  'baryon_ordering':{'rows':baryon['baryon_energies'],
+   'neutral_minus_charged_GeV':baryon['neutron_like_minus_proton_like_conditional_GeV'],
+   'neutral_inner_charge_interval':next(r for r in baryon['complete_intrinsic_records']if r['charge']==0)['intrinsic_charge_profile']['1/3']['ground_interval'],
+   'beta_decay_energetically_allowed':False,'physical_nucleon_mass_fit':False},
+  'dynamic_wave':{'source_dimension':wave['full_source_dimension'],
+   'bending_interval':next(r for r in wave['same_source_bending_intervals']if r['time']==4)['source_minus_zero_native_control_shift_interval'],
+   'delay_interval':wave['same_source_operational_delay_interval'],'shared_autonomous_source':True,'physical_lensing_fit':False},
+  'dynamic_stress':{'clock_spread_ppm_interval':clocks['strict_clock_ratio_spread_ppm_interval'],
+   'clock_count':len(clocks['all7_same_source_clock_ratios']),
+   'weak_probe_error_upper':float(Fraction(clocks['exact_test_clock_theorem']['at_probe_coefficient_one_thousandth_error_upper'])),
+   'finite_boundary_correction_retained':True,'finite_strength_exact_universality':False},
+  'six_quark':{'source_energy':nuclear['positive_bound_state']['Rayleigh_energy_diagnostic'],
+   'binding_lower':float(Fraction(nuclear['strict_binding_below_two_baryons_lower'])),
+   'quadrupole_interval':[float(Fraction(x))for x in nuclear['positive_bound_state']['ground_quadrupole_interval']],
+   'conditional_equal_bare_mass_energy_GeV':units['baseline_equal_bare_mass_six_quark_energy_GeV'],
+   'binding_lower_GeV':float(Fraction(units['binding_gap_lower_GeV'])),
+   'complete_fixed_sector':nuclear['exact_dimensions']['fixed_N6_Nu3_Nspinup4'],
+   'physical_deuteron_fit':False},
+ }
+
+def previous_tasks(receipts):
  charge=receipts['native_charge'];attachment=charge['same_quantum_block_attachment']
  assert charge['exact_filled_reference_electric_charge']=='0'
  assert attachment['native_lowest_charged_band_is_global_within_fixed_charge_sector']is True
