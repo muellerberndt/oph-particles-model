@@ -31,6 +31,19 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(p['weak']['receiver_probability_interval'][0],0)
   self.assertGreater(p['neutral_transfer']['receiver_probability_interval'][0],0)
   self.assertFalse(p['neutral_transfer']['earlier_flat_band_transferred'])
+  self.assertEqual(len(p['source_sha256']),23)
+  current=p['current_tasks'];self.assertEqual(current['task_count'],10)
+  self.assertEqual(current['native_charge']['neutral_reference_charge'],'0')
+  self.assertLess(current['infinite_photon']['photon_tail_above_three_upper'],8.278e-16)
+  self.assertTrue(current['quantum_larmor']['same_rest_current_state_clock'])
+  self.assertFalse(current['inclusive_decay']['physical_weak_lifetime_fit'])
+  self.assertEqual(current['baryon']['singlet_dimension'],120)
+  self.assertEqual(current['meson']['singlet_dimension'],64)
+  self.assertFalse(current['common_scale']['physical_hadron_mass_fit'])
+  self.assertEqual(len(current['common_scale']['rows']),13)
+  self.assertLess(current['geometry']['witness_interval'][1],0)
+  self.assertLess(current['wave']['transverse_shift'],0)
+  self.assertGreater(current['wave']['gamma_minus_one_shift'],0)
  def test_changed_display_domains_are_rejected(self):
   mutations=[
    ('openwave_localized_rest_packet',lambda x:x['near_rest_localized_source'].__setitem__('source_time_horizon',100)),
@@ -43,7 +56,14 @@ class JourneyProjectionTest(unittest.TestCase):
    ('openwave_quantum_rotational',lambda x:x['calibration'].__setitem__('muon_tau_spectrum_transferred',True)),
    ('openwave_neutrino_oscillation',lambda x:x.__setitem__('measured_PMNS_fit_or_observed_neutrino_identification',True)),
    ('openwave_weak_decay',lambda x:x.__setitem__('observed_muon_lifetime_weak_scale_or_continuum_S_matrix_derived',True)),
-   ('openwave_neutral_transfer',lambda x:x.__setitem__('same_side_two_low_energy_band_or_ground_transferred',True))]
+   ('openwave_neutral_transfer',lambda x:x.__setitem__('same_side_two_low_energy_band_or_ground_transferred',True)),
+   ('openwave_native_quantum_charge',lambda x:x.__setitem__('exact_filled_reference_electric_charge','1')),
+   ('openwave_infinite_photon',lambda x:x['analytic_infinite_field'].__setitem__('finite_spatial_regulator_retained',False)),
+   ('openwave_quantum_larmor',lambda x:x.__setitem__('field_strength_and_source_couplings_physically_calibrated',True)),
+   ('openwave_inclusive_decay',lambda x:x['controlled_finite_time_survival'].__setitem__('large_bin_model_executed',True)),
+   ('openwave_composite_scale',lambda x:x.__setitem__('physical_particle_rest_mass_claim',True)),
+   ('openwave_quantum_geometry',lambda x:x.__setitem__('static_minimum_controller_used',True)),
+   ('openwave_wave_deflection',lambda x:x.__setitem__('quantum_geometry_package_source_transfer_claimed',True))]
   for package,mutate in mutations:
    def changed(path,rer):
     value=read_bound(path,rer)

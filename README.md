@@ -56,3 +56,13 @@ node tools/test_journey_results.mjs site
 
 The normal full-site builder applies the same overlay. It validates every
 source hash before writing; a changed Journey mount contract requires review.
+
+The Journey projection binds23 RER receipts and presents ten focused tasks:
+native charge, quantum precession, photon-cap removal, neutral flight,
+inclusive decay, baryon binding, meson binding, autonomous quantum geometry,
+planar wave deflection and common GeV conversion. The lepton comparisons and
+other finite results are retained. The common-scale table labels all13
+stationary energies and displays the failed physical hadron assignments;
+the infinite-photon GeV interval is a convergence certificate at the same
+electron anchor. Static wave bending and autonomous quantum geometry use
+distinct declared sources and are identified separately.
