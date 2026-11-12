@@ -13,6 +13,7 @@ import json
 import subprocess
 from fractions import Fraction
 from pathlib import Path
+from ninth_results import project as ninth_projection
 
 ROOT=Path(__file__).resolve().parents[1]
 RER=ROOT.parent/'reverse-engineering-reality'
@@ -61,6 +62,17 @@ SOURCES={
  'dirac_neutral_current':'model/openwave_dirac_neutral_current/results.json',
  'geometry_refinement':'model/openwave_geometry_refinement/results.json',
  'relational_clock':'model/openwave_relational_clock/results.json',
+ 'axial_state':'model/openwave_axial_state/results.json',
+ 'dressed_baryon_lines':'model/openwave_dressed_baryon_lines/results.json',
+ 'hadron_spin_constraints':'model/openwave_hadron_spin_constraints/results.json',
+ 'nuclear_distance':'model/openwave_nuclear_distance/results.json',
+ 'neutrino_calibration':'model/openwave_neutrino_calibration/results.json',
+ 'beta_parity':'model/openwave_beta_outgoing/results.json',
+ 'meson_memory_window':'model/openwave_meson_memory_window/results.json',
+ 'common_mass_source':'model/openwave_common_mass_source/results.json',
+ 'joint_native_clocks':'model/openwave_joint_native_clocks/results.json',
+ 'platform_kernel':'model/openwave_platform_kernel/results.json',
+
 
 
 }
@@ -153,6 +165,7 @@ def project(rer=RER):
   'previous_tasks':previous_tasks(receipts),
   'reference_tasks':reference_tasks(receipts),
   'current_tasks':current_tasks(receipts),
+  'latest_tasks':ninth_projection(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }
@@ -489,7 +502,7 @@ def apply_data_hooks(name,body):
 def sync(out,rer=RER,check=False):
  data=project(rer);body=json.dumps(data,indent=2,ensure_ascii=False)+'\n'
  outputs={'journey_results.json':body,'journey_results_data.js':'export const JOURNEY_RESULTS = '+body.rstrip()+';\n'}
- for name in ('journey_results.js','journey_results.css','construction_matches.js'):outputs[name]=(EXTRA/name).read_text()
+ for name in ('journey_results.js','journey_results.css','construction_matches.js','ninth_results.js'):outputs[name]=(EXTRA/name).read_text()
  check_placement((out/CONSUMER).read_text(),(out/'journey.js').read_text())
  for name in ('matches_data.js','openwave.js'):
   outputs[name]=apply_data_hooks(name,(out/name).read_text())

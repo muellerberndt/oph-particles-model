@@ -64,17 +64,21 @@ python tools/sync_openwave_status.py
 python tools/sync_openwave_status.py --check
 ```
 
-The current projection binds43 RER receipts to one committed source revision. The finite-constructions page
-shows ten current tasks and the charged-lepton comparison;29 supporting constructions stay available in a
-collapsed section. Current highlights include calibrated proton/neutron/charged-pion masses, held-out nuclear
-binding, complete native beta conversion, stronger current bounds, finite-volume meson tests, conditional Dirac
-neutral branches, geometry-cap refinement and operational native-clock arrival records. Calibration targets,
+The current projection binds 53 RER receipts to one committed source revision. The finite-constructions page
+shows ten current tasks and the charged-lepton comparison; 39 supporting constructions stay available in a
+collapsed section. Highlights include the four-input hadron/axial calibration, complete weak-contact energy
+lines, distinct strong and nuclear fit controls, a native beta momentum-parity bound, oscillation-calibrated
+Dirac masses, controlled outgoing meson emission, one positive 192-mode semileptonic source, joint native
+clocks and an executed full-carrier Taichi kernel in a pinned OpenWave checkout. Calibration targets,
 independent comparisons and actual failed fits are labelled separately.
 
 The overlay preserves the Fable viewer and Journey layout. Small, fail-closed data hooks update its existing
-Matches rows and OpenWave summaries; the three calibrated masses use a visible “calibrated” label. Match kinds
-read the final assessment rather than duplicating its statuses. OpenWave tags identify relevant criteria and do
-not imply an official award. The old balanced-source mass and beta-threshold failures remain distinct controls.
+Matches rows and OpenWave summaries; calibrated masses and axial strength carry visible calibration labels.
+The neutrino table presents both GeV and eV without adding unmeasured absolute masses to the match count.
+Match kinds read the final assessment rather than duplicating its statuses. OpenWave tags identify relevant
+criteria and do not imply an official award. The platform execution names its pinned upstream member;
+the criterion assessment can track a later upstream revision. Separate rigid neutral-hierarchy and
+balanced-source mass/threshold failures stay available as controls.
 
 For a clean publication worktree, write the assessment to that same worktree before testing:
 
