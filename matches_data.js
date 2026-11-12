@@ -18,6 +18,7 @@
 // assessment of those packages: a criterion assessed as met is `seen`, one assessed as met in part is `part`.
 import { board, MEAS, RUN_L6, fmtInt } from './results_data.js';
 import { COSMOLOGY_LEDGER, TILT_COMPARISONS } from './cosmos_evidence.js';
+import { applyConstructionEvidence, updateConstructionOpenItems } from './construction_matches.js';
 // addresses of the public sources (the same as in links.js, which needs a document and is not imported here)
 const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/';
 const SITE = 'https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/';
@@ -200,6 +201,7 @@ export function matches(live = {}) {
         open: 'The capacity that sets Λ is chosen with the measured value in view.', src: ledger },
     ] },
   ];
+  applyConstructionEvidence(groups);
   for (const g of groups) g.rows = g.rows.filter(Boolean);
   const all = groups.flatMap((g) => g.rows);
   for (const r of all) if (OW[r.id]) r.ow = OW[r.id];
@@ -213,6 +215,7 @@ export function matches(live = {}) {
     { id: 'nuclei', title: 'Nuclei beyond the deuteron', sub: 'not computed', page: 'constructions' },
     { id: 'btfr', title: 'Rotation of galaxies', sub: 'the model’s Tully–Fisher exponent is 4, the measured one 3.75 ± 0.09', page: 'cosmology' },
   ]);
+  updateConstructionOpenItems(open);
   for (const o of open) if (OW[o.id]) o.ow = OW[o.id];
   counts.open = open.length;
   counts.ow = all.filter((r) => r.ow).length;

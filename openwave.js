@@ -10,9 +10,10 @@ import { matches } from './matches_data.js';
 import { matchStyle } from './match.js';
 
 const UPSTREAM = 'https://github.com/openwave-labs/openwave/blob/' + OPENWAVE.upstream_commit + '/MODELS.md';
-const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/';
+const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/' + OPENWAVE.evaluated_RER_commit + '/';
 const ST = { met: ['met', 'var(--teal,#3fe0d0)'], part: ['in part', 'var(--blue,#6fb1ff)'], fails: ['fails', 'var(--red,#ff6480)'], untested: ['not computed', 'var(--faint,#62718f)'] };
 // one plain sentence per criterion: what the model shows
+import { CONSTRUCTION_SUMMARIES } from './construction_matches.js';
 const PLAIN = {
   1: 'Charge comes in whole units. The charge lattice of the model has no half units.',
   2: 'A charged spin-½ state has a definite energy at rest, with its field included.',
@@ -83,7 +84,7 @@ function rowHtml(r, rowsOf) {
   const [word, colour] = ST[r.status], mine = rowsOf[r.id] || [];
   const range = r.low !== r.high ? `<span class="ow-range">between “${ST[r.low][0]}” and “${ST[r.high][0]}”, by how strictly the criterion is read</span>` : '';
   return `<div class="ow-row" data-id="${r.id}"><button type="button" aria-expanded="false">
-      <span class="ow-n">${r.id}</span><span class="ow-t"><b>${esc(r.criterion)}</b><span>${PLAIN[r.id] || ''}</span></span><span class="ow-s" style="--c:${colour}">${word}</span></button>
+      <span class="ow-n">${r.id}</span><span class="ow-t"><b>${esc(r.criterion)}</b><span>${esc(CONSTRUCTION_SUMMARIES[r.id] || PLAIN[r.id] || '')}</span></span><span class="ow-s" style="--c:${colour}">${word}</span></button>
     <div class="ow-more" hidden><h4>Assessment</h4><p>${esc(r.reason)} ${range}</p><h4>Next test</h4><p>${esc(r.next)}</p>
       <div class="ow-links">${mine.map((m) => `<button type="button" data-row="${esc(m.id)}">${m.name.replace(/<[^>]+>/g, '')} ›</button>`).join('')}${r.proofs.slice(-6).map((p) => `<a href="${RER}model/${p}/PROOF.md" target="_blank" rel="noopener">${p.replace(/^openwave_/, '').replace(/_/g, ' ')} ↗</a>`).join('')}</div></div></div>`;
 }
