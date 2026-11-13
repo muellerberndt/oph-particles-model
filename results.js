@@ -222,7 +222,7 @@ function chart(groups) {
     for (const r of g.rows) {
       const st = r.status || g.status, wait = r.state === 'placeholder' || r.state === 'missing';
       const cls = (r.hero ? ' rs-hero' : '') + (wait ? ' rs-waitrow' : '') + (r.id === selected ? ' sel' : '');
-      const first = `<div class="rs-sym">${r.sym}${r.unit ? `<em>${r.unit}</em>` : ''}</div><div class="rs-num">${r.modelText || '–'}</div><div class="rs-num rs-meas">${r.meas ? r.meas.text : '–'}</div>`;
+      const first = `<div class="rs-sym">${r.sym}${r.mobileValue ? `<small class="rs-native-mobile">${esc(r.mobileValue)}</small>` : ""}${r.unit ? `<em>${r.unit}</em>` : ''}</div><div class="rs-num">${r.modelText || '–'}</div><div class="rs-num rs-meas">${r.meas ? r.meas.text : '–'}</div>`;
       const rest = wait ? `<div class="rs-track rs-wide">${r.state === 'placeholder' ? phChip() : ''}${prog(r.laneId)}</div>`
         : r.none ? `<div class="rs-track rs-t2"><span class="rs-none">${r.none}</span></div><div class="rs-stc">${chip(st)}</div>`
           : `<div class="rs-track">${track(r, st)}</div><div class="rs-dev">${devText(r)}</div><div class="rs-stc">${r.incomplete ? incChip() : chip(st)}</div>`;
@@ -261,7 +261,7 @@ function render(host) {
   B = applyConstructionNumbers(board(LIVE));
   if (selected && !findRow(selected)) selected = B.groups[0].rows[0].id;
   const key = (shape, hollow, colour, text) => `<span><i style="color:${colour}">${glyph(shape, hollow, 12)}</i>${text}</span>`;
-  host.innerHTML = `<div class="rs-wrap">
+  host.innerHTML = `<style>.rs-native-mobile{display:none}@media(max-width:699px){#page-results .rs-native-mobile{display:block;font-size:12px;font-weight:600;line-height:1.5;overflow-wrap:anywhere;color:var(--fg)}#page-results .rs-native-mobile+em{display:none}}</style><div class="rs-wrap">
     <div class="rs-head"><div><h2>Numbers and status</h2><div class="rs-lead">Every value of the model beside the Standard Model and the measured value.</div></div>
       <div class="rs-legend">${Object.keys(STATUS).map((k) => `<span class="rs-st" data-s="${k}">${chip(k, STATUS[k].long)}</span>`).join('')}</div></div>
 

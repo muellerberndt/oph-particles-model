@@ -1,8 +1,8 @@
 export const JOURNEY_RESULTS = {
   "schema": "oph.journey_verified_results.v1",
   "date": "2026-11-13",
-  "source_revision": "da76715732c8448667b40aef066721d1137055aa",
-  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/da76715732c8448667b40aef066721d1137055aa/",
+  "source_revision": "91f37bac83c4bd71ccefc5f2c76a4bf8961a708a",
+  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/91f37bac83c4bd71ccefc5f2c76a4bf8961a708a/",
   "scope": "Conditional finite constructions; calibration, preparation and physical identification are separate.",
   "leptons": {
     "rows": [
@@ -3519,7 +3519,1046 @@ export const JOURNEY_RESULTS = {
       "Lambda_amplitude_derived": false
     }
   },
+  "completion_results": {
+    "task_count": 10,
+    "baryon": {
+      "neutron_rest_GeV": [
+        0.9395653870722888,
+        0.9395654568057844
+      ],
+      "proton_rest_GeV": [
+        0.9382720545629448,
+        0.9382721242964405
+      ],
+      "inertial_mass_GeV": [
+        0.9103797399489999,
+        0.9706845327240001
+      ],
+      "bandwidth_GeV": [
+        0.14506503575499996,
+        0.14506524379700003
+      ],
+      "length_fm": 0.7559087290603967,
+      "native_CAR_dimension": 17296,
+      "native_shape_channels": 100,
+      "ancestry": "Inherited electron unit and common strong length; inverse mass is the positive native compact rest operator. No per-particle mass target enters the kinetic coefficient.",
+      "higher_number_transfer": false,
+      "physical_pole_proved": false
+    },
+    "cluster": {
+      "Lambda_GeV": [
+        1.1156846286073363,
+        1.1156848780809598
+      ],
+      "pion_GeV": [
+        0.13959620915558044,
+        0.13959622090875637
+      ],
+      "kaon_GeV": [
+        0.49370281742828453,
+        0.49370283090851685
+      ],
+      "shell_momentum_GeV": [
+        0.08622281653399999,
+        0.10305865846600001
+      ],
+      "pair_below_GeV": [
+        1.1081816374081936,
+        1.1081817200708217
+      ],
+      "pair_above_GeV": [
+        1.12100652260956,
+        1.1210066057801946
+      ],
+      "energy_shell_open": true,
+      "outgoing_weak_decay_proved": false,
+      "source": {
+        "C_completion": "sum_x min(nq_x,na_x)+sum_edges[min(nq_x+nq_y,na_x+na_y)-min(nq_x,na_x)-min(nq_y,na_y)]",
+        "C_completion_bound": "0<=M<=total_number on a path",
+        "complete_two_cell_operator_preserved": true,
+        "construction": "Möbius extension of the complete native two-cell strong operator; one-site vacuum restrictions plus connected nearest-neighbour terms and the declared Gauss electric energy.",
+        "correlated_propagation": "One positive inverse-native-rest-matrix rule for every triquark and quark-antiquark compact channel; full Fock complements retained.",
+        "count_controls": [
+          {
+            "counts": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "finite_range_completion": 2,
+            "global_minimum_control": 1
+          },
+          {
+            "counts": [
+              [
+                2,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "finite_range_completion": 0,
+            "global_minimum_control": 1
+          },
+          {
+            "counts": [
+              [
+                2,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "finite_range_completion": 0,
+            "global_minimum_control": 1
+          }
+        ],
+        "full_Fock_number_floor_source_exact": "5594870348852257484520286623040889/2143284942874869760000000000000000",
+        "global_minimum_is_used": false,
+        "one_species_selected_by_projector": false,
+        "separated_cluster_interactions_vanish": true,
+        "strange_mass_parameters_refitted": false
+      },
+      "ancestry": "Consequences of inherited fitted coefficients and a declared finite-range/kinetic extension; the small bulk rest shifts are retained."
+    },
+    "nuclear": {
+      "rows": [
+        {
+          "name": "triton",
+          "cells": 3,
+          "GeV_interval": [
+            2.8089182323978212,
+            2.8089230703430386
+          ],
+          "target_GeV": 2.80892113668,
+          "matches": true,
+          "role": "inherited triton calibration"
+        },
+        {
+          "name": "helion",
+          "cells": 3,
+          "GeV_interval": [
+            2.8088432915390897,
+            2.8088481978954327
+          ],
+          "target_GeV": 2.80839161112,
+          "matches": false,
+          "role": "held-out comparison"
+        },
+        {
+          "name": "alpha",
+          "cells": 4,
+          "GeV_interval": [
+            3.7401676833234467,
+            3.7401942092124787
+          ],
+          "target_GeV": 3.7273794118,
+          "matches": false,
+          "role": "held-out comparison"
+        }
+      ],
+      "required_charge_breaking_norm_GeV": 0.000381903475,
+      "member": {
+        "P_to_Q_electrostatic_coupling_exact": "0",
+        "additional_nuclear_mass_fits": 0,
+        "full_fixed_N_negative_perturbation_bound": "V>=-2 gamma N^2/9",
+        "full_positive_Gauss_field_equivalence_proved": false,
+        "gamma_source_exact": "560588012500000000000000000000000000000/150376986022280580998537816527958312553",
+        "geometric_domain": "three/four collinear cells at the independently strong-calibrated length",
+        "inputs": {
+          "alpha_inverse": "137.035999177",
+          "hbar_c_GeV_fm": "0.1973269804",
+          "length_fm": "236221477831373991/312500000000000000"
+        },
+        "operator": "gamma sum_(x<y) Q_x Q_y/(y-x), Q_x=N_x/6+I_z,x",
+        "pair_kernel_role": "declared Coulomb comparison; no transfer from the full dynamical field claimed",
+        "seven_parent_mass_calibrations_transferred": false
+      },
+      "physical_spectrum_closed": false,
+      "halo_proved": false
+    },
+    "core": {
+      "rows": [
+        {
+          "family": "electron",
+          "radius_cells": [
+            0.5230026408674463,
+            0.5230026412498537
+          ],
+          "suppression": [
+            0.547063524708646,
+            0.5470635255086463
+          ],
+          "onset_k_over_pi": [
+            0.7499999999999999,
+            0.8750000000000001
+          ],
+          "onset_k_radius": [
+            1.2322959407679226,
+            1.4376785986137737
+          ],
+          "GeV_interval": [
+            0.0006219035773448502,
+            0.0006220076806371444
+          ]
+        },
+        {
+          "family": "muon",
+          "radius_cells": [
+            0.5229986756630666,
+            0.522998676045477
+          ],
+          "suppression": [
+            0.5470552294906432,
+            0.5470552302906434
+          ],
+          "onset_k_over_pi": [
+            0.7499999999999999,
+            0.8750000000000001
+          ],
+          "onset_k_radius": [
+            1.232286597975211,
+            1.4376676986889512
+          ],
+          "GeV_interval": [
+            0.10576932937770192,
+            0.10576943348099424
+          ]
+        },
+        {
+          "family": "tau",
+          "radius_cells": [
+            0.522998675566342,
+            0.5229986759487525
+          ],
+          "suppression": [
+            0.547055229288296,
+            0.5470552300882963
+          ],
+          "onset_k_over_pi": [
+            0.7499999999999999,
+            0.8750000000000001
+          ],
+          "onset_k_radius": [
+            1.232286597747309,
+            1.4376676984230659
+          ],
+          "GeV_interval": [
+            1.7770948811554477,
+            1.7770949852587403
+          ]
+        }
+      ],
+      "Wilson": "1/2",
+      "selection": {
+        "all_tested_coefficients": [
+          {
+            "Wilson_coefficient_exact": "1/16",
+            "finite_ground_energy_minus_mass_diagnostic": 0.13475103337459884,
+            "maximum_suppression_diagnostic": 0.02936920275512207,
+            "radius_cells_diagnostic": 0.1211800370422498
+          },
+          {
+            "Wilson_coefficient_exact": "1/4",
+            "finite_ground_energy_minus_mass_diagnostic": 0.23258536532271734,
+            "maximum_suppression_diagnostic": 0.28529641178721404,
+            "radius_cells_diagnostic": 0.3776879742507127
+          },
+          {
+            "Wilson_coefficient_exact": "1/2",
+            "finite_ground_energy_minus_mass_diagnostic": 0.29480094855921796,
+            "maximum_suppression_diagnostic": 0.547063525108646,
+            "radius_cells_diagnostic": 0.5230026410586499
+          },
+          {
+            "Wilson_coefficient_exact": "1",
+            "finite_ground_energy_minus_mass_diagnostic": 0.3624734060313044,
+            "maximum_suppression_diagnostic": 0.7683464509980891,
+            "radius_cells_diagnostic": 0.6198170903573444
+          },
+          {
+            "Wilson_coefficient_exact": "2",
+            "finite_ground_energy_minus_mass_diagnostic": 0.4447931225603058,
+            "maximum_suppression_diagnostic": 0.8966619748605102,
+            "radius_cells_diagnostic": 0.6695752291044339
+          }
+        ],
+        "only_selected_member_has_infinite_ground_and_response_certificate": true,
+        "selection": "First tested dyadic coefficient whose finite spatial suppression exceeds one half:1/2.",
+        "selection_uses_empirical_radius_or_running_data": false,
+        "selection_uses_resolution_outcome": true
+      },
+      "scope": {
+        "empirical_charge_radius_fit": false,
+        "half_suppression_core_onset_certified": true,
+        "physical_QED_or_QCD_beta_function_derived": false,
+        "reference_bound_energies_are_observed_particle_poles": false,
+        "same_source_current_Ward_and_frequency_response": true,
+        "same_source_static_charge_core_scale_join_certified": true,
+        "spatial_continuum_refinement_proved": false,
+        "unchanged_original_Wilson_member": false
+      },
+      "static_charge_core_join": true,
+      "physical_running_curve": false
+    },
+    "clock": {
+      "scope": {
+        "autonomous_rest_mass_phase_onset_established": false,
+        "energy_invariant_finite_collision_route_excluded": true,
+        "thermal_or_infinite_spontaneous_symmetry_breaking_limit_proved": false
+      },
+      "general_theorem": {
+        "conclusion": "Every unnormalized conditional source state commutes with its Hamiltonian; every fixed-observable free expectation is constant.",
+        "degenerate_relative_coherence_is_allowed": true,
+        "includes_adaptive_energy_covariant_branches": true,
+        "no_go_for_all_OPH_architectures": false,
+        "phaseful_inputs_or_noncommuting_readouts_excluded": true,
+        "premises": [
+          "initial joint state commutes with total energy",
+          "joint unitary conserves total energy",
+          "every recorded battery effect commutes with battery energy"
+        ]
+      },
+      "word_counts": [
+        81,
+        81,
+        81,
+        81
+      ],
+      "relational_dimension": 16,
+      "relative_free_frequency": "0",
+      "readout_requires_phase_resource": true
+    },
+    "quotient": {
+      "winding": "-1",
+      "group": "Z",
+      "fractional_phase_lifts": [
+        "2/3",
+        "-1/3"
+      ],
+      "full_Fock_loop_closes": true,
+      "scope": {
+        "continuous_gauge_group_homotopy_proved": true,
+        "free_quark_GeV_values_derived": false,
+        "native_fractional_charge_compatible_with_generator_loop": true,
+        "quotient_lift_is_an_extra_physical_particle_fit": false,
+        "source_state_contains_a_localized_classical_angle_texture": false,
+        "spontaneous_texture_or_soliton_equation_derived": false
+      },
+      "complete_dimensions": [
+        120,
+        364
+      ]
+    },
+    "field": {
+      "connection": "A=-i U* derivative_theta U=q [[s^2,cs exp(-iq theta)],[cs exp(iq theta),-s^2]]",
+      "transformed_field": "alpha(E+A)^2, including derivative A and A^2",
+      "scope": {
+        "fermionic_pair_creation_dictionary": false,
+        "field_connection_omission_refuted": true,
+        "interacting_Lorentz_covariance": false,
+        "new_physical_mass_prediction": false
+      },
+      "source": {
+        "Hamiltonian": "alpha E^2 + m sigma_z + t(cos(q theta) sigma_x+sin(q theta) sigma_y) + sqrt(m^2+t^2) I",
+        "alpha_exact": "1/32",
+        "carrier": "L2(U1) tensor C2, every integer flux; signed internal bands",
+        "declared_diagnostic_member": true,
+        "hopping_exact": "1/16",
+        "native_Fock_source_equivalence_proved": false
+      },
+      "cases": 6,
+      "complete_flux": true,
+      "missing_connection_error": 0.0005955632125284605
+    },
+    "gravity": {
+      "formula": "G/c_ratio = g/u^2; simultaneous agreement requires g=G_observed*u^2",
+      "light_length_fm": 386.15926732051037,
+      "light_matched_G": [
+        40507.49376349942,
+        40507.493763499435
+      ],
+      "required_stiffness_factor": [
+        6.037937131139024e+42,
+        6.037937131139027e+42
+      ],
+      "alternative_energy_unit_GeV": [
+        1.2556375697526328e+18,
+        1.2556375697526333e+18
+      ],
+      "scope": {
+        "common_strong_geometry_transfer": false,
+        "hardware_uniqueness_required": false,
+        "physical_G_and_c_match": false
+      },
+      "length_only_repair": false
+    },
+    "cosmology": {
+      "comparisons": [
+        {
+          "branch": "fixed_capacity",
+          "table": "HzTable_MM_BC03.dat",
+          "rows": 15,
+          "chi_square": [
+            6.191340672070999,
+            6.191340672072001
+          ],
+          "fitted_chronometer_parameters": 0
+        },
+        {
+          "branch": "comoving_area",
+          "table": "HzTable_MM_BC03.dat",
+          "rows": 15,
+          "chi_square": [
+            21.549028758320997,
+            21.549028758322002
+          ],
+          "fitted_chronometer_parameters": 0
+        },
+        {
+          "branch": "hubble_area_conserved",
+          "table": "HzTable_MM_BC03.dat",
+          "rows": 15,
+          "chi_square": [
+            70.48705377899599,
+            70.48705377899701
+          ],
+          "fitted_chronometer_parameters": 0
+        },
+        {
+          "branch": "fixed_capacity",
+          "table": "HzTable_MM_M11.dat",
+          "rows": 15,
+          "chi_square": [
+            7.979522903793999,
+            7.979522903795001
+          ],
+          "fitted_chronometer_parameters": 0
+        },
+        {
+          "branch": "comoving_area",
+          "table": "HzTable_MM_M11.dat",
+          "rows": 15,
+          "chi_square": [
+            30.190533236912998,
+            30.190533236914003
+          ],
+          "fitted_chronometer_parameters": 0
+        },
+        {
+          "branch": "hubble_area_conserved",
+          "table": "HzTable_MM_M11.dat",
+          "rows": 15,
+          "chi_square": [
+            89.76705331228798,
+            89.76705331228901
+          ],
+          "fitted_chronometer_parameters": 0
+        },
+        {
+          "branch": "future_event_area_gamma_one",
+          "table": "HzTable_MM_BC03.dat",
+          "rows": 15,
+          "chi_square": [
+            6.577168897788999,
+            6.577168897790001
+          ],
+          "fitted_chronometer_parameters": 0
+        },
+        {
+          "branch": "future_event_area_gamma_one",
+          "table": "HzTable_MM_M11.dat",
+          "rows": 15,
+          "chi_square": [
+            9.759896302659998,
+            9.759896302661001
+          ],
+          "fitted_chronometer_parameters": 0
+        }
+      ],
+      "anchors": {
+        "H0_km_s_Mpc": "67.4",
+        "Omega_m": "0.315"
+      },
+      "branch_consequences": {
+        "comoving_area": {
+          "acceleration": false,
+          "q_today_exact": "63/400",
+          "w_exact": "-1/3"
+        },
+        "fixed_capacity": {
+          "amplitude_selected": false,
+          "q_today_exact": "-211/400",
+          "w_exact": "-1"
+        },
+        "future_event_area": {
+          "H_future_km_s_Mpc_interval": [
+            "51.994180492103",
+            "51.994180492104"
+          ],
+          "Omega_at_z_100_interval": [
+            "0.001947550786",
+            "0.001947550787"
+          ],
+          "dOmega_dlog_a": "Omega*(1-Omega)*(1+2*sqrt(Omega)/gamma)",
+          "expansion_likelihood_executed": true,
+          "future_boundary_condition_proved_for_gamma_one": true,
+          "gamma_exact": "1",
+          "high_redshift_scope": "matter plus dark energy control; radiation omitted, no early-Universe data claim",
+          "initial_dark_fraction_supplied": true,
+          "w_today_interval": [
+            "-0.885098178575",
+            "-0.885098178574"
+          ]
+        },
+        "hubble_area_conserved": {
+          "acceleration": false,
+          "constant_dark_fraction_exact": "137/200",
+          "q_exact": "1/2",
+          "w_exact": "0"
+        },
+        "hubble_area_mechanical_pressure_with_exchange": {
+          "dark_fraction_at_all_epochs_exact": "137/200",
+          "matter_dominance_to_acceleration_transition": false,
+          "matter_scaling_exponent_exact": "189/200",
+          "mechanical_w_exact": "-1",
+          "q_exact": "-211/400",
+          "requires_energy_exchange": true,
+          "total_w_exact": "-137/200"
+        }
+      },
+      "Lambda_amplitude_derived": false,
+      "alternatives_independent": false
+    },
+    "yang_mills": {
+      "bounds": [
+        {
+          "g_squared": 8.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 8,
+          "commutator_upper": 2.0000000000000004,
+          "volume_error_upper": 2.0000000000000004
+        },
+        {
+          "g_squared": 8.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 16,
+          "commutator_upper": 2.0000000000000004,
+          "volume_error_upper": 2.0000000000000004
+        },
+        {
+          "g_squared": 8.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 24,
+          "commutator_upper": 0.08884380592090454,
+          "volume_error_upper": 2.0000000000000004
+        },
+        {
+          "g_squared": 8.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 32,
+          "commutator_upper": 3.1704234296628113e-06,
+          "volume_error_upper": 2.0000000000000004
+        },
+        {
+          "g_squared": 32.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 8,
+          "commutator_upper": 0.06482974382615421,
+          "volume_error_upper": 2.0000000000000004
+        },
+        {
+          "g_squared": 32.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 16,
+          "commutator_upper": 2.8372100120403103e-08,
+          "volume_error_upper": 0.0009123403444967122
+        },
+        {
+          "g_squared": 32.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 24,
+          "commutator_upper": 2.3506705200000007e-16,
+          "volume_error_upper": 2.3386409578929003e-11
+        },
+        {
+          "g_squared": 32.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 32,
+          "commutator_upper": 1.0000000000000001e-24,
+          "volume_error_upper": 3.1352000000000004e-20
+        },
+        {
+          "g_squared": 128.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 8,
+          "commutator_upper": 8.20362929936694e-07,
+          "volume_error_upper": 0.0010550380005817097
+        },
+        {
+          "g_squared": 128.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 16,
+          "commutator_upper": 6.010816000000001e-18,
+          "volume_error_upper": 4.8321324707000005e-14
+        },
+        {
+          "g_squared": 128.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 24,
+          "commutator_upper": 1.0000000000000001e-24,
+          "volume_error_upper": 1.0000000000000001e-24
+        },
+        {
+          "g_squared": 128.0,
+          "spacing": 1.0,
+          "time": 1.0,
+          "buffer": 32,
+          "commutator_upper": 1.0000000000000001e-24,
+          "volume_error_upper": 1.0000000000000001e-24
+        }
+      ],
+      "groups": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "proved": {
+        "existential_fixed_spacing_stability_map_for_compact_groups": true,
+        "fixed_coupling_certified_gap_bound_scales_inverse_spacing": true,
+        "gauge_invariant_observables_preserved": true,
+        "no_Peter_Weyl_cutoff": true,
+        "norm_convergence_of_local_finite_volume_dynamics": true,
+        "propagation_bound_independent_of_compact_gauge_group": true,
+        "strong_onsite_dynamics_supported": true
+      },
+      "scope": {
+        "Clay_problem_solved": false,
+        "explicit_uniform_mass_gap_threshold": false,
+        "physical_GeV_gap": false,
+        "spatial_continuum_QFT": false,
+        "strict_relativistic_causality": false
+      },
+      "Clay_solved": false
+    }
+  },
+  "source_completion": {
+    "poles": {
+      "neutron_GeV": [
+        0.9395653870722888,
+        0.9395654568057844
+      ],
+      "proton_GeV": [
+        0.9382720545629448,
+        0.9382721242964405
+      ],
+      "neutron_prepared_weight_lower": 0.9999997422299752,
+      "rest_axial": [
+        1.2747573319140826,
+        1.2758426680859394
+      ],
+      "rest_vector_exact": "1",
+      "preparation_success_exact": "1/5",
+      "preparation_failure_exact": "4/5",
+      "current_success_exact": "1/9",
+      "current_failure_exact": "8/9",
+      "mean_current_work_GeV": -0.00014370361222222223,
+      "source_dimension": "Infinite one-dimensional native chain at fixed spacing, with all relative-coordinate complements.",
+      "calibration_ancestry": "Inherited electron anchor, seven-input strong source and neutron/axial bulk matching; supplied strong length and physical speed in the positive correlated kinetic rule.",
+      "physical_4D_poles": false,
+      "autonomous_beta_decay": false,
+      "new_independent_nature_validation": false
+    },
+    "gauge": {
+      "coupling_squared": 2,
+      "spacing": 1,
+      "gap_source_units": [
+        3.091959020086153,
+        3.0919590200915783
+      ],
+      "connected_Wilson_covariance": [
+        0.00029712823194762996,
+        0.0002971282333391864
+      ],
+      "euclidean_quarter_time": [
+        0.10770226237411076,
+        0.10798987052762167
+      ],
+      "complete_instrument_work": [
+        -5e-324,
+        0.16666666666666669
+      ],
+      "full_Haar": true,
+      "physical_GeV": false,
+      "Clay_solved": false,
+      "fixed_coupling_graph_limit_noncollapsed": false
+    },
+    "geometry": {
+      "source_lapse_derivative": "-2 sinh(q) tanh(q F)/omega",
+      "q_exact": "1/8",
+      "profile_relative_error_upper": 0.005208333333333334,
+      "tensor_error_multiplier": "2 + sqrt(3)",
+      "actual_profile_sites": 343,
+      "physical_metric_derived": false,
+      "nonlinear_Einstein_derived": false
+    },
+    "radiation": {
+      "inputs": {
+        "H0_km_s_Mpc": "337/5",
+        "Omega_dark0": "171227/250000",
+        "Omega_m0": "63/200",
+        "Omega_r0": "23/250000",
+        "ancestry": "H0 and matter fraction are inherited from the parent Planck-anchored comparison. The radiation fraction and neutrino conventions are supplied inputs; no expansion data are fitted in this calculation.",
+        "new_empirical_fits": 0
+      },
+      "input_values": {
+        "H0_km_s_Mpc": 67.4,
+        "Omega_m0": 0.315,
+        "Omega_r0": 9.2e-05
+      },
+      "validated_steps": 1772,
+      "rows": [
+        {
+          "redshift": 0,
+          "dark_fraction": [
+            0.6849079999999999,
+            0.6849080000000001
+          ],
+          "expansion_ratio": [
+            1.7814814788911242,
+            1.7814814788911246
+          ]
+        },
+        {
+          "redshift": 1,
+          "dark_fraction": [
+            0.29500520291982935,
+            0.2950258422819637
+          ],
+          "expansion_ratio": [
+            1.1909870631179478,
+            1.1910044971140117
+          ]
+        },
+        {
+          "redshift": 10,
+          "dark_fraction": [
+            0.02578360501742417,
+            0.025790977936808703
+          ],
+          "expansion_ratio": [
+            1.0131465805827797,
+            1.0131504143770487
+          ]
+        },
+        {
+          "redshift": 100,
+          "dark_fraction": [
+            0.001895360116583301,
+            0.0018964508173318927
+          ],
+          "expansion_ratio": [
+            1.0009490293358383,
+            1.0009495762407958
+          ]
+        },
+        {
+          "redshift": 1000,
+          "dark_fraction": [
+            0.0001363729798333383,
+            0.0001364970721743084
+          ],
+          "expansion_ratio": [
+            1.0000681934648052,
+            1.0000682555236762
+          ]
+        },
+        {
+          "redshift": 3400,
+          "dark_fraction": [
+            2.5518641359913033e-05,
+            2.554668912076668e-05
+          ],
+          "expansion_ratio": [
+            1.0000127595648853,
+            1.0000127735893034
+          ]
+        },
+        {
+          "redshift": 10000,
+          "dark_fraction": [
+            4.379226059185192e-06,
+            4.384789965077569e-06
+          ],
+          "expansion_ratio": [
+            1.000002189620221,
+            1.0000021924021927
+          ]
+        },
+        {
+          "redshift": 100000,
+          "dark_fraction": [
+            5.661116645849052e-08,
+            5.670415550460344e-08
+          ],
+          "expansion_ratio": [
+            1.000000028305584,
+            1.0000000283520791
+          ]
+        },
+        {
+          "redshift": 1000000,
+          "dark_fraction": [
+            5.831463111945585e-10,
+            5.8432265174227e-10
+          ],
+          "expansion_ratio": [
+            1.000000000291573,
+            1.0000000002921616
+          ]
+        }
+      ],
+      "early_scaling": {
+        "fixed_capacity_radiation": "Omega_dark proportional to a^4 asymptotically",
+        "future_event_matter": "Omega_dark proportional to a asymptotically",
+        "future_event_radiation": "Omega_dark proportional to a^2 asymptotically",
+        "hubble_area_conserved": "Omega_dark remains the supplied current constant; w_dark follows the mixture of conserved matter and radiation"
+      },
+      "particle_abundances": false,
+      "independent_nature_validation": false
+    },
+    "strange": {
+      "Lambda_GeV": [
+        1.1156846286073363,
+        1.1156848780809598
+      ],
+      "current_norm_squared": [
+        0.2867001542012345,
+        0.33448365496039506
+      ],
+      "shell_momentum_GeV": [
+        0.09641155974899998,
+        0.09641566529200002
+      ],
+      "raw_output_occupations": 1656,
+      "compact_Gram_inequality": "6 G <= W_P* W_P/[sin(theta)^2 cos(theta)^2] <= 7 G",
+      "on_shell_decay_amplitude": false,
+      "physical_lifetime": false,
+      "normalizable_wavepacket_transfer": false
+    }
+  },
+  "normalizable_completion": {
+    "packets": {
+      "band_probability_lower": 0.9999614504994255,
+      "inside_probability_lower": 0.9840255505883775,
+      "position_radius_cells": 8192,
+      "position_variance_cells_squared": 655360.0,
+      "all_momentum_gap_lower": 0.12740475098187143,
+      "packet_axial_interval": [
+        1.226387005970542,
+        1.32421299402948
+      ],
+      "physical_4D_particles": false,
+      "finite_local_band_filter": false
+    },
+    "strange": {
+      "independent_proton_pion_fields": 23,
+      "proton_pion_response_squared": [
+        0.010450849309463104,
+        0.12190910686811349
+      ],
+      "kinetic_words": 96,
+      "normalizable_Lambda_packet": false,
+      "on_shell_decay": false
+    },
+    "cube": {
+      "g_squared": 16,
+      "spacing": 1,
+      "gap_source_units": [
+        23.986405807368072,
+        24.000041879437838
+      ],
+      "adjacent_covariance": [
+        8.60321717519263e-08,
+        8.790974085370458e-08
+      ],
+      "complete_instrument_outcomes": 64,
+      "Haar_representations_complete": true,
+      "physical_GeV": false,
+      "continuum_4D": false,
+      "coupling_derivatives_certified": 7,
+      "fine_vertices": 27,
+      "fine_links": 54,
+      "fine_faces": 36,
+      "coarse_Wilson_leading": "κ⁴/64",
+      "full_Hamiltonian_RG": false
+    },
+    "geometry": {
+      "registers": 256,
+      "q_exact": "1/8",
+      "relative_vacuum_variance_upper": 6.103701893304543e-05,
+      "static_ground_error": "(E*exp(q)+P*exp(q*F))*(exp(q^2/(2N))-1), from a complete spin-product trial and Hoeffding",
+      "physical_G_matched": false,
+      "spatial_Einstein_limit": false
+    },
+    "cosmology": {
+      "scalar_curvature_bounds": [
+        2,
+        6
+      ],
+      "rest_sound_speed_squared": 1,
+      "barotropic_sound_speed_upper": -0.19999999999999998,
+      "source_scalar_particle": false,
+      "CMB_fit": false,
+      "new_Nature_match": false
+    },
+    "new_independent_nature_validation": false
+  },
+  "complete_dynamics": {
+    "strange": {
+      "rest_GeV": [
+        1.1156846286073363,
+        1.1156848780809598
+      ],
+      "packet_mean_GeV": [
+        1.1156848947369349,
+        1.1156848947369353
+      ],
+      "band_probability_lower": 0.9997781564526487,
+      "position_variance_cells_squared": 655360.0,
+      "normalizable_packet": true,
+      "full_strong_local_response": true,
+      "essential_breakup_spectrum": true,
+      "on_shell_decay": false,
+      "weyl_observer_preparation": false
+    },
+    "gauge": {
+      "vertices": 27,
+      "links": 54,
+      "faces": 36,
+      "frame": 201,
+      "records": [
+        {
+          "source": "coarse",
+          "a": 1.0,
+          "g2": 64.0,
+          "gap": [
+            95.99997560918578,
+            96.00000763920059
+          ]
+        },
+        {
+          "source": "refined",
+          "a": 0.5,
+          "g2": 16.0,
+          "gap": [
+            47.94919403948746,
+            48.009545065611185
+          ]
+        }
+      ],
+      "self_energy_entries": 3260,
+      "zero_energy_self_energy_error_upper": 0.0017545964649902514,
+      "probe_memory_improvement_lower": 227.78514223923608,
+      "physical_GeV": false,
+      "continuum_4D": false
+    },
+    "gravity": {
+      "registers_exact": "6037937131139025702277901945694117645046855",
+      "G_GeV_minus2": [
+        6.708829999999999e-39,
+        6.708830000000002e-39
+      ],
+      "readout_work_GeV": 1.5426897691721157e+39,
+      "calibrated_to_observed_G": true,
+      "independent_prediction": false,
+      "quantum_curvature_acquisition": false
+    },
+    "cosmology": {
+      "rows": [
+        {
+          "k_H0": 0.1,
+          "matter_transfer_ratio": 0.9758472067719091
+        },
+        {
+          "k_H0": 1.0,
+          "matter_transfer_ratio": 0.9700102575800963
+        },
+        {
+          "k_H0": 10.0,
+          "matter_transfer_ratio": 0.9149366916885346
+        },
+        {
+          "k_H0": 100.0,
+          "matter_transfer_ratio": 0.9082174254149415
+        }
+      ],
+      "exact_constraint": "C_N = −(3 + 2h) C",
+      "observed_match": false,
+      "interval_error_certificate": false,
+      "CMB_fit": false
+    },
+    "new_independent_nature_validation": false
+  },
   "source_sha256": {
+    "model/openwave_full_strong_current/results.json": "174b59729a0eb81a535d25bd56858ea77d531c83bd604d3826a210d9c13d238c",
+    "model/openwave_lambda_wavepacket/results.json": "0501a689353e613e8cbf5b8e1685ee86716a92f7ffbcef9d804645b2fa546a05",
+    "model/openwave_cluster_weyl_sequence/results.json": "db2efa52780901d9544e97d8bb1043332cf441911864feb28a47460e4b18df81",
+    "model/openwave_refined_haar_source/results.json": "c2bebc4c2219adbd87518e997dc86810bb37902fb1acc11fc1ba2a6c3b5df8ff",
+    "model/openwave_refined_haar_spectrum/results.json": "503aee8355eb7767651329e90131e2febfb062122e9e4fc3848040296615b189",
+    "model/openwave_haar_memory_closure/results.json": "2ff00d4af3bec93c87c6c29755dc263ee5c8b4946b39f86d9bb9026e0ff254ca",
+    "model/openwave_tensor_record_transport/results.json": "b54ade6976c3e40498e01b6d0ff05a2b12e5082d284655dd8b40795d2b3ec34a",
+    "model/openwave_collective_gravity_strength/results.json": "9735a37ecf820aa550305efeffcea48466e6e6aa78988893f90114d59161940a",
+    "model/openwave_capacity_transfer/results.json": "24f4fab4cb16b40ef3264f684d282117cf9d5444d50d82fe0ac2521bde44f63c",
+    "model/openwave_uniform_pole_bands/results.json": "4720bba4fb784f6ae65d5005f53a919794599079277860995f7a62d19fda7b2a",
+    "model/openwave_normalizable_particle_records/results.json": "444f42af438e0b1c20e1846ec78957170c0363e3963749f286386e30be8ae48c",
+    "model/openwave_scattering_current_support/results.json": "a6779ba6c962b800be12db20e8f9358e27a41973f85e3226d535bc817e7866f8",
+    "model/openwave_haar_coupling_flow/results.json": "40ef36abe16d8d2d1f78223bf4f0e70474fe123cd9a3d992e6bf5f4616699abb",
+    "model/openwave_cubic_haar_source/results.json": "56b3f79b8c1bb819f0d62cd663c06dc39013a6d2f47607ed54e079d0daadc9d8",
+    "model/openwave_gauge_refinement_clock/results.json": "c6e74146f171e3d8b121ce714e21d982158f1211419aa0dd5c6f5cdd83e1d807",
+    "model/openwave_staggered_ward/results.json": "a88cb47d30d8c4a56e999cd2a6592139854ecbbc53834bdc0ae776b0889b2de7",
+    "model/openwave_replicated_geometry/results.json": "089e9f00437407449fdf1b8f123e521b4c0cb805e4de8217f15984913cd3d832",
+    "model/openwave_capacity_perturbations/results.json": "509adff32d40ca95005cec4c48f2181422e1e530e5870ece72693f91d56262e9",
     "model/openwave_localized_rest_packet/results.json": "2c8e0a966dbe68d3916c57dbed41930b36c95fee8cfa9cfcd64d70449ee9f0ae",
     "model/lepton_cycle/physical_comparison.json": "d880464e668b4187e2190dc39160bd11f1441bc465b7b07d1bc985d9469e4c26",
     "model/openwave_rotational_g_limit/results.json": "88eff8866638bfa1853b4b44cc03bce751cfb8513a9e44d6f225b3199f225224",
@@ -3573,41 +4612,78 @@ export const JOURNEY_RESULTS = {
     "model/openwave_common_mass_source/results.json": "3867378eaa33be445792db3bbdf6b700d62a544371e5232d96d73a7c76dbe589",
     "model/openwave_joint_native_clocks/results.json": "2c7c493306534f8b498ad920ce4cbdc54b3e66baae33c586e50a4c9de19d82a3",
     "model/openwave_platform_kernel/results.json": "932f5d8e6ec8f25826000b479fcde136921d984e7d836eab4b642d7a7f2b7298",
-    "model/openwave_beta_angular/results.json": "74c2d5ad1b8468d42637b29c8ffbe2ab0dc7dfae5be1b877668908cef117a3d2",
+    "model/openwave_beta_angular/results.json": "3b55cbb410e02aba8e518638ebd834d18514d1900fd95cf465cf761c855ab9ad",
     "model/openwave_lepton_widths/results.json": "1b88bb9cb821f4d25649d256e71376af2746974bd8a91fcc4bf76a8ebd7c5bcd",
     "model/openwave_neutrino_matter/results.json": "f4c009f8c1a4111477a585e6d4eff5c8b7b550d4ccc186e3011ce566afa65cc0",
-    "model/openwave_spin_gradient_nuclei/results.json": "24fc8be25e14fc1abb657a0c5ec8f8be69679a15e614b95f6755dbfe6a075b64",
-    "model/openwave_rest_spectroscopy/results.json": "bf025ae6832d93f46c21ee1ae13fb87018b589e2fde4ea80aff9f8f045260c0d",
-    "model/openwave_colour_string/results.json": "82c6ce079c2faa7b863826d924211a71f8fa02994f158ba9de909537c6f47149",
+    "model/openwave_spin_gradient_nuclei/results.json": "75d374b881f114dc4151ca8dc371c72c60686c809dfc209b49c2279f859a56cd",
+    "model/openwave_rest_spectroscopy/results.json": "7b6841b9e2d9f132242e58598fba5881ef2e5eac02d73a641bb818f055b33e87",
+    "model/openwave_colour_string/results.json": "e19f8744430b23780a0c288128b1fd14bae8f72da8924e1057a4e6d123ffe753",
     "model/openwave_common_electromagnetism/results.json": "9d461dba9908b42fa21125f12e6a1857b781ecfeac99dbb4198148bddbed2731",
     "model/openwave_boosted_records/results.json": "f8d8dedac1058dd3694292f8cdf54bfaef4c6e5e8d3a2831a0115b97e40d2b65",
     "model/openwave_single_valley_leptons/results.json": "8260e0dc2560d4c2cc1aa87f37079b04627b0e2a943f0054a3f9519ae86db71e",
-    "model/openwave_mass_catalogue/results.json": "96af3a356fca158c3b9930eee48c3d211ed09f1a718153ec72661ea2135b6e82",
-    "model/openwave_string_positive_cone/results.json": "595461bbf1b7c54b8898d14741ace135b79f72c74918ab3df64ee29a83e6b28e",
-    "model/openwave_common_hyperfine_spectrum/results.json": "202d84f251384b4c82a1d730323e3c18067f7fad7548d6115e4055866cd9fb57",
-    "model/openwave_strong_step_scaling/results.json": "87f4a9f47017cb94b005a6dc649d04dfd237131b59ead3a4b8c745265084cbfc",
-    "model/openwave_transverse_completion/results.json": "74ef274f3c1e4c1ea727fbc82db7f879dc956deade29ffda93f341eb1c773e9d",
+    "model/openwave_mass_catalogue/results.json": "e2de6a3e74f601e95eb6786997e0bcdee9f8e2eea4b95c9e42c36bf34f26f215",
+    "model/openwave_string_positive_cone/results.json": "622a73fe05801a2ed4185ac43ce19ed49101c4f4685694e9dab2a71b98cb585b",
+    "model/openwave_common_hyperfine_spectrum/results.json": "5b0ea42653ebc3b7c7a5a32cd01cddb3b0e1b4b89ce1f778a05d6e61478d4b7d",
+    "model/openwave_strong_step_scaling/results.json": "d6f77de0c6389f548fa82c8aba2329091ac32ad636455f1ba0a030d28f9c9100",
+    "model/openwave_transverse_completion/results.json": "f65fa5a4f0fef7113128e062e25992fee26ea4d5fcd7d029c2c293cda05ebcab",
     "model/openwave_native_running_response/results.json": "a08e0f7d005a41f07e844b4b7dfc1cd675e908608c6102076be0fb7ce67e0231",
     "model/openwave_passive_clock_records/results.json": "8432492b0de13ce3239ad08fd635236be2612d3dba83db5bd29b43da3cb7024c",
     "model/openwave_quark_flux_records/results.json": "5ade11136c028d00efa7c51fd5a921a30841df80ad778a5b544c0748440643f3",
     "model/openwave_universal_energy_geometry/results.json": "8092bafbdfdfb4390d6806cf2bf881dea9f9183c65d6a1881bf39f8fbb9f3252",
     "model/openwave_common_gravity_records/results.json": "100eb9e28901a7aa522dbc7f73e69e2aac84673863c34fa97d819a9632ed575b",
-    "model/openwave_baryon_form_factors/results.json": "ea087f9637f7727005a0c34e1d1357da90bb577a78daa3fbaacda711bc01ae1a",
+    "model/openwave_baryon_form_factors/results.json": "77783cde97ed28d4dcb98e42985512b2927487849fd9cc4790bb33ab2bd7916e",
     "model/openwave_pure_su2_source/results.json": "80ff063747d6a03650f528b08083a60254e87ff2ec51305367bc762648d397cc",
     "model/openwave_su2_transfer/results.json": "f11f1f397290ae2ea3024a1bb6b24f3119c8d87d99e0c20c897fc708dee8d3ac",
     "model/openwave_su2_spectral/results.json": "5c11b267d75d8a632f06ebfcc6698fddff7a870a6c68d210990e7fa5d586cef1",
-    "model/openwave_strange_composites/results.json": "bca232486eaee8e316ef83f67028b4cdeb7256e3e509849855e7d5e52edefdd0",
-    "model/openwave_light_nuclear_curve/results.json": "7c3d723063a8236e0ed109413fdf30c8e57cc27b3f8abdb5270e3669a551d5a5",
-    "model/openwave_hadron_refinement_flow/results.json": "ecc8c589b2f27afa0c536711950302654f32ca942e329c3892ef7f74cd3c86eb",
-    "model/openwave_native_centre_string/results.json": "61b8a71e18de58e2d7f5b53dbae1a571e895cb4ed029c93cda48ed529a4933eb",
-    "model/openwave_dressed_core_response/results.json": "b5b8730915e3880d4663bef89f8afd0023b344b7b1808bcc678a017cc88d8c17",
+    "model/openwave_strange_composites/results.json": "d5c8c9d767b240e08d46bcfb797578e14c71078ff9e0e9528301687796efb7b9",
+    "model/openwave_light_nuclear_curve/results.json": "1a1ca41efcfdce080f41a9b2b7f970a3951c9935e66b32fe15f67d99503212b1",
+    "model/openwave_hadron_refinement_flow/results.json": "ecfdbca0d831820d3f9b81cd44665c3a5017e808f8585026ccf5a7f5a3345397",
+    "model/openwave_native_centre_string/results.json": "194290f13811c09c501c7912d681acaaeeacf433109e75cefaf63393066bba61",
+    "model/openwave_dressed_core_response/results.json": "2e40ec506be30ddf6b7dff91c107048bd931975a214e8fb6993e00e7315bf4fc",
     "model/openwave_autonomous_clock_channel/results.json": "57b8277ec9d7b2ab73b4bdf566835a3a0737fc2bc90fbd7a53fad63916a7f1b8",
-    "model/openwave_dirac_maxwell_refinement/results.json": "cef84ee2338d2e0985e79956b9b74d8c5533c9d2efb32a974545d08853eb4444",
-    "model/openwave_transverse_gravity/results.json": "2f79ad894a190d1716163e827f8f92ea0f53de04e1484414192397bf592129d5",
+    "model/openwave_dirac_maxwell_refinement/results.json": "f839a56752b4f909f768843232d489421fa15ea2e37faa8088cc7a3c9cd840d4",
+    "model/openwave_transverse_gravity/results.json": "f15525dc50766af0d9811cf740622bef7bfaff797d797fffd76c3193e749e6a6",
     "model/openwave_su2_volume_gap/results.json": "5f09d52bb9f565bc25209cf226b1fb480774df042df2297e86a79af2cc2c8750",
-    "model/openwave_capacity_stress/results.json": "ac8c5a3950e7d5c25de42754363e0335eeabecb1b31ff49084125f6863176f62"
+    "model/openwave_capacity_stress/results.json": "ac8c5a3950e7d5c25de42754363e0335eeabecb1b31ff49084125f6863176f62",
+    "model/openwave_baryon_dispersion/results.json": "41a56701a985a5394477574150c485a5e39e02ad2d2957c9c83219e8a2dcb35a",
+    "model/openwave_cluster_bandwidth/results.json": "d4f18110d77953208a2de5237fb1b60d4f82256483e6dc3458b8ba5008acc8dd",
+    "model/openwave_nuclear_isospin/results.json": "eb9490d62d6f92431c8e16f6a722981fdc32cb1687f6b7668f33e7e374932543",
+    "model/openwave_clock_phase_resource/results.json": "68c7fc4a7493ca346b67f591a677b9e4709fbfd9d9214978a9e572cf17ea593a",
+    "model/openwave_quotient_homotopy/results.json": "ea5adf0c71447ba4843530e518d802459764cdc0af211bf3dfc2deffda2f64b9",
+    "model/openwave_resolved_core/results.json": "8ac7dc605268c143ce84776292169dae2fce81a15d90530d0b0191a79de76be0",
+    "model/openwave_dirac_field_connection/results.json": "cd0b04f956275fe875ec8cc15f42599608311c89ddc30bcd3b9b3309086f65ab",
+    "model/openwave_gravity_unit_constraint/results.json": "a6940c8bdf6a3d64ca333e4d9e15658ee596689eaaec41cf4ac98ea7b86dd9d9",
+    "model/openwave_horizon_capacity/results.json": "c1fad7241f07eb30e4bfaacfc446e796ea60519e48a3b8f1a2b8a055989f5400",
+    "model/openwave_su2_propagation/results.json": "fce65c2760a51b9fed876e2b600ac2b9ce54f0b31ae56a59a0e43a18fdac8ef9",
+    "model/openwave_baryon_poles/results.json": "49e00ba4d49ce10a120c3786df7b482b87958386368d1f505053237985d11cca",
+    "model/openwave_pole_weak_current/results.json": "304645c721929de73ce26841eedf7a36d033e1eb0bb47fb3c53705c34333319d",
+    "model/openwave_strange_shell_current/results.json": "70ae0c9712e6cc2c5960d623be5ffa0443088f0650e6e2d0008872d506456a75",
+    "model/openwave_coupled_haar_source/results.json": "2356ddf01531ca3265c10a6be080f702fc3fb7d820f15db3649ecfb1f4f7b67f",
+    "model/openwave_coupled_haar_spectrum/results.json": "8a15bb445e59c6a2d62dce3a57278abacb5293d64138d055fe8f2ad1997ec8c2",
+    "model/openwave_euclidean_refinement/results.json": "1b9f7edd77dac03eff19bc92ca2c55469e3d03e5bc0d4012027c3d9afb1ee75a",
+    "model/openwave_source_ward/results.json": "711804ac21430fbdd493913931ed58d83466814614eb055385b34dba8e1ff843",
+    "model/openwave_einstein_error/results.json": "81d31000339fa2f59445edc5204febdccb913a06be641a28c018e90365882014",
+    "model/openwave_radiation_capacity/results.json": "2c8e6386773591de98cafb882bc8d0c4449ee5e2235fd96455cc0f39768260cb"
   },
   "source_paths": {
+    "full_strong_current": "model/openwave_full_strong_current/results.json",
+    "lambda_wavepacket": "model/openwave_lambda_wavepacket/results.json",
+    "cluster_weyl_sequence": "model/openwave_cluster_weyl_sequence/results.json",
+    "refined_haar_source": "model/openwave_refined_haar_source/results.json",
+    "refined_haar_spectrum": "model/openwave_refined_haar_spectrum/results.json",
+    "haar_memory_closure": "model/openwave_haar_memory_closure/results.json",
+    "tensor_record_transport": "model/openwave_tensor_record_transport/results.json",
+    "collective_gravity_strength": "model/openwave_collective_gravity_strength/results.json",
+    "capacity_transfer": "model/openwave_capacity_transfer/results.json",
+    "uniform_pole_bands": "model/openwave_uniform_pole_bands/results.json",
+    "normalizable_particle_records": "model/openwave_normalizable_particle_records/results.json",
+    "scattering_current_support": "model/openwave_scattering_current_support/results.json",
+    "haar_coupling_flow": "model/openwave_haar_coupling_flow/results.json",
+    "cubic_haar_source": "model/openwave_cubic_haar_source/results.json",
+    "gauge_refinement_clock": "model/openwave_gauge_refinement_clock/results.json",
+    "staggered_ward": "model/openwave_staggered_ward/results.json",
+    "replicated_geometry": "model/openwave_replicated_geometry/results.json",
+    "capacity_perturbations": "model/openwave_capacity_perturbations/results.json",
     "packet": "model/openwave_localized_rest_packet/results.json",
     "comparison": "model/lepton_cycle/physical_comparison.json",
     "magnetic": "model/openwave_rotational_g_limit/results.json",
@@ -3693,6 +4769,25 @@ export const JOURNEY_RESULTS = {
     "dirac_maxwell_refinement": "model/openwave_dirac_maxwell_refinement/results.json",
     "transverse_gravity": "model/openwave_transverse_gravity/results.json",
     "su2_volume_gap": "model/openwave_su2_volume_gap/results.json",
-    "capacity_stress": "model/openwave_capacity_stress/results.json"
+    "capacity_stress": "model/openwave_capacity_stress/results.json",
+    "baryon_dispersion": "model/openwave_baryon_dispersion/results.json",
+    "cluster_bandwidth": "model/openwave_cluster_bandwidth/results.json",
+    "nuclear_isospin": "model/openwave_nuclear_isospin/results.json",
+    "clock_phase_resource": "model/openwave_clock_phase_resource/results.json",
+    "quotient_homotopy": "model/openwave_quotient_homotopy/results.json",
+    "resolved_core": "model/openwave_resolved_core/results.json",
+    "dirac_field_connection": "model/openwave_dirac_field_connection/results.json",
+    "gravity_unit_constraint": "model/openwave_gravity_unit_constraint/results.json",
+    "horizon_capacity": "model/openwave_horizon_capacity/results.json",
+    "su2_propagation": "model/openwave_su2_propagation/results.json",
+    "baryon_poles": "model/openwave_baryon_poles/results.json",
+    "pole_weak_current": "model/openwave_pole_weak_current/results.json",
+    "strange_shell_current": "model/openwave_strange_shell_current/results.json",
+    "coupled_haar_source": "model/openwave_coupled_haar_source/results.json",
+    "coupled_haar_spectrum": "model/openwave_coupled_haar_spectrum/results.json",
+    "euclidean_refinement": "model/openwave_euclidean_refinement/results.json",
+    "source_ward": "model/openwave_source_ward/results.json",
+    "einstein_error": "model/openwave_einstein_error/results.json",
+    "radiation_capacity": "model/openwave_radiation_capacity/results.json"
   }
 };

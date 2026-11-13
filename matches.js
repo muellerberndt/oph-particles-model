@@ -55,7 +55,7 @@ function render(host, M) {
         <button type="button" class="mx-opn mx-ow" data-page="openwave"><b>${c.ow}</b><span>rows are OpenWave targets ›</span></button>
       </div>
       <h2>Matches to nature</h2>
-      <div class="mx-lead">One row per match. Left: what the simulation gives. Right: our universe.</div>
+      <div class="mx-lead">One row per match. Left: what the simulation gives. Right: our universe. Includes calibrated fits and conditional results.</div>
     </div>
     <div class="mx-nav">${M.groups.map((g) => `<button type="button" data-jump="${g.id}">${g.title}<i>${g.rows.length}</i></button>`).join('')}</div>
     <div class="mx-groups">${M.groups.map((g) => `<section class="mx-group" id="mx-${g.id}">

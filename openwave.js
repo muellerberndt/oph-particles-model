@@ -96,7 +96,7 @@ export function mount(host) {
   const half = Math.ceil(n / 2), col = (rows) => `<div>${rows.map((r) => rowHtml(r, rowsOf)).join('')}</div>`;
   host.innerHTML = `<div class="ow-wrap">
     <div class="ow-head"><h2>OpenWave status</h2>
-      <div class="ow-lead"><a href="${UPSTREAM}" target="_blank" rel="noopener">OpenWave ↗</a> compares models of matter on ${n} criteria. This is where OPH stands on each, by this project’s own assessment of its public evidence. OpenWave has not scored OPH.</div></div>
+      <div class="ow-lead"><a href="${UPSTREAM}" target="_blank" rel="noopener">OpenWave ↗</a> compares models of matter on ${n} criteria. This is the central application estimate, conditional on admission, platform reproduction and review. OpenWave has not scored OPH.</div></div>
     <div class="ow-band">${['met', 'part', 'fails', 'untested'].map((k) => `<div style="--c:${ST[k][1]}"><b>${c[k]}</b><span>${k === 'met' ? 'criteria met' : k === 'part' ? 'met in part' : k === 'fails' ? 'tested and failed' : 'not computed'}</span></div>`).join('')}</div>
     <div class="ow-bar">${OPENWAVE.rows.map((r) => `<i style="--c:${ST[r.status][1]};width:${100 / n}%" title="${r.id} · ${esc(r.criterion)}: ${ST[r.status][0]}"></i>`).join('')}</div>
     <div class="ow-list">${col(OPENWAVE.rows.slice(0, half))}${col(OPENWAVE.rows.slice(half))}</div>

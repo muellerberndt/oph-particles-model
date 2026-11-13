@@ -4,9 +4,9 @@
 // conservative and the permissive reading. proofs: packages model/<name> of the theory repository.
 // OpenWave has awarded OPH no cells: every status here is an estimate of this project.
 export const OPENWAVE = {
- "assessment_sha256": "ae97c61f172a9354bd2816493ec57a26d54d806572241a455cc1e2304ba89b92",
+ "assessment_sha256": "dd1a4740721838c96deca462df88d031517d77a32cb36d0e7cbdafe5bab9f8e0",
  "upstream_commit": "ef55175d04737e73c92f33f9f9cf3d17c593da54",
- "evaluated_RER_commit": "da76715732c8448667b40aef066721d1137055aa",
+ "evaluated_RER_commit": "91f37bac83c4bd71ccefc5f2c76a4bf8961a708a",
  "counts": {
   "met": 24,
   "part": 7,
@@ -76,7 +76,8 @@ export const OPENWAVE = {
     "openwave_single_valley_leptons",
     "openwave_mass_catalogue",
     "openwave_passive_clock_records",
-    "openwave_autonomous_clock_channel"
+    "openwave_autonomous_clock_channel",
+    "openwave_clock_phase_resource"
    ]
   },
   {
@@ -267,7 +268,8 @@ export const OPENWAVE = {
     "openwave_common_electromagnetism",
     "openwave_quark_flux_records",
     "openwave_strong_step_scaling",
-    "openwave_native_centre_string"
+    "openwave_native_centre_string",
+    "openwave_quotient_homotopy"
    ]
   },
   {
@@ -276,8 +278,8 @@ export const OPENWAVE = {
    "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "The complete calibrated strong source has bound colour-neutral three-quark channels and now positive inverse-rest-matrix correlated propagation. The exact rest-operator cancellation holds on the full N=3 carrier; all native channels and complete complements are retained. No higher-number spectrum is transferred.",
-   "next": "Reproduce the complete native cluster propagation and extend the same source to a controlled three-dimensional interacting carrier, retaining all complementary channels and preparation outcomes.",
+   "reason": "An actual normalized infinite-chain Lambda trial has variance 655360 cells squared and full ground-band weight above 0.999778. All 72 local weak words and 23-field projection preserve its spatial envelope. Its complete principal current experiment needs no spectral band filter. The calibrated rest interval is[1.115684628607,1.115684878081] GeV; packet mean[1.115684894736,1.115684894737] GeV includes kinetic energy. Optional exact band filtering remains a nonlocal service. The complete interacting H5 essential spectrum contains the native Lambda rest energy. Exact ground-projection-defined vectors, relative truncations and separated finite spatial boxes give residual bounds 0.00631575,2.46709e-5 and 3.76448e-10 GeV for radius 4,8,16. Any normalized ground vector suffices; uniqueness is not assumed. No coefficient enumeration, finite observer preparation, Moller operator or nonzero on-shell weak overlap is claimed. The retained proton/neutron full-circle pole and complete finite source mechanisms keep their inherited strong/axial/electron inputs; physical 3+1 identification is open.",
+   "next": "Combine this actual normalizable near-pole trial and full H5 evolution in one complete observer protocol with a uniform momentum-dependent channel error; then evaluate its outgoing weak spectral weight.",
    "proofs": [
     "correlated_hadron_spectrum",
     "openwave_axial_state",
@@ -289,7 +291,14 @@ export const OPENWAVE = {
     "quenched_hadron_binding",
     "openwave_spin_gradient_nuclei",
     "openwave_colour_string",
-    "openwave_rest_spectroscopy"
+    "openwave_rest_spectroscopy",
+    "openwave_baryon_dispersion",
+    "openwave_baryon_poles",
+    "openwave_uniform_pole_bands",
+    "openwave_normalizable_particle_records",
+    "openwave_full_strong_current",
+    "openwave_lambda_wavepacket",
+    "openwave_cluster_weyl_sequence"
    ]
   },
   {
@@ -310,7 +319,8 @@ export const OPENWAVE = {
     "openwave_common_electromagnetism",
     "openwave_common_hyperfine_spectrum",
     "openwave_baryon_form_factors",
-    "openwave_hadron_refinement_flow"
+    "openwave_hadron_refinement_flow",
+    "openwave_baryon_dispersion"
    ]
   },
   {
@@ -319,8 +329,8 @@ export const OPENWAVE = {
    "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "The common declared strong source retains calibrated proton and neutron rest energies near 0.938272089 and 0.939565422 GeV. Positive correlated hopping gives a neutron inertial interval [0.910379739949, 0.970684532724] GeV without a new mass fit and with complete N=3 rest cancellation. The electron GeV unit, physical speed assignment and strong length are inputs. These finite bands are not proved three-dimensional relativistic particle poles.",
-   "next": "Reproduce the calibrated rest and inertial bands in-platform, then establish a common interacting three-dimensional pole and its dispersion using the same energy and length units. Keep inherited calibration ancestry explicit.",
+   "reason": "The calibrated neutron[0.939565387072,0.939565456806] GeV and proton[0.938272054562,0.938272124297] GeV rest intervals retain the inherited mass/axial inputs and electron anchor. An actual normalized infinite-chain Lambda trial has variance 655360 cells squared and full ground-band weight above 0.999778. All 72 local weak words and 23-field projection preserve its spatial envelope. Its complete principal current experiment needs no spectral band filter. The calibrated rest interval is[1.115684628607,1.115684878081] GeV; packet mean[1.115684894736,1.115684894737] GeV includes kinetic energy. Optional exact band filtering remains a nonlocal service. No independent nucleon or Lambda mass prediction is added.",
+   "next": "Construct one physical spatial/continuum dictionary for the complete native poles, currents and scattering channels; distinguish calibrated rest energies from packet means and held-out predictions.",
    "proofs": [
     "correlated_hadron_spectrum",
     "openwave_axial_state",
@@ -338,7 +348,13 @@ export const OPENWAVE = {
     "openwave_strong_step_scaling",
     "openwave_baryon_form_factors",
     "openwave_transverse_completion",
-    "openwave_hadron_refinement_flow"
+    "openwave_hadron_refinement_flow",
+    "openwave_baryon_dispersion",
+    "openwave_baryon_poles",
+    "openwave_pole_weak_current",
+    "openwave_uniform_pole_bands",
+    "openwave_normalizable_particle_records",
+    "openwave_lambda_wavepacket"
    ]
   },
   {
@@ -358,7 +374,8 @@ export const OPENWAVE = {
     "openwave_colour_string",
     "openwave_common_hyperfine_spectrum",
     "openwave_string_positive_cone",
-    "openwave_strong_step_scaling"
+    "openwave_strong_step_scaling",
+    "openwave_nuclear_isospin"
    ]
   },
   {
@@ -378,7 +395,8 @@ export const OPENWAVE = {
     "openwave_colour_string",
     "openwave_common_hyperfine_spectrum",
     "openwave_strong_step_scaling",
-    "openwave_light_nuclear_curve"
+    "openwave_light_nuclear_curve",
+    "openwave_nuclear_isospin"
    ]
   },
   {
@@ -387,8 +405,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The inherited strong source calibrates charged pion and rho energies; two additional coefficients calibrate kaon and Lambda. A local connected-cluster extension preserves the complete two-cell operator and opens a bulk proton/pion energy shell at opposite momenta between 0.086222816534 and 0.103058658466 GeV without refitting strange mass parameters. Held-out strange masses remain failed, and a new on-shell weak matrix element, outgoing decay and physical lifetime are not established.",
-   "next": "Use the same local bulk source to certify an actual nonzero on-shell native weak matrix element and complete outgoing proton/pion flux, then compare the lifetime and held-out strange masses with all input ancestry retained.",
+   "reason": "The full infinite-chain N5 Hamiltonian includes every correlated triquark and meson term. For a specified localized Lambda coordinate its separated-field derivative square is approximately 0.02761018661589379 before Cabibbo squared. A full-carrier remainder certifies positive probability at least1.30039e-29 at a conservative source time. This is a local-response existence bound, not an on-shell rate or a calculation on the separate near-pole packet. The complete interacting H5 essential spectrum contains the native Lambda rest energy. Exact ground-projection-defined vectors, relative truncations and separated finite spatial boxes give residual bounds 0.00631575,2.46709e-5 and 3.76448e-10 GeV for radius 4,8,16. Any normalized ground vector suffices; uniqueness is not assumed. No coefficient enumeration, finite observer preparation, Moller operator or nonzero on-shell weak overlap is claimed. The normalizable Lambda trial has its own complete local current experiment. Failed unused strange masses remain in their owning source records.",
+   "next": "Enumerate all open same-source cluster channels below the Lambda energy, then execute a coupled-channel limiting-absorption/Feshbach certificate for the specific native current rather than inferring decay from spectral inclusion.",
    "proofs": [
     "openwave_calibrated_hadrons",
     "openwave_composite_scale",
@@ -402,7 +420,13 @@ export const OPENWAVE = {
     "openwave_colour_string",
     "openwave_spin_gradient_nuclei",
     "openwave_common_hyperfine_spectrum",
-    "openwave_strange_composites"
+    "openwave_strange_composites",
+    "openwave_cluster_bandwidth",
+    "openwave_strange_shell_current",
+    "openwave_scattering_current_support",
+    "openwave_full_strong_current",
+    "openwave_lambda_wavepacket",
+    "openwave_cluster_weyl_sequence"
    ]
   },
   {
@@ -447,8 +471,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "Complete source records, free refinement and controlled boosted sectors coexist with a full-rotor Dirac diagnostic. The latter requires the dynamical electric connection E+A: omitting it changes spectra and work. Full-Haar gauge dynamics additionally have explicit propagation and infinite-volume bounds. None of these separate sources establishes a common interacting Lorentz-covariant continuum.",
-   "next": "Prove the native Fock-to-canonical field transfer with its electric connection, reference and pair dictionary; then derive interacting boost covariance and nontrivial spacing limits. Do not transfer a free kinetic or fixed-spacing gap theorem to that missing interaction.",
+   "reason": "The refined cube has 27 vertices,54 full-Haar links and 36 faces. The complete 201-state electric frame through 9/2 retains an infinite complement with floor 5. All 7236 compressed face/frame columns match an independent Haar oracle; the full CG action retains 8344 output networks and all intertwiner multiplicities. All 2^36 readout outcomes and work remain. No representation cutoff, physical GeV gap or 4D continuum is introduced. Full-source coarse and refined gaps are enclosed by[95.9999756091,96.0000076393] and[47.9491940394,48.0095450657] source units at(a,g squared)=(1,64),(1/2,16). The Wilson identity m1=alpha L(1-mean W squared)/4 gives actual interacting first moments, with Jensen/gap Euclidean bounds. Boundary intervals overlap; this is compatibility, not a continuum or coupling-flow theorem. All 8143 omitted action rows give a positive leading self-energy with 3260 nonzero entries. The infinite-Q error is below 0.001755 source units and the memory kernel is bounded by b squared exp(-80t). At t=1/1024,201 retained modes improve the specified Haar-vacuum defect bound by more than 225-fold. Arbitrary-state autonomy, an interacting-vacuum improvement and uniform refinement are not inferred.",
+   "next": "Compute the next energy-dependent Neumann/Feshbach correction with complete new successors and its uniform remainder; propagate the memory error through a second spatial coarse-graining step in the same clock. Use at least two clock-sensitive local observables to test a full electric/magnetic refinement trajectory, then hold out a third observable and bound all retained self-energy/field-renormalization errors.",
    "proofs": [
     "source_mass_shell",
     "openwave_field_observables",
@@ -457,7 +481,22 @@ export const OPENWAVE = {
     "openwave_common_electromagnetism",
     "openwave_transverse_completion",
     "openwave_dirac_maxwell_refinement",
-    "openwave_su2_volume_gap"
+    "openwave_su2_volume_gap",
+    "openwave_baryon_dispersion",
+    "openwave_dirac_field_connection",
+    "openwave_su2_propagation",
+    "openwave_baryon_poles",
+    "openwave_coupled_haar_source",
+    "openwave_coupled_haar_spectrum",
+    "openwave_euclidean_refinement",
+    "openwave_uniform_pole_bands",
+    "openwave_haar_coupling_flow",
+    "openwave_cubic_haar_source",
+    "openwave_gauge_refinement_clock",
+    "openwave_cluster_weyl_sequence",
+    "openwave_refined_haar_source",
+    "openwave_refined_haar_spectrum",
+    "openwave_haar_memory_closure"
    ]
   },
   {
@@ -475,7 +514,13 @@ export const OPENWAVE = {
     "openwave_colour_string",
     "openwave_string_positive_cone",
     "openwave_common_hyperfine_spectrum",
-    "openwave_strong_step_scaling"
+    "openwave_strong_step_scaling",
+    "openwave_coupled_haar_source",
+    "openwave_coupled_haar_spectrum",
+    "openwave_haar_coupling_flow",
+    "openwave_cubic_haar_source",
+    "openwave_refined_haar_source",
+    "openwave_refined_haar_spectrum"
    ]
   },
   {
@@ -493,7 +538,8 @@ export const OPENWAVE = {
     "openwave_coupling_volume",
     "openwave_native_running_response",
     "openwave_strong_step_scaling",
-    "openwave_dressed_core_response"
+    "openwave_dressed_core_response",
+    "openwave_resolved_core"
    ]
   },
   {
@@ -524,8 +570,8 @@ export const OPENWAVE = {
    "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "The calibrated native strong source has sufficient neutron–proton energy release, and complete native spin contractions and three-dimensional momentum records exhibit parity-odd beta coefficients. Positive propagation preserves the N=3 rest operator, but it does not automatically transfer a higher-number weak-decay spectrum. Axial strength remains calibrated and a physical neutron lifetime is unproved.",
-   "next": "Reproduce complete calibrated beta angular records, then execute the coupled outgoing neutron/proton/electron/neutrino dynamics on one common propagating source and certify its physical lifetime and complete weak work accounting.",
+   "reason": "The retained native neutron/proton current and normalizable packets have complete preparation, current, reference and work outcomes. Their vector amplitude and inherited calibrated axial magnitude remain unchanged. Full-H5 Lambda strong response and its breakup spectrum are distinct from autonomous beta decay; no radiative correction or measured neutron lifetime is added.",
+   "next": "Construct the common outgoing nucleon/lepton dynamics and physical clock for the actual weak source, retaining all channels, radiative corrections and a held-out lifetime comparison.",
    "proofs": [
     "openwave_axial_state",
     "openwave_baryon_beta",
@@ -536,7 +582,10 @@ export const OPENWAVE = {
     "openwave_vectorlike_flavour",
     "openwave_beta_angular",
     "openwave_rest_spectroscopy",
-    "openwave_spin_gradient_nuclei"
+    "openwave_spin_gradient_nuclei",
+    "openwave_baryon_dispersion",
+    "openwave_pole_weak_current",
+    "openwave_normalizable_particle_records"
    ]
   },
   {
@@ -545,8 +594,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The positive native-energy geometry has dimensionless attraction and complete photon/clock records. Exact unit elimination gives G/(c_model/c)=g/u². With its fixed stiffness and electron energy anchor, every common length fails simultaneous physical G and c; speed matching would give G about 40507.494 GeV^-2. This is a candidate-scoped obstruction, not a proof against other OPH implementations.",
-   "next": "Construct a common matter/geometry source whose stiffness and energy anchor pass the invariant compatibility test, then execute the far-field GEM law with controlled boundary/refinement errors. Changing length alone cannot repair the tested member.",
+   "reason": "A complete classical four-corner record map gives tau=max(d_a+d_b)/2, delta=(2+sqrt(3))epsilon+tau and adjacent scalar bound aw+8delta, retaining every label and halo. The checkerboard control shows the map is not invertible. Initialized output memory and a common causal successor are supplied. Quantum stress/curvature acquisition and nonlinear Einstein dynamics are not derived. With q=1/8 and fixed register gap omega=1, weak strength scales as1/N. Observed G selects N approximately 6.037937131139025e42 and conditional G approximately 6.70883e-39 GeV^-2, while free-symbol light speed uses386.15926732051037 fm. Complete coordinate-readout work is approximately 1.5426897691721157e39 GeV. The huge carrier is not enumerated. This is explicit calibration; the distinct strong-length failure and missing common spatial source remain.",
+   "next": "Prove a uniform finite-source-energy force law for all retained native energy levels, beyond the weak derivative, then join the strong, photon and geometry sources on one spatial carrier with the disclosed G calibration. Construct actual native quantum instruments for the required stress/curvature functionals, with complete reference/backaction/work error, and transfer their classical outputs into this finite decoder. OpenWave row 26 requires gravity strength from the mechanism, never fitted: selecting N from observed G cannot close this test.",
    "proofs": [
     "matched_einstein_limit",
     "matter_geometry_response",
@@ -558,7 +607,14 @@ export const OPENWAVE = {
     "openwave_dynamic_wave",
     "openwave_dynamic_stress",
     "openwave_universal_energy_geometry",
-    "openwave_transverse_gravity"
+    "openwave_transverse_gravity",
+    "openwave_gravity_unit_constraint",
+    "openwave_source_ward",
+    "openwave_einstein_error",
+    "openwave_staggered_ward",
+    "openwave_replicated_geometry",
+    "openwave_tensor_record_transport",
+    "openwave_collective_gravity_strength"
    ]
   },
   {
@@ -567,8 +623,8 @@ export const OPENWAVE = {
    "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "One autonomous source contains all 540 transverse Maxwell modes, quantum geometry and native clocks. Complete joint records certify inward deflection, positive arrival delay and both native same-record redshift ratios, meeting the literal local-metric observable minimum. Central validation is a local forecast for this finite constitutive photon mechanism; no canonical metric-QED, measured lensing angle, Einstein continuum or physical G is inferred. The independent G/c attachment fails.",
-   "next": "Reproduce the complete transverse photon/clock/geometry experiment in-platform. Additional physical completion requires a compatible metric-QED law, common units and controlled continuum/refinement, retaining all failures and the excluded G/c attachment.",
+   "reason": "Complete transverse photon and same-record clock sources retain their executed bending, positive delay and redshift mechanisms. A complete classical four-corner record map gives tau=max(d_a+d_b)/2, delta=(2+sqrt(3))epsilon+tau and adjacent scalar bound aw+8delta, retaining every label and halo. The checkerboard control shows the map is not invertible. Initialized output memory and a common causal successor are supplied. Quantum stress/curvature acquisition and nonlinear Einstein dynamics are not derived. With q=1/8 and fixed register gap omega=1, weak strength scales as1/N. Observed G selects N approximately 6.037937131139025e42 and conditional G approximately 6.70883e-39 GeV^-2, while free-symbol light speed uses386.15926732051037 fm. Complete coordinate-readout work is approximately 1.5426897691721157e39 GeV. The huge carrier is not enumerated. This is explicit calibration; the distinct strong-length failure and missing common spatial source remain. None of these distinctions promotes nonlinear GR or finite-strength universality.",
+   "next": "Prove a uniform finite-source-energy force law for all retained native energy levels, beyond the weak derivative, then join the strong, photon and geometry sources on one spatial carrier with the disclosed G calibration.",
    "proofs": [
     "native_clock_comparison",
     "openwave_dynamic_stress",
@@ -586,7 +642,14 @@ export const OPENWAVE = {
     "openwave_universal_energy_geometry",
     "openwave_common_gravity_records",
     "openwave_transverse_completion",
-    "openwave_transverse_gravity"
+    "openwave_transverse_gravity",
+    "openwave_gravity_unit_constraint",
+    "openwave_source_ward",
+    "openwave_einstein_error",
+    "openwave_staggered_ward",
+    "openwave_replicated_geometry",
+    "openwave_tensor_record_transport",
+    "openwave_collective_gravity_strength"
    ]
   },
   {
@@ -595,12 +658,16 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The finite capacity law and conditional Einstein/Friedmann branch support four explicitly stated horizon histories. All fifteen correlated BC03 observations give chi-square 6.19134 fixed, 21.54903 comoving, 70.48705 conserved Hubble and 6.57717 future-event horizon. The gamma-one future boundary is proved, and the alternative M11 reduction is scored separately. H0 and matter fraction are supplied; neither a physical horizon nor Lambda amplitude is selected by the source.",
-   "next": "Derive or declare a source-level physical capacity/horizon selection and predict its amplitude without reusing Lambda. Test that common implementation against independent expansion and perturbation data, retaining any matter-energy exchange and radiation era.",
+   "reason": "The supplied event-area barotropic branch retains its negative adiabatic sound-speed control. The known canonical scalar reconstruction has sound speed1 and exact2<=Vsecond/H squared<=6. The declared Einstein/canonical-scalar/dust/radiation model has exact constraint propagation and dynamical metric perturbations. Numerical present matter transfer ratios to the same-density Lambda control are0.97585,0.97001,0.91494,0.90822 for k/H0=0.1,1,10,100, with tolerance/start-time/EdS controls. These are supplied-model differences, not observational matches or rigorous interval ODE results. Native scalar, primordial state and Boltzmann/thermal history remain open. Supplied H0=67.4,Omega_m0=.315,Omega_r0=.000092 and horizon/initial data retain their ancestry; no abundance or primordial-amplitude derivation is inferred.",
+   "next": "Implement the same supplied scalar background and perturbations in a complete neutrino/recombination/Boltzmann comparison, holding out observational data; separately construct the native capacity-to-scalar stress/dynamics transfer. OpenWave row 28 requires cosmological amplitude from the mechanism, never fitted: supplied present density or observed Lambda cannot close this test.",
    "proofs": [
     "matched_einstein_limit",
     "openwave_gravity_capacity",
-    "openwave_capacity_stress"
+    "openwave_capacity_stress",
+    "openwave_horizon_capacity",
+    "openwave_radiation_capacity",
+    "openwave_capacity_perturbations",
+    "openwave_capacity_transfer"
    ]
   },
   {
