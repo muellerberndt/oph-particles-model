@@ -1,8 +1,8 @@
 {
   "schema": "oph.journey_verified_results.v1",
   "date": "2026-11-13",
-  "source_revision": "91f37bac83c4bd71ccefc5f2c76a4bf8961a708a",
-  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/91f37bac83c4bd71ccefc5f2c76a4bf8961a708a/",
+  "source_revision": "3ff1449baf256388f56eeab973e3bf22f02a3722",
+  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/3ff1449baf256388f56eeab973e3bf22f02a3722/",
   "scope": "Conditional finite constructions; calibration, preparation and physical identification are separate.",
   "leptons": {
     "rows": [
@@ -4540,7 +4540,117 @@
     },
     "new_independent_nature_validation": false
   },
+  "operational_results": {
+    "lambda": {
+      "current_mean_GeV": [
+        2.418046697462335,
+        2.418046697462336
+      ],
+      "rest_mass": false,
+      "on_shell_density": false
+    },
+    "clock": {
+      "carrier": 4096,
+      "controls": 6,
+      "maximum_drift_diagnostic": 1.2524531373151886e-07,
+      "self_starting_sustained": false,
+      "interval_certificate": false
+    },
+    "nuclear": [
+      {
+        "name": "triton",
+        "GeV": [
+          2.8089192030205417,
+          2.8091277494919105
+        ],
+        "target_GeV": 2.80892113668,
+        "role": "inherited calibration",
+        "matches": true
+      },
+      {
+        "name": "helion",
+        "GeV": [
+          2.8076258705105417,
+          2.8080170572934473
+        ],
+        "target_GeV": 2.80839161112,
+        "role": "held-out comparison",
+        "matches": false
+      },
+      {
+        "name": "alpha",
+        "GeV": [
+          3.739123982204678,
+          3.739741842802561
+        ],
+        "target_GeV": 3.7273794118,
+        "role": "held-out comparison",
+        "matches": false
+      }
+    ],
+    "localized_string": true,
+    "fock": {
+      "modes": 192,
+      "implementers": 24,
+      "same_carrier_rotor_equivalence": false
+    },
+    "gauge": [
+      {
+        "source": "coarse",
+        "gap": [
+          96.00000060968756,
+          96.00000069819042
+        ],
+        "width_improvement_diagnostic": 361.9094987946271
+      },
+      {
+        "source": "refined",
+        "gap": [
+          47.99403921427111,
+          48.00529277680393
+        ],
+        "width_improvement_diagnostic": 5.362837407961902
+      }
+    ],
+    "gravity": {
+      "pairs": 49,
+      "mutual_error_upper": 9.790018836250172e-22,
+      "quench_error_upper": 3.07899244788951e-13,
+      "rms_Q": [
+        5.0870466426736227e-23,
+        5.087046642673624e-23
+      ],
+      "observed_G_calibration": true,
+      "physical_noise_match": false
+    },
+    "capacity": {
+      "metric": [
+        0.7341792790955188,
+        0.7342572991851387
+      ],
+      "lambda_metric": [
+        0.7091083114792323,
+        0.7091810695892601
+      ],
+      "metric_ratio": [
+        1.035249403259928,
+        1.0354656507317541
+      ],
+      "density_growth_or_CMB": false,
+      "absolute_amplitude_derived": false
+    },
+    "new_independent_nature_validation": false
+  },
   "source_sha256": {
+    "model/openwave_lambda_spectral_measure/results.json": "3f80cd12fd0d415a19f275f74647ca81cd7a1511f585f3797e23297b5a076cbc",
+    "model/openwave_finite_phase_clock/results.json": "bff03b051cfbbd16798ea3947729ace4a7f68cb477ea336ac9c1491a777291dd",
+    "model/openwave_localized_quark_record/results.json": "6cb94524046e58b763c73121ef8e45260b8b4d9a0d7ea9ffa9ef4e863a2403f3",
+    "model/openwave_nuclear_em_transfer/results.json": "59e2c38955fae5d2107b48cd2da4e121a3f47f85e7e3dc630073a135fbc86976",
+    "model/openwave_fock_field_transport/results.json": "a0094eb7f4b178920608336b91fc2c73d8ac69c0bf1e13846c190b4321a7bce2",
+    "model/openwave_energy_schur/results.json": "91d9ad6957c7204bd1bea8f2fb465651bfe2b163bddade07cbae946ae3bb2b3d",
+    "model/openwave_collective_finite_strength/results.json": "a1632aa515b1b2a4e8b4eb6f5f4936390008cf40fdae3dd78c4a65c343f1a64f",
+    "model/openwave_gravity_noise_normalization/results.json": "7320efe43f8787b42ee5b9cc8acffccef0ec6322653c2575463a71fb9701f0ef",
+    "model/openwave_capacity_normalization_transfer/results.json": "4165e1f3e26fe3853b3c4adfe496e676001453449158661081159c530a6a8a41",
     "model/openwave_full_strong_current/results.json": "174b59729a0eb81a535d25bd56858ea77d531c83bd604d3826a210d9c13d238c",
     "model/openwave_lambda_wavepacket/results.json": "0501a689353e613e8cbf5b8e1685ee86716a92f7ffbcef9d804645b2fa546a05",
     "model/openwave_cluster_weyl_sequence/results.json": "db2efa52780901d9544e97d8bb1043332cf441911864feb28a47460e4b18df81",
@@ -4632,9 +4742,9 @@
     "model/openwave_universal_energy_geometry/results.json": "8092bafbdfdfb4390d6806cf2bf881dea9f9183c65d6a1881bf39f8fbb9f3252",
     "model/openwave_common_gravity_records/results.json": "100eb9e28901a7aa522dbc7f73e69e2aac84673863c34fa97d819a9632ed575b",
     "model/openwave_baryon_form_factors/results.json": "77783cde97ed28d4dcb98e42985512b2927487849fd9cc4790bb33ab2bd7916e",
-    "model/openwave_pure_su2_source/results.json": "80ff063747d6a03650f528b08083a60254e87ff2ec51305367bc762648d397cc",
-    "model/openwave_su2_transfer/results.json": "f11f1f397290ae2ea3024a1bb6b24f3119c8d87d99e0c20c897fc708dee8d3ac",
-    "model/openwave_su2_spectral/results.json": "5c11b267d75d8a632f06ebfcc6698fddff7a870a6c68d210990e7fa5d586cef1",
+    "model/openwave_pure_su2_source/results.json": "8bb92f115a0a2077e1ead3f1d63eca950eaafa1b1b22a649d67f7241b8679748",
+    "model/openwave_su2_transfer/results.json": "f6ca5fccf5ad11dad08f41a4b4b8db1bd9561c927b36f8b94e8f989280f47430",
+    "model/openwave_su2_spectral/results.json": "7ee9580d1fd137f52ed242f24e74dc16309dddde03f0b0f761d2aff61438ebc2",
     "model/openwave_strange_composites/results.json": "d5c8c9d767b240e08d46bcfb797578e14c71078ff9e0e9528301687796efb7b9",
     "model/openwave_light_nuclear_curve/results.json": "1a1ca41efcfdce080f41a9b2b7f970a3951c9935e66b32fe15f67d99503212b1",
     "model/openwave_hadron_refinement_flow/results.json": "ecfdbca0d831820d3f9b81cd44665c3a5017e808f8585026ccf5a7f5a3345397",
@@ -4643,7 +4753,7 @@
     "model/openwave_autonomous_clock_channel/results.json": "57b8277ec9d7b2ab73b4bdf566835a3a0737fc2bc90fbd7a53fad63916a7f1b8",
     "model/openwave_dirac_maxwell_refinement/results.json": "f839a56752b4f909f768843232d489421fa15ea2e37faa8088cc7a3c9cd840d4",
     "model/openwave_transverse_gravity/results.json": "f15525dc50766af0d9811cf740622bef7bfaff797d797fffd76c3193e749e6a6",
-    "model/openwave_su2_volume_gap/results.json": "5f09d52bb9f565bc25209cf226b1fb480774df042df2297e86a79af2cc2c8750",
+    "model/openwave_su2_volume_gap/results.json": "6231df60efee80ef933d713e644639b29a16bbb3edc69a01964b8e764d813809",
     "model/openwave_capacity_stress/results.json": "ac8c5a3950e7d5c25de42754363e0335eeabecb1b31ff49084125f6863176f62",
     "model/openwave_baryon_dispersion/results.json": "41a56701a985a5394477574150c485a5e39e02ad2d2957c9c83219e8a2dcb35a",
     "model/openwave_cluster_bandwidth/results.json": "d4f18110d77953208a2de5237fb1b60d4f82256483e6dc3458b8ba5008acc8dd",
@@ -4654,7 +4764,7 @@
     "model/openwave_dirac_field_connection/results.json": "cd0b04f956275fe875ec8cc15f42599608311c89ddc30bcd3b9b3309086f65ab",
     "model/openwave_gravity_unit_constraint/results.json": "a6940c8bdf6a3d64ca333e4d9e15658ee596689eaaec41cf4ac98ea7b86dd9d9",
     "model/openwave_horizon_capacity/results.json": "c1fad7241f07eb30e4bfaacfc446e796ea60519e48a3b8f1a2b8a055989f5400",
-    "model/openwave_su2_propagation/results.json": "fce65c2760a51b9fed876e2b600ac2b9ce54f0b31ae56a59a0e43a18fdac8ef9",
+    "model/openwave_su2_propagation/results.json": "4e6d6b63ee32f8a995f79e23f3992f79e18ef5ebbe3eb0446eb614bba3884172",
     "model/openwave_baryon_poles/results.json": "49e00ba4d49ce10a120c3786df7b482b87958386368d1f505053237985d11cca",
     "model/openwave_pole_weak_current/results.json": "304645c721929de73ce26841eedf7a36d033e1eb0bb47fb3c53705c34333319d",
     "model/openwave_strange_shell_current/results.json": "70ae0c9712e6cc2c5960d623be5ffa0443088f0650e6e2d0008872d506456a75",
@@ -4666,6 +4776,15 @@
     "model/openwave_radiation_capacity/results.json": "2c8e6386773591de98cafb882bc8d0c4449ee5e2235fd96455cc0f39768260cb"
   },
   "source_paths": {
+    "lambda_spectral_measure": "model/openwave_lambda_spectral_measure/results.json",
+    "finite_phase_clock": "model/openwave_finite_phase_clock/results.json",
+    "localized_quark_record": "model/openwave_localized_quark_record/results.json",
+    "nuclear_em_transfer": "model/openwave_nuclear_em_transfer/results.json",
+    "fock_field_transport": "model/openwave_fock_field_transport/results.json",
+    "energy_schur": "model/openwave_energy_schur/results.json",
+    "collective_finite_strength": "model/openwave_collective_finite_strength/results.json",
+    "gravity_noise_normalization": "model/openwave_gravity_noise_normalization/results.json",
+    "capacity_normalization_transfer": "model/openwave_capacity_normalization_transfer/results.json",
     "full_strong_current": "model/openwave_full_strong_current/results.json",
     "lambda_wavepacket": "model/openwave_lambda_wavepacket/results.json",
     "cluster_weyl_sequence": "model/openwave_cluster_weyl_sequence/results.json",
