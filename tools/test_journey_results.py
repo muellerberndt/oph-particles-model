@@ -2,7 +2,7 @@
 import copy,json,os,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
-from sync_journey_results import project,read_bound,check_placement,digest,IMPORT,LEGACY_HOOK,RER,SOURCES,apply_data_hooks
+from sync_journey_results import project,read_bound,check_placement,digest,IMPORT,LEGACY_HOOK,RER,SOURCES,apply_data_hooks,remove_journey_matches
 
 class JourneyProjectionTest(unittest.TestCase):
  def test_source_ancestry_and_distinct_accuracy_meanings(self):
@@ -31,7 +31,7 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(p['weak']['receiver_probability_interval'][0],0)
   self.assertGreater(p['neutral_transfer']['receiver_probability_interval'][0],0)
   self.assertFalse(p['neutral_transfer']['earlier_flat_band_transferred'])
-  self.assertEqual(len(p['source_sha256']),63)
+  self.assertEqual(len(p['source_sha256']),76)
   self.assertEqual(p['particle_results']['task_count'],10)
   self.assertFalse(p['particle_results']['catalogue']['source_joins']['all_sources_identified_as_one_interacting_theory'])
   self.assertFalse(p['particle_results']['widths']['muon_normalization_comparison']['independent_prediction'])
@@ -137,4 +137,15 @@ class JourneyProjectionTest(unittest.TestCase):
   check_placement(consumer,'export function mount(host) {}\n')
   with self.assertRaisesRegex(ValueError,'does not import'):check_placement('an unrelated viewer','export function mount(host) {}\n')
   with self.assertRaisesRegex(ValueError,'still mounts the results'):check_placement(consumer,'export function mount(host) {\n  '+LEGACY_HOOK+';\n}\n')
+ def test_journey_removes_only_duplicate_matches_wall(self):
+  story='<button data-page="matches">Results</button><div class="jy-film"></div>\n'
+  maps='<div class="jy-cards">Maps and canvases</div>\n'
+  container='  <div class="mw" id="journey-matches"></div>\n'
+  mount="  import('./matches.js').then((m) => { const el = host.querySelector('#journey-matches'); if (el) m.wall(el); }).catch(() => {});\n"
+  original=story+container+maps+mount
+  cleaned=remove_journey_matches(original)
+  self.assertEqual(cleaned,story+maps)
+  self.assertEqual(remove_journey_matches(cleaned),cleaned)
+  with self.assertRaisesRegex(ValueError,'matches mount changed'):remove_journey_matches(original.replace('m.wall(el)','m.different(el)'))
+  with self.assertRaisesRegex(ValueError,'duplicates the matches wall'):check_placement(IMPORT,original)
 if __name__=='__main__':unittest.main()

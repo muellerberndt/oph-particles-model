@@ -2,8 +2,8 @@
 
 The overlay can update an existing published site without rebuilding unrelated
 simulation files. Every displayed value is projected from a bound source receipt.
-The Journey page is the entry point of the site and shows the journey and the
-matches with nature only: this overlay writes no result into it. The viewer page
+The Journey page shows the story and its maps, with navigation to Results.
+The duplicate embedded matches wall is removed. The viewer page
 constructions.js imports journey_results.js and renders it.
 """
 from __future__ import annotations
@@ -15,6 +15,7 @@ from fractions import Fraction
 from pathlib import Path
 from ninth_results import project as ninth_projection
 from tenth_results import project as tenth_projection
+from eleventh_results import project as eleventh_projection
 
 ROOT=Path(__file__).resolve().parents[1]
 RER=ROOT.parent/'reverse-engineering-reality'
@@ -83,6 +84,19 @@ SOURCES={
  'boosted_records':'model/openwave_boosted_records/results.json',
  'single_valley_leptons':'model/openwave_single_valley_leptons/results.json',
  'mass_catalogue':'model/openwave_mass_catalogue/results.json',
+ 'string_positive_cone':'model/openwave_string_positive_cone/results.json',
+ 'common_hyperfine_spectrum':'model/openwave_common_hyperfine_spectrum/results.json',
+ 'strong_step_scaling':'model/openwave_strong_step_scaling/results.json',
+ 'transverse_completion':'model/openwave_transverse_completion/results.json',
+ 'native_running_response':'model/openwave_native_running_response/results.json',
+ 'passive_clock_records':'model/openwave_passive_clock_records/results.json',
+ 'quark_flux_records':'model/openwave_quark_flux_records/results.json',
+ 'universal_energy_geometry':'model/openwave_universal_energy_geometry/results.json',
+ 'common_gravity_records':'model/openwave_common_gravity_records/results.json',
+ 'baryon_form_factors':'model/openwave_baryon_form_factors/results.json',
+ 'pure_su2_source':'model/openwave_pure_su2_source/results.json',
+ 'su2_transfer':'model/openwave_su2_transfer/results.json',
+ 'su2_spectral':'model/openwave_su2_spectral/results.json',
 
 
 
@@ -95,7 +109,13 @@ def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def read_bound(path,rer):
  value=json.loads(path.read_text())
- if 'verdict'in value and not value['verdict'].startswith('PASS'):raise ValueError(f'failed source: {path}')
+ allowed={
+  'oph.full_Haar_pure_SU2_finite_cube.v1':'PURE_SU2_FULL_LINK_SOURCE_AND_FINITE_CUBE_GAP',
+  'oph.pure_SU2_positive_transfer_same_clock.v1':'FULL_COMPACT_GAUGE_TRANSFER_POSITIVITY_AND_COMMON_CLOCK',
+  'oph.untruncated_SU2_plaquette_spectral.v1':'FULL_SU2_CHARACTER_GAPS_AND_CURVATURE_CORRELATIONS'}
+ if 'verdict'in value and not value['verdict'].startswith('PASS'):
+  if allowed.get(value.get('schema'))!=value['verdict']:raise ValueError(f'failed source: {path}')
+  if value.get('scope',{}).get('Clay_problem_solved') is not False:raise ValueError(f'changed pure-gauge scope: {path}')
  bindings=value.get('source_sha256',value.get('input_sha256',value.get('source_bindings')))
  if not isinstance(bindings,dict)or not bindings:raise ValueError(f'unbound source: {path}')
  for name,expected in bindings.items():
@@ -178,6 +198,7 @@ def project(rer=RER):
   'current_tasks':current_tasks(receipts),
   'latest_tasks':ninth_projection(receipts),
   'particle_results':tenth_projection(receipts),
+  'frontier_results':eleventh_projection(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }
@@ -491,7 +512,20 @@ def frontier(receipts):
 def check_placement(consumer,journey):
  """The constructions page renders the results; the Journey page carries none."""
  if IMPORT not in consumer:raise ValueError('constructions.js does not import journey_results.js; inspect before overlaying')
- if LEGACY_HOOK in journey:raise ValueError('journey.js still mounts the results; the Journey page shows the journey and the matches only')
+ if LEGACY_HOOK in journey:raise ValueError('journey.js still mounts the results; numerical records belong on the dedicated Results pages')
+ if 'journey-matches' in journey or "import('./matches.js')" in journey:raise ValueError('journey.js still duplicates the matches wall')
+
+def remove_journey_matches(body):
+ """Remove only the duplicated matches wall; retain Fable story/navigation."""
+ container='  <div class="mw" id="journey-matches"></div>\n'
+ mount="  import('./matches.js').then((m) => { const el = host.querySelector('#journey-matches'); if (el) m.wall(el); }).catch(() => {});\n"
+ if 'journey-matches' not in body and "import('./matches.js')" not in body:return body
+ if body.count(container)!=1 or body.count(mount)!=1:
+  raise ValueError('Journey matches mount changed; inspect before removing it')
+ body=body.replace(container,'').replace(mount,'')
+ old='  // The page: the journey as one running picture, then every match with nature (matches.js), then the maps between\n  // the steps. No result block is mounted here: results live on the pages of the Results group.'
+ new='  // The page: the journey as one running picture, then the maps between the steps.\n  // Matches and numerical results live on their dedicated Results pages.'
+ return body.replace(old,new)
 
 def apply_data_hooks(name,body):
  """Small idempotent data hooks preserve the current Fable renderer and layout."""
@@ -514,8 +548,9 @@ def apply_data_hooks(name,body):
 def sync(out,rer=RER,check=False):
  data=project(rer);body=json.dumps(data,indent=2,ensure_ascii=False)+'\n'
  outputs={'journey_results.json':body,'journey_results_data.js':'export const JOURNEY_RESULTS = '+body.rstrip()+';\n'}
- for name in ('journey_results.js','journey_results.css','construction_matches.js','ninth_results.js','tenth_results.js'):outputs[name]=(EXTRA/name).read_text()
- check_placement((out/CONSUMER).read_text(),(out/'journey.js').read_text())
+ for name in ('journey_results.js','journey_results.css','construction_matches.js','ninth_results.js','tenth_results.js','eleventh_results.js'):outputs[name]=(EXTRA/name).read_text()
+ outputs['journey.js']=remove_journey_matches((out/'journey.js').read_text())
+ check_placement((out/CONSUMER).read_text(),outputs['journey.js'])
  for name in ('matches_data.js','openwave.js'):
   outputs[name]=apply_data_hooks(name,(out/name).read_text())
  for name,body in outputs.items():
