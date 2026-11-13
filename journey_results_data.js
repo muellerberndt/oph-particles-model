@@ -1,8 +1,8 @@
 export const JOURNEY_RESULTS = {
   "schema": "oph.journey_verified_results.v1",
   "date": "2026-11-13",
-  "source_revision": "a082125c66747a87f9f2d8435d6634f9d5d4dd8a",
-  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/a082125c66747a87f9f2d8435d6634f9d5d4dd8a/",
+  "source_revision": "a32011e2017dd51ff6e01e91e5a18d0806b0dd90",
+  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/a32011e2017dd51ff6e01e91e5a18d0806b0dd90/",
   "scope": "Conditional finite constructions; calibration, preparation and physical identification are separate.",
   "leptons": {
     "rows": [
@@ -5460,7 +5460,173 @@ export const JOURNEY_RESULTS = {
     "new_GeV_rest_masses": [],
     "new_independent_nature_validation": false
   },
+  "coherent_integration_results": {
+    "architecture": {
+      "local_addresses": 256,
+      "raw_slots": 25,
+      "common_hardware": true,
+      "one_interchangeable_evolution": false
+    },
+    "charge": {
+      "characters": 6,
+      "active_dimension": 396,
+      "compiled_columns": "Feedback fixes source and memory padding; inverse restores scratch on all4096 admitted columns. Dirty scratch remains an identity failure branch. Exact identity is on admitted clean scratch, with full failure complement retained.",
+      "covariance": "3/8",
+      "control_covariance": "0",
+      "uncompensated_coherence": "85/96",
+      "feedback_columns": 4096,
+      "maximum_added_pulses": 174288,
+      "physical_charge": false
+    },
+    "clock": {
+      "signed_gaps": [
+        "1/256",
+        "-1/1024",
+        "-1/3072"
+      ],
+      "records": 36,
+      "blocks": 2,
+      "physical_self_starting_clock": false
+    },
+    "energies": [
+      {
+        "spectator": 2,
+        "source_gap": "1/3072",
+        "calibrated_GeV": 0.00051099895069,
+        "inferred_GeV": [
+          0.00047720231411782786,
+          0.0005448111532587897
+        ]
+      },
+      {
+        "spectator": 1,
+        "source_gap": "1/1024",
+        "calibrated_GeV": 0.00153299685207,
+        "inferred_GeV": [
+          0.0014982540147958617,
+          0.0015677900262450206
+        ]
+      },
+      {
+        "spectator": 0,
+        "source_gap": "1/256",
+        "calibrated_GeV": 0.00613198740828,
+        "inferred_GeV": [
+          0.006070124044684048,
+          0.006194838461173396
+        ]
+      }
+    ],
+    "interaction": [
+      {
+        "law": "C",
+        "negativity_lower": 0.2771940031389323,
+        "negativity_lower_interval": [
+          0.2771940031389322,
+          0.27719400313893233
+        ]
+      },
+      {
+        "law": "E",
+        "negativity_lower": 0.2870549955705729,
+        "negativity_lower_interval": [
+          0.28705499557057285,
+          0.28705499557057296
+        ]
+      }
+    ],
+    "packet": {
+      "rows": [
+        {
+          "ports": 240,
+          "steps": 70,
+          "outside_ball": [
+            0.43619392392389494,
+            0.43619392392389605
+          ],
+          "distance": [
+            2.5718808465809384,
+            2.5718808465809406
+          ]
+        },
+        {
+          "ports": 960,
+          "steps": 140,
+          "outside_ball": [
+            0.43785408019510297,
+            0.4378540801951041
+          ],
+          "distance": [
+            2.5832175631648866,
+            2.5832175631648884
+          ]
+        },
+        {
+          "ports": 3840,
+          "steps": 282,
+          "outside_ball": [
+            0.44389664232204995,
+            0.44389664232205106
+          ],
+          "distance": [
+            2.5913339718921464,
+            2.5913339718921486
+          ]
+        }
+      ],
+      "fine_reflection_compiled": false,
+      "zero_mode": true,
+      "physical_speed": false
+    },
+    "euclidean": {
+      "members": [
+        {
+          "states": 66,
+          "gap": [
+            0.0001262705980590553,
+            0.05626883706138588
+          ]
+        },
+        {
+          "states": 240,
+          "gap": [
+            4.7241129828310073e-07,
+            0.00012753138656357494
+          ]
+        },
+        {
+          "states": 960,
+          "gap": [
+            1.2917493469674203e-08,
+            7.2123578774876675e-06
+          ]
+        },
+        {
+          "states": 3840,
+          "gap": [
+            4.0367166840158116e-10,
+            4.438274117562502e-07
+          ]
+        }
+      ],
+      "fourth_cumulant": "5/216",
+      "four_dimensional_Yang_Mills": false
+    },
+    "calibrated_transitions_are_physical_rest_masses": false,
+    "lepton_hierarchy_matched": false,
+    "joint_spatial_charged_particle_and_clock_implemented": false,
+    "new_GeV_rest_masses": [],
+    "new_independent_nature_validation": false,
+    "official_untested_rows": 31
+  },
   "source_sha256": {
+    "model/openwave_coherent_native_architecture/results.json": "f0071108224ea231ae93406bff117aeeb5ca0ca917d7dceddb92dde15a31e1ce",
+    "model/openwave_coherent_native_propagation/results.json": "5cafccb0c050fafa1167e6888b0ab9bad0cdfe99621c2a698056de0cb4f5c289",
+    "model/openwave_active_native_charge/results.json": "2f37dab2464d2b7da01af5e4adfe8b55a95531e90c5d2cfb38a6e9a9d8ae1d7d",
+    "model/openwave_native_charge_readout/results.json": "32dddbe440eded5cbabccf577f82a33c18c3e409c6141dd3e5934e50c8665431",
+    "model/openwave_native_coherent_clock/results.json": "bfab956399cc90c49a72becd9072fa9ec2ca19c52f1db92374c78044487f4342",
+    "model/openwave_native_calibrated_energy/results.json": "8c032826846505ade14592d50eae63f00b1c77ada5d168d85e2528673c1c9a9d",
+    "model/openwave_native_euclidean_transfer/results.json": "79546de2e88a3675acb9212b9baf5dff2b2ddf6e8a634d91c7a96a4804a40f22",
     "model/openwave_native_process/results.json": "9ff181eeea900bc52d89591c665caf80ac5854fc519d053126fe4b6979cd9ed5",
     "model/openwave_native_response/results.json": "86cfe08f73a73467aa6f65deaa411e88ec5df7aae0228d375d7bd88178154ba2",
     "model/openwave_native_defect_records/results.json": "06fc172f41a6053b36924a5958363d15d2077dcf50ef38cfdffe0f340c7e0613",
@@ -5615,6 +5781,13 @@ export const JOURNEY_RESULTS = {
     "model/openwave_radiation_capacity/results.json": "2c8e6386773591de98cafb882bc8d0c4449ee5e2235fd96455cc0f39768260cb"
   },
   "source_paths": {
+    "coherent_native_architecture": "model/openwave_coherent_native_architecture/results.json",
+    "coherent_native_propagation": "model/openwave_coherent_native_propagation/results.json",
+    "active_native_charge": "model/openwave_active_native_charge/results.json",
+    "native_charge_readout": "model/openwave_native_charge_readout/results.json",
+    "native_coherent_clock": "model/openwave_native_coherent_clock/results.json",
+    "native_calibrated_energy": "model/openwave_native_calibrated_energy/results.json",
+    "native_euclidean_transfer": "model/openwave_native_euclidean_transfer/results.json",
     "native_process": "model/openwave_native_process/results.json",
     "native_response": "model/openwave_native_response/results.json",
     "native_defect_records": "model/openwave_native_defect_records/results.json",

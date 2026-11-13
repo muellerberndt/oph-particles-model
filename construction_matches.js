@@ -56,6 +56,15 @@ Object.assign(CONSTRUCTION_SUMMARIES,{
  26:'A declared coherent apparatus distinguishes phase twins that repair-only records cannot distinguish. The extended complete instrument does not derive physical Newton strength or Einstein spacetime.',
  28:'Native archive-plus-FIFO histories have an exact capacity-change identity with export_oldest. Clock, horizon and primordial normalization are undetermined; supplied finite-wavelength cosmology retains its separate equation ancestry.'
 });
+Object.assign(CONSTRUCTION_SUMMARIES,{
+ 1:'A source-compiled six-state memory has protected character projectors and active source covariance 3/8. Electric units, integer topological charge and localized particle identity require their own map.',
+ 3:'The same corrected native source has two consecutive complete quadrature records with three signed gaps. Inverse active-charge feedback restores its clock channel; phase preparation and recovery are declared, with no self-starting physical clock.',
+ 4:'A coherently recoded native event propagates complete port probabilities on 240, 960 and 3840 ports. The fine reflection compiler and stable physical particle interpretation are not established.',
+ 11:'One electron-anchored native clock member gives transition ratios 1:3:12 and fails the lepton hierarchy. The separate calibrated lepton source retains its retrospective phase and particle-identification assumptions.',
+ 12:'Active protected memory changes an actual source record, but its Z6 class alone cannot define a nonzero additive real electric charge or partial spatial winding on a physical quark string.',
+ 21:'Native coherent propagation, charge feedback and clock recovery have explicit interfaces on shared hardware. Their finite transfers do not establish a common relativistic interacting field.',
+ 22:'The literal native population transfer has finite reflection positivity and positive logarithmic gaps. No uniform physical continuum gap, pure Yang–Mills identification or Clay theorem follows.'
+});
 export function applyConstructionEvidence(groups){
  const updates={
   running:{ow:23,name:'Native charge response at the core scale',value:(100*mid(N.core.rows[0].suppression)).toFixed(6)+'% suppression',tip:'The same static native charge intervention and a separately measured radius resolve half-suppression at kR of order one, with every flux, probe outcome and work term retained. The Wilson coefficient was selected for resolution. This model-scale effective charge is not a measured QED/QCD running curve or a universal renormalized charge.',open:'The Wilson coefficient was selected for resolution. This model-scale effective charge is not a measured QED/QCD running curve or a universal renormalized charge.',src:[proof('resolved_core')]},
