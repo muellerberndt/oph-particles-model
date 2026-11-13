@@ -1,8 +1,8 @@
 export const JOURNEY_RESULTS = {
   "schema": "oph.journey_verified_results.v1",
   "date": "2026-11-13",
-  "source_revision": "601de2f88f4edd8520cd8f411e3c60dddc38825d",
-  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/601de2f88f4edd8520cd8f411e3c60dddc38825d/",
+  "source_revision": "4483a9ca4b736fa2ea7160d2ba44c2604e5f05f3",
+  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/4483a9ca4b736fa2ea7160d2ba44c2604e5f05f3/",
   "scope": "Conditional finite constructions; calibration, preparation and physical identification are separate.",
   "leptons": {
     "rows": [
@@ -2247,6 +2247,520 @@ export const JOURNEY_RESULTS = {
       "simultaneous_quadrupole_tension_match": false
     }
   },
+  "frontier_results": {
+    "task_count": 10,
+    "additional_pure_gauge_tasks": 3,
+    "visible_card_count": 10,
+    "strong": {
+      "mass_fits": [
+        {
+          "name": "proton",
+          "target_GeV": 0.93827208943,
+          "computed_GeV": 0.9382720894300024,
+          "interval_GeV": null,
+          "role": "empirical calibration input"
+        },
+        {
+          "name": "neutron",
+          "target_GeV": 0.93956542194,
+          "computed_GeV": 0.9395654219399994,
+          "interval_GeV": null,
+          "role": "empirical calibration input"
+        },
+        {
+          "name": "charged_pion",
+          "target_GeV": 0.13957039,
+          "computed_GeV": 0.13957039000000004,
+          "interval_GeV": null,
+          "role": "empirical calibration input"
+        },
+        {
+          "name": "neutral_vector",
+          "target_GeV": 0.77526,
+          "computed_GeV": 0.7752599999999977,
+          "interval_GeV": null,
+          "role": "empirical calibration input"
+        },
+        {
+          "name": "Delta_plus",
+          "target_GeV": 1.232,
+          "computed_GeV": null,
+          "interval_GeV": [
+            1.2319999999975713,
+            1.2320000000024316
+          ],
+          "role": "empirical calibration input; native S=I=3/2,Q=1"
+        }
+      ],
+      "gA_interval": [
+        1.2752999821481221,
+        1.275300017848985
+      ],
+      "binding_MeV_interval": [
+        2.224566282612753,
+        2.2245665174109974
+      ],
+      "binding_target_MeV": 2.2245664,
+      "deuteron_GeV_interval": [
+        1.8756129448692864,
+        1.8756129450707002
+      ],
+      "complete_nuclear_dimension": 2520,
+      "excluded_channels": [
+        {
+          "spin": 0,
+          "isospin": 0,
+          "parity": -1,
+          "above_breakup_MeV_interval": [
+            0.3304706238061128,
+            0.3304707428803472
+          ]
+        },
+        {
+          "spin": 3,
+          "isospin": 0,
+          "parity": -1,
+          "above_breakup_MeV_interval": [
+            773.6043499544934,
+            773.6043500407654
+          ]
+        },
+        {
+          "spin": 3,
+          "isospin": 0,
+          "parity": 1,
+          "above_breakup_MeV_interval": [
+            286.6435280275898,
+            286.6435281456027
+          ]
+        }
+      ],
+      "unassigned_bound_channels": [],
+      "neutral_pion_control": {
+        "candidate_GeV": 0.13827705749000035,
+        "comparison_GeV": ".1349768",
+        "difference_GeV": 0.0033002574900003467,
+        "matches": false
+      },
+      "input_ancestry": "Seven inputs select seven coefficients: p,n,pi+,axial magnitude,deuteron binding,neutral-vector and Delta conventions. Js and the positive pair-triplet coefficient are additional calibrated current interactions. The spin-gradient5/2 and other fixed coefficients are inherited architecture choices. These agreements are fits, not independent predictions.",
+      "boundaries": [
+        "Seven target agreements are calibrated, not held-out predictions.",
+        "Finite Hermitian energies calibrated to Breit-Wigner conventions do not supply rho/Delta resonance poles or widths.",
+        "Pair-triplet action includes all q-antiquark pairs across the two-cell source; no four-dimensional local field completion is inferred.",
+        "The common physical length is reattached on this source, with every local Fock occupation retained in its positivity proof."
+      ]
+    },
+    "length": {
+      "fm": 0.7559087287455966,
+      "quadrupole_fm2_interval": [
+        0.2856989999885543,
+        0.2856990000114457
+      ],
+      "tension_GeV_per_fm": 1.0,
+      "ancestry": "Quadrupole comparison0.285699fm^2 and illustrative tension1GeV/fm select this conditional length and kappa on the seven-input source; neither is an independent prediction.",
+      "all_occupations_positive": true,
+      "local_irrep_count": 547
+    },
+    "profiles": {
+      "source": "selected seven-input hyperfine strong member; exact two-cell Gauss transfer",
+      "length_fm": 0.7559087287455966,
+      "mass_ordering_GeV": 0.00129333251,
+      "rows": [
+        {
+          "name": "neutron",
+          "energy_GeV": 0.9395654219400028,
+          "radius_squared_fm2_interval": [
+            -0.03731193694106192,
+            -0.03731193391892832
+          ],
+          "radial_charge": [
+            {
+              "radius_graph": "0",
+              "radius_fm": 0.0,
+              "charge": 0.0,
+              "charge_interval": [
+                -5.950143792134442e-09,
+                5.950143792134442e-09
+              ]
+            },
+            {
+              "radius_graph": "1/3",
+              "radius_fm": 0.25196957624853217,
+              "charge": 0.19589813943457035,
+              "charge_interval": [
+                0.19589813348442656,
+                0.19589814538471415
+              ]
+            },
+            {
+              "radius_graph": "2/3",
+              "radius_fm": 0.5039391524970643,
+              "charge": -0.19589813943457035,
+              "charge_interval": [
+                -0.19589814538471415,
+                -0.19589813348442656
+              ]
+            }
+          ]
+        },
+        {
+          "name": "proton",
+          "energy_GeV": 0.9382720894300028,
+          "radius_squared_fm2_interval": [
+            0.11193584969034517,
+            0.11193585271247877
+          ],
+          "radial_charge": [
+            {
+              "radius_graph": "0",
+              "radius_fm": 0.0,
+              "charge": 0.41230522799988545,
+              "charge_interval": [
+                0.4123052220497417,
+                0.41230523395002927
+              ]
+            },
+            {
+              "radius_graph": "1/3",
+              "radius_fm": 0.25196957624853217,
+              "charge": 0.19589837523217268,
+              "charge_interval": [
+                0.1958983692820289,
+                0.19589838118231648
+              ]
+            },
+            {
+              "radius_graph": "2/3",
+              "radius_fm": 0.5039391524970643,
+              "charge": 0.39179639676794187,
+              "charge_interval": [
+                0.39179639081779805,
+                0.39179640271808563
+              ]
+            }
+          ]
+        }
+      ],
+      "radius_ratio_interval": [
+        0.33333318159257413,
+        0.33333321759096984
+      ],
+      "observed_ratio_interval": [
+        0.16074873719708366,
+        0.16605627946467397
+      ],
+      "physical_radius_fit": false,
+      "success": 0.008333333333333333
+    },
+    "transverse": {
+      "rest_GeV_interval": [
+        0.0005598089515449071,
+        0.000560687689182724
+      ],
+      "truncation_TV_upper": 3.0619243582206545e-06,
+      "position_flux_table_error_upper": 5.2064325368220656e-05,
+      "record_count": 30,
+      "native_rows": 96,
+      "physical_electron_pole": false
+    },
+    "running": {
+      "alpha_inverse_input": 137.035999177,
+      "finest_rows": [
+        {
+          "Euclidean_frequency_GeV": 2.5549947534499998e-05,
+          "Euclidean_frequency_electron_units": 0.05,
+          "fractional_response_coupling_increase": 9.400007903170859e-07,
+          "native_subtracted_current_response": 1.0250678608410113e-05,
+          "response_alpha_inverse": 137.03587036317356
+        },
+        {
+          "Euclidean_frequency_GeV": 0.00010219979013799999,
+          "Euclidean_frequency_electron_units": 0.2,
+          "fractional_response_coupling_increase": 1.4976551219181289e-05,
+          "native_subtracted_current_response": 0.00016331652051374164,
+          "response_alpha_inverse": 137.0339468810758
+        },
+        {
+          "Euclidean_frequency_GeV": 0.000255499475345,
+          "Euclidean_frequency_electron_units": 0.5,
+          "fractional_response_coupling_increase": 9.146747729515958e-05,
+          "native_subtracted_current_response": 0.0009973596314021916,
+          "response_alpha_inverse": 137.023465986236
+        },
+        {
+          "Euclidean_frequency_GeV": 0.00051099895069,
+          "Euclidean_frequency_electron_units": 1.0,
+          "fractional_response_coupling_increase": 0.0003393270472724641,
+          "native_subtracted_current_response": 0.0036990988913820095,
+          "response_alpha_inverse": 136.98951492939173
+        },
+        {
+          "Euclidean_frequency_GeV": 0.00102199790138,
+          "Euclidean_frequency_electron_units": 2.0,
+          "fractional_response_coupling_increase": 0.0010783453873317583,
+          "native_subtracted_current_response": 0.011746666112796716,
+          "response_alpha_inverse": 136.88838621714348
+        },
+        {
+          "Euclidean_frequency_GeV": 0.00204399580276,
+          "Euclidean_frequency_electron_units": 4.0,
+          "fractional_response_coupling_increase": 0.002600481012317024,
+          "native_subtracted_current_response": 0.028284635417272434,
+          "response_alpha_inverse": 136.68056396565453
+        },
+        {
+          "Euclidean_frequency_GeV": 0.00408799160552,
+          "Euclidean_frequency_electron_units": 8.0,
+          "fractional_response_coupling_increase": 0.0047270411948407975,
+          "native_subtracted_current_response": 0.05130575734394026,
+          "response_alpha_inverse": 136.39127201556568
+        },
+        {
+          "Euclidean_frequency_GeV": 0.00817598321104,
+          "Euclidean_frequency_electron_units": 16.0,
+          "fractional_response_coupling_increase": 0.00706562623023288,
+          "native_subtracted_current_response": 0.07650991046495186,
+          "response_alpha_inverse": 136.074547286426
+        }
+      ],
+      "finest_side": 128,
+      "Ward": {
+        "diamagnetic_contact_second_derivative": 43.763947661364156,
+        "full_Dirac_matrix_dimension": 256,
+        "full_native_transfer": "Each exact charged pair and conjugate Nambu copy obeys the same identity; neutral current is zero.",
+        "omitting_contact_fails": true,
+        "operator_identity": "H(epsilon)=exp(i epsilon Q theta) H exp(-i epsilon Q theta), J=i[G,H], T=-[G,[G,H]]",
+        "paramagnetic_second_derivative": -43.763947661364156,
+        "side": 4,
+        "total_pure_gauge_energy_response": 0.0
+      },
+      "scope": "A native quantum current response with supplied electromagnetic normalization, all retained massive charge branches and explicit finite-regulator effects. The equal up/down/lepton source masses preclude interpreting the complete curve as physical QED or QCD running. No continuum cutoff error, full interacting scattering theorem, particle-core radius, or Yang-Mills gap is asserted."
+    },
+    "clocks": {
+      "rows": [
+        {
+          "name": "electron",
+          "GeV": 0.00051099895069,
+          "frequency_Hz": 1.2355899654851015e+20
+        },
+        {
+          "name": "muon",
+          "GeV": 0.10565941449590446,
+          "frequency_Hz": 2.5548332757608825e+22
+        },
+        {
+          "name": "tau",
+          "GeV": 1.776984970813427,
+          "frequency_Hz": 4.296730542773449e+23
+        }
+      ],
+      "passive_onset": false,
+      "measurement_work": "m/2",
+      "arbitrary_drive_rigidity": false
+    },
+    "flux": {
+      "native_charges": [
+        "2/3",
+        "-1/3"
+      ],
+      "packet_visibility": {
+        "K": 4,
+        "down_visibility_exact": "8/27",
+        "electron_visibility_exact": "2/3",
+        "up_visibility_exact": "7/27"
+      },
+      "monodromy": [
+        {
+          "centre_index": 0,
+          "charge_exact": "2/3",
+          "combined_spatial_flux_and_centre_record_invariance": true,
+          "electromagnetic_turn_without_colour_compensation_is_invariant": false
+        },
+        {
+          "centre_index": 1,
+          "charge_exact": "2/3",
+          "combined_spatial_flux_and_centre_record_invariance": true,
+          "electromagnetic_turn_without_colour_compensation_is_invariant": false
+        },
+        {
+          "centre_index": 2,
+          "charge_exact": "2/3",
+          "combined_spatial_flux_and_centre_record_invariance": true,
+          "electromagnetic_turn_without_colour_compensation_is_invariant": false
+        },
+        {
+          "centre_index": 0,
+          "charge_exact": "-1/3",
+          "combined_spatial_flux_and_centre_record_invariance": true,
+          "electromagnetic_turn_without_colour_compensation_is_invariant": false
+        },
+        {
+          "centre_index": 1,
+          "charge_exact": "-1/3",
+          "combined_spatial_flux_and_centre_record_invariance": true,
+          "electromagnetic_turn_without_colour_compensation_is_invariant": false
+        },
+        {
+          "centre_index": 2,
+          "charge_exact": "-1/3",
+          "combined_spatial_flux_and_centre_record_invariance": true,
+          "electromagnetic_turn_without_colour_compensation_is_invariant": false
+        },
+        {
+          "centre_index": 0,
+          "charge_exact": "-1",
+          "combined_spatial_flux_and_centre_record_invariance": true,
+          "electromagnetic_turn_without_colour_compensation_is_invariant": true
+        },
+        {
+          "centre_index": 1,
+          "charge_exact": "-1",
+          "combined_spatial_flux_and_centre_record_invariance": true,
+          "electromagnetic_turn_without_colour_compensation_is_invariant": true
+        },
+        {
+          "centre_index": 2,
+          "charge_exact": "-1",
+          "combined_spatial_flux_and_centre_record_invariance": true,
+          "electromagnetic_turn_without_colour_compensation_is_invariant": true
+        }
+      ],
+      "texture_winding": false,
+      "physical_quark_mass": false
+    },
+    "yang_mills": {
+      "cube_gap_source_units": [
+        10.5,
+        21.78723404255319
+      ],
+      "cube_side": 2,
+      "cube_links": 12,
+      "curvature_variance_lower": 0.18359375,
+      "volume_controls": [
+        {
+          "side": 2,
+          "gap_lower": 10.5,
+          "strict_gap": true
+        },
+        {
+          "side": 3,
+          "gap_lower": 3.0,
+          "strict_gap": true
+        },
+        {
+          "side": 4,
+          "gap_lower": -15.0,
+          "strict_gap": false
+        }
+      ],
+      "plaquette_rows": [
+        {
+          "g_squared": 0.5,
+          "gap": [
+            2.4787389121513117,
+            2.4787389121524757
+          ]
+        },
+        {
+          "g_squared": 1.0,
+          "gap": [
+            2.1964861926209416,
+            2.1964861926221055
+          ]
+        },
+        {
+          "g_squared": 4.0,
+          "gap": [
+            6.014560621978599,
+            6.014560621979763
+          ]
+        },
+        {
+          "g_squared": 8.0,
+          "gap": [
+            12.001822738816264,
+            12.001822738817427
+          ]
+        }
+      ],
+      "positive_transfer": true,
+      "Clay_solved": false,
+      "uniform_infinite_volume_gap": false,
+      "GeV_glueball_mass": false
+    },
+    "gravity": {
+      "positive_pairs": 147,
+      "all_attractive": true,
+      "Newton_source_coefficient": 0.010577313839036854,
+      "sites": 343,
+      "complete_dimension": 44032,
+      "records": {
+        "conditional_arrival_delay_error_upper": 1.8838428309595952e-05,
+        "conditional_arrival_delay_parameter": 0.008487307150474521,
+        "momentum_direction_deflection_error_upper": 4.847194851431621e-07,
+        "probability_record_TV_error_upper_each": 1.5691499558043105e-08,
+        "separate_momentum_direction_deflection_radians_at_parameter4": -0.006812526202224341,
+        "transverse_position_difference_at_parameter4": -0.005130002619748719,
+        "transverse_position_difference_error_upper": 3.765959893930345e-07,
+        "two_joint_clock_phase_ratios_at_parameter2": [
+          0.9928403284279421,
+          0.9928328096334392
+        ]
+      },
+      "clock_limit_interval": [
+        0.9927723161631425,
+        0.9927723161631425
+      ],
+      "physical_G": false,
+      "Einstein_dynamics": false,
+      "finite_strength_universal_clocks": false
+    },
+    "strong_steps": {
+      "chains": [
+        {
+          "cells": 2,
+          "singlets": 120,
+          "GeV": 0.9395654219400027,
+          "gA": 1.2752999999993353,
+          "coarse_gA": 1.2752999999993355,
+          "current_error_bound": 0.0
+        },
+        {
+          "cells": 3,
+          "singlets": 364,
+          "GeV": 0.9396556428648215,
+          "gA": 1.6654908282264331,
+          "coarse_gA": 1.6654908282351377,
+          "current_error_bound": 0.0035279158293362316
+        },
+        {
+          "cells": 4,
+          "singlets": 816,
+          "GeV": 0.9396556431791762,
+          "gA": 1.6654942465600024,
+          "coarse_gA": 1.6654942465693854,
+          "current_error_bound": 0.004974411667330393
+        },
+        {
+          "cells": 5,
+          "singlets": 1540,
+          "GeV": 0.9396556431791828,
+          "gA": 1.6654942466439857,
+          "coarse_gA": 1.6654942466533695,
+          "current_error_bound": 0.006092952301436646
+        }
+      ],
+      "higher_graph_fit_preserved": false,
+      "pinned_slope_GeV_per_fm": 1.0,
+      "pinned_dimension": 40,
+      "scope": [
+        "The same coefficients and conditional physical cell length are used on every graph.",
+        "Exact Schur reduction retains the whole complement, its energy-dependent metric and actual weak-current vertices.",
+        "The four graph sizes are finite architectural comparisons, not a continuum QCD beta function or a relativistic Yang-Mills gap proof.",
+        "Complete unitary memory and failed/outside records are retained; no irreversible relaxation is inferred from finite recurrence dynamics."
+      ]
+    }
+  },
   "source_sha256": {
     "model/openwave_localized_rest_packet/results.json": "2c8e0a966dbe68d3916c57dbed41930b36c95fee8cfa9cfcd64d70449ee9f0ae",
     "model/lepton_cycle/physical_comparison.json": "d880464e668b4187e2190dc39160bd11f1441bc465b7b07d1bc985d9469e4c26",
@@ -2310,7 +2824,20 @@ export const JOURNEY_RESULTS = {
     "model/openwave_common_electromagnetism/results.json": "9d461dba9908b42fa21125f12e6a1857b781ecfeac99dbb4198148bddbed2731",
     "model/openwave_boosted_records/results.json": "f8d8dedac1058dd3694292f8cdf54bfaef4c6e5e8d3a2831a0115b97e40d2b65",
     "model/openwave_single_valley_leptons/results.json": "8260e0dc2560d4c2cc1aa87f37079b04627b0e2a943f0054a3f9519ae86db71e",
-    "model/openwave_mass_catalogue/results.json": "96af3a356fca158c3b9930eee48c3d211ed09f1a718153ec72661ea2135b6e82"
+    "model/openwave_mass_catalogue/results.json": "96af3a356fca158c3b9930eee48c3d211ed09f1a718153ec72661ea2135b6e82",
+    "model/openwave_string_positive_cone/results.json": "595461bbf1b7c54b8898d14741ace135b79f72c74918ab3df64ee29a83e6b28e",
+    "model/openwave_common_hyperfine_spectrum/results.json": "202d84f251384b4c82a1d730323e3c18067f7fad7548d6115e4055866cd9fb57",
+    "model/openwave_strong_step_scaling/results.json": "87f4a9f47017cb94b005a6dc649d04dfd237131b59ead3a4b8c745265084cbfc",
+    "model/openwave_transverse_completion/results.json": "74ef274f3c1e4c1ea727fbc82db7f879dc956deade29ffda93f341eb1c773e9d",
+    "model/openwave_native_running_response/results.json": "a08e0f7d005a41f07e844b4b7dfc1cd675e908608c6102076be0fb7ce67e0231",
+    "model/openwave_passive_clock_records/results.json": "8432492b0de13ce3239ad08fd635236be2612d3dba83db5bd29b43da3cb7024c",
+    "model/openwave_quark_flux_records/results.json": "5ade11136c028d00efa7c51fd5a921a30841df80ad778a5b544c0748440643f3",
+    "model/openwave_universal_energy_geometry/results.json": "8092bafbdfdfb4390d6806cf2bf881dea9f9183c65d6a1881bf39f8fbb9f3252",
+    "model/openwave_common_gravity_records/results.json": "100eb9e28901a7aa522dbc7f73e69e2aac84673863c34fa97d819a9632ed575b",
+    "model/openwave_baryon_form_factors/results.json": "ea087f9637f7727005a0c34e1d1357da90bb577a78daa3fbaacda711bc01ae1a",
+    "model/openwave_pure_su2_source/results.json": "80ff063747d6a03650f528b08083a60254e87ff2ec51305367bc762648d397cc",
+    "model/openwave_su2_transfer/results.json": "f11f1f397290ae2ea3024a1bb6b24f3119c8d87d99e0c20c897fc708dee8d3ac",
+    "model/openwave_su2_spectral/results.json": "5c11b267d75d8a632f06ebfcc6698fddff7a870a6c68d210990e7fa5d586cef1"
   },
   "source_paths": {
     "packet": "model/openwave_localized_rest_packet/results.json",
@@ -2375,6 +2902,19 @@ export const JOURNEY_RESULTS = {
     "common_electromagnetism": "model/openwave_common_electromagnetism/results.json",
     "boosted_records": "model/openwave_boosted_records/results.json",
     "single_valley_leptons": "model/openwave_single_valley_leptons/results.json",
-    "mass_catalogue": "model/openwave_mass_catalogue/results.json"
+    "mass_catalogue": "model/openwave_mass_catalogue/results.json",
+    "string_positive_cone": "model/openwave_string_positive_cone/results.json",
+    "common_hyperfine_spectrum": "model/openwave_common_hyperfine_spectrum/results.json",
+    "strong_step_scaling": "model/openwave_strong_step_scaling/results.json",
+    "transverse_completion": "model/openwave_transverse_completion/results.json",
+    "native_running_response": "model/openwave_native_running_response/results.json",
+    "passive_clock_records": "model/openwave_passive_clock_records/results.json",
+    "quark_flux_records": "model/openwave_quark_flux_records/results.json",
+    "universal_energy_geometry": "model/openwave_universal_energy_geometry/results.json",
+    "common_gravity_records": "model/openwave_common_gravity_records/results.json",
+    "baryon_form_factors": "model/openwave_baryon_form_factors/results.json",
+    "pure_su2_source": "model/openwave_pure_su2_source/results.json",
+    "su2_transfer": "model/openwave_su2_transfer/results.json",
+    "su2_spectral": "model/openwave_su2_spectral/results.json"
   }
 };

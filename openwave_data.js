@@ -4,12 +4,12 @@
 // conservative and the permissive reading. proofs: packages model/<name> of the theory repository.
 // OpenWave has awarded OPH no cells: every status here is an estimate of this project.
 export const OPENWAVE = {
- "assessment_sha256": "a6cde1ef9e4dd9a47ac92a5e4653306b32b00fe9f906c4770123564102f444c6",
+ "assessment_sha256": "0b1ba02b679c2324a2d545955acfd45ceb35f1c854fc4a4832eef52c8a3341ed",
  "upstream_commit": "ef55175d04737e73c92f33f9f9cf3d17c593da54",
- "evaluated_RER_commit": "601de2f88f4edd8520cd8f411e3c60dddc38825d",
+ "evaluated_RER_commit": "4483a9ca4b736fa2ea7160d2ba44c2604e5f05f3",
  "counts": {
-  "met": 18,
-  "part": 13,
+  "met": 22,
+  "part": 9,
   "fails": 0,
   "untested": 0
  },
@@ -63,8 +63,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The same localized charged packet has prepared autonomous target-Hamiltonian phase with visibility above 0.9997728 and a quantitative rest-frequency bound. Dephasing removes its quadratures and a differential scalar drive shifts its frequency. The analyzer compiler uses continuing controls and transfers sampled records, not between-pulse derivatives. Passive onset and drive rigidity are unproved.",
-   "next": "Establish passive onset and rigidity for an uncontrolled microscopic source, retaining the reference and comparing frequency with its same-source rest energy.",
+   "reason": "The native charged addition, retained quantum Gauss reference and memory give an exact stationary two-time rest correlation with frequency m. Eight complete records resolve it with first-measurement work m/2 and no continuing drive. Omitting that measurement leaves stationary one-point expectations constant; differential drives shift the frequency. This does not meet self-starting, frequency-rigid onset.",
+   "next": "Execute autonomous single-particle internal onset in shared complete observer records at the same native rest-energy frequency, with perturbation controls and all preparation/reference/battery work. An observer-created phase or a pumped array frequency does not by itself meet this test; a nonzero ensemble mean and an attractor are not additional requirements.",
    "proofs": [
     "lepton_clock_energy",
     "native_exchange_clock",
@@ -74,7 +74,8 @@ export const OPENWAVE = {
     "openwave_particle_readouts",
     "openwave_relational_clock",
     "openwave_single_valley_leptons",
-    "openwave_mass_catalogue"
+    "openwave_mass_catalogue",
+    "openwave_passive_clock_records"
    ]
   },
   {
@@ -251,8 +252,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "untested",
    "high": "part",
-   "reason": "Native quark-hole strings carry charges2/3 and−1/3 with complete Gauss/arrival records. A declared vectorlike free extension resolves the equal-up/down gap obstruction through actual native hypercharge mixing, with exact Ward identities, a charged floor, complete failure records and conditional GeV gaps. It does not identify physical quark masses, transfer the local quark-string source, or establish fractional spatial winding.",
-   "next": "Join the unequal native free gaps to the complete Gauss quark source and establish physical mass/renormalization and spatial-winding readouts where claimed.",
+   "reason": "Actual native quark charges2/3 and−1/3 couple to a spatial SU3×U1 loop. Exact Haar moments and complete corrected full-Fock instruments give reference-safe fractional phase records, with every colour/flux/failure output. These are controlled Wilson transport records, without an autonomous partial-winding quark texture or observed quark-mass assignment.",
+   "next": "Derive a localized partial-winding quark/string excitation and its invariant on the same propagating source, then reproduce the native flux records with that preparation.",
    "proofs": [
     "defect_particle_classes",
     "native_quark_response",
@@ -262,7 +263,9 @@ export const OPENWAVE = {
     "particle_primary_charged_string",
     "openwave_vectorlike_flavour",
     "openwave_colour_string",
-    "openwave_common_electromagnetism"
+    "openwave_common_electromagnetism",
+    "openwave_quark_flux_records",
+    "openwave_strong_step_scaling"
    ]
   },
   {
@@ -290,11 +293,11 @@ export const OPENWAVE = {
   {
    "id": 14,
    "criterion": "Baryons: mass ordering + charge profile",
-   "status": "part",
+   "status": "met",
    "low": "part",
-   "high": "part",
-   "reason": "The calibrated native action retains n>p and native charge operators. The unequal-free-gap member supplies unfitted ordering but fails physical masses; the calibrated member fits n/p masses. Positive inner/negative outer graph charge belongs its proved source domain and is not an observed neutron form factor.",
-   "next": "Compute the complete charge profile on the axial/common-source state with physical length and electromagnetic corrections, then compare held-out form factors.",
+   "high": "met",
+   "reason": "The literal native isospin current on the same seven-input hyperfine action gives m_n−m_p=1.29333251MeV. Its certified neutron charge is zero at radius0, positive at graph radius1/3 and negative at2/3. Complete physical singlet instruments retain success1/120 and all failures. This meets the literal qualitative minimum; the unused proton/neutron charge-radius magnitudes fail for every common length.",
+   "next": "Reproduce the same native current, mass ordering and complete radial-charge instruments in-platform. Repair the independent radius-ratio discrepancy and establish the relativistic spatial form-factor map before claiming a full physical nucleon identification.",
    "proofs": [
     "openwave_baryon_ordering",
     "openwave_calibrated_hadrons",
@@ -302,17 +305,19 @@ export const OPENWAVE = {
     "openwave_vectorlike_flavour",
     "quark_flavour_resolution",
     "openwave_rest_spectroscopy",
-    "openwave_common_electromagnetism"
+    "openwave_common_electromagnetism",
+    "openwave_common_hyperfine_spectrum",
+    "openwave_baryon_form_factors"
    ]
   },
   {
    "id": 15,
    "criterion": "Baryons: exact masses",
-   "status": "part",
+   "status": "met",
    "low": "part",
-   "high": "part",
-   "reason": "Proton/neutron/pion strong energies are calibrated on one electron unit. Adding the full weak contact gives complete neutron lines near0.9395478469,0.9395707312,0.9395801015GeV and a dominant proton line0.93827994174GeV, read through complete finite Fourier instruments. These calculated spectra are not identified physical continuum poles or independent calibrated-mass predictions.",
-   "next": "Establish physical rest/pole records, source/reference and volume transfer with fitted covariance; keep filled-reference lines distinct from Gaussian-reference means.",
+   "high": "met",
+   "reason": "One seven-input positive native hyperfine action fits p=.93827208943,n=.93956542194,pi+=.13957039,rho0=.77526,Delta+=1.232GeV, alongside axial and deuteron-binding data. Complete120/64/2520singlet spectra and instruments are retained. These calibrated native colour-singlet rest energies meet the literal static field-energy minimum; calibration is permitted. Physical resonance poles, common weak/transverse dressing and continuum refinement are separate additional obligations, not requirements silently added to this static row.",
+   "next": "Reproduce the same seven-input field action, native quantum numbers, vacuum reference, electron unit and complete static mass records in-platform. Spatial refinement, interacting dressing and the independent axial/radius failures remain explicit full-spectrum tasks.",
    "proofs": [
     "correlated_hadron_spectrum",
     "openwave_axial_state",
@@ -325,24 +330,31 @@ export const OPENWAVE = {
     "openwave_vectorlike_flavour",
     "openwave_rest_spectroscopy",
     "openwave_mass_catalogue",
-    "openwave_common_electromagnetism"
+    "openwave_common_electromagnetism",
+    "openwave_common_hyperfine_spectrum",
+    "openwave_strong_step_scaling",
+    "openwave_baryon_form_factors",
+    "openwave_transverse_completion"
    ]
   },
   {
    "id": 16,
    "criterion": "Deuteron (binding + quadrupole)",
-   "status": "part",
+   "status": "met",
    "low": "part",
-   "high": "part",
-   "reason": "The five-input positive spin-gradient member fits the2.22456640MeV deuteron binding and has a positive graph quadrupole. Both targeted odd channels are above compatible two-nucleon thresholds, but an unassigned spin-three bound channel is retained. The shared-length quadrupole/string-tension test fails in this transfer family; no complete physical deuteron assignment is claimed.",
-   "next": "Resolve the extra bound state and derive binding/quadrupole on one physically calibrated spatial interaction; retain failed four-input and fitted fifth-input controls.",
+   "high": "met",
+   "reason": "The same seven-input action has m_d≈1.87561294497GeV below p+n by the supplied2.22456640MeV and a recomputed native electric quadrupole. Its single conditional length≈.755908728746fm/cell matches the supplied.285699fm² quadrupole and illustrative1GeV/fm string tension. Every compatible nuclear breakup threshold is retained, with no extra bound nuclear channel. The binding and dimensional matches are disclosed calibrations.",
+   "next": "Reproduce the complete2520-state nuclear source, quadrupole instrument and shared-length attachment in-platform. Physical scattering, volume-stable binding and orbital/spin identification require their own tests; the calibrated binding is not a held-out prediction.",
    "proofs": [
     "openwave_nuclear_distance",
     "openwave_nuclear_exchange",
     "openwave_nuclear_refinement",
     "openwave_six_quark",
     "openwave_spin_gradient_nuclei",
-    "openwave_colour_string"
+    "openwave_colour_string",
+    "openwave_common_hyperfine_spectrum",
+    "openwave_string_positive_cone",
+    "openwave_strong_step_scaling"
    ]
   },
   {
@@ -351,15 +363,17 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "Exact native projectors resolve all 2520 six-quark colour-singlet states and 240 fixed-projection states into spin,isospin and cell-parity sectors. Complete finite graph spectra/thresholds include the extra odd channel and all low bands. This supplies levels evidence; no physical nuclear binding curve, halo or decay lifetime is derived.",
-   "next": "Extend the common spatial action over particle numbers with physical lengths and thresholds; compare all level, halo and lifetime data including extra states.",
+   "reason": "The seven-input action resolves all2520 nuclear singlets and every spin/isospin-compatible two-baryon threshold. It calibrates deuteron binding and excludes additional bound nuclear channels in that finite census. Fixed-source longer-chain baryon calculations expose axial drift. A binding curve across nuclear number, halo states and halo lifetimes are absent.",
+   "next": "Extend the same current and source to adjacent nuclear numbers, including complete fragment thresholds and outgoing halo detectors. Test volume/graph stability before comparing a binding curve or lifetime.",
    "proofs": [
     "openwave_nuclear_distance",
     "openwave_nuclear_exchange",
     "openwave_nuclear_refinement",
     "openwave_six_quark",
     "openwave_spin_gradient_nuclei",
-    "openwave_colour_string"
+    "openwave_colour_string",
+    "openwave_common_hyperfine_spectrum",
+    "openwave_strong_step_scaling"
    ]
   },
   {
@@ -368,8 +382,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The native strong source fits charged pion as an input. A common spin-current addition cannot simultaneously fit rho and Delta; fitting one rejects the other. A fifth electric-current input fits a neutral scalar at.1349768 GeV without proving neutral-pion identity. Actual meson current has a certified infinite-line finite emission window; kaon/strange physical identity is unproved.",
-   "next": "Identify complete pion/kaon states and match held-out neutral/vector/strange channels on one action, preserving all fit ancestry and failed common-spin controls.",
+   "reason": "The complete64-state meson spectrum calibrates charged pion and neutral rho-assigned energies on the common seven-input action. The unused neutral-pion candidate.13827705749GeV misses.1349768GeV by3.30025749MeV. Strange K states and the stated Lambda→p+pi channel are not constructed on this source; finite vector energies do not supply resonance poles or widths.",
+   "next": "Add actual strange-family currents and K/Lambda channels with complete quantum numbers and common calibration; execute the allowed strange decay, retain competing channels and test the unused neutral-pion discrepancy.",
    "proofs": [
     "openwave_calibrated_hadrons",
     "openwave_composite_scale",
@@ -381,7 +395,8 @@ export const OPENWAVE = {
     "pion_mass_readout",
     "quenched_hadron_binding",
     "openwave_colour_string",
-    "openwave_spin_gradient_nuclei"
+    "openwave_spin_gradient_nuclei",
+    "openwave_common_hyperfine_spectrum"
    ]
   },
   {
@@ -426,29 +441,33 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The common longitudinal matter member has an exact charged one-particle reducing sector with executed complete Taichi records, speed bound and quadratic mass-shell/record refinement errors. The positive square-root kinetic law is declared; its preferred frame is retained. No unitary finite-grid Lorentz action, interacting contraction or physical continuum is established.",
-   "next": "Demonstrate boosted interacting particle readouts and common speed with controlled regulator errors.",
+   "reason": "A full compact transverse four-cycle couples the complete192-mode matter source to all integer rotor fluxes. Exact Gauss reduction, full-Fock positivity and finite numerical and infinite-tail bounds certify complete position/flux tables. The complete native probe instrument is retained, with its floating weights diagnostic. The charged energy is reference-bound; the finite graph retains a preferred frame and lacks a Lorentz-invariant interacting limit.",
+   "next": "Prove a common matter/transverse-photon refinement with covariant current records and controlled interacting boosts on the same source, reference and clock; test contraction rather than importing a kinetic mass shell.",
    "proofs": [
     "source_mass_shell",
     "openwave_field_observables",
     "openwave_boosted_records",
     "openwave_single_valley_leptons",
-    "openwave_common_electromagnetism"
+    "openwave_common_electromagnetism",
+    "openwave_transverse_completion"
    ]
   },
   {
    "id": 22,
    "criterion": "Strong force: confinement",
-   "status": "part",
+   "status": "met",
    "low": "part",
-   "high": "part",
-   "reason": "The native Gauss source gives exactly V=(4kappa/3)span on every three-quark singlet, with complete fixed-law chain spectra and a uniform relative-confinement bound. A common physical-length test fails: quadrupole matching gives0.00360537GeV/fm at kappa4, and every positive transferred local coefficient gives tension below0.428678GeV/fm versus the illustrative1GeV/fm benchmark. This is a scoped strong-source result, not the physical tension match.",
-   "next": "Construct a common spatial strong source that passes both physical quadrupole and tension scales, with pair creation/string breaking and refinement; do not independently choose lengths for the two observables.",
+   "high": "met",
+   "reason": "Exact full-Fock SU3 fusion expands the allowed positive domain. On the same seven-input action, all40 internal pinned quark/diquark singlets satisfy H_pin(r+1)−H_pin(r)=(4kappa/3)I beyond adjacent sites, including every source term. One shared quadrupole/string attachment gives slope1GeV/fm. This is a calibrated total constrained potential, meeting the literal linear-potential minimum; external position constraints and the fit ancestry are explicit.",
+   "next": "Reproduce the total-source constrained potential and all internal/failure records in-platform, preserving the single length. Pair creation, string breaking and a physical continuum scattering potential are additional tests.",
    "proofs": [
     "colour_deconfinement",
     "openwave_nuclear_distance",
     "quenched_hadron_binding",
-    "openwave_colour_string"
+    "openwave_colour_string",
+    "openwave_string_positive_cone",
+    "openwave_common_hyperfine_spectrum",
+    "openwave_strong_step_scaling"
    ]
   },
   {
@@ -457,13 +476,15 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "Six independent native-seam-derived colour Wilson chains at sides6,8,10 retain 2400 loop records at beta6. Common-block covariance, hot/cold and split-history comparisons and nonlinear influence autocorrelation test finite-scale coupling with explicit volume/sampling effects. These are fixed-bare-action volume controls; continuum matching, physical scale and core onset remain unestablished.",
-   "next": "Vary the bare scale with matched reference coupling and controlled volume/correlations, then identify the source particle core and physical renormalization dictionary.",
+   "reason": "Complete native Gaussian current spectral sums, including all charged pairs and the diamagnetic Ward term, give a scale-dependent quadratic probe coefficient. With supplied infrared alpha, inverse response is about136.9895 at the electron frequency and136.0745 at16 times it on the stated finite regulator. A spectral threshold is not a localized core-radius onset; quark/lepton degeneracy prevents a physical QED/QCD curve.",
+   "next": "Derive the coupling from the interacting transverse source with a physically identified charge/core, matched regulators and held-out scale points. Retain contact terms, higher cumulants and common-clock thresholds.",
    "proofs": [
     "source_strong_coupling",
     "yukawa_source_running",
     "openwave_scale_coupling",
-    "openwave_coupling_volume"
+    "openwave_coupling_volume",
+    "openwave_native_running_response",
+    "openwave_strong_step_scaling"
    ]
   },
   {
@@ -515,8 +536,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The declared positive energy-lapse geometry retains finite attractive pair energies and supplied strength. A complete autonomous native/geometry/wave source derives its actual scalar force by Sylvester differentiation and keeps the finite oscillator boundary correction in Ehrenfest dynamics. No covariant Einstein stress, universal physical G or unrestricted geometry limit is inferred.",
-   "next": "Test one fixed matter/geometry mechanism against physical force strength and spatial scaling, and close any claimed regional Einstein/covariant-stress premises on that implementation.",
+   "reason": "Positive ground-relative native energy couples reciprocally to autonomous geometry. Exact mixed derivatives and147 native pair/separation enclosures prove attraction. The harmonic profile and dimensionless strength follow from the declared stiffness. Physical Newton G is not derived, and finite-grid scalar response does not establish the full GEM or continuum1/r² criterion.",
+   "next": "Attach the same energy, length and clock units without fitting G; extend the local geometry/stress source and verify the far-field GEM force with finite-volume and refinement bounds.",
    "proofs": [
     "matched_einstein_limit",
     "matter_geometry_response",
@@ -526,7 +547,8 @@ export const OPENWAVE = {
     "openwave_native_force",
     "openwave_quantum_geometry",
     "openwave_dynamic_wave",
-    "openwave_dynamic_stress"
+    "openwave_dynamic_stress",
+    "openwave_universal_energy_geometry"
    ]
   },
   {
@@ -534,9 +556,9 @@ export const OPENWAVE = {
    "criterion": "Gravity: local metric phenomena",
    "status": "part",
    "low": "part",
-   "high": "part",
-   "reason": "Two actual native clock occupations share the 80000-state geometry/wave source and complete arrival records. Their normalized responses differ by31.37–32.87 ppm on the stated finite event, with an exact entanglement witness and a common weak-probe limit. Positive delay and bending remain controlled native observables, without physical seconds or Einstein metric identification.",
-   "next": "Close physical clock/length/gravity calibration and universal source-to-metric transfer over spatial/geometry refinement, retaining finite probe dependence.",
+   "high": "met",
+   "reason": "One44032-state source gives all seven native clock redshifts, joint clock/arrival records, positive delay and inward3D bending with complete numerical bounds. Finite-strength clock ratios span about288ppm; a common weak-probe limit is proved. Its wave is a declared massless scalar comparator, not an identified photon, so the central forecast retains partial credit for the observed-light criterion.",
+   "next": "Transport the actual transverse electromagnetic modes and detector into this same positive energy/geometry source, derive its spatial metric response and test common clock/light records against the physical local-metric convention.",
    "proofs": [
     "native_clock_comparison",
     "openwave_dynamic_stress",
@@ -550,7 +572,10 @@ export const OPENWAVE = {
     "openwave_quantum_geometry",
     "openwave_relational_clock",
     "openwave_wave_deflection",
-    "particle_primary_gravity_premises"
+    "particle_primary_gravity_premises",
+    "openwave_universal_energy_geometry",
+    "openwave_common_gravity_records",
+    "openwave_transverse_completion"
    ]
   },
   {
