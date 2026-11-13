@@ -4,12 +4,12 @@
 // conservative and the permissive reading. proofs: packages model/<name> of the theory repository.
 // OpenWave has awarded OPH no cells: every status here is an estimate of this project.
 export const OPENWAVE = {
- "assessment_sha256": "155804e0f6cc005a29deaf3fbe30abf58a4c65feec5aff9e4e3a279439205542",
+ "assessment_sha256": "ae97c61f172a9354bd2816493ec57a26d54d806572241a455cc1e2304ba89b92",
  "upstream_commit": "ef55175d04737e73c92f33f9f9cf3d17c593da54",
  "evaluated_RER_commit": "da76715732c8448667b40aef066721d1137055aa",
  "counts": {
-  "met": 23,
-  "part": 8,
+  "met": 24,
+  "part": 7,
   "fails": 0,
   "untested": 0
  },
@@ -63,8 +63,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The full native pump/loss collision channel has exact rest-mass frequency bands, complete linewidths, energy-conserving batteries and all failed probe records. The first probe creates the measured phase, and the zero-pump control retains it. Thus the calculated oscillation does not establish autonomous onset; a nonzero ensemble mean or an attractor is not imposed as an extra criterion.",
-   "next": "Execute a source that develops the required internal phase without the phase-creating first probe, then test complete single-particle onset, source-frequency rigidity and battery/reference work.",
+   "reason": "The complete energy-covariant finite-clock theorem proves that invariant inputs, conserving dynamics and energy-compatible adaptive records cannot generate free phase. Actual native battery words and two-copy relational controls retain every outcome. This excludes that route only: phaseful inputs, incompatible readouts and infinite symmetry-breaking limits are separate architectures.",
+   "next": "Specify an explicit permitted phase resource or nontrivial infinite limit, then execute autonomous source-frequency onset and all reference/battery work. A driven or freely chosen relational frequency does not establish native mass-frequency rigidity.",
    "proofs": [
     "lepton_clock_energy",
     "native_exchange_clock",
@@ -253,8 +253,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "untested",
    "high": "met",
-   "reason": "The complete native (SU3×U1)/Z3 quotient fixes fractional charges and a dual-electric string phase exp(2πin/3)=exp(-2πit/3). Actual Gauss-link shifts, weak exchanges and complete 120/364-state instruments are executed. A zero U1 electric coefficient preserves the strong masses. Central credit is partial because a continuous conjugate-link-angle texture is not proved; permissive credit accepts the executed discrete partial-winding invariant as the literal minimum.",
-   "next": "Test an accepted continuous spatial or conjugate-link texture invariant on this same propagating source, or obtain platform acceptance of the proved discrete quotient phase. Free-quark GeV identification is a separate full-spectrum task.",
+   "reason": "The native quotient has a continuous generator with determinant winding minus one and fractional quark phase lifts 2/3 and minus 1/3. Its lift closes on the entire native Fock space and preserves complete Gauss records. The actual states have no localized classical angle texture, so a spatial partial-winding interpretation remains partial.",
+   "next": "Construct and test an actual localized spatial texture or accepted conjugate-link order parameter with the native current and dynamics. Group homotopy alone does not identify a particle soliton or a free-quark mass.",
    "proofs": [
     "defect_particle_classes",
     "native_quark_response",
@@ -276,8 +276,8 @@ export const OPENWAVE = {
    "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "An actual native three-quark colour singlet is a stationary bound composite, with complete baryon spectra and constituent-fragment controls. Exact Gauss elimination gives a linear relative-separation cost and a chain-length-independent confinement bound. Fixed-law2–5-cell executions retain all120/364/816/1540singlet states, preparation failures and unresolved edge clusters. This meets the literal stable-three-quark minimum; graph-dependent masses/gA and continuum poles are not identified with nature.",
-   "next": "Reproduce the full three-quark carrier, fragment and Gauss-string records in-platform. Extend to pair creation, common physical lengths and scattering before claiming a physical continuum nucleon.",
+   "reason": "The complete calibrated strong source has bound colour-neutral three-quark channels and now positive inverse-rest-matrix correlated propagation. The exact rest-operator cancellation holds on the full N=3 carrier; all native channels and complete complements are retained. No higher-number spectrum is transferred.",
+   "next": "Reproduce the complete native cluster propagation and extend the same source to a controlled three-dimensional interacting carrier, retaining all complementary channels and preparation outcomes.",
    "proofs": [
     "correlated_hadron_spectrum",
     "openwave_axial_state",
@@ -298,8 +298,8 @@ export const OPENWAVE = {
    "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "The literal native isospin current on the same seven-input hyperfine action gives m_n−m_p=1.29333251MeV. Its certified neutron charge is zero at radius0, positive at graph radius1/3 and negative at2/3. Complete physical singlet instruments retain success1/120 and all failures. This meets the literal qualitative minimum; the unused proton/neutron charge-radius magnitudes fail for every common length.",
-   "next": "Reproduce the same native current, mass ordering and complete radial-charge instruments in-platform. Repair the independent radius-ratio discrepancy and establish the relativistic spatial form-factor map before claiming a full physical nucleon identification.",
+   "reason": "The calibrated native source retains a heavier neutron-assigned rest band and positive inner/negative outer signed charge records. Propagation preserves the complete N=3 rest operator. Unused nucleon charge-radius magnitudes still fail a common-length comparison.",
+   "next": "Test the neutron/proton ordering and signed charge profile on the common propagating source; identify a source extension that passes both unused radii without separate length fits.",
    "proofs": [
     "openwave_baryon_ordering",
     "openwave_calibrated_hadrons",
@@ -319,8 +319,8 @@ export const OPENWAVE = {
    "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "One seven-input native hyperfine action fits the p/n/pi+/rho0/Delta+ rest records, axial magnitude and deuteron binding. Two degree coefficients vanish on its whole two-cell operator and reuse the neutron/axial targets; exact five-band reduction and complete complement bounds enclose the infinite-chain zero-momentum neutron mass and axial response. These are calibrated static/source-band records, without three-dimensional scattering poles or interacting continuum refinement.",
-   "next": "Reproduce the complete calibrated static records and the full-complement bulk interval in-platform. Derive the same-source propagating hadron dispersion and weak/transverse pole attachment; test the unused radii and other bulk species.",
+   "reason": "The common declared strong source retains calibrated proton and neutron rest energies near 0.938272089 and 0.939565422 GeV. Positive correlated hopping gives a neutron inertial interval [0.910379739949, 0.970684532724] GeV without a new mass fit and with complete N=3 rest cancellation. The electron GeV unit, physical speed assignment and strong length are inputs. These finite bands are not proved three-dimensional relativistic particle poles.",
+   "next": "Reproduce the calibrated rest and inertial bands in-platform, then establish a common interacting three-dimensional pole and its dispersion using the same energy and length units. Keep inherited calibration ancestry explicit.",
    "proofs": [
     "correlated_hadron_spectrum",
     "openwave_axial_state",
@@ -347,8 +347,8 @@ export const OPENWAVE = {
    "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "The same seven-input action has m_d≈1.87561294497GeV below p+n by the supplied2.22456640MeV and a recomputed native electric quadrupole. Its single conditional length≈.755908728746fm/cell matches the supplied.285699fm² quadrupole and illustrative1GeV/fm string tension. Every compatible nuclear breakup threshold is retained, with no extra bound nuclear channel. The binding and dimensional matches are disclosed calibrations.",
-   "next": "Reproduce the complete2520-state nuclear source, quadrupole instrument and shared-length attachment in-platform. Physical scattering, volume-stable binding and orbital/spin identification require their own tests; the calibrated binding is not a held-out prediction.",
+   "reason": "The positive strong action has a deuteron binding calibration and complete retained nuclear channels. A separate inherited-charge pair-kernel comparison retains complete triton/helion/alpha spectra and preparation failures; it is not a transfer of the full positive electromagnetic field.",
+   "next": "Execute the common native two-nucleon source with its calibrated deuteron and complete charge/current readouts; extend the interacting field and cluster threshold comparison without discarding failure or higher-channel records.",
    "proofs": [
     "openwave_nuclear_distance",
     "openwave_nuclear_exchange",
@@ -367,8 +367,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "Exact local exterior characters and colour fusion retain complete 572572/176729280 singlet sectors in three/four-cell boxes. Rational low-band enclosures include all 64/256 quartet coordinates and full higher complements. One range-three coefficient calibrates a triton-like energy while preserving every total-number-at-most-six calibration domain. Both helium comparisons fail. No asymptotic breakup, halo or physical binding curve follows from these boxes.",
-   "next": "Derive complete compatible fragment thresholds and outgoing halo records on the same spatial action; repair or explain the held-out helion/alpha failures and control the box-to-infinite-volume attachment.",
+   "reason": "Complete finite nuclear spectra include a triton calibration. The inherited-alpha/length native-charge Coulomb member adds no nuclear mass target but still fails helion and alpha held-outs. Exact isospin symmetry excludes an isoscalar repair of the triton–helion gap and requires a charge-breaking operator norm of at least 0.381903475 MeV. Full electromagnetic-field transfer, asymptotic breakup and halo lifetimes remain unproved.",
+   "next": "Construct the common charge-breaking interacting nuclear field and test the held-out helion/alpha masses with unchanged inherited units, then compare complete cluster breakup thresholds and weakly bound or halo channels. A symmetric counterterm cannot repair the certified gap.",
    "proofs": [
     "openwave_nuclear_distance",
     "openwave_nuclear_exchange",
@@ -387,8 +387,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The complete native two-family source fits K+=K-=0.493677 and Lambda=1.115683 GeV using two additional strong inputs. A full strong C map preserves the light source, and actual Cabibbo-current records and an unfiltered nonleptonic vertex are executed. The complete outgoing five-body floor is 1.208108251046 GeV; an exact initial Lambda trial upper bound proves the channel closed even with the full weak norm allowance. Sigma/Xi/Omega/K0 and the separate neutral-pion control fail.",
-   "next": "Construct common relativistic baryon/meson propagation and sufficient outgoing bandwidth, then execute a genuinely open same-source Lambda-to-proton/pion decay with complete energy/work records. A short-time off-shell vertex cannot replace the threshold test.",
+   "reason": "The inherited strong source calibrates charged pion and rho energies; two additional coefficients calibrate kaon and Lambda. A local connected-cluster extension preserves the complete two-cell operator and opens a bulk proton/pion energy shell at opposite momenta between 0.086222816534 and 0.103058658466 GeV without refitting strange mass parameters. Held-out strange masses remain failed, and a new on-shell weak matrix element, outgoing decay and physical lifetime are not established.",
+   "next": "Use the same local bulk source to certify an actual nonzero on-shell native weak matrix element and complete outgoing proton/pion flux, then compare the lifetime and held-out strange masses with all input ancestry retained.",
    "proofs": [
     "openwave_calibrated_hadrons",
     "openwave_composite_scale",
@@ -447,8 +447,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The actual covariant Pauli operator and its positive square root retain every native spin/family branch and all compact fluxes. Certified reference-bound GeV intervals and complete position/flux records coexist with a controlled free three-dimensional dispersion limit. The number-preserving nonlocal root supplies neither an interacting Lorentz-covariant field theory nor boosted contraction of the complete charged source.",
-   "next": "Prove interacting current/field boost covariance and contraction with common clocks, reference and regulator; control the nonlocal square-root law and infinite-flux/spacing limits without transferring a free dispersion theorem to the interaction.",
+   "reason": "Complete source records, free refinement and controlled boosted sectors coexist with a full-rotor Dirac diagnostic. The latter requires the dynamical electric connection E+A: omitting it changes spectra and work. Full-Haar gauge dynamics additionally have explicit propagation and infinite-volume bounds. None of these separate sources establishes a common interacting Lorentz-covariant continuum.",
+   "next": "Prove the native Fock-to-canonical field transfer with its electric connection, reference and pair dictionary; then derive interacting boost covariance and nontrivial spacing limits. Do not transfer a free kinetic or fixed-spacing gap theorem to that missing interaction.",
    "proofs": [
     "source_mass_shell",
     "openwave_field_observables",
@@ -481,11 +481,11 @@ export const OPENWAVE = {
   {
    "id": 23,
    "criterion": "Running coupling",
-   "status": "part",
+   "status": "met",
    "low": "part",
-   "high": "part",
-   "reason": "The same dressed Pauli source has a certified nonconstant native current response, exact Ward cancellation and a complete physical core probe. Its measured radius is about 0.12118 cells; suppression stays below 2.94 percent across the entire Brillouin interval. This finite response does not resolve an order-one core-scale onset or a physical QED/QCD running curve. Every reference, phase-pointer and terminal-readout work term is retained.",
-   "next": "Resolve the spatial core and its order-one onset on the same interacting current source with matched regulators and held-out physical scale points; retain contact terms, complete flux tails and calibration ancestry.",
+   "high": "met",
+   "reason": "The electron-assigned branch of the resolution-selected Wilson-half native source has a certified radius near 0.523002641 cells and over 54.7 percent spatial charge-response suppression. Complete same-source static native-charge interventions measure QF(k), and half-suppression occurs at kR between 1.23229 and 1.43768. Infinite-flux, opposite-charge, complete pointer/readout and vacuum-reference controls are retained. This supports the literal model-scale static coupling/core-onset test; it is not a measured QED/QCD beta function or universal renormalized charge.",
+   "next": "Reproduce the complete static native-charge/core experiment in-platform. Physical identification additionally needs a spatial continuum, accepted renormalized charge observable and held-out QED/QCD scales. The Wilson member was selected for resolution without fitting observed radius or running data.",
    "proofs": [
     "source_strong_coupling",
     "yukawa_source_running",
@@ -524,8 +524,8 @@ export const OPENWAVE = {
    "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "The selected calibrated spin-gradient baryon state and unchanged native current execute the energetically allowed electron/antineutral channel with a certified parity-odd full-unitary statistic on3D cubes. Actual native vector/axial contractions give point-contact a,A,B,D, with precision discrepancies retained. Complete energy-line and Fourier-pointer records include every preparation/virtual complement. This satisfies the literal channel-plus-parity minimum; neither a physical878s lifetime nor a continuum pole is inferred.",
-   "next": "Reproduce the selected-source3D current, full-Fock parity certificate and complete energy records in-platform. Derive a physical outgoing neutron lifetime and recoil/radiative angular corrections on one reference; do not substitute point-contact coefficients for finite-contact records.",
+   "reason": "The calibrated native strong source has sufficient neutron–proton energy release, and complete native spin contractions and three-dimensional momentum records exhibit parity-odd beta coefficients. Positive propagation preserves the N=3 rest operator, but it does not automatically transfer a higher-number weak-decay spectrum. Axial strength remains calibrated and a physical neutron lifetime is unproved.",
+   "next": "Reproduce complete calibrated beta angular records, then execute the coupled outgoing neutron/proton/electron/neutrino dynamics on one common propagating source and certify its physical lifetime and complete weak work accounting.",
    "proofs": [
     "openwave_axial_state",
     "openwave_baryon_beta",
@@ -545,8 +545,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "Positive native energy gives a reciprocal attractive geometry response. The same finite photon/clock member has a dimensional comparison using the electron unit and independently strong-calibrated length. That specific attachment fails: the conditional Newton strength is about 1.18e40 times the observed value and photon speed is about 0.00196 c. The attraction supports partial credit, but the physical G/c attachment is tested and obstructed, not untested.",
-   "next": "Derive a compatible common matter/geometry Hamiltonian and energy-length-clock map that passes both G and c without tuning G, then establish the far-field GEM law with boundary/refinement errors. Preserve the failed dimensional member as an explicit control.",
+   "reason": "The positive native-energy geometry has dimensionless attraction and complete photon/clock records. Exact unit elimination gives G/(c_model/c)=g/u². With its fixed stiffness and electron energy anchor, every common length fails simultaneous physical G and c; speed matching would give G about 40507.494 GeV^-2. This is a candidate-scoped obstruction, not a proof against other OPH implementations.",
+   "next": "Construct a common matter/geometry source whose stiffness and energy anchor pass the invariant compatibility test, then execute the far-field GEM law with controlled boundary/refinement errors. Changing length alone cannot repair the tested member.",
    "proofs": [
     "matched_einstein_limit",
     "matter_geometry_response",
@@ -595,8 +595,8 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The declared finite capacity law H=epsilon V/k gives mechanical pressure P=-rho, exact volume/capacity work and an explicit energy exchange when k changes. A fixed-input Friedmann comparison uses all fifteen chronometer measurements with correlated covariance; exact bounds give chi-square about 6.19134 for the primary reduction and 7.97952 for its alternative. These shared-data reductions are not independent, and supplied Planck parameters do not determine cosmic capacity or a physical horizon.",
-   "next": "Select and test a physical horizon/capacity amplitude without reusing the measured cosmological constant; separate mechanical pressure from the capacity-exchange effective equation of state and test an independently specified capacity history.",
+   "reason": "The finite capacity law and conditional Einstein/Friedmann branch support four explicitly stated horizon histories. All fifteen correlated BC03 observations give chi-square 6.19134 fixed, 21.54903 comoving, 70.48705 conserved Hubble and 6.57717 future-event horizon. The gamma-one future boundary is proved, and the alternative M11 reduction is scored separately. H0 and matter fraction are supplied; neither a physical horizon nor Lambda amplitude is selected by the source.",
+   "next": "Derive or declare a source-level physical capacity/horizon selection and predict its amplitude without reusing Lambda. Test that common implementation against independent expansion and perturbation data, retaining any matter-energy exchange and radiation era.",
    "proofs": [
     "matched_einstein_limit",
     "openwave_gravity_capacity",
