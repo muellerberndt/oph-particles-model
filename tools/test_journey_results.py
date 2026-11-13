@@ -31,7 +31,7 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(p['weak']['receiver_probability_interval'][0],0)
   self.assertGreater(p['neutral_transfer']['receiver_probability_interval'][0],0)
   self.assertFalse(p['neutral_transfer']['earlier_flat_band_transferred'])
-  self.assertEqual(len(p['source_sha256']),152)
+  self.assertEqual(len(p['source_sha256']),159)
   self.assertEqual(p['particle_results']['task_count'],10)
   self.assertFalse(p['particle_results']['catalogue']['source_joins']['all_sources_identified_as_one_interacting_theory'])
   self.assertFalse(p['particle_results']['widths']['muon_normalization_comparison']['independent_prediction'])
