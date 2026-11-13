@@ -107,7 +107,7 @@ def copy_viewer(viewer: Path, out: Path) -> int:
 
 
 EXTRA = Path(__file__).resolve().parent / 'site_extra'     # fp-analytics.js (GA, Ads, X pixel under one cookie choice), og.jpg
-DESCRIPTION = 'Watch observer universes settle and read off the particles: the defects that no repair can remove.'
+DESCRIPTION = 'OPH is a rigorous, consistent and complete description of the unified, self-creating computational Universe we inhabit. Watch it settle and read off the particles.'
 
 
 def add_tags(out: Path) -> None:
@@ -119,7 +119,9 @@ def add_tags(out: Path) -> None:
         if 'fp-analytics.js' in s or '</title>' not in s:
             continue
         url = 'https://particles.floatingpragma.ai/' + ('' if page.name == 'index.html' else page.name)
-        title = 'OPH universe viewer' if page.name == 'index.html' else 'OPH field records'
+        title = INDEX_SHARE_TITLE if page.name == 'index.html' else 'OPH field records'
+        if page.name == 'index.html':
+            s = re.sub(r'<title>.*?</title>', f'<title>{INDEX_TITLE}</title>', s, count=1, flags=re.S)
         head = (f'<link rel="canonical" href="{url}">\n<meta name="description" content="{DESCRIPTION}">\n'
                 '<meta property="og:type" content="website">\n<meta property="og:site_name" content="Pragma Research">\n'
                 f'<meta property="og:title" content="{title}">\n<meta property="og:description" content="{DESCRIPTION}">\n'
@@ -129,7 +131,28 @@ def add_tags(out: Path) -> None:
                 '<meta name="twitter:card" content="summary_large_image">\n'
                 '<meta name="twitter:image" content="https://particles.floatingpragma.ai/og.jpg">\n'
                 '<script src="fp-analytics.js"></script>\n')
+        if page.name == 'index.html':
+            head += '<script type="application/ld+json">' + json.dumps(index_jsonld(), ensure_ascii=False) + '</script>\n'
         page.write_text(s.replace('</title>', '</title>\n' + head, 1))
+
+
+INDEX_TITLE = 'OPH particles: watch a simulated universe make its own particles'
+INDEX_SHARE_TITLE = 'Watch a universe make its own particles'
+
+
+def index_jsonld() -> dict:
+    """The viewer as a free web application about the OPH entity defined on floatingpragma.ai/oph/."""
+    return {'@context': 'https://schema.org', '@type': 'WebApplication', '@id': 'https://particles.floatingpragma.ai/#app',
+            'name': 'OPH particles',
+            'alternateName': ['OPH particle simulation', 'Observer Patch Holography particle simulation'],
+            'url': 'https://particles.floatingpragma.ai/', 'description': DESCRIPTION,
+            'applicationCategory': 'EducationalApplication', 'operatingSystem': 'Any web browser', 'isAccessibleForFree': True,
+            'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'},
+            'image': 'https://particles.floatingpragma.ai/og.jpg', 'about': {'@id': 'https://floatingpragma.ai/oph/#oph'},
+            'publisher': {'@type': 'Organization', '@id': 'https://floatingpragma.ai/#org', 'name': 'Pragma Research',
+                          'url': 'https://floatingpragma.ai/'},
+            'sameAs': ['https://github.com/muellerberndt/oph-particles-model',
+                       'https://github.com/FloatingPragma/observer-patch-holography']}
 
 
 DATA_URL = 'https://oph-particles-data-20261111.s3.amazonaws.com/index.html'   # the complete runs, for download
