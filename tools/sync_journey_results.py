@@ -21,11 +21,22 @@ from thirteenth_results import project as thirteenth_projection
 from fourteenth_results import project as fourteenth_projection
 from fifteenth_results import project as fifteenth_projection
 from sixteenth_results import project as sixteenth_projection
+from seventeenth_results import project as seventeenth_projection
 
 ROOT=Path(__file__).resolve().parents[1]
 RER=ROOT.parent/'reverse-engineering-reality'
 EXTRA=ROOT/'tools/site_extra'
 SOURCES={
+ 'lambda_spectral_measure':'model/openwave_lambda_spectral_measure/results.json',
+ 'finite_phase_clock':'model/openwave_finite_phase_clock/results.json',
+ 'localized_quark_record':'model/openwave_localized_quark_record/results.json',
+ 'nuclear_em_transfer':'model/openwave_nuclear_em_transfer/results.json',
+ 'fock_field_transport':'model/openwave_fock_field_transport/results.json',
+ 'energy_schur':'model/openwave_energy_schur/results.json',
+ 'collective_finite_strength':'model/openwave_collective_finite_strength/results.json',
+ 'gravity_noise_normalization':'model/openwave_gravity_noise_normalization/results.json',
+ 'capacity_normalization_transfer':'model/openwave_capacity_normalization_transfer/results.json',
+
  'full_strong_current':'model/openwave_full_strong_current/results.json',
  'lambda_wavepacket':'model/openwave_lambda_wavepacket/results.json',
  'cluster_weyl_sequence':'model/openwave_cluster_weyl_sequence/results.json',
@@ -257,6 +268,7 @@ def project(rer=RER):
   'source_completion':fourteenth_projection(receipts),
   'normalizable_completion':fifteenth_projection(receipts),
   'complete_dynamics':sixteenth_projection(receipts),
+  'operational_results':seventeenth_projection(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }
