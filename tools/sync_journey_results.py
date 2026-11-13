@@ -23,11 +23,23 @@ from fifteenth_results import project as fifteenth_projection
 from sixteenth_results import project as sixteenth_projection
 from seventeenth_results import project as seventeenth_projection
 from eighteenth_results import project as eighteenth_projection
+from nineteenth_results import project as nineteenth_projection
 
 ROOT=Path(__file__).resolve().parents[1]
 RER=ROOT.parent/'reverse-engineering-reality'
 EXTRA=ROOT/'tools/site_extra'
 SOURCES={
+ 'native_process':'model/openwave_native_process/results.json',
+ 'native_response':'model/openwave_native_response/results.json',
+ 'native_defect_records':'model/openwave_native_defect_records/results.json',
+ 'native_event_clock':'model/openwave_native_event_clock/results.json',
+ 'native_packet_propagation':'model/openwave_native_packet_propagation/results.json',
+ 'native_interaction':'model/openwave_native_interaction/results.json',
+ 'native_rest_energy':'model/openwave_native_rest_energy/results.json',
+ 'native_geometry_readout':'model/openwave_native_geometry_readout/results.json',
+ 'native_capacity_history':'model/openwave_native_capacity_history/results.json',
+ 'native_platform_gate':'model/openwave_native_platform_gate/results.json',
+
  'lambda_narrow_weight':'model/openwave_lambda_narrow_weight/results.json',
  'repeated_native_clock':'model/openwave_repeated_native_clock/results.json',
  'quark_string_transport':'model/openwave_quark_string_transport/results.json',
@@ -282,6 +294,7 @@ def project(rer=RER):
   'complete_dynamics':sixteenth_projection(receipts),
   'operational_results':seventeenth_projection(receipts),
   'bounded_source_results':eighteenth_projection(receipts),
+  'native_execution_results':nineteenth_projection(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }

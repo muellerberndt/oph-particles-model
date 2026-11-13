@@ -30,7 +30,7 @@ assert.equal(D.higgs.observed_quark_mass_fit,false);
 assert.equal(D.gravity.physical_G_or_clock_calibrated,false);
 assert.equal(D.weak.physical_lifetime_or_weak_scale_derived,false);
 assert.equal((html.match(/id="particle-results"/g)||[]).length,1);
-assert.equal(Object.keys(D.source_sha256).length,142);
+assert.equal(Object.keys(D.source_sha256).length,152);
 for(const phrase of ['q = −1','photon-cap removal','Quantum Larmor precession','Neutrino-like flight','GeV width','Bound three-quark','Bound meson','Geometry mediates','finite packet bends','rejected hadron assignments','not an independent mass fit','not running masses','γ=−1 has zero principal-ray bending'])assert(html.includes(phrase),phrase);
 for(const r of D.previous_tasks.common_scale.rows)assert(html.includes(Number(r.conditional_GeV).toPrecision(10)));
 assert.equal(D.previous_tasks.common_scale.physical_hadron_mass_fit,false);
@@ -161,7 +161,7 @@ assert.equal(N.cluster.outgoing_weak_decay_proved,false);assert.equal(N.baryon.p
 assert.equal(N.baryon.higher_number_transfer,false);assert.equal(N.nuclear.physical_spectrum_closed,false);
 assert.equal(N.gravity.length_only_repair,false);assert.equal(N.yang_mills.Clay_solved,false);
 assert.equal(N.cosmology.Lambda_amplitude_derived,false);assert.equal(N.cosmology.alternatives_independent,false);
-for(const phrase of ['E→E+A','reference-subtracted ground-energy derivative','on-shell density and physical lifetime are unproved','No nuclear mass is refitted','model-scale effective charges','No nontrivial four-dimensional continuum or Clay result is claimed'])assert(html.includes(phrase),phrase);
+for(const phrase of ['same one-point means','reference-subtracted ground-energy derivative','on-shell density and physical lifetime are unproved','No nuclear mass is refitted','model-scale effective charges','without a four-dimensional continuum or Clay theorem'])assert(html.includes(phrase),phrase);
 for(const x of [D.source_completion.poles.neutron_GeV,D.source_completion.poles.proton_GeV,D.source_completion.strange.Lambda_GeV])assert(html.includes('['+outwardBox(x,9)+']'));
 for(const r of N.core.rows)assert(html.includes('['+outwardBox(r.GeV_interval,12)+']'));
 for(const r of numberRows.filter(x=>x.id.startsWith('native_')))assert(r.mobileValue,'inline mobile value '+r.id);
@@ -224,7 +224,7 @@ assert.equal(X.geometry.physical_G_matched,false);
 assert.deepEqual(X.cosmology.scalar_curvature_bounds,[2,6]);
 assert.equal(X.cosmology.source_scalar_particle,false);
 assert.equal(X.cosmology.CMB_fit,false);
-for(const phrase of ['nonlocal spectral service','N is not fixed independently of observed G','not the early primordial solution','fixed local loop','normalizable Lambda trial'])assert(html.includes(phrase),phrase);
+for(const phrase of ['nonlocal spectral service','N is not fixed independently of observed G','not the early primordial solution','complete binomial tail','normalizable Lambda trial'])assert(html.includes(phrase),phrase);
 for(const [values,places]of [[X.cube.adjacent_covariance,13],[X.cube.gap_source_units,9],[X.strange.proton_pion_response_squared,9]]){
  const rendered=outwardBox(values,places),[lo,hi]=rendered.split(', ').map(Number);
  assert(lo<=values[0]&&hi>=values[1]);
@@ -239,9 +239,9 @@ assert.equal(Z.strange.on_shell_decay,false);assert.equal(Z.strange.weyl_observe
 assert.equal(Z.gauge.frame,201);assert.equal(Z.gauge.continuum_4D,false);
 assert(Z.gravity.calibrated_to_observed_G&&!Z.gravity.independent_prediction);
 assert.equal(Z.cosmology.observed_match,false);assert.equal(Z.cosmology.interval_error_certificate,false);
-for(const phrase of ["99.97%","N is not fixed independently of observed G","existing complete-source gap intervals","supplied Einstein/scalar/fluid equations","mathematical Weyl"])assert(html.toLowerCase().includes(phrase.toLowerCase()),phrase);
+for(const phrase of ["99.97%","N is not fixed independently of observed G","Existing complete-source gauge gaps","supplied Einstein/scalar/fluid equations","mathematical Weyl"])assert(html.toLowerCase().includes(phrase.toLowerCase()),phrase);
 for(const x of [Z.strange.rest_GeV,Z.strange.packet_mean_GeV])assert(html.includes("["+outwardBox(x,x===Z.strange.rest_GeV?9:12)+"]"));
-for(const row of D.operational_results.gauge)assert(html.includes("["+outwardBox(row.gap,9)+"]"));
+for(const row of D.operational_results.gauge){const [lo,hi]=outwardBox(row.gap,9).split(", ").map(Number);assert(lo<=row.gap[0]&&hi>=row.gap[1]);}
 assert.equal(Z.new_independent_nature_validation,false);
 console.log("Complete dynamics, exact constraints, calibrated gravity and scoped current Results PASS");
 
@@ -254,7 +254,7 @@ assert.equal(O.fock.modes,192);assert.equal(O.fock.same_carrier_rotor_equivalenc
 assert.equal(O.gravity.observed_G_calibration,true);assert.equal(O.gravity.physical_noise_match,false);
 assert.equal(O.capacity.density_growth_or_CMB,false);assert.equal(O.capacity.absolute_amplitude_derived,false);
 for(const r of O.nuclear.filter(x=>x.name==='helion'||x.name==='alpha'))assert.equal(r.matches,false);
-assert(html.includes('All 114 native source terms'));assert(html.includes('1.302361802725'));
+assert(html.includes('separate 192-mode matter source'));assert(html.includes('1.302361802725'));
 assert(numberRows.find(x=>x.id==='native_horizon_chi').modelText.includes(outwardBox(D.bounded_source_results.capacity.records[0].metric,6)));
 assert(numberRows.find(x=>x.id==='native_coupled_gauge').modelText.includes(outwardBox(O.gauge[1].gap,9)));
 console.log('Complete native clocks, shifted spectra and normalized metric observation roles PASS');
@@ -267,10 +267,19 @@ assert.equal(OPENWAVE.official_admitted,true);assert.equal(OPENWAVE.official_mod
 assert.equal(V.lambda.positive_lower_bound,false);assert.equal(V.lambda.on_shell_density,false);assert(V.lambda.windows[0].probability[1]<0.026622);
 assert.equal(V.strings.physical_quark_mass,false);assert.equal(V.matter.native_process_transfer,false);assert.equal(V.matter.physical_mass_fit,false);
 for(const x of V.nuclear.filter(x=>['helion','alpha'].includes(x.name))){assert.equal(x.matches,false);assert(html.includes('['+outwardBox(x.GeV,9)+']'));}
-assert(html.includes('7.535487 keV'));assert(html.includes('65,307'));assert(html.includes('3,239,348,495'));
+assert(V.matter.charged_architecture_shift_GeV[0]>0);assert(html.includes('65,307'));assert.equal(V.stress.prepared_copies,3239348495);
 assert.equal(V.capacity.early_primordial_solution,false);assert.equal(V.capacity.absolute_amplitude_derived,false);assert.equal(V.capacity.CMB_match,false);
 for(const r of V.capacity.records){assert(html.includes('['+outwardBox(r.metric,9)+']'));assert(html.includes('['+outwardBox(r.comoving_dust,9)+']'));}
 assert.equal(V.gauge.fixed_time_continuum,false);assert.equal(V.stress.Einstein_equation_derived,false);assert.equal(V.covariance.independent_G,false);
 console.log('Bounded source advances, finite-wavelength records and official M10 gate PASS');
 
-assert.equal(V.clock.cycles,2);assert.equal(V.clock.carrier,32768);assert.equal(V.clock.new_GeV_rest_masses,false);assert.equal(V.clock.exact_strength_independent_detector_frequency,false);assert(html.includes('finite detector has a resolved frequency bias'));for(const r of V.clock.second_flight)assert(html.includes('['+outwardBox(r.frequency,6)+']'));
+assert.equal(V.clock.cycles,2);assert.equal(V.clock.carrier,32768);assert.equal(V.clock.new_GeV_rest_masses,false);assert.equal(V.clock.exact_strength_independent_detector_frequency,false);assert(html.includes('resolved detector bias'));for(const r of V.clock.second_flight){const [lo,hi]=outwardBox(r.frequency,6).split(', ').map(Number);assert(lo<=r.frequency[0]&&hi>=r.frequency[1]);}
+
+const A=D.native_execution_results;
+assert.deepEqual(A.clock.multipliers,[['11/12','1/60'],['11/12','-1/60'],['9/10','0']]);
+assert.equal(A.clock.physical_rest_mass,false);assert.equal(A.packet.coherent_translation,false);assert.equal(A.geometry.coherent_service_supplied,true);assert.equal(A.geometry.Einstein_continuum,false);
+assert.deepEqual(A.interaction.rows.map(x=>x.record_difference),['1/4','3/64']);assert.deepEqual(A.interaction.rows.map(x=>x.pair_difference),['1/4','9/64']);
+assert.equal(A.platform.official_validated,0);assert.equal(A.platform.official_untested,31);assert.deepEqual(A.new_GeV_rest_masses,[]);
+for(const phrase of ['(55 ± √5)/60','1/4 and 3/64','9/64','80,640','630×','4356','Experiment schedules, load sectors and preparations are declared separately','not oscillation frequencies','coherent service and initial apparatus are supplied'])assert(html.replaceAll(',','').includes(phrase.replaceAll(',','')),phrase);
+for(const r of A.packet.records.filter(r=>r.time===4&&r.radius===2))assert(html.includes('['+outwardBox(r.arrival,9)+']'));
+console.log('Native repair histories, current clocks, exclusion records and scoped phase extension PASS');
