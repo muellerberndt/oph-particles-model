@@ -31,7 +31,7 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(p['weak']['receiver_probability_interval'][0],0)
   self.assertGreater(p['neutral_transfer']['receiver_probability_interval'][0],0)
   self.assertFalse(p['neutral_transfer']['earlier_flat_band_transferred'])
-  self.assertEqual(len(p['source_sha256']),132)
+  self.assertEqual(len(p['source_sha256']),142)
   self.assertEqual(p['particle_results']['task_count'],10)
   self.assertFalse(p['particle_results']['catalogue']['source_joins']['all_sources_identified_as_one_interacting_theory'])
   self.assertFalse(p['particle_results']['widths']['muon_normalization_comparison']['independent_prediction'])
@@ -83,7 +83,8 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(ninth['common_mass_source']['window_probability_lower'],.96)
   self.assertEqual(ninth['platform_kernel']['Nambu_dimensions'],[11520,38880])
  def test_small_data_hooks_are_idempotent_and_fail_closed(self):
-  original="const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/'; const PLAIN = { }; const s = `${PLAIN[r.id] || ''}`; This is where OPH stands on each, by this project’s own assessment of its public evidence. OpenWave has not scored OPH."
+  original="const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/'; const PLAIN = { }; const s = `${PLAIN[r.id] || ''}`; This is the central application estimate, conditional on admission, platform reproduction and review. OpenWave has not scored OPH."
+  original += "\nuntested: ['not computed', x]\n: 'not computed'}</span>"
   out=apply_data_hooks('openwave.js',original)
   self.assertEqual(out,apply_data_hooks('openwave.js',out))
   self.assertIn('CONSTRUCTION_SUMMARIES',out)

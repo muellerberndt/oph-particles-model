@@ -22,11 +22,23 @@ from fourteenth_results import project as fourteenth_projection
 from fifteenth_results import project as fifteenth_projection
 from sixteenth_results import project as sixteenth_projection
 from seventeenth_results import project as seventeenth_projection
+from eighteenth_results import project as eighteenth_projection
 
 ROOT=Path(__file__).resolve().parents[1]
 RER=ROOT.parent/'reverse-engineering-reality'
 EXTRA=ROOT/'tools/site_extra'
 SOURCES={
+ 'lambda_narrow_weight':'model/openwave_lambda_narrow_weight/results.json',
+ 'repeated_native_clock':'model/openwave_repeated_native_clock/results.json',
+ 'quark_string_transport':'model/openwave_quark_string_transport/results.json',
+ 'nuclear_field_attraction':'model/openwave_nuclear_field_attraction/results.json',
+ 'matter_flux_source':'model/openwave_matter_flux_source/results.json',
+ 'local_gauge_memory':'model/openwave_local_gauge_memory/results.json',
+ 'stress_curvature_instruments':'model/openwave_stress_curvature_instruments/results.json',
+ 'geometry_covariance_protocol':'model/openwave_geometry_covariance_protocol/results.json',
+ 'capacity_finite_wavelength':'model/openwave_capacity_finite_wavelength/results.json',
+ 'm10_review_gate':'model/openwave_m10_review_gate/results.json',
+
  'lambda_spectral_measure':'model/openwave_lambda_spectral_measure/results.json',
  'finite_phase_clock':'model/openwave_finite_phase_clock/results.json',
  'localized_quark_record':'model/openwave_localized_quark_record/results.json',
@@ -269,6 +281,7 @@ def project(rer=RER):
   'normalizable_completion':fifteenth_projection(receipts),
   'complete_dynamics':sixteenth_projection(receipts),
   'operational_results':seventeenth_projection(receipts),
+  'bounded_source_results':eighteenth_projection(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }
@@ -611,8 +624,12 @@ def apply_data_hooks(name,body):
    ('${r.sym}${r.unit ?', '${r.sym}${r.mobileValue ? `<small class="rs-native-mobile">${esc(r.mobileValue)}</small>` : ""}${r.unit ?'),
    ('<div class="rs-wrap">', '<style>.rs-native-mobile{display:none}@media(max-width:699px){#page-results .rs-native-mobile{display:block;font-size:12px;font-weight:600;line-height:1.5;overflow-wrap:anywhere;color:var(--fg)}#page-results .rs-native-mobile+em{display:none}}</style><div class="rs-wrap">')]
  elif name=='openwave.js':
+  # Accept both the original Fable source and the previously deployed wording.
+  body=body.replace('This is where OPH stands on each, by this project’s own assessment of its public evidence. OpenWave has not scored OPH.', 'This is the central application estimate, conditional on admission, platform reproduction and review. OpenWave has not scored OPH.')
   patches=[("const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/';", "const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/' + OPENWAVE.evaluated_RER_commit + '/';"),
-   ('This is where OPH stands on each, by this project’s own assessment of its public evidence. OpenWave has not scored OPH.', 'This is the central application estimate, conditional on admission, platform reproduction and review. OpenWave has not scored OPH.'),
+   ('This is the central application estimate, conditional on admission, platform reproduction and review. OpenWave has not scored OPH.', 'OPH is admitted as M10. All 31 official physics criteria are untested. Seven exact dispersion quantities passed M10.1 arithmetic review; that review awards no physics row. These source results need an implementation on the native twelve-port repair process.'),
+   ("untested: ['not computed',", "untested: ['untested in-platform',"),
+   (": 'not computed'}</span>", ": 'untested in-platform'}</span>"),
    ('const PLAIN = {',"import { CONSTRUCTION_SUMMARIES } from './construction_matches.js';\nconst PLAIN = {"),
    ("${PLAIN[r.id] || ''}","${esc(CONSTRUCTION_SUMMARIES[r.id] || PLAIN[r.id] || '')}")]
  elif name=='matches.js':

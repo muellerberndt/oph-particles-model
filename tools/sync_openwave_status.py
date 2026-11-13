@@ -38,13 +38,18 @@ def build(source: Path = SOURCE, rer: Path = RER) -> str:
                      'proofs': [p.split('/')[1] for p in proofs]})
     if len(rows) != 31 or [r['id'] for r in rows] != list(range(1, 32)):
         raise ValueError('expected the 31 criteria in order')
+    official=d.get('live_upstream_check',{})
+    if official.get('M10_admitted') is not True or official.get('official_cells') != {'untested':31,'validated':0,'partial':0,'negative':0,'scored':0} or official.get('official_rank') != 7:
+        raise ValueError('the actual official M10 status must be retained')
+    if d.get('native_process_gate') != 'unestablished' or any(r[k] != 'untested' for r in rows for k in ('status','low','high')):
+        raise ValueError('current M10 native-process gate requires all 31 rows untested')
     counts = {k: sum(r['status'] == k for r in rows) for k in ('met', 'part', 'fails', 'untested')}
-    data = {'assessment_sha256': hashlib.sha256(source.read_bytes()).hexdigest(), 'upstream_commit': d['upstream_commit'], 'evaluated_RER_commit': d['evaluated_RER_commit'], 'counts': counts, 'rows': rows}
+    data = {'assessment_sha256': hashlib.sha256(source.read_bytes()).hexdigest(), 'upstream_commit': d['upstream_commit'], 'evaluated_RER_commit': d['evaluated_RER_commit'], 'counts': counts, 'rows': rows, 'official_admitted': True, 'official_model': 'M10', 'official_counts': {'validated': 0, 'partial': 0, 'negative': 0, 'untested': 31}, 'official_rank': 7, 'native_process_gate': d['native_process_gate']}
     head = ('// The 31 criteria of the OpenWave comparison with this project\'s own estimate for each (page "OpenWave status").\n'
             '// Written by oph-particles-model/tools/sync_openwave_status.py from the criterion-by-criterion assessment;\n'
             '// do not edit by hand. status: met, part, fails, untested (the central estimate); low and high: the\n'
             '// conservative and the permissive reading. proofs: packages model/<name> of the theory repository.\n'
-            '// OpenWave has awarded OPH no cells: every status here is an estimate of this project.\n')
+            '// OPH is admitted as M10 with 31 untested physics cells. The estimates agree with that official gate.\n')
     return head + 'export const OPENWAVE = ' + json.dumps(data, indent=1, ensure_ascii=False) + ';\n'
 
 
