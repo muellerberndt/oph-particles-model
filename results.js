@@ -12,6 +12,7 @@ import { tex, typeset } from './math.js';
 import { S, showPage } from './app.js';
 import { laneProgress, busy } from './progress.js';
 import { STATUS, TICKS, FILES, REF, PLACEHOLDER_LABEL, INCOMPLETE_LABEL, axisX, board, fmtDev, fmtPct, fmtSigma } from './results_data.js';
+import { applyConstructionNumbers } from './construction_matches.js';
 
 const BASE = { RER, DER, SITE, URL: '' };
 const SURFACE = '#070b16';
@@ -257,7 +258,7 @@ function stripHtml(r, g) {
 // ---------------------------------------------------------------- page
 function findRow(id) { for (const g of B.groups) for (const r of g.rows) if (r.id === id) return [r, g]; return null; }
 function render(host) {
-  B = board(LIVE);
+  B = applyConstructionNumbers(board(LIVE));
   if (selected && !findRow(selected)) selected = B.groups[0].rows[0].id;
   const key = (shape, hollow, colour, text) => `<span><i style="color:${colour}">${glyph(shape, hollow, 12)}</i>${text}</span>`;
   host.innerHTML = `<div class="rs-wrap">
