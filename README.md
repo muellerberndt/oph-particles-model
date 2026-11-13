@@ -69,11 +69,15 @@ source hash before writing, and it refuses a site whose Journey page mounts the 
 The OpenWave status data come from the project's assessment:
 
 ```sh
-python tools/sync_openwave_status.py
-python tools/sync_openwave_status.py --check
+python tools/sync_openwave_status.py --out site/openwave_data.js
+python tools/sync_openwave_status.py --out site/openwave_data.js --check
 ```
 
-The projection binds 86 RER receipts to one committed source revision. The finite-constructions page
+The [Results board](https://particles.floatingpragma.ai/?page=results) keeps the best GeV fits visible and adds compact source-pole, resolved-core, cubic-Haar gauge and conditional scalar-curvature rows. These numeric values also appear directly on mobile; assumptions and source intervals open on click.
+
+Run that status refresh after rebuilding the copied viewer so the status and numerical data use the same published RER revision.
+
+The projection binds 123 RER receipts to one committed source revision. The finite-constructions page
 shows ten selected tasks, with supporting calculations in a collapsed section. Matches highlights
 calibrated proton, neutron, kaon, Lambda and triton energies in GeV, the charged-lepton comparison and
 the held-out tau leptonic ratio. The source cards give certified bulk bands, complete transverse-light
@@ -100,3 +104,5 @@ Use a current published checkout when applying the overlay: it updates only the 
 hooks. It must not replace concurrently edited simulation files or revert the Early Universe/cosmology page.
 
 The compact Numbers and status board (`?page=results`) uses the same committed-source projection: charged-lepton GeV values, calibrated hadron and nuclear energies, and the held-out tau width ratio. Calibrated rows carry OpenWave row numbers and no independent-fit deviation marker.
+
+Current construction cards show normalizable nucleon and Lambda source records, the calibrated Lambda rest-pole band [1.115684628607, 1.115684878081] GeV, full interacting local strange response and an essential-spectrum breakup channel. The Lambda packet is constructed without an exact band filter; its mean energy is distinct from its rest-pole energy. Results also shows a 201-mode refined Haar source with controlled omitted-state memory, a fixed-frequency collective geometry calibrated to observed Newton strength, classical staggered record transport, and constrained scalar-cosmology transfer ratios. Four existing cards carry these results, preserving the uncluttered viewer. Inputs and limits open on click. An on-shell strange-decay rate, physical four-dimensional particle spectrum, uniform gauge continuum, native quantum curvature acquisition and nonlinear Einstein limit remain open. The inherited fixed-total-frequency G/c failure and failed unused mass comparisons remain available as controls. No additional independent Nature-validation count is awarded.

@@ -17,11 +17,34 @@ from ninth_results import project as ninth_projection
 from tenth_results import project as tenth_projection
 from eleventh_results import project as eleventh_projection
 from twelfth_results import project as twelfth_projection
+from thirteenth_results import project as thirteenth_projection
+from fourteenth_results import project as fourteenth_projection
+from fifteenth_results import project as fifteenth_projection
+from sixteenth_results import project as sixteenth_projection
 
 ROOT=Path(__file__).resolve().parents[1]
 RER=ROOT.parent/'reverse-engineering-reality'
 EXTRA=ROOT/'tools/site_extra'
 SOURCES={
+ 'full_strong_current':'model/openwave_full_strong_current/results.json',
+ 'lambda_wavepacket':'model/openwave_lambda_wavepacket/results.json',
+ 'cluster_weyl_sequence':'model/openwave_cluster_weyl_sequence/results.json',
+ 'refined_haar_source':'model/openwave_refined_haar_source/results.json',
+ 'refined_haar_spectrum':'model/openwave_refined_haar_spectrum/results.json',
+ 'haar_memory_closure':'model/openwave_haar_memory_closure/results.json',
+ 'tensor_record_transport':'model/openwave_tensor_record_transport/results.json',
+ 'collective_gravity_strength':'model/openwave_collective_gravity_strength/results.json',
+ 'capacity_transfer':'model/openwave_capacity_transfer/results.json',
+ 'uniform_pole_bands':'model/openwave_uniform_pole_bands/results.json',
+ 'normalizable_particle_records':'model/openwave_normalizable_particle_records/results.json',
+ 'scattering_current_support':'model/openwave_scattering_current_support/results.json',
+ 'haar_coupling_flow':'model/openwave_haar_coupling_flow/results.json',
+ 'cubic_haar_source':'model/openwave_cubic_haar_source/results.json',
+ 'gauge_refinement_clock':'model/openwave_gauge_refinement_clock/results.json',
+ 'staggered_ward':'model/openwave_staggered_ward/results.json',
+ 'replicated_geometry':'model/openwave_replicated_geometry/results.json',
+ 'capacity_perturbations':'model/openwave_capacity_perturbations/results.json',
+
  'packet':'model/openwave_localized_rest_packet/results.json',
  'comparison':'model/lepton_cycle/physical_comparison.json',
  'magnetic':'model/openwave_rotational_g_limit/results.json',
@@ -108,6 +131,25 @@ SOURCES={
  'transverse_gravity':'model/openwave_transverse_gravity/results.json',
  'su2_volume_gap':'model/openwave_su2_volume_gap/results.json',
  'capacity_stress':'model/openwave_capacity_stress/results.json',
+ 'baryon_dispersion':'model/openwave_baryon_dispersion/results.json',
+ 'cluster_bandwidth':'model/openwave_cluster_bandwidth/results.json',
+ 'nuclear_isospin':'model/openwave_nuclear_isospin/results.json',
+ 'clock_phase_resource':'model/openwave_clock_phase_resource/results.json',
+ 'quotient_homotopy':'model/openwave_quotient_homotopy/results.json',
+ 'resolved_core':'model/openwave_resolved_core/results.json',
+ 'dirac_field_connection':'model/openwave_dirac_field_connection/results.json',
+ 'gravity_unit_constraint':'model/openwave_gravity_unit_constraint/results.json',
+ 'horizon_capacity':'model/openwave_horizon_capacity/results.json',
+ 'su2_propagation':'model/openwave_su2_propagation/results.json',
+ 'baryon_poles':'model/openwave_baryon_poles/results.json',
+ 'pole_weak_current':'model/openwave_pole_weak_current/results.json',
+ 'strange_shell_current':'model/openwave_strange_shell_current/results.json',
+ 'coupled_haar_source':'model/openwave_coupled_haar_source/results.json',
+ 'coupled_haar_spectrum':'model/openwave_coupled_haar_spectrum/results.json',
+ 'euclidean_refinement':'model/openwave_euclidean_refinement/results.json',
+ 'source_ward':'model/openwave_source_ward/results.json',
+ 'einstein_error':'model/openwave_einstein_error/results.json',
+ 'radiation_capacity':'model/openwave_radiation_capacity/results.json',
 
 
 
@@ -211,6 +253,10 @@ def project(rer=RER):
   'particle_results':tenth_projection(receipts),
   'frontier_results':eleventh_projection(receipts),
   'current_results':twelfth_projection(receipts),
+  'completion_results':thirteenth_projection(receipts),
+  'source_completion':fourteenth_projection(receipts),
+  'normalizable_completion':fifteenth_projection(receipts),
+  'complete_dynamics':sixteenth_projection(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }
@@ -549,11 +595,17 @@ def apply_data_hooks(name,body):
  elif name=='results.js':
   patches=[
    ("import { STATUS, TICKS, FILES, REF, PLACEHOLDER_LABEL, INCOMPLETE_LABEL, axisX, board, fmtDev, fmtPct, fmtSigma } from './results_data.js';", "import { STATUS, TICKS, FILES, REF, PLACEHOLDER_LABEL, INCOMPLETE_LABEL, axisX, board, fmtDev, fmtPct, fmtSigma } from './results_data.js';\nimport { applyConstructionNumbers } from './construction_matches.js';"),
-   ('  B = board(LIVE);','  B = applyConstructionNumbers(board(LIVE));')]
+   ('  B = board(LIVE);','  B = applyConstructionNumbers(board(LIVE));'),
+   ('${r.sym}${r.unit ?', '${r.sym}${r.mobileValue ? `<small class="rs-native-mobile">${esc(r.mobileValue)}</small>` : ""}${r.unit ?'),
+   ('<div class="rs-wrap">', '<style>.rs-native-mobile{display:none}@media(max-width:699px){#page-results .rs-native-mobile{display:block;font-size:12px;font-weight:600;line-height:1.5;overflow-wrap:anywhere;color:var(--fg)}#page-results .rs-native-mobile+em{display:none}}</style><div class="rs-wrap">')]
  elif name=='openwave.js':
   patches=[("const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/';", "const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/' + OPENWAVE.evaluated_RER_commit + '/';"),
+   ('This is where OPH stands on each, by this project’s own assessment of its public evidence. OpenWave has not scored OPH.', 'This is the central application estimate, conditional on admission, platform reproduction and review. OpenWave has not scored OPH.'),
    ('const PLAIN = {',"import { CONSTRUCTION_SUMMARIES } from './construction_matches.js';\nconst PLAIN = {"),
    ("${PLAIN[r.id] || ''}","${esc(CONSTRUCTION_SUMMARIES[r.id] || PLAIN[r.id] || '')}")]
+ elif name=='matches.js':
+  patches=[('One row per match. Left: what the simulation gives. Right: our universe.',
+   'One row per match. Left: what the simulation gives. Right: our universe. Includes calibrated fits and conditional results.')]
  else:raise ValueError(name)
  for old,new in patches:
   if new in body:continue
@@ -564,10 +616,10 @@ def apply_data_hooks(name,body):
 def sync(out,rer=RER,check=False):
  data=project(rer);body=json.dumps(data,indent=2,ensure_ascii=False)+'\n'
  outputs={'journey_results.json':body,'journey_results_data.js':'export const JOURNEY_RESULTS = '+body.rstrip()+';\n'}
- for name in ('journey_results.js','journey_results.css','construction_matches.js','ninth_results.js','tenth_results.js','eleventh_results.js','twelfth_results.js'):outputs[name]=(EXTRA/name).read_text()
+ for name in ('journey_results.js','journey_results.css','construction_matches.js','ninth_results.js','tenth_results.js','eleventh_results.js','twelfth_results.js','thirteenth_results.js'):outputs[name]=(EXTRA/name).read_text()
  outputs['journey.js']=remove_journey_matches((out/'journey.js').read_text())
  check_placement((out/CONSUMER).read_text(),outputs['journey.js'])
- for name in ('matches_data.js','openwave.js','results.js'):
+ for name in ('matches_data.js','openwave.js','results.js','matches.js'):
   outputs[name]=apply_data_hooks(name,(out/name).read_text())
  for name,body in outputs.items():
   p=out/name

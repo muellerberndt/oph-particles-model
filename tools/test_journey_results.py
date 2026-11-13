@@ -31,7 +31,7 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(p['weak']['receiver_probability_interval'][0],0)
   self.assertGreater(p['neutral_transfer']['receiver_probability_interval'][0],0)
   self.assertFalse(p['neutral_transfer']['earlier_flat_band_transferred'])
-  self.assertEqual(len(p['source_sha256']),86)
+  self.assertEqual(len(p['source_sha256']),123)
   self.assertEqual(p['particle_results']['task_count'],10)
   self.assertFalse(p['particle_results']['catalogue']['source_joins']['all_sources_identified_as_one_interacting_theory'])
   self.assertFalse(p['particle_results']['widths']['muon_normalization_comparison']['independent_prediction'])
@@ -83,19 +83,26 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(ninth['common_mass_source']['window_probability_lower'],.96)
   self.assertEqual(ninth['platform_kernel']['Nambu_dimensions'],[11520,38880])
  def test_small_data_hooks_are_idempotent_and_fail_closed(self):
-  original="const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/'; const PLAIN = { }; const s = `${PLAIN[r.id] || ''}`;"
+  original="const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/'; const PLAIN = { }; const s = `${PLAIN[r.id] || ''}`; This is where OPH stands on each, by this project’s own assessment of its public evidence. OpenWave has not scored OPH."
   out=apply_data_hooks('openwave.js',original)
   self.assertEqual(out,apply_data_hooks('openwave.js',out))
   self.assertIn('CONSTRUCTION_SUMMARIES',out)
   with self.assertRaisesRegex(ValueError,'Fable data hook changed'):
    apply_data_hooks('openwave.js','a changed Fable renderer')
  def test_results_hook_preserves_standalone_data_and_is_idempotent(self):
-  original="import { STATUS, TICKS, FILES, REF, PLACEHOLDER_LABEL, INCOMPLETE_LABEL, axisX, board, fmtDev, fmtPct, fmtSigma } from './results_data.js';\n  B = board(LIVE);"
+  original="import { STATUS, TICKS, FILES, REF, PLACEHOLDER_LABEL, INCOMPLETE_LABEL, axisX, board, fmtDev, fmtPct, fmtSigma } from './results_data.js';\n  B = board(LIVE);\n<div class=\"rs-wrap\">${r.sym}${r.unit ?}"
   out=apply_data_hooks('results.js',original)
   self.assertEqual(out,apply_data_hooks('results.js',out))
   self.assertIn('applyConstructionNumbers(board(LIVE))',out)
   with self.assertRaisesRegex(ValueError,'Fable data hook changed'):
    apply_data_hooks('results.js',original.replace('B = board(LIVE)','B = changedBoard(LIVE)'))
+ def test_matches_lead_retains_mixed_comparison_scope(self):
+  original='<div class="mx-lead">One row per match. Left: what the simulation gives. Right: our universe.</div>'
+  out=apply_data_hooks('matches.js',original)
+  self.assertIn('Includes calibrated fits and conditional results.',out)
+  self.assertEqual(out,apply_data_hooks('matches.js',out))
+  with self.assertRaisesRegex(ValueError,'Fable data hook changed'):
+   apply_data_hooks('matches.js','a changed lead')
  def test_changed_display_domains_are_rejected(self):
   mutations=[
    ('openwave_localized_rest_packet',lambda x:x['near_rest_localized_source'].__setitem__('source_time_horizon',100)),

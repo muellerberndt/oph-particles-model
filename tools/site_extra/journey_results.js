@@ -1,5 +1,5 @@
 import { ninthResults } from './ninth_results.js';
-import { twelfthResults } from './twelfth_results.js';
+import { thirteenthResults } from './thirteenth_results.js';
 import { tenthResults } from './tenth_results.js';
 import { JOURNEY_RESULTS as D } from './journey_results_data.js';
 const BASE=D.source_repository;
@@ -125,7 +125,7 @@ export function renderJourneyResults(){
  return `<section class="jr" id="particle-results" aria-labelledby="jr-title">
   <div class="jr-heading"><div><span class="jr-eyebrow">Results from the executable constructions · ${esc(D.date)}</span><h3 id="jr-title">From source records to particle numbers</h3></div><a class="jr-all" href="finite_results.html">Explore all finite results →</a></div>
   <p class="jr-intro">The target is one explicit OPH implementation whose observer records match our Universe. Specified construction choices are part of that model. These executable results connect charge, spin, weak transitions, composites and dynamical geometry; conditional GeV values and actual mismatches remain visible.</p>
-  <div class="jr-grid">${twelfthResults()}</div>
+  <div class="jr-grid">${thirteenthResults()}</div>
   <details class="jr-supporting"><summary>Supporting constructions and comparison controls (60)</summary><div class="jr-grid">${tenthResults()}
 
    <article class="jr-card jr-masses"><div class="jr-label">One electron anchor · conditional masses</div><h4>Three charged-lepton branches</h4>${ow([11])}

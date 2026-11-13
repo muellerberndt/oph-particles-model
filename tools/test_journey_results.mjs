@@ -30,7 +30,7 @@ assert.equal(D.higgs.observed_quark_mass_fit,false);
 assert.equal(D.gravity.physical_G_or_clock_calibrated,false);
 assert.equal(D.weak.physical_lifetime_or_weak_scale_derived,false);
 assert.equal((html.match(/id="particle-results"/g)||[]).length,1);
-assert.equal(Object.keys(D.source_sha256).length,86);
+assert.equal(Object.keys(D.source_sha256).length,123);
 for(const phrase of ['q = −1','photon-cap removal','Quantum Larmor precession','Neutrino-like flight','GeV width','Bound three-quark','Bound meson','Geometry mediates','finite packet bends','rejected hadron assignments','not an independent mass fit','not running masses','γ=−1 has zero principal-ray bending'])assert(html.includes(phrase),phrase);
 for(const r of D.previous_tasks.common_scale.rows)assert(html.includes(Number(r.conditional_GeV).toPrecision(10)));
 assert.equal(D.previous_tasks.common_scale.physical_hadron_mass_fit,false);
@@ -94,8 +94,8 @@ assert.equal(D.frontier_results.task_count,10);
 assert.equal(D.frontier_results.additional_pure_gauge_tasks,3);
 assert.equal(D.current_results.task_count,10);
 assert.equal((html.match(/data-current-card=/g)||[]).length,10);
-assert(html.indexOf('data-current-card="strange"')<html.indexOf('class="jr-supporting"'));
-for(const id of ['strange','bulk','nuclei','string','core','pauli','clock','photon-gravity','uniform-gap','cosmology'])assert(html.includes(`data-current-card="${id}"`));
+assert(html.indexOf('data-current-card="propagation"')<html.indexOf('class="jr-supporting"'));
+for(const id of ['propagation','cluster','helium','phase','homotopy','resolved','field','units','horizons','haar'])assert(html.includes(`data-current-card="${id}"`));
 assert(!html.includes('data-frontier-card='),'Replace the ten visible cards without growing the wall');
 assert.equal(D.current_results.yang_mills.Clay_solved,false);
 assert.equal(D.current_results.cosmology.Lambda_amplitude_derived,false);
@@ -104,8 +104,10 @@ assert.equal(D.current_results.electromagnetism.physical_pole_fit,false);
 assert.equal(D.current_results.clock.autonomous_phase_onset_established,false);
 assert.equal(D.current_results.gravity.physical_G,false);
 assert.equal(D.current_results.strange.on_shell_strange_channel_open,false);
-for(const r of D.current_results.strange.masses.filter(x=>x.comparison_role==='calibration'))assert(html.includes(r.computed_GeV.toFixed(6)));
-for(const phrase of ['Two additional','held-out','not physical pole fits','autonomous phase onset','tested common-unit map fails','Clay solution','dark-energy amplitude is calibrated'])assert(html.includes(phrase),phrase);
+const {twelfthResults}=await import(pathToFileURL(path.join(site,'twelfth_results.js')));
+const priorHtml=twelfthResults();
+for(const r of D.current_results.strange.masses.filter(x=>x.comparison_role==='calibration'))assert(priorHtml.includes(r.computed_GeV.toFixed(6)));
+for(const phrase of ['Two additional','held-out','not physical pole fits','autonomous phase onset','tested common-unit map fails','Clay solution','dark-energy amplitude is calibrated'])assert(priorHtml.includes(phrase),phrase);
 assert(rows.find(r=>r.id==='strange_K+').natureWord==='fit target');
 assert(rows.find(r=>r.id==='triton_calibrated').dev==='calibrated interval');
 assert(rows.find(r=>r.id==='bend').src.some(x=>x[1].includes('openwave_transverse_gravity')));
@@ -125,7 +127,7 @@ const currentIntervals=[
 for(const [source,places]of currentIntervals){
  const display=outwardBox(source,places),[lo,hi]=display.split(', ').map(Number);
  assert(lo<=source[0]&&source[1]<=hi,display);
- assert(html.includes('['+display+']'),display);
+ assert(priorHtml.includes('['+display+']'),display);
 }
 // Binary64 0.1 lies strictly above its one-place decimal; the negative control reverses this.
 assert.equal(outwardBox([.1,.1],1),'0.1, 0.2');
@@ -135,7 +137,7 @@ assert.equal(outwardBox([-Number.MIN_VALUE,-Number.MIN_VALUE],12),'-0.0000000000
 assert.equal(outwardBox([.5,.5],1),'0.5, 0.5');
 assert.throws(()=>outwardBox([1,0]),/Invalid/);
 assert.throws(()=>outwardBox([0,Infinity]),/Invalid/);
-console.log('Current ten cards, actual GeV outputs and retained physical failures PASS');
+console.log('Retained interval formatter and physical source limits PASS');
 
 const {board}=await import(pathToFileURL(path.join(site,'results_data.js')));
 const {applyConstructionNumbers}=await import(pathToFileURL(path.join(site,'construction_matches.js')));
@@ -151,3 +153,87 @@ for(const row of numberRows.filter(x=>x.id.startsWith('native_')))assert(row.mor
 assert(fs.readFileSync(path.join(site,'results.js'),'utf8').includes('B = applyConstructionNumbers(board(LIVE));'));
 assert(!JSON.stringify(boardData).includes('NaN'));
 console.log('Compact Results page: source-bound GeV values, held-out ratio and calibration labels PASS');
+
+const N=D.completion_results;
+assert.equal(N.task_count,10);assert.equal(N.core.static_charge_core_join,true);
+assert.equal(N.core.physical_running_curve,false);assert.equal(N.cluster.energy_shell_open,true);
+assert.equal(N.cluster.outgoing_weak_decay_proved,false);assert.equal(N.baryon.physical_pole_proved,false);
+assert.equal(N.baryon.higher_number_transfer,false);assert.equal(N.nuclear.physical_spectrum_closed,false);
+assert.equal(N.gravity.length_only_repair,false);assert.equal(N.yang_mills.Clay_solved,false);
+assert.equal(N.cosmology.Lambda_amplitude_derived,false);assert.equal(N.cosmology.alternatives_independent,false);
+for(const phrase of ['E → E + A','reference-subtracted ground-energy derivative','Outgoing weak spectral weight and physical lifetime are unproved','no additional nuclear mass target','model-scale effective charges','No physical GeV glueball, nontrivial four-dimensional continuum or Clay result is claimed'])assert(html.includes(phrase),phrase);
+for(const x of [D.source_completion.poles.neutron_GeV,D.source_completion.poles.proton_GeV,D.source_completion.strange.Lambda_GeV])assert(html.includes('['+outwardBox(x,9)+']'));
+for(const r of N.core.rows)assert(html.includes('['+outwardBox(r.GeV_interval,12)+']'));
+for(const r of numberRows.filter(x=>x.id.startsWith('native_')))assert(r.mobileValue,'inline mobile value '+r.id);
+assert(numberRows.find(x=>x.id==='native_core_onset').what.includes('ground-energy derivative'));
+assert(numberRows.find(x=>x.id==='native_horizon_chi').facts.some(x=>x.includes('1772 certified')));
+assert(numberRows.find(x=>x.id==='native_coupled_gauge').text.includes('Clay problem remains open'));
+assert.equal(D.source_completion.strange.on_shell_decay_amplitude,false);
+assert.equal(D.source_completion.poles.physical_4D_poles,false);
+assert.equal(D.source_completion.radiation.independent_nature_validation,false);
+assert(html.includes('not percentages of agreement with nature'));
+assert(html.includes('Outgoing weak spectral weight and physical lifetime are unproved'));
+const rs=fs.readFileSync(path.join(site,'results.js'),'utf8');assert(rs.includes('rs-native-mobile')&&rs.includes('@media(max-width:699px)'));
+const {upperScientific}=await import(pathToFileURL(path.join(site,'thirteenth_results.js')));
+for(const r of N.yang_mills.bounds.filter(x=>x.volume_error_upper<1))assert(Number(upperScientific(r.volume_error_upper))>=r.volume_error_upper);
+for(const id of ['m_mu','m_tau']){const row=numberRows.find(x=>x.id===id);assert.equal(row.cmp.abs,row.model-row.meas.v);}
+assert.equal(rows.find(x=>x.id==='running').kind,OPENWAVE.rows.find(x=>x.id===23).status==='met'?'seen':'part');
+console.log('Current ten tasks, Results/mobile figures, calibrated source bands and explicit physical limits PASS');
+
+assert(fs.readFileSync(path.join(site,'openwave.js'),'utf8').includes('central application estimate, conditional on admission, platform reproduction and review'));
+
+for(const row of numberRows.filter(x=>x.refWord==='calibration target')){assert.equal(row.cite,'Declared source calibration');assert(row.refUrl.includes(D.source_revision));assert.equal(row.meas.ref,undefined);}
+for(const id of ['native_neutral_vector','native_Delta_plus'])assert(numberRows.find(x=>x.id===id).facts.some(x=>x.includes('PDG 2025')&&x.includes('Breit–Wigner')));
+
+const ewScope=rows.find(x=>x.id==='ew'),colourScope=rows.find(x=>x.id==='tc');
+assert(ewScope.tip.includes('declared coupling chain')&&ewScope.tip.includes('not the actual one-doublet source output'));
+assert(ewScope.open.includes('not blind')&&ewScope.src[0][1].includes(D.source_revision));
+assert.equal(colourScope.natureWord,'pure SU(3) lattice');assert(colourScope.tip.includes('same-action'));
+assert(colourScope.open.includes('not an independent physical-QCD')&&colourScope.open.includes('imported ratio'));
+console.log('Thermal Matches retain declared-chain and same-action pure-colour benchmark scopes PASS');
+
+// Fable displays r.open only for partial entries; scope must remain visible in r.tip after promotion.
+assert(ewScope.tip.includes('not blind')&&ewScope.tip.includes('inputs are supplied'));
+assert(colourScope.tip.includes('not an independent physical-QCD'));
+assert(rows.find(x=>x.id==='running').tip.includes('selected for resolution')&&rows.find(x=>x.id==='running').tip.includes('not a measured QED/QCD'));
+
+const {retainVisibleConstructionScopes}=await import(pathToFileURL(path.join(site,'construction_matches.js')));
+for(const id of ['gen','confine','baryon','order','deuteron','muondecay','neutrino','beta','slow','bend']){
+ const row=rows.find(x=>x.id===id);assert(row.open&&row.tip.includes(row.open),'visible source scope '+id);
+}
+const scoped=JSON.stringify(rows);retainVisibleConstructionScopes([{rows}]);
+assert.equal(JSON.stringify(rows),scoped,'visible scopes are idempotent');
+console.log('Promoted rows retain their calibration and physical-domain limits in expanded Matches details PASS');
+assert(fs.readFileSync(path.join(site,'matches.js'),'utf8').includes('Includes calibrated fits and conditional results.'));
+
+const X=D.normalizable_completion;
+assert.equal(X.new_independent_nature_validation,false);
+assert.equal(X.packets.finite_local_band_filter,false);
+assert.equal(X.strange.normalizable_Lambda_packet,false);
+assert.equal(X.strange.on_shell_decay,false);
+assert.equal(X.cube.Haar_representations_complete,true);
+assert.equal(X.cube.full_Hamiltonian_RG,false);
+assert.equal(X.geometry.physical_G_matched,false);
+assert.deepEqual(X.cosmology.scalar_curvature_bounds,[2,6]);
+assert.equal(X.cosmology.source_scalar_particle,false);
+assert.equal(X.cosmology.CMB_fit,false);
+for(const phrase of ['nonlocal spectral service','failed G/c attachment','barotropic alternative','not exact autonomous compression','normalizable Lambda trial'])assert(html.includes(phrase),phrase);
+for(const [values,places]of [[X.cube.adjacent_covariance,13],[X.cube.gap_source_units,9],[X.strange.proton_pion_response_squared,9]]){
+ const rendered=outwardBox(values,places),[lo,hi]=rendered.split(', ').map(Number);
+ assert(lo<=values[0]&&hi>=values[1]);
+}
+assert(Number(upperScientific(X.geometry.relative_vacuum_variance_upper,6))>=X.geometry.relative_vacuum_variance_upper);
+assert(numberRows.find(x=>x.id==='native_neutron').facts.some(x=>x.includes('nonlocal service')));
+console.log('Normalizable source records, cubic Haar covariance and conditional scalar limits PASS');
+
+const Z=D.complete_dynamics;
+assert(Z.strange.normalizable_packet&&Z.strange.essential_breakup_spectrum);
+assert.equal(Z.strange.on_shell_decay,false);assert.equal(Z.strange.weyl_observer_preparation,false);
+assert.equal(Z.gauge.frame,201);assert.equal(Z.gauge.continuum_4D,false);
+assert(Z.gravity.calibrated_to_observed_G&&!Z.gravity.independent_prediction);
+assert.equal(Z.cosmology.observed_match,false);assert.equal(Z.cosmology.interval_error_certificate,false);
+for(const phrase of ["99.97%","observed G as a hardware calibration","zero-energy self-energy error","2.4–9.2%","same-density","mathematical Weyl"])assert(html.toLowerCase().includes(phrase.toLowerCase()),phrase);
+for(const x of [Z.strange.rest_GeV,Z.strange.packet_mean_GeV])assert(html.includes("["+outwardBox(x,x===Z.strange.rest_GeV?9:12)+"]"));
+for(const row of Z.gauge.records)assert(html.includes("["+outwardBox(row.gap,9)+"]"));
+assert.equal(Z.new_independent_nature_validation,false);
+console.log("Complete dynamics, exact constraints, calibrated gravity and scoped current Results PASS");
