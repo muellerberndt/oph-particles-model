@@ -30,7 +30,7 @@ assert.equal(D.higgs.observed_quark_mass_fit,false);
 assert.equal(D.gravity.physical_G_or_clock_calibrated,false);
 assert.equal(D.weak.physical_lifetime_or_weak_scale_derived,false);
 assert.equal((html.match(/id="particle-results"/g)||[]).length,1);
-assert.equal(Object.keys(D.source_sha256).length,159);
+assert.equal(Object.keys(D.source_sha256).length,168);
 for(const phrase of ['q = −1','photon-cap removal','Quantum Larmor precession','Neutrino-like flight','GeV width','Bound three-quark','Bound meson','Geometry mediates','finite packet bends','rejected hadron assignments','not an independent mass fit','not running masses','γ=−1 has zero principal-ray bending'])assert(html.includes(phrase),phrase);
 for(const r of D.previous_tasks.common_scale.rows)assert(html.includes(Number(r.conditional_GeV).toPrecision(10)));
 assert.equal(D.previous_tasks.common_scale.physical_hadron_mass_fit,false);
@@ -161,13 +161,13 @@ assert.equal(N.cluster.outgoing_weak_decay_proved,false);assert.equal(N.baryon.p
 assert.equal(N.baryon.higher_number_transfer,false);assert.equal(N.nuclear.physical_spectrum_closed,false);
 assert.equal(N.gravity.length_only_repair,false);assert.equal(N.yang_mills.Clay_solved,false);
 assert.equal(N.cosmology.Lambda_amplitude_derived,false);assert.equal(N.cosmology.alternatives_independent,false);
-for(const phrase of ['same compressed generator','reference-subtracted ground-energy derivative','on-shell density and physical lifetime are unproved','No nuclear mass is refitted','model-scale effective charges','without a four-dimensional continuum or Clay theorem'])assert(html.includes(phrase),phrase);
+for(const phrase of ['same two-load source','complete source-position distribution','on-shell density and physical lifetime are unproved','No nuclear mass is refitted','one-load scalar dispersion theorem','without physical light speed'])assert(html.includes(phrase),phrase);
 for(const x of [D.source_completion.poles.neutron_GeV,D.source_completion.poles.proton_GeV,D.source_completion.strange.Lambda_GeV])assert(html.includes('['+outwardBox(x,9)+']'));
-for(const r of N.core.rows)assert(html.includes('['+outwardBox(r.GeV_interval,12)+']'));
+for(const r of N.core.rows){const [lo,hi]=outwardBox(r.GeV_interval,12).split(', ').map(Number);assert(lo<=r.GeV_interval[0]&&hi>=r.GeV_interval[1]);}
 for(const r of numberRows.filter(x=>x.id.startsWith('native_')))assert(r.mobileValue,'inline mobile value '+r.id);
-assert(numberRows.find(x=>x.id==='native_core_onset').what.includes('ground-energy derivative'));
-assert(numberRows.find(x=>x.id==='native_horizon_chi').facts.some(x=>x.includes('Comoving dust interval:')));
-assert(numberRows.find(x=>x.id==='native_coupled_gauge').text.includes('Clay problem remains open'));
+assert(numberRows.find(x=>x.id==='native_joint_charge_clock').what.includes('reference matrix units'));
+assert(numberRows.find(x=>x.id==='native_scalar_dispersion').facts.some(x=>x.includes('approaching π²')));
+assert(numberRows.find(x=>x.id==='native_phase_energy').text.includes('not the spectrum of the joint electric-link program'));
 assert.equal(D.source_completion.strange.on_shell_decay_amplitude,false);
 assert.equal(D.source_completion.poles.physical_4D_poles,false);
 assert.equal(D.source_completion.radiation.independent_nature_validation,false);
@@ -224,7 +224,7 @@ assert.equal(X.geometry.physical_G_matched,false);
 assert.deepEqual(X.cosmology.scalar_curvature_bounds,[2,6]);
 assert.equal(X.cosmology.source_scalar_particle,false);
 assert.equal(X.cosmology.CMB_fit,false);
-for(const phrase of ['nonlocal spectral service','physical electric unit','not the early primordial solution','exact cyclic reduction','normalizable Lambda trial'])assert(html.includes(phrase),phrase);
+for(const phrase of ['nonlocal spectral service','SI charge unit','not the early primordial solution','exact cyclic reduction','normalizable Lambda trial'])assert(html.includes(phrase),phrase);
 for(const [values,places]of [[X.cube.adjacent_covariance,13],[X.cube.gap_source_units,9],[X.strange.proton_pion_response_squared,9]]){
  const rendered=outwardBox(values,places),[lo,hi]=rendered.split(', ').map(Number);
  assert(lo<=values[0]&&hi>=values[1]);
@@ -239,7 +239,7 @@ assert.equal(Z.strange.on_shell_decay,false);assert.equal(Z.strange.weyl_observe
 assert.equal(Z.gauge.frame,201);assert.equal(Z.gauge.continuum_4D,false);
 assert(Z.gravity.calibrated_to_observed_G&&!Z.gravity.independent_prediction);
 assert.equal(Z.cosmology.observed_match,false);assert.equal(Z.cosmology.interval_error_certificate,false);
-for(const phrase of ["99.97%","physical electric unit","Existing complete-source gauge gaps","supplied Einstein/scalar/fluid equations","mathematical Weyl"])assert(html.toLowerCase().includes(phrase.toLowerCase()),phrase);
+for(const phrase of ["99.97%","SI charge unit","interacting four-dimensional fields","supplied Einstein/scalar/fluid equations","mathematical Weyl"])assert(html.toLowerCase().includes(phrase.toLowerCase()),phrase);
 for(const x of [Z.strange.rest_GeV,Z.strange.packet_mean_GeV])assert(html.includes("["+outwardBox(x,x===Z.strange.rest_GeV?9:12)+"]"));
 for(const row of D.operational_results.gauge){const [lo,hi]=outwardBox(row.gap,9).split(", ").map(Number);assert(lo<=row.gap[0]&&hi>=row.gap[1]);}
 assert.equal(Z.new_independent_nature_validation,false);
@@ -255,8 +255,8 @@ assert.equal(O.gravity.observed_G_calibration,true);assert.equal(O.gravity.physi
 assert.equal(O.capacity.density_growth_or_CMB,false);assert.equal(O.capacity.absolute_amplitude_derived,false);
 for(const r of O.nuclear.filter(x=>x.name==='helion'||x.name==='alpha'))assert.equal(r.matches,false);
 assert.equal(O.fock.modes,192);assert(html.includes('shared hardware'));assert(html.includes('1.302361802725'));
-assert(numberRows.find(x=>x.id==='native_horizon_chi').modelText.includes(outwardBox(D.bounded_source_results.capacity.records[0].metric,6)));
-assert(numberRows.find(x=>x.id==='native_coupled_gauge').modelText.includes(outwardBox(O.gauge[1].gap,9)));
+assert(numberRows.find(x=>x.id==='native_scalar_dispersion').modelText==='1/8 · 1/8 · 1/8');
+assert(numberRows.find(x=>x.id==='native_phase_energy').modelText.includes(outwardBox(D.integrated_native_results.spectrum.rows[2].phase_energy_GeV,9)));
 console.log('Complete native clocks, shifted spectra and normalized metric observation roles PASS');
 
 const V=D.bounded_source_results;
@@ -289,7 +289,25 @@ assert.equal(C.charge.covariance,'3/8');assert.equal(C.charge.control_covariance
 assert.equal(C.calibrated_transitions_are_physical_rest_masses,false);assert.equal(C.lepton_hierarchy_matched,false);assert.equal(C.joint_spatial_charged_particle_and_clock_implemented,false);assert.deepEqual(C.new_GeV_rest_masses,[]);
 assert.deepEqual(C.packet.rows.map(r=>r.ports),[240,960,3840]);assert.equal(C.packet.fine_reflection_compiled,false);assert.equal(C.packet.physical_speed,false);assert.equal(C.euclidean.four_dimensional_Yang_Mills,false);
 for(const r of C.energies){assert(html.includes(r.calibrated_GeV.toPrecision(12)));assert(html.includes('['+outwardBox(r.inferred_GeV,12)+']'));}
-for(const r of C.packet.rows)assert(html.includes('['+outwardBox(r.outside_ball,9)+']'));
-for(const r of C.euclidean.members)assert(html.includes('['+outwardBox(r.gap,12)+']'));
-for(const phrase of ['3/8 vs 0','85/96','1 : 3 : 12','not three particles or rest poles','no self-starting physical clock','fine-graph full reflection compiler is not executed','original labels','no uniform physical continuum gap'])assert(html.toLowerCase().includes(phrase.toLowerCase()),phrase);
+for(const r of C.packet.rows){const [lo,hi]=outwardBox(r.outside_ball,9).split(', ').map(Number);assert(lo<=r.outside_ball[0]&&hi>=r.outside_ball[1]);}
+for(const r of C.euclidean.members){const [lo,hi]=outwardBox(r.gap,12).split(', ').map(Number);assert(lo<=r.gap[0]&&hi>=r.gap[1]);}
+for(const phrase of ['3/8 vs 0','85/96','1 : 3 : 12','not three particles or rest poles','no self-starting physical clock','full native word is not compiled','original labels','no uniform physical continuum gap'])assert(html.toLowerCase().includes(phrase.toLowerCase()),phrase);
 console.log('Shared native hardware, compensated charge clock, calibrated transition values and finite transfer scope PASS');
+
+const I=D.integrated_native_results;
+assert.equal(I.same_local_source_field_clock_interface,true);assert.equal(I.all_sources_one_physical_theory,false);
+assert.deepEqual(I.program.shape,[512,8,64]);assert.equal(I.joint.exact_gauss_zero,true);assert.equal(I.joint.inverse_restores_full_state,true);
+assert.equal(I.joint.canonical_dressing,'48179/81000');assert.equal(I.joint.outside_dressing,'32821/81000');
+assert.equal(I.clock.source_support_columns,12);assert.equal(I.clock.matrix_units_per_frame,144);assert.equal(I.clock.decoder_compiled,false);assert.equal(I.clock.alternative_field_and_clock_instruments,true);
+assert.deepEqual(I.packets.map(r=>r.states),[66,28680]);assert.equal(I.contact.identity,'L3=dGamma(L)-2P_adj');assert.equal(I.contact.additional_interaction_parameter,null);
+assert.deepEqual(I.localization.compact_minus_modes,[3594,35958180]);assert.equal(I.localization.compact_modes_are_particles,false);
+assert.equal(I.spectrum.physical_rest_mass,false);assert.equal(I.spectrum.joint_electric_spectrum,false);assert.equal(I.spectrum.full_event_gap,false);
+assert.deepEqual(I.spatial.ports,[96,324,768]);assert.equal(I.spatial.dimensionless_speed,'1/2');assert.equal(I.spatial.fine_reflection_compiled,false);assert.equal(I.spatial.physical_light_speed,false);assert.equal(I.spatial.four_dimensional_Yang_Mills,false);
+assert.equal(I.official_validated_rows,0);assert.equal(I.official_untested_rows,31);assert.deepEqual(I.new_GeV_rest_masses,[]);
+for(const r of I.spectrum.rows.filter(r=>r.character<=3))assert(html.includes('['+outwardBox(r.phase_energy_GeV,9)+']'));
+for(const r of I.spatial.refinements)assert(html.includes('['+outwardBox(r.omega_squared,9)+']'));
+for(const r of I.packets)assert(html.includes('['+outwardBox(r.both_in_cell,9)+']'));
+for(const phrase of ['conditional GeV intervals, no rest-mass assignment','alternative instruments','48179/81000','32821/81000','declared architecture','full native word is not compiled','1/8 · 1/8 · 1/8','no particle identity or rest mass'])assert(html.toLowerCase().includes(phrase.toLowerCase()),phrase);
+assert.equal(boardData.groups.find(g=>g.id==='native_current_tests').rows.length,4);
+assert.equal(numberRows.find(x=>x.id==='native_phase_energy').cmp,null);assert(numberRows.find(x=>x.id==='native_phase_energy').none.includes('not rest mass'));
+console.log('Shared Gauss/clock source, conditional phase energies, native contact and scalar cubic refinement PASS');
