@@ -1,8 +1,8 @@
 export const JOURNEY_RESULTS = {
   "schema": "oph.journey_verified_results.v1",
   "date": "2026-11-13",
-  "source_revision": "bc3d986c0f32e3b0351ba06efa058ed9a0784e62",
-  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/bc3d986c0f32e3b0351ba06efa058ed9a0784e62/",
+  "source_revision": "601de2f88f4edd8520cd8f411e3c60dddc38825d",
+  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/601de2f88f4edd8520cd8f411e3c60dddc38825d/",
   "scope": "Conditional finite constructions; calibration, preparation and physical identification are separate.",
   "leptons": {
     "rows": [

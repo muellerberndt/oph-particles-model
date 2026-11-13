@@ -4,9 +4,9 @@
 // conservative and the permissive reading. proofs: packages model/<name> of the theory repository.
 // OpenWave has awarded OPH no cells: every status here is an estimate of this project.
 export const OPENWAVE = {
- "assessment_sha256": "8dc1cee563ea257642c1f44fa180b75d25f5023c93015482cd1a469f08da1415",
+ "assessment_sha256": "a6cde1ef9e4dd9a47ac92a5e4653306b32b00fe9f906c4770123564102f444c6",
  "upstream_commit": "ef55175d04737e73c92f33f9f9cf3d17c593da54",
- "evaluated_RER_commit": "bc3d986c0f32e3b0351ba06efa058ed9a0784e62",
+ "evaluated_RER_commit": "601de2f88f4edd8520cd8f411e3c60dddc38825d",
  "counts": {
   "met": 18,
   "part": 13,
