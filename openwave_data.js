@@ -4,12 +4,12 @@
 // conservative and the permissive reading. proofs: packages model/<name> of the theory repository.
 // OpenWave has awarded OPH no cells: every status here is an estimate of this project.
 export const OPENWAVE = {
- "assessment_sha256": "739e21de1f0442b909195b0303da015d5be734f5eeb1c8ce24d585482dbe1d93",
+ "assessment_sha256": "8dc1cee563ea257642c1f44fa180b75d25f5023c93015482cd1a469f08da1415",
  "upstream_commit": "ef55175d04737e73c92f33f9f9cf3d17c593da54",
- "evaluated_RER_commit": "2c0e9f6450355b212a04334051722948a28a4f0b",
+ "evaluated_RER_commit": "bc3d986c0f32e3b0351ba06efa058ed9a0784e62",
  "counts": {
-  "met": 12,
-  "part": 19,
+  "met": 18,
+  "part": 13,
   "fails": 0,
   "untested": 0
  },
@@ -72,7 +72,9 @@ export const OPENWAVE = {
     "openwave_localized_rest_packet",
     "openwave_native_beat_clock",
     "openwave_particle_readouts",
-    "openwave_relational_clock"
+    "openwave_relational_clock",
+    "openwave_single_valley_leptons",
+    "openwave_mass_catalogue"
    ]
   },
   {
@@ -173,11 +175,11 @@ export const OPENWAVE = {
   {
    "id": 9,
    "criterion": "Neutrinos (neutral states)",
-   "status": "part",
+   "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "The actual native Dirac current creates light neutral/antineutral channels on the calibrated tensor, with complete active/sterile/helicity records. Native beta has an autonomous full-current finite-time parity response and the meson source has a certified outgoing infinite-line window. These are source-scoped release results; no autonomous released neutrino packet over a physical decay interval is proved.",
-   "next": "Join the native production, propagation and detector over one autonomous decay window with complete reference/work and physical scale ancestry.",
+   "reason": "Actual native light charge-zero Dirac states occur in all nine massive-neutral pair channels of the positive-frequency charged-decay source. A spectral-amplitude theorem controls release/parent relaxation over one and four calibrated weak lifetimes. Native weak-current readouts distinguish neutrino, antineutrino and sterile coordinates. Oscillation inputs, normal ordering and m1=.001eV are disclosed calibrations/choices; no independent absolute-mass prediction is claimed.",
+   "next": "Reproduce the complete emitted-neutral source and current instruments inside OpenWave; a measured beam-event likelihood and unfiltered-contact transfer are additional physical-completion tests.",
    "proofs": [
     "neutrino_mass_response",
     "openwave_baryon_beta",
@@ -197,34 +199,38 @@ export const OPENWAVE = {
     "openwave_neutral_transfer",
     "openwave_neutrino_calibration",
     "openwave_reachable_averaging",
-    "openwave_weak_decay"
+    "openwave_weak_decay",
+    "openwave_lepton_widths",
+    "openwave_neutrino_matter"
    ]
   },
   {
    "id": 10,
    "criterion": "Neutrino oscillations (PMNS)",
-   "status": "part",
+   "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "A full 288-CAR source installs six disclosed normal-ordering oscillation inputs and chosen m1=.001 eV. Its unchanged native weak current, exact massive dispersion and complete flavour/sterile readouts match the calibrated vacuum oscillation law within 4.1e-9 over phase 64pi, including an independently contracted antiparent protocol. Physical beam and matter effects are outside this finite comparison. The permissive estimate accepts the literal three-flavour/PMNS finite mechanism. Central partial credit concerns the physical neutral and controlled production/absorption protocol, not the use of disclosed calibration.",
-   "next": "Port the complete native protocol and close the physical beam/detector/clock dictionary, preserving all six fitted inputs and testing held-out oscillation settings.",
+   "reason": "The actual calibrated Dirac family tensor, native weak-flavour preparation/detection and complete vacuum flight reproduce three-flavour oscillations with the supplied PMNS angles and mass splittings. Native electron-current contractions additionally give the matter potential and complete finite medium records with a controlled mean-law limit. Fitted angles are allowed disclosed inputs; this literal mechanism is executed rather than only postulated.",
+   "next": "Reproduce the native flavour instruments and vacuum/matter laws in-platform, retaining calibration ancestry, all electron-spin/sterile outputs and the forward-port source boundary; physical beam data comparison is separate.",
    "proofs": [
     "native_flavour_transport",
     "neutrino_mass_observables",
     "openwave_dirac_neutral_current",
     "openwave_neutral_flight",
     "openwave_neutrino_calibration",
-    "openwave_neutrino_oscillation"
+    "openwave_neutrino_oscillation",
+    "openwave_neutrino_matter",
+    "openwave_lepton_widths"
    ]
   },
   {
    "id": 11,
    "criterion": "Lepton mass spectrum (μ, τ)",
-   "status": "part",
+   "status": "met",
    "low": "part",
-   "high": "part",
-   "reason": "The conditional native analyzer produces charged ratios1:206.77031597:3477.47283710 and their electron-calibrated GeV values with retained muon9.83 ppm discrepancy and retrospective phase/balance ancestry. All three Dirac branches coexist with calibrated neutrals and strong matter in a positive192-CAR source. This does not make the ratios independent blind predictions.",
-   "next": "Test an eligible held-out charged-lepton comparison and close physical identification/renormalization on the same full interacting source.",
+   "high": "met",
+   "reason": "The full native Higgs-Wilson source proves exactly one charged minimum per family and exactly three colourless charged Dirac families. Its ratios1:206.77031597:3477.47283710 meet the stated approximate1:207:3477 target. All neutral valleys and charged corner saddles are retained. Electron anchoring and retrospective phase2/9 are disclosed; the9.83ppm muon discrepancy and physical pole identification are separate precision tests.",
+   "next": "Reproduce the complete charged-minimum census and instruments in-platform. Derive or test interaction corrections against the precision muon ratio without reusing that target to claim an independent prediction.",
    "proofs": [
     "lepton_mass_compiler",
     "lepton_register_round",
@@ -234,7 +240,9 @@ export const OPENWAVE = {
     "openwave_kinetic_phase_cycle",
     "openwave_lepton_mass_shell",
     "openwave_lepton_phase_cycle",
-    "openwave_vectorlike_flavour"
+    "openwave_vectorlike_flavour",
+    "openwave_single_valley_leptons",
+    "openwave_mass_catalogue"
    ]
   },
   {
@@ -252,17 +260,19 @@ export const OPENWAVE = {
     "openwave_full_higgs_floor",
     "openwave_quark_strings",
     "particle_primary_charged_string",
-    "openwave_vectorlike_flavour"
+    "openwave_vectorlike_flavour",
+    "openwave_colour_string",
+    "openwave_common_electromagnetism"
    ]
   },
   {
    "id": 13,
    "criterion": "Baryons: bound state (p, n)",
-   "status": "part",
+   "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "Complete native three-quark singlets and their exact spectra persist on the four-input axial action. A positive edge-colour square controls disconnected coloured-copy thresholds but vanishes on globally singlet separated quark-diquark states within the original edge. Actual multi-cell colour costs and full singlet spectra supply a spatial interaction; continuum binding identification remains unproved.",
-   "next": "Prove physical source-localized baryon binding against spatial fragmentation and continuum/volume changes, preserving the calibrated current and all competitor states.",
+   "reason": "An actual native three-quark colour singlet is a stationary bound composite, with complete baryon spectra and constituent-fragment controls. Exact Gauss elimination gives a linear relative-separation cost and a chain-length-independent confinement bound. Fixed-law2–5-cell executions retain all120/364/816/1540singlet states, preparation failures and unresolved edge clusters. This meets the literal stable-three-quark minimum; graph-dependent masses/gA and continuum poles are not identified with nature.",
+   "next": "Reproduce the full three-quark carrier, fragment and Gauss-string records in-platform. Extend to pair creation, common physical lengths and scattering before claiming a physical continuum nucleon.",
    "proofs": [
     "correlated_hadron_spectrum",
     "openwave_axial_state",
@@ -271,7 +281,10 @@ export const OPENWAVE = {
     "openwave_composite_scale",
     "openwave_native_composites",
     "openwave_nuclear_distance",
-    "quenched_hadron_binding"
+    "quenched_hadron_binding",
+    "openwave_spin_gradient_nuclei",
+    "openwave_colour_string",
+    "openwave_rest_spectroscopy"
    ]
   },
   {
@@ -287,7 +300,9 @@ export const OPENWAVE = {
     "openwave_calibrated_hadrons",
     "openwave_composite_scale",
     "openwave_vectorlike_flavour",
-    "quark_flavour_resolution"
+    "quark_flavour_resolution",
+    "openwave_rest_spectroscopy",
+    "openwave_common_electromagnetism"
    ]
   },
   {
@@ -296,7 +311,7 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The same native strong action fits p,n,charged pion and the axial magnitude with four disclosed inputs. Full weak-contact398/102 spin blocks have complete certified spectral measures; substantial neutron lines give positive charged-energy budgets, while means shift∓7.984keV on the filled reference. A distinct coherent192-CAR Dirac reference preserves calibrated means with rigorous finite energy windows. Neither result identifies physical interacting poles.",
+   "reason": "Proton/neutron/pion strong energies are calibrated on one electron unit. Adding the full weak contact gives complete neutron lines near0.9395478469,0.9395707312,0.9395801015GeV and a dominant proton line0.93827994174GeV, read through complete finite Fourier instruments. These calculated spectra are not identified physical continuum poles or independent calibrated-mass predictions.",
    "next": "Establish physical rest/pole records, source/reference and volume transfer with fitted covariance; keep filled-reference lines distinct from Gaussian-reference means.",
    "proofs": [
     "correlated_hadron_spectrum",
@@ -307,7 +322,10 @@ export const OPENWAVE = {
     "openwave_composite_scale",
     "openwave_dressed_baryon_lines",
     "openwave_hadron_spin_constraints",
-    "openwave_vectorlike_flavour"
+    "openwave_vectorlike_flavour",
+    "openwave_rest_spectroscopy",
+    "openwave_mass_catalogue",
+    "openwave_common_electromagnetism"
    ]
   },
   {
@@ -316,13 +334,15 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "The four-input axial action has complete evenS1/I0 and oddS0/I0 six-quark lines about.19121 MeV above breakup. A separate fifth-input edge-current control fits2.22456640 MeV binding but also binds the extra odd channel. Earlier common-action binding/positive intrinsic quadrupole mechanisms remain source-scoped evidence. No single member matches all deuteron properties.",
+   "reason": "The five-input positive spin-gradient member fits the2.22456640MeV deuteron binding and has a positive graph quadrupole. Both targeted odd channels are above compatible two-nucleon thresholds, but an unassigned spin-three bound channel is retained. The shared-length quadrupole/string-tension test fails in this transfer family; no complete physical deuteron assignment is claimed.",
    "next": "Resolve the extra bound state and derive binding/quadrupole on one physically calibrated spatial interaction; retain failed four-input and fitted fifth-input controls.",
    "proofs": [
     "openwave_nuclear_distance",
     "openwave_nuclear_exchange",
     "openwave_nuclear_refinement",
-    "openwave_six_quark"
+    "openwave_six_quark",
+    "openwave_spin_gradient_nuclei",
+    "openwave_colour_string"
    ]
   },
   {
@@ -337,7 +357,9 @@ export const OPENWAVE = {
     "openwave_nuclear_distance",
     "openwave_nuclear_exchange",
     "openwave_nuclear_refinement",
-    "openwave_six_quark"
+    "openwave_six_quark",
+    "openwave_spin_gradient_nuclei",
+    "openwave_colour_string"
    ]
   },
   {
@@ -357,7 +379,9 @@ export const OPENWAVE = {
     "openwave_meson_weak_current",
     "openwave_native_composites",
     "pion_mass_readout",
-    "quenched_hadron_binding"
+    "quenched_hadron_binding",
+    "openwave_colour_string",
+    "openwave_spin_gradient_nuclei"
    ]
   },
   {
@@ -402,25 +426,29 @@ export const OPENWAVE = {
    "status": "part",
    "low": "part",
    "high": "part",
-   "reason": "A controlled eight-valley relativistic limit and finite dynamical error bounds exist; the regulator has a preferred frame.",
+   "reason": "The common longitudinal matter member has an exact charged one-particle reducing sector with executed complete Taichi records, speed bound and quadratic mass-shell/record refinement errors. The positive square-root kinetic law is declared; its preferred frame is retained. No unitary finite-grid Lorentz action, interacting contraction or physical continuum is established.",
    "next": "Demonstrate boosted interacting particle readouts and common speed with controlled regulator errors.",
    "proofs": [
     "source_mass_shell",
-    "openwave_field_observables"
+    "openwave_field_observables",
+    "openwave_boosted_records",
+    "openwave_single_valley_leptons",
+    "openwave_common_electromagnetism"
    ]
   },
   {
    "id": 22,
    "criterion": "Strong force: confinement",
    "status": "part",
-   "low": "untested",
+   "low": "part",
    "high": "part",
-   "reason": "The actual native colour isometry yields C_X²=(2/3)n_X(3−n_X). A positive edge-colour law on the four-cycle gives adjacent quark-diquark cost8kappa/3 and opposite16kappa/3, with complete spatial singlet spectra and occupation records. This is finite-range colour attraction; no continuum linear potential, string breaking or physical tension is established. The edge control saturates at nonadjacent separations on a regular cycle, so it is not a linear-confinement result. Existing separate Wilson-source evidence supports central/permissive partial coverage; the conservative estimate remains untested.",
-   "next": "Test increasing separations and volume on the same source, derive the asymptotic potential and string breaking, and attach tension with explicit physical calibration.",
+   "reason": "The native Gauss source gives exactly V=(4kappa/3)span on every three-quark singlet, with complete fixed-law chain spectra and a uniform relative-confinement bound. A common physical-length test fails: quadrupole matching gives0.00360537GeV/fm at kappa4, and every positive transferred local coefficient gives tension below0.428678GeV/fm versus the illustrative1GeV/fm benchmark. This is a scoped strong-source result, not the physical tension match.",
+   "next": "Construct a common spatial strong source that passes both physical quadrupole and tension scales, with pair creation/string breaking and refinement; do not independently choose lengths for the two observables.",
    "proofs": [
     "colour_deconfinement",
     "openwave_nuclear_distance",
-    "quenched_hadron_binding"
+    "quenched_hadron_binding",
+    "openwave_colour_string"
    ]
   },
   {
@@ -441,11 +469,11 @@ export const OPENWAVE = {
   {
    "id": 24,
    "criterion": "Weak force: muon decay",
-   "status": "part",
+   "status": "met",
    "low": "part",
-   "high": "part",
-   "reason": "Full-current prepared-domain averaging and the native charged/neutral source provide finite conversion with retained spectators. Exact meson memory/family reduction additionally certifies nonzero infinite-line emission at t.1 including numeric, feedback and volume error. The calibrated neutral source gives actual massive neutrino channels. These distinct-source finite results do not establish a physical muon lifetime.",
-   "next": "Establish a controlled irreversible outgoing-volume window and empirical weak-clock calibration on the full native muon source, preserving separate positive-frequency controls.",
+   "high": "met",
+   "reason": "The unchanged native family current of the declared positive-frequency source produces a lighter charged state and all massive neutrino/antineutrino channels. Exact spin/phase-space factors give the GeV width; a squared-mass spectral bound transfers controlled finite-lifetime relaxation to the massive source. GF is calibrated with muon-lifetime ancestry; the tree lifetime differs by-0.4247percent without radiative corrections. The literal decay mechanism is satisfied without claiming an independent precision lifetime.",
+   "next": "Reproduce complete finite decay records and the massive survival certificate in-platform; add electromagnetic radiative terms on the same source and test a held-out normalization. Do not treat GF-calibrated lifetime agreement as an independent prediction.",
    "proofs": [
     "native_weak_current_response",
     "openwave_current_averaging",
@@ -455,17 +483,19 @@ export const OPENWAVE = {
     "openwave_meson_ring",
     "openwave_neutrino_calibration",
     "openwave_reachable_averaging",
-    "openwave_weak_decay"
+    "openwave_weak_decay",
+    "openwave_lepton_widths",
+    "openwave_mass_catalogue"
    ]
   },
   {
    "id": 25,
    "criterion": "Weak force: beta decay (n → p)",
-   "status": "part",
+   "status": "met",
    "low": "part",
    "high": "met",
-   "reason": "One four-input native strong action matches the axial magnitude through split-site states with unchanged weak current. Its full semileptonic Dirac-ring extension has actual n→p+e+antineutral records and a strictly nonzero momentum-parity contrast certified against every multipair channel. Scalar parity-zero, filled-reference shifts and failed local gA controls are retained. The result is finite1D, with no physical neutron pole,3D angular spectrum or weak lifetime claim. The permissive estimate accepts the literal native conversion plus parity minimum. A measured lifetime is not an extra basic-criterion requirement; central partial credit concerns finite1D momentum, species identification and physical release.",
-   "next": "Port the complete same-source beta instrument; establish physical neutron identity,3D angular/energy records and an autonomous release window, with weak scale and calibration ancestry explicit.",
+   "reason": "The selected calibrated spin-gradient baryon state and unchanged native current execute the energetically allowed electron/antineutral channel with a certified parity-odd full-unitary statistic on3D cubes. Actual native vector/axial contractions give point-contact a,A,B,D, with precision discrepancies retained. Complete energy-line and Fourier-pointer records include every preparation/virtual complement. This satisfies the literal channel-plus-parity minimum; neither a physical878s lifetime nor a continuum pole is inferred.",
+   "next": "Reproduce the selected-source3D current, full-Fock parity certificate and complete energy records in-platform. Derive a physical outgoing neutron lifetime and recoil/radiative angular corrections on one reference; do not substitute point-contact coefficients for finite-contact records.",
    "proofs": [
     "openwave_axial_state",
     "openwave_baryon_beta",
@@ -473,7 +503,10 @@ export const OPENWAVE = {
     "openwave_baryon_weak_formfactors",
     "openwave_beta_outgoing",
     "openwave_dressed_baryon_lines",
-    "openwave_vectorlike_flavour"
+    "openwave_vectorlike_flavour",
+    "openwave_beta_angular",
+    "openwave_rest_spectroscopy",
+    "openwave_spin_gradient_nuclei"
    ]
   },
   {
@@ -560,7 +593,8 @@ export const OPENWAVE = {
     "openwave_kinetic_phase_cycle",
     "openwave_lepton_mass_shell",
     "openwave_platform_kernel",
-    "source_mass_shell"
+    "source_mass_shell",
+    "openwave_boosted_records"
    ]
   },
   {

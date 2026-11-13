@@ -1,50 +1,56 @@
-// Source-bound additions to the existing Fable data model. No layout or simulation changes.
+// Source-bound data hooks preserve the existing Fable renderer and navigation.
 import { JOURNEY_RESULTS as D } from './journey_results_data.js';
 import { OPENWAVE } from './openwave_data.js';
-const C=D.current_tasks,N=D.latest_tasks;
-const proof=(key)=>['Proof and complete records',D.source_repository+D.source_paths[key].replace(/results\.json$/, 'PROOF.md')];
-const status=(id)=>OPENWAVE.rows.find(r=>r.id===id)?.status;
-const kind=(id)=>status(id)==='met'?'seen':'part';
-const pct=(v)=>(100*v).toFixed(3);
-const fitMass=(name)=>Number(C.calibrated_hadrons.fits.find(r=>r.comparison===name).computed_GeV).toFixed(11);
-const bindingMeV=()=> (1000*C.nuclear_exchange.binding_lower_GeV).toFixed(4);
-const observedBindingMeV=()=> (1000*C.nuclear_exchange.deuteron_reference_binding_GeV).toFixed(4);
+const T=D.particle_results;
+const proof=key=>['Proof and complete records',D.source_repository+D.source_paths[key].replace(/results\.json$/, 'PROOF.md')];
+const status=id=>OPENWAVE.rows.find(r=>r.id===id)?.status;
+const kind=id=>status(id)==='met'?'seen':status(id)==='fails'?'fails':'part';
+const mass=name=>T.strong.mass_fits.find(r=>r.name===name).target_GeV.toFixed(11);
+const mid=xs=>(xs[0]+xs[1])/2;
 export const CONSTRUCTION_SUMMARIES={
- 9:'A calibrated Dirac family tensor reproduces the named oscillation inputs in native current/flight records. Its three absolute masses use a declared lightest-mass choice; right-handed coordinates share those masses.',
- 13:'The calibrated strong source retains colour-neutral spin-½ bound three-quark channels of charge 0 and +1.',
- 14:'The neutron-assigned channel is heavier; proton and neutron masses are fitted in the same strong construction.',
- 15:`Proton ${fitMass('proton')} GeV and neutron ${fitMass('neutron')} GeV are calibration targets, together with the charged pion. A fourth calibration input gives native gA=1.2753 through a changed baryon state; other hadron tests retain their separate failures.`,
- 16:`A separate fifth-input source fits the deuteron binding ${N.nuclear_distance.deuteron_target_binding_MeV.toFixed(8)} MeV but also binds an unassigned spin-zero/isospin-zero partner. The four-input source is unbound in this channel.`,
- 17:'Finite graph controls reveal distance-dependent attraction and retained unassigned channels. Changing the graph also changes the fitted baryon state; the observed heavier-nuclear spectrum is not reproduced.',
- 18:`The charged-pion mass is calibrated to ${fitMass('charged_pion')} GeV. Neutral-pion and vector-meson tests fail; finite weak conversion changes strongly with volume.`,
- 24:'The native lepton transition now has a useful error bound at a coupling 2⁴² times stronger. Physical lifetimes remain open.',
- 25:'The unchanged native current gives calibrated gA=1.2753 in a split-site baryon state. Contact-dressed energy lines and a certified parity-odd beta momentum record are calculated; a physical neutron lifetime is not fitted.',
- 27:'Joint native clocks and wave arrivals share one quantum geometry. Finite-strength responses differ, while an exact weak-probe theorem gives a common operational clock limit; physical G and seconds are uncalibrated.'
+ 9:'Three calibrated Dirac mass branches occur in the native current and complete neutral records. Right-handed components share these masses; the lightest mass is declared.',
+ 10:'The calibrated family tensor reproduces its vacuum law and native electron-medium response, with all flavour, sterile and failure outputs retained.',
+ 11:`Exactly three colourless charged minima have rest energies ${T.leptons.rows.map(r=>r.mass_GeV.toPrecision(12)).join(', ')} GeV. The electron anchors the unit; the analyzer phase has retrospective ancestry.`,
+ 13:'The positive spin-gradient source has colour-singlet native three-quark channels, with complete sector and fragment bounds.',
+ 14:'The neutron-assigned channel is heavier. The proton/neutron masses and their difference are calibrated inputs of the same strong construction.',
+ 15:`Proton ${mass('proton')} GeV and neutron ${mass('neutron')} GeV are fitted strong-sector energies; full interacting poles require their stated spectral tests.`,
+ 16:`Five-input positive strong action: deuteron binding ${T.strong.binding_target_MeV.toFixed(8)} MeV is calibrated. The tested spin-zero partner is above breakup; an unassigned spin-three bound channel is retained.`,
+ 17:'Complete finite nuclear channels and source-matched rest-energy instruments retain all extra levels and failures. A physical heavier-nuclear spectrum is not identified.',
+ 18:`The charged pion is fitted to ${mass('charged_pion')} GeV. This does not close the neutral-pion, vector-meson, kaon or strange-decay dictionary.`,
+ 21:'The shared longitudinal matter source has moving complete records with an explicit quadratic continuum error. Its square-root kinetic is nonlocal and retains a finite preferred frame.',
+ 22:`Native Gauss elimination gives an exact linear colour-string cost of ${T.colour_string.slope_GeV_per_cell.toFixed(9)} GeV per graph cell. The shared quadrupole/length test cannot reach the 1 GeV/fm tension benchmark within this positivity-preserving transfer family.`,
+ 24:`The native tau leptonic ratio is ${T.widths.ratio.native_ratio.toFixed(8)}, versus ${T.widths.ratio.PDG2025_comparison}±${T.widths.ratio.PDG2025_uncertainty}. Massive muon survival has a controlled finite-time bound; G_F is a supplied normalization with lifetime ancestry.`,
+ 25:`A complete native spin contraction gives A=${Number(T.beta.coefficients.A).toFixed(8)} and actual 3D cubes certify parity-odd beta records. Axial strength is calibrated; a physical neutron lifetime is not claimed.`,
+ 27:'Joint native clocks and wave arrivals share quantum geometry. A weak-probe theorem gives a common operational clock limit; physical G and seconds are uncalibrated.'
 };
 export function applyConstructionEvidence(groups){
  const updates={
-  baryon:{ow:13,tip:'Three quarks bind in the calibrated strong source into colour-neutral spin-½ channels of charge zero and one.',open:'Three masses and the axial magnitude calibrate the stated four-input action; other hadron assignments retain their failures.',src:[proof('axial_state')]},
-  order:{ow:14,tip:'The same calibrated strong action gives the heavier neutron-assigned channel and the proton–neutron mass gap.',open:'The ordering and mass gap are fitted inputs here; a physical weak pole and decay lifetime are not established.',src:[proof('calibrated_hadrons'),proof('baryon_beta')]},
-  meson:{ow:18,tip:`The charged-pion assignment is calibrated to ${fitMass('charged_pion')} GeV. A separate full-ring weak-current calculation retains all conversion outputs.`,open:'Neutral-pion, vector and Delta held-out assignments fail; a physical meson lifetime is not reproduced.',src:[proof('calibrated_hadrons'),proof('meson_ring')]},
-  deuteron:{ow:16,value:'binding fit, extra partner',tip:`A separate fifth-input source fits ${N.nuclear_distance.deuteron_target_binding_MeV.toFixed(8)} MeV binding and retains an unassigned partner near ${N.nuclear_distance.unassigned_partner_binding_MeV.toFixed(8)} MeV.`,open:'The four-input source is unbound in this channel. The added fit does not reproduce the complete observed nuclear spectrum or identify a physical deuteron.',src:[proof('nuclear_distance')]},
-  neutrino:{ow:9,value:'3 oscillation-calibrated Dirac branches',tip:'A named six-parameter oscillation calibration gives masses 0.001, 0.00871206 and 0.05013980 eV for the declared lightest-mass choice. Native current and flight retain neutrinos, antineutrinos, both helicities and sterile coordinates.',open:'Mixing and mass splittings are fitted inputs; absolute lightest mass, physical beam, matter response and lifetimes need their own comparison.',src:[proof('neutrino_calibration')]},
-  muondecay:{ow:24,tip:'The unchanged native current has a certified receiver peak near 16/25 at G=2⁻³⁰, 2⁴² stronger than the previous estimate allowed.',open:'The coupling is specified; the physical muon lifetime remains open.',src:[proof('reachable_averaging')]},
-  slow:{ow:27,value:'native clock phase responds',tip:'The full quantum source measures a positive arrival-clock phase response. Its complete clock and wave records share the same master source.',open:'Physical seconds and Einstein proper time are not calibrated; finite-strength clock shifts are not exactly universal.',src:[proof('joint_native_clocks'),proof('relational_clock')]},
-  bend:{ow:27,tip:'The same quantum geometry and wave source bends a packet and delays its arrival. A native clock measures a positive arrival delay in cycles.',open:'No observed lensing angle or physical G is fitted.',src:[proof('geometry_refinement'),proof('relational_clock')]}
+  gen:{ow:11,value:'3',tip:'The complete native Higgs-Wilson source has exactly three colourless charged minima, with the stated electron, muon and tau assignments.',open:'The electron fixes the energy unit and the analyzer phase has retrospective ancestry. Neutral regulator valleys remain in this source.',src:[proof('single_valley_leptons')]},
+  boost:{ow:21,value:'controlled complete records',tip:'The longitudinal matter source has moving complete detector records with a proved continuum error and an actual OpenWave Taichi execution.',open:'The square-root kinetic is nonlocal and the finite regulator has a preferred frame. Full interacting Lorentz covariance is not proved.',src:[proof('boosted_records')]},
+  confine:{ow:22,name:'Native colour-string energy',value:T.colour_string.slope_GeV_per_cell.toFixed(9)+' GeV/cell',tip:'Exact Gauss elimination gives a linear separation cost in the declared one-dimensional colour-chain source, with complete native fragment bounds.',open:'The shared quadrupole/length test cannot reach the supplied 1 GeV/fm tension benchmark in this positivity-preserving transfer family; this is not a continuum QCD identification.',src:[proof('colour_string')]},
+  baryon:{ow:13,tip:'Colour-neutral three-quark channels of charge 0 and +1 belong to the complete positive strong source.',open:'Five inputs calibrate the stated hadron/nuclear construction; these fits are not independent mass predictions.',src:[proof('spin_gradient_nuclei')]},
+  order:{ow:14,tip:'The native neutron-assigned energy exceeds the proton-assigned energy on the same strong action.',open:'The mass difference is a calibration input; strong energies are distinct from full weak-contact poles.',src:[proof('spin_gradient_nuclei'),proof('rest_spectroscopy')]},
+  meson:{ow:18,tip:`The charged-pion assignment is calibrated to ${mass('charged_pion')} GeV. Complete meson charge spectra retain every channel.`,open:'The neutral-pion/vector/kaon spectrum and physical strange decay are not identified.',src:[proof('spin_gradient_nuclei')]},
+  deuteron:{ow:16,value:T.strong.binding_target_MeV.toFixed(8)+'MeV binding, fitted',tip:`Rest energy≈${mid(T.strong.deuteron_energy_GeV_interval).toFixed(11)} GeV. The tested spin-zero/isospin-zero partner lies ${mid(T.strong.partner_above_threshold_MeV_interval).toFixed(5)} MeV above breakup.`,open:'The deuteron binding is fitted, and λ=5/2 was selected retrospectively using unwanted-channel tests. The quadrupole is positive in graph units without a femtometre assignment; an unassigned spin-three bound channel is retained.',src:[proof('spin_gradient_nuclei')]},
+  neutrino:{ow:9,value:'3 calibrated Dirac mass branches',tip:T.neutrinos.rows.map((r,i)=>`m${i+1}=${r.mass_GeV.toPrecision(8)} GeV`).join('; '),open:'Oscillation inputs and the declared lightest mass set these conditional values. Right-handed components do not add a heavy sterile species.',src:[proof('neutrino_calibration'),proof('neutrino_matter')]},
+  muondecay:{ow:24,value:'native inclusive weak decay',tip:`Tree width ${T.widths.rows[0].width_GeV.toPrecision(7)} GeV; characteristic time ${(T.widths.rows[0].characteristic_seconds*1e6).toFixed(6)} μs with supplied G_F. Massive survival has a controlled four-lifetime window.`,open:'G_F has muon-lifetime ancestry. Electromagnetic radiative terms are absent, so the precision observed lifetime is not independently reproduced.',src:[proof('lepton_widths')]},
+  slow:{ow:27,value:'native clock phase responds',tip:'Complete clock and wave-arrival records share one quantum source.',open:'Physical seconds and G are not calibrated; finite-strength clock shifts are not exactly universal.',src:[proof('joint_native_clocks'),proof('relational_clock')]},
+  bend:{ow:27,tip:'Quantum geometry bends a finite packet and delays its arrival, with native clock records.',open:'No observed lensing angle or physical G is fitted.',src:[proof('geometry_refinement'),proof('relational_clock')]}
  };
  for(const g of groups)for(const r of g.rows){const u=updates[r?.id];if(u)Object.assign(r,u,{kind:kind(u.ow)});}
- const numberGroup=groups.find(g=>g.id==='numbers');
- const names={proton:'Proton mass, calibrated',neutron:'Neutron mass, calibrated',charged_pion:'Charged-pion mass, calibrated'};
- for(const r of C.calibrated_hadrons.fits)numberGroup.rows.push({id:'calibrated_'+r.comparison,ow:r.comparison==='charged_pion'?18:15,kind:'number',name:names[r.comparison],value:Number(r.computed_GeV).toFixed(11),unit:'GeV',nature:r.target_GeV,natureWord:'fit target',dev:'calibrated',page:'constructions',tip:'Three masses fix three coefficients of one stated strong action. Reproducing these inputs is a calibration, not an independent prediction. Held-out neutral-pion, vector and Delta assignments fail.',src:[proof('calibrated_hadrons')]});
- numberGroup.rows.push({id:'axial_calibrated',ow:25,kind:'number',name:'Native axial strength, calibrated',value:'1.2753',unit:'',nature:1.2753,natureWord:'fit target',dev:'calibrated',page:'constructions',tip:'A fourth empirical input selects the split-site baryon state; the native weak current itself is unchanged.',src:[proof('axial_state')]});
+ const numbers=groups.find(g=>g.id==='numbers');
+ const names={proton:'Proton strong energy, calibrated',neutron:'Neutron strong energy, calibrated',charged_pion:'Charged-pion energy, calibrated'};
+ for(const r of T.strong.mass_fits)numbers.rows.push({id:'calibrated_'+r.name,ow:r.name==='charged_pion'?18:15,kind:'number',name:names[r.name],value:r.target_GeV.toFixed(11),unit:'GeV',nature:r.target_GeV,natureWord:'fit target',dev:'calibrated',page:'constructions',tip:'One positive native strong action uses five disclosed mass/current/binding inputs. These fitted energies are not full interacting pole predictions.',src:[proof('spin_gradient_nuclei')]});
+ numbers.rows.push({id:'axial_calibrated',ow:25,kind:'number',name:'Native axial magnitude, calibrated',value:mid(T.strong.gA_interval).toFixed(4),unit:'',nature:1.2753,natureWord:'fit target',dev:'calibrated',page:'constructions',tip:'The native current is unchanged; the calibrated source changes its baryon state.',src:[proof('spin_gradient_nuclei')]});
+ numbers.rows.push({id:'tau_leptonic_ratio',ow:24,kind:'number',name:'Tau leptonic partial-width ratio',value:T.widths.ratio.native_ratio.toFixed(8),unit:'',nature:T.widths.ratio.PDG2025_comparison,natureWord:'held-out comparison',dev:Math.abs(T.widths.ratio.difference_in_reported_uncertainties_diagnostic).toFixed(2)+'σ',page:'constructions',tip:'The tau-to-muon/electron leptonic ratio cancels the supplied weak normalization; its comparison did not select a source parameter. Radiative corrections are absent.',src:[proof('lepton_widths')]});
  const composite=groups.find(g=>g.rows.some(r=>r?.id==='baryon'));
- composite.rows.push({id:'beta',ow:25,kind:kind(25),name:'Native neutron-channel conversion',value:pct(C.beta.conditional_one_electron_probability)+'% conditional',text:true,page:'constructions',tip:`Original-input probability ${pct(C.beta.unconditional_one_electron_probability)}% at source parameter ${C.beta.source_parameter}. The strong/free endpoint is ${(1000*C.beta.endpoint_GeV).toFixed(11)} MeV; filled-neutral weak-contact shifts are retained.`,open:'This mass-only-source conversion is a separate control. The four-input source fits gA and has a certified parity-odd momentum record, without a physical lifetime fit.',src:[proof('baryon_beta'),proof('axial_state'),proof('beta_parity')]});
+ composite.rows.push({id:'beta',ow:25,kind:kind(25),name:'Native parity-violating beta records',value:'A='+Number(T.beta.coefficients.A).toFixed(8),text:true,page:'constructions',tip:'The native point-contact spin coefficient and complete 3D momentum records use the calibrated baryon current; all preparation and Fock complements remain.',open:'The finite angular source is not identified with a physical continuum neutron beam or measured lifetime.',src:[proof('beta_angular')]});
 }
 export function updateConstructionOpenItems(open){
  const updates={
-  nucleon_mass:{title:'Independent hadron mass predictions',sub:'three strong masses now calibrate the source; neutral-pion, vector and Delta held-out assignments still fail'},
-  beta:{title:'A physical neutron lifetime',sub:'the native axial strength is calibrated by changing the baryon state; outgoing parity and full energy lines are calculated, without a lifetime fit'},
-  nuclei:{title:'The observed nuclear spectrum',sub:'a separate binding fit retains an extra unassigned bound partner; graph changes alter the baryon state and masses'}
+  nucleon_mass:{title:'Independent interacting hadron masses',sub:'fitted strong energies and complete rest-energy records coexist; physical contact-dressed poles and held-out meson assignments require their own comparison'},
+  beta:{title:'A physical neutron lifetime',sub:'native 3D parity records and angular coefficients use calibrated axial strength; a measured lifetime and outgoing continuum identification are not supplied'},
+  nuclei:{title:'The observed nuclear spectrum',sub:'the selected source fits deuteron binding and excludes the tested spin-zero partner; an unassigned spin-three channel and physical length calibration require resolution'}
  };
  for(const r of open)if(updates[r.id])Object.assign(r,updates[r.id]);
 }
