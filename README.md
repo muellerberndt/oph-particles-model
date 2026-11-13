@@ -3,17 +3,11 @@
 **OPH is a rigorous, consistent and complete description of the unified, self-creating computational Universe we inhabit.**
 
 <p align="center">
-  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Watch a universe make its own particles: 81,920 observers run one local repair rule, and the particle families of the Standard Model come out. 71 matches with our universe. Open the live simulation at particles.floatingpragma.ai." width="100%"></a>
+  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Watch a universe make its own particles: 81,920 observers run one local repair rule, and the particle families of the Standard Model come out. Open the live simulation at particles.floatingpragma.ai." width="100%"></a>
 </p>
 
 <h3 align="center">▶ <a href="https://particles.floatingpragma.ai/">particles.floatingpragma.ai</a></h3>
 <p align="center"><a href="https://particles.floatingpragma.ai/?page=journey">The journey</a> · <a href="https://particles.floatingpragma.ai/?page=matches">Matches with our universe</a> · <a href="https://particles.floatingpragma.ai/about.html">About</a> · <a href="https://philpapers.org/rec/MUEFOC">Main paper</a> · <a href="https://github.com/FloatingPragma/observer-patch-holography">Theory repository</a></p>
-
-## 71 matches with our universe
-
-<a href="https://particles.floatingpragma.ai/?page=matches"><img src="assets/matches-to-nature.jpg" alt="The matches page: 71 matches with our universe, 40 properties and laws that are the same and 31 numbers beside their measured values." width="100%"></a>
-
-One row per match: on the left what the simulation gives, on the right our universe. Every row links to the code, proof and paper behind it.
 
 ## This repository
 
