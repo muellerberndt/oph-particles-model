@@ -1,8 +1,8 @@
 export const JOURNEY_RESULTS = {
   "schema": "oph.journey_verified_results.v1",
   "date": "2026-11-13",
-  "source_revision": "a32011e2017dd51ff6e01e91e5a18d0806b0dd90",
-  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/a32011e2017dd51ff6e01e91e5a18d0806b0dd90/",
+  "source_revision": "452ef493cef02cf2339629d17b272ca1435f5006",
+  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/452ef493cef02cf2339629d17b272ca1435f5006/",
   "scope": "Conditional finite constructions; calibration, preparation and physical identification are separate.",
   "leptons": {
     "rows": [
@@ -5619,7 +5619,309 @@ export const JOURNEY_RESULTS = {
     "new_independent_nature_validation": false,
     "official_untested_rows": 31
   },
+  "integrated_native_results": {
+    "program": {
+      "shape": [
+        512,
+        8,
+        64
+      ],
+      "primary_two_load_states": 66,
+      "same_program_sha256": "e53eff6d86fe7d63ba4d5f8d2e307cbee9538c5ad121693d11b8c8b8546fc082",
+      "original_commit_records": 750,
+      "compiler": [
+        {
+          "events": 60,
+          "padded": 64,
+          "pulses": 2764,
+          "operator_bound": [
+            5.528591477144009e-08,
+            5.52859147714401e-08
+          ],
+          "direct_stored_columns": 64
+        },
+        {
+          "events": 120,
+          "padded": 128,
+          "pulses": 6668,
+          "operator_bound": [
+            1.3336683899515524e-07,
+            1.333668389951553e-07
+          ],
+          "direct_stored_columns": 128
+        },
+        {
+          "events": 1260,
+          "padded": 2048,
+          "pulses": 180237,
+          "operator_bound": [
+            3.6047634533863784e-06,
+            3.6047634533863792e-06
+          ],
+          "direct_stored_columns": 0
+        }
+      ]
+    },
+    "joint": {
+      "exact_gauss_zero": true,
+      "source_field_rows": [
+        720,
+        720,
+        7320
+      ],
+      "electric_energy": [
+        "5/32",
+        "13/80",
+        "2793/16000"
+      ],
+      "outside_dressing": "32821/81000",
+      "canonical_dressing": "48179/81000",
+      "inverse_restores_full_state": true,
+      "third_step_source_TV": [
+        0.08895204561042523,
+        0.08895204561042526
+      ],
+      "third_step_response_lower": [
+        0.08895167536941989,
+        0.08895167536941992
+      ],
+      "tag_link_permutation_compiled": false
+    },
+    "clock": {
+      "frames": [
+        0,
+        1,
+        2
+      ],
+      "source_support_columns": 12,
+      "matrix_units_per_frame": 144,
+      "joint_coordinates": [
+        720,
+        720,
+        7320
+      ],
+      "quadrature_axes": [
+        "X",
+        "Y"
+      ],
+      "error_domain": "Initial two-word matching code, canonically dressed, with arbitrary untouched references; full apparatus implementation errors additional.",
+      "decoder_compiled": false,
+      "local_autonomous_clock": false,
+      "alternative_field_and_clock_instruments": true
+    },
+    "packets": [
+      {
+        "ports": 12,
+        "states": 66,
+        "steps": 64,
+        "both_in_cell": [
+          0.9999999999999999,
+          1.0000000000000002
+        ],
+        "adjacent": [
+          0.6145292284596748,
+          0.6145292284596761
+        ]
+      },
+      {
+        "ports": 240,
+        "states": 28680,
+        "steps": 72,
+        "both_in_cell": [
+          0.8570233952546069,
+          0.8570233952546081
+        ],
+        "adjacent": [
+          0.47502712739210595,
+          0.47502712739210706
+        ]
+      }
+    ],
+    "contact": {
+      "identity": "L3=dGamma(L)-2P_adj",
+      "rank": 30,
+      "additional_interaction_parameter": null
+    },
+    "localization": {
+      "first_half_survival_steps": [
+        {
+          "character": 0,
+          "steps": 27
+        },
+        {
+          "character": 1,
+          "steps": 22
+        },
+        {
+          "character": 2,
+          "steps": 22
+        },
+        {
+          "character": 3,
+          "steps": 22
+        },
+        {
+          "character": 4,
+          "steps": 22
+        },
+        {
+          "character": 5,
+          "steps": 22
+        }
+      ],
+      "physical_lifetime": null,
+      "fixed_code_population": "67/90",
+      "fixed_code_failure": "23/90",
+      "compact_minus_modes": [
+        3594,
+        35958180
+      ],
+      "compact_preparation_overlap": "0",
+      "compact_modes_are_particles": false
+    },
+    "spectrum": {
+      "rows": [
+        {
+          "character": 0,
+          "laplacian": [
+            -5e-324,
+            5e-324
+          ],
+          "phase_energy_GeV": [
+            -5e-324,
+            5e-324
+          ]
+        },
+        {
+          "character": 1,
+          "laplacian": [
+            2.1269642769943196,
+            2.126964276994371
+          ],
+          "phase_energy_GeV": [
+            3.2473394804209446,
+            3.2473394804209863
+          ]
+        },
+        {
+          "character": 2,
+          "laplacian": [
+            0.034300636121277546,
+            0.034300636121341106
+          ],
+          "phase_energy_GeV": [
+            0.41117622648563196,
+            0.4111762264860182
+          ]
+        },
+        {
+          "character": 3,
+          "laplacian": [
+            2.175842315511957,
+            2.1758423155120448
+          ],
+          "phase_energy_GeV": [
+            3.2846657350325597,
+            3.2846657350326307
+          ]
+        },
+        {
+          "character": 4,
+          "laplacian": [
+            0.034300636121277546,
+            0.034300636121341106
+          ],
+          "phase_energy_GeV": [
+            0.41117622648563196,
+            0.4111762264860182
+          ]
+        },
+        {
+          "character": 5,
+          "laplacian": [
+            2.1269642769943196,
+            2.126964276994371
+          ],
+          "phase_energy_GeV": [
+            3.2473394804209446,
+            3.2473394804209863
+          ]
+        }
+      ],
+      "clock": "1/sqrt(2M) source phase-time units per coherent event",
+      "electron_anchor_GeV": "51099895069/100000000000000",
+      "full_event_gap": false,
+      "joint_electric_spectrum": false,
+      "physical_rest_mass": false,
+      "even_character_gap_collapses_in_stated_enlargement": true
+    },
+    "spatial": {
+      "ports": [
+        96,
+        324,
+        768
+      ],
+      "quadratic_coefficient": "1/8",
+      "dimensionless_speed": "1/2",
+      "remainder": "(3/8)*max|k|^4",
+      "momentum_domain": "max|k|<=1/2",
+      "refinements": [
+        {
+          "size": 16,
+          "omega_squared": [
+            9.766708067676195,
+            9.766708383543032
+          ],
+          "limit": [
+            9.869604401089356,
+            9.869604401089362
+          ]
+        },
+        {
+          "size": 32,
+          "omega_squared": [
+            9.843850825579471,
+            9.84385083560686
+          ],
+          "limit": [
+            9.869604401089356,
+            9.869604401089362
+          ]
+        },
+        {
+          "size": 64,
+          "omega_squared": [
+            9.863164180975248,
+            9.86316418128984
+          ],
+          "limit": [
+            9.869604401089356,
+            9.869604401089362
+          ]
+        }
+      ],
+      "large_graphs_fully_enumerated": false,
+      "fine_reflection_compiled": false,
+      "physical_light_speed": false,
+      "four_dimensional_Yang_Mills": false
+    },
+    "same_local_source_field_clock_interface": true,
+    "all_sources_one_physical_theory": false,
+    "new_GeV_rest_masses": [],
+    "official_validated_rows": 0,
+    "official_untested_rows": 31,
+    "new_independent_nature_validation": false
+  },
   "source_sha256": {
+    "model/native_observer_program/results.json": "63b8e5b02812532d9e6dc0e50e352270638ccb03a2e449b7f6afa97a1b793948",
+    "model/native_charged_propagation/results.json": "948d680ef77d4f05efd9c9274118a7e3bb4138977224375d41bb6c045c9d31cd",
+    "model/native_moving_clock/results.json": "9b61e42e0a3bc956588be68f6c1bb98c552eeac215b0cfc00e5f77488c798ea9",
+    "model/native_electric_gauss/results.json": "cfae3b2092a8f6adf6b3d1a0da01e6548cf9a32fb554139a4a23a7fdc6e7135b",
+    "model/native_gauss_walk/results.json": "d5366780801e3cc60a1c6143270418f404211be290bac16db6e07d0df2bdbe99",
+    "model/native_gauss_clock/results.json": "5d7db7ce87a5be75053087e098713c0d538d02a244a94f094a80a27884e1481c",
+    "model/native_transport_spectrum/results.json": "0e7874b75b6de866585e2195441c0ad97cfcc0636777a32e83b152efcc094607",
+    "model/native_spatial_refinement/results.json": "dddaa0f04bafc443789794cfe5799edcd10b920be7ccaaec09126603f0f18988",
+    "model/native_criterion_packet/results.json": "1981e721d00a798a8a860cc34c9211d4b0b7e3817e7fd88fe8f71a58a272be28",
     "model/openwave_coherent_native_architecture/results.json": "f0071108224ea231ae93406bff117aeeb5ca0ca917d7dceddb92dde15a31e1ce",
     "model/openwave_coherent_native_propagation/results.json": "5cafccb0c050fafa1167e6888b0ab9bad0cdfe99621c2a698056de0cb4f5c289",
     "model/openwave_active_native_charge/results.json": "2f37dab2464d2b7da01af5e4adfe8b55a95531e90c5d2cfb38a6e9a9d8ae1d7d",
@@ -5781,6 +6083,15 @@ export const JOURNEY_RESULTS = {
     "model/openwave_radiation_capacity/results.json": "2c8e6386773591de98cafb882bc8d0c4449ee5e2235fd96455cc0f39768260cb"
   },
   "source_paths": {
+    "native_observer_program": "model/native_observer_program/results.json",
+    "native_charged_propagation": "model/native_charged_propagation/results.json",
+    "native_moving_clock": "model/native_moving_clock/results.json",
+    "native_electric_gauss": "model/native_electric_gauss/results.json",
+    "native_gauss_walk": "model/native_gauss_walk/results.json",
+    "native_gauss_clock": "model/native_gauss_clock/results.json",
+    "native_transport_spectrum": "model/native_transport_spectrum/results.json",
+    "native_spatial_refinement": "model/native_spatial_refinement/results.json",
+    "native_criterion_packet": "model/native_criterion_packet/results.json",
     "coherent_native_architecture": "model/openwave_coherent_native_architecture/results.json",
     "coherent_native_propagation": "model/openwave_coherent_native_propagation/results.json",
     "active_native_charge": "model/openwave_active_native_charge/results.json",
