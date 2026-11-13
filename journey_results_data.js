@@ -1,8 +1,8 @@
 export const JOURNEY_RESULTS = {
   "schema": "oph.journey_verified_results.v1",
   "date": "2026-11-13",
-  "source_revision": "3ff1449baf256388f56eeab973e3bf22f02a3722",
-  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/3ff1449baf256388f56eeab973e3bf22f02a3722/",
+  "source_revision": "17023e933b086884e6550a0db5b2ebfd6833f4e8",
+  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/17023e933b086884e6550a0db5b2ebfd6833f4e8/",
   "scope": "Conditional finite constructions; calibration, preparation and physical identification are separate.",
   "leptons": {
     "rows": [
@@ -4641,7 +4641,326 @@ export const JOURNEY_RESULTS = {
     },
     "new_independent_nature_validation": false
   },
+  "bounded_source_results": {
+    "clock": {
+      "cycles": 2,
+      "carrier": 32768,
+      "controls": 6,
+      "second_flight": [
+        {
+          "mass_source_units": 1.0,
+          "strength": 2.0,
+          "frequency": [
+            0.999598090071231,
+            0.9999925212468953
+          ]
+        },
+        {
+          "mass_source_units": 1.0,
+          "strength": 3.0,
+          "frequency": [
+            0.9993527408223598,
+            1.0026944638229909
+          ]
+        },
+        {
+          "mass_source_units": 206.77031597272938,
+          "strength": 2.0,
+          "frequency": [
+            206.7280152684543,
+            206.7284287826624
+          ]
+        },
+        {
+          "mass_source_units": 206.77031597272938,
+          "strength": 3.0,
+          "frequency": [
+            206.97931271255945,
+            206.9828172125854
+          ]
+        },
+        {
+          "mass_source_units": 3477.4728371045985,
+          "strength": 2.0,
+          "frequency": [
+            3477.101168564753,
+            3477.101719972911
+          ]
+        },
+        {
+          "mass_source_units": 3477.4728371045985,
+          "strength": 3.0,
+          "frequency": [
+            3479.404756547184,
+            3479.409439135576
+          ]
+        }
+      ],
+      "reset_excitation_upper": 0.0003532006344384593,
+      "exact_strength_independent_detector_frequency": false,
+      "new_GeV_rest_masses": false
+    },
+    "lambda": {
+      "windows": [
+        {
+          "half_width_GeV": 0.001,
+          "probability": [
+            -5e-324,
+            0.026621863739458695
+          ]
+        },
+        {
+          "half_width_GeV": 0.01,
+          "probability": [
+            -5e-324,
+            0.028967192762769794
+          ]
+        },
+        {
+          "half_width_GeV": 0.1,
+          "probability": [
+            -5e-324,
+            0.0560124096747025
+          ]
+        }
+      ],
+      "columns": 32,
+      "positive_lower_bound": false,
+      "on_shell_density": false
+    },
+    "strings": {
+      "charges": [
+        0.6666666666666666,
+        -0.3333333333333333
+      ],
+      "displacement_upper": {
+        "-1": 2.181818181818182,
+        "2": 1.2000000000000002
+      },
+      "physical_quark_mass": false
+    },
+    "nuclear": [
+      {
+        "name": "triton",
+        "GeV": [
+          2.8089192030205417,
+          2.8091277494919105
+        ],
+        "target_GeV": 2.80892113668,
+        "role": "inherited calibration",
+        "matches": true
+      },
+      {
+        "name": "helion",
+        "GeV": [
+          2.8076258705105417,
+          2.8080170572934473
+        ],
+        "target_GeV": 2.80839161112,
+        "role": "held-out comparison",
+        "matches": false
+      },
+      {
+        "name": "alpha",
+        "GeV": [
+          3.739060107335842,
+          3.7396779679337246
+        ],
+        "target_GeV": 3.7273794118,
+        "role": "held-out comparison",
+        "matches": false
+      }
+    ],
+    "matter": {
+      "CAR_modes": 192,
+      "source_terms": 114,
+      "positive_spatial_squares": 96,
+      "charged_architecture_shift_GeV": [
+        7.5354869816059405e-06,
+        7.535486981605942e-06
+      ],
+      "physical_mass_fit": false,
+      "native_process_transfer": false,
+      "optional_common_counterterm_restores_inherited_coefficients": true,
+      "optional_counterterm_is_native_law_or_new_prediction": false
+    },
+    "gauge": {
+      "records": [
+        {
+          "L": 1,
+          "representation": "fundamental",
+          "source_time": 0.0001220703125,
+          "correlation": [
+            0.999855042289706,
+            1.0000076301803313
+          ]
+        },
+        {
+          "L": 1,
+          "representation": "spin_one",
+          "source_time": 0.0001220703125,
+          "correlation": [
+            0.9993973175671675,
+            0.9996261994031053
+          ]
+        },
+        {
+          "L": 1,
+          "representation": "fundamental",
+          "source_time": 0.000244140625,
+          "correlation": [
+            0.9995727664788744,
+            0.9998779422601246
+          ]
+        },
+        {
+          "L": 1,
+          "representation": "spin_one",
+          "source_time": 0.000244140625,
+          "correlation": [
+            0.9978186288641615,
+            0.9982763925360367
+          ]
+        },
+        {
+          "L": 2,
+          "representation": "fundamental",
+          "source_time": 0.0001220703125,
+          "correlation": [
+            0.9984664924850185,
+            1.0013961799850188
+          ]
+        },
+        {
+          "L": 2,
+          "representation": "spin_one",
+          "source_time": 0.0001220703125,
+          "correlation": [
+            0.9973144928601363,
+            1.0017090241101365
+          ]
+        },
+        {
+          "L": 2,
+          "representation": "fundamental",
+          "source_time": 0.000244140625,
+          "correlation": [
+            0.9967956668694994,
+            1.0026550418694997
+          ]
+        },
+        {
+          "L": 2,
+          "representation": "spin_one",
+          "source_time": 0.000244140625,
+          "correlation": [
+            0.993652979450099,
+            1.0024420419500994
+          ]
+        },
+        {
+          "L": 3,
+          "representation": "fundamental",
+          "source_time": 0.0001220703125,
+          "correlation": [
+            0.9916915901412685,
+            1.0081710823287688
+          ]
+        },
+        {
+          "L": 3,
+          "representation": "spin_one",
+          "source_time": 0.0001220703125,
+          "correlation": [
+            0.9871521393445113,
+            1.0118713776257615
+          ]
+        },
+        {
+          "L": 3,
+          "representation": "fundamental",
+          "source_time": 0.000244140625,
+          "correlation": [
+            0.9832458621819994,
+            1.0162048465569997
+          ]
+        },
+        {
+          "L": 3,
+          "representation": "spin_one",
+          "source_time": 0.000244140625,
+          "correlation": [
+            0.973328272418849,
+            1.0227667489813494
+          ]
+        }
+      ],
+      "fixed_time_continuum": false
+    },
+    "stress": {
+      "prepared_copies": 3239348495,
+      "mean_error": 0.001,
+      "failure_upper": 0.010000000000000002,
+      "Einstein_equation_derived": false
+    },
+    "covariance": {
+      "count_pairs": 65307,
+      "N_independent_sample_bound": true,
+      "independent_G": false,
+      "physical_noise_match": false
+    },
+    "capacity": {
+      "records": [
+        {
+          "k_H0": 0.01,
+          "metric": [
+            0.7341784370820691,
+            0.7342567370807906
+          ],
+          "comoving_dust": [
+            -0.00014559491069831806,
+            -0.0001454549561474413
+          ]
+        },
+        {
+          "k_H0": 0.02,
+          "metric": [
+            0.7341757447907674,
+            0.7342552170186986
+          ],
+          "comoving_dust": [
+            -0.0005824627682693435,
+            -0.0005817366991136939
+          ]
+        }
+      ],
+      "early_primordial_solution": false,
+      "absolute_amplitude_derived": false,
+      "CMB_match": false
+    },
+    "openwave": {
+      "admitted": true,
+      "model": "M10",
+      "official_untested": 31,
+      "official_validated": 0,
+      "rank": 7,
+      "exact_arithmetic_values": 7,
+      "arithmetic_awards_physics_rows": false,
+      "upstream_commit": "5d686cb049b82cc55f8822210a254d5833be23a7"
+    },
+    "new_independent_nature_validation": false
+  },
   "source_sha256": {
+    "model/openwave_lambda_narrow_weight/results.json": "eaa5a274adcf10ec9f4787ebb5c58cd2ccb7949abbcb282226dad32d4cbe3882",
+    "model/openwave_repeated_native_clock/results.json": "f641dc2227194e4f30f0028a893647557fd11eb8dd65083159a4d6cc28bad133",
+    "model/openwave_quark_string_transport/results.json": "49979443130dcc8cb9fd63e7b030c36deb7e6120ca792792176ac6a2ea05ee8a",
+    "model/openwave_nuclear_field_attraction/results.json": "d456c4931aa3aadb9f0812f3b146efd790ae893d18a65957ef7ddd47b508f8ab",
+    "model/openwave_matter_flux_source/results.json": "ca31e6d1d6e8e6c784d4b4e9215c0b5b52d331575df324605361160e5650b490",
+    "model/openwave_local_gauge_memory/results.json": "aee36d16f5edc39a4973262618543486106f6077aa94f73b49492257c16b6892",
+    "model/openwave_stress_curvature_instruments/results.json": "013eac863181aa6899e9162d83da8b74ff0094256bdafe9ec1d05e9778c9c97d",
+    "model/openwave_geometry_covariance_protocol/results.json": "458e6f54bc8f6a20c60468218f3dabf2955b03b30cac175dcbd9a6bf86842ca6",
+    "model/openwave_capacity_finite_wavelength/results.json": "8ca4e5603ab75e7eb6a2731410ad2b07cc383b365398db6839fef183da877a13",
+    "model/openwave_m10_review_gate/results.json": "2f0ba15af92d7b32477f1068374917301fbb868897e3db49689208470608b9ce",
     "model/openwave_lambda_spectral_measure/results.json": "3f80cd12fd0d415a19f275f74647ca81cd7a1511f585f3797e23297b5a076cbc",
     "model/openwave_finite_phase_clock/results.json": "bff03b051cfbbd16798ea3947729ace4a7f68cb477ea336ac9c1491a777291dd",
     "model/openwave_localized_quark_record/results.json": "6cb94524046e58b763c73121ef8e45260b8b4d9a0d7ea9ffa9ef4e863a2403f3",
@@ -4776,6 +5095,16 @@ export const JOURNEY_RESULTS = {
     "model/openwave_radiation_capacity/results.json": "2c8e6386773591de98cafb882bc8d0c4449ee5e2235fd96455cc0f39768260cb"
   },
   "source_paths": {
+    "lambda_narrow_weight": "model/openwave_lambda_narrow_weight/results.json",
+    "repeated_native_clock": "model/openwave_repeated_native_clock/results.json",
+    "quark_string_transport": "model/openwave_quark_string_transport/results.json",
+    "nuclear_field_attraction": "model/openwave_nuclear_field_attraction/results.json",
+    "matter_flux_source": "model/openwave_matter_flux_source/results.json",
+    "local_gauge_memory": "model/openwave_local_gauge_memory/results.json",
+    "stress_curvature_instruments": "model/openwave_stress_curvature_instruments/results.json",
+    "geometry_covariance_protocol": "model/openwave_geometry_covariance_protocol/results.json",
+    "capacity_finite_wavelength": "model/openwave_capacity_finite_wavelength/results.json",
+    "m10_review_gate": "model/openwave_m10_review_gate/results.json",
     "lambda_spectral_measure": "model/openwave_lambda_spectral_measure/results.json",
     "finite_phase_clock": "model/openwave_finite_phase_clock/results.json",
     "localized_quark_record": "model/openwave_localized_quark_record/results.json",

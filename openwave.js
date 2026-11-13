@@ -11,7 +11,7 @@ import { matchStyle } from './match.js';
 
 const UPSTREAM = 'https://github.com/openwave-labs/openwave/blob/' + OPENWAVE.upstream_commit + '/MODELS.md';
 const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/' + OPENWAVE.evaluated_RER_commit + '/';
-const ST = { met: ['met', 'var(--teal,#3fe0d0)'], part: ['in part', 'var(--blue,#6fb1ff)'], fails: ['fails', 'var(--red,#ff6480)'], untested: ['not computed', 'var(--faint,#62718f)'] };
+const ST = { met: ['met', 'var(--teal,#3fe0d0)'], part: ['in part', 'var(--blue,#6fb1ff)'], fails: ['fails', 'var(--red,#ff6480)'], untested: ['untested in-platform', 'var(--faint,#62718f)'] };
 // one plain sentence per criterion: what the model shows
 import { CONSTRUCTION_SUMMARIES } from './construction_matches.js';
 const PLAIN = {
@@ -96,8 +96,8 @@ export function mount(host) {
   const half = Math.ceil(n / 2), col = (rows) => `<div>${rows.map((r) => rowHtml(r, rowsOf)).join('')}</div>`;
   host.innerHTML = `<div class="ow-wrap">
     <div class="ow-head"><h2>OpenWave status</h2>
-      <div class="ow-lead"><a href="${UPSTREAM}" target="_blank" rel="noopener">OpenWave ↗</a> compares models of matter on ${n} criteria. This is the central application estimate, conditional on admission, platform reproduction and review. OpenWave has not scored OPH.</div></div>
-    <div class="ow-band">${['met', 'part', 'fails', 'untested'].map((k) => `<div style="--c:${ST[k][1]}"><b>${c[k]}</b><span>${k === 'met' ? 'criteria met' : k === 'part' ? 'met in part' : k === 'fails' ? 'tested and failed' : 'not computed'}</span></div>`).join('')}</div>
+      <div class="ow-lead"><a href="${UPSTREAM}" target="_blank" rel="noopener">OpenWave ↗</a> compares models of matter on ${n} criteria. OPH is admitted as M10. All 31 official physics criteria are untested. Seven exact dispersion quantities passed M10.1 arithmetic review; that review awards no physics row. These source results need an implementation on the native twelve-port repair process.</div></div>
+    <div class="ow-band">${['met', 'part', 'fails', 'untested'].map((k) => `<div style="--c:${ST[k][1]}"><b>${c[k]}</b><span>${k === 'met' ? 'criteria met' : k === 'part' ? 'met in part' : k === 'fails' ? 'tested and failed' : 'untested in-platform'}</span></div>`).join('')}</div>
     <div class="ow-bar">${OPENWAVE.rows.map((r) => `<i style="--c:${ST[r.status][1]};width:${100 / n}%" title="${r.id} · ${esc(r.criterion)}: ${ST[r.status][0]}"></i>`).join('')}</div>
     <div class="ow-list">${col(OPENWAVE.rows.slice(0, half))}${col(OPENWAVE.rows.slice(half))}</div>
     <div class="ow-foot">A criterion counts as met when its test passes on the model’s own construction. It does not say that OPH is a confirmed theory of nature. Values on the other pages that answer a criterion carry the tag <span class="ow-tag">OW n</span>.</div></div>`;

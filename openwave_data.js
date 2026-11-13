@@ -2,43 +2,44 @@
 // Written by oph-particles-model/tools/sync_openwave_status.py from the criterion-by-criterion assessment;
 // do not edit by hand. status: met, part, fails, untested (the central estimate); low and high: the
 // conservative and the permissive reading. proofs: packages model/<name> of the theory repository.
-// OpenWave has awarded OPH no cells: every status here is an estimate of this project.
+// OPH is admitted as M10 with 31 untested physics cells. The estimates agree with that official gate.
 export const OPENWAVE = {
- "assessment_sha256": "8bcb3ede61fd4cb97ae18342e24eb08fbc4ee84366cf6d4aa97f326996caab9a",
- "upstream_commit": "ef55175d04737e73c92f33f9f9cf3d17c593da54",
- "evaluated_RER_commit": "3ff1449baf256388f56eeab973e3bf22f02a3722",
+ "assessment_sha256": "c8fd2a2d7f1e973680274b71d59dcb416cfc3bf65283a4d6aa87d988a395a25d",
+ "upstream_commit": "5d686cb049b82cc55f8822210a254d5833be23a7",
+ "evaluated_RER_commit": "17023e933b086884e6550a0db5b2ebfd6833f4e8",
  "counts": {
-  "met": 24,
-  "part": 7,
+  "met": 0,
+  "part": 0,
   "fails": 0,
-  "untested": 0
+  "untested": 31
  },
  "rows": [
   {
    "id": 1,
    "criterion": "Charge quantization",
-   "status": "met",
-   "low": "part",
-   "high": "met",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
    "reason": "The complete native Fock charge lattice forbids half-unit splitting, and actual PW119 charged arrivals carry the same quantized central current and regional Gauss flux with every failure/reference outcome retained. This supports the compact-current charge-protection criterion; texture winding is a separate invariant and observed electromagnetic identification is separate.",
-   "next": "Reproduce the complete current/flux experiment in-platform. For a strictly texture-topological interpretation, supply an accepted compact-charge index dictionary; do not impose the refuted winding=current identity.",
+   "next": "Implement this observable on the pinned native twelve-port repair/memory process in-platform, with a complete apparatus/readout transfer and fixed physical gate. Reproduce the complete current/flux experiment in-platform. For a strictly texture-topological interpretation, supply an accepted compact-charge index dictionary; do not impose the refuted winding=current identity.",
    "proofs": [
     "defect_integer_lift",
     "compact_defect_transport",
     "defect_particle_classes",
     "openwave_charge_protection",
     "openwave_native_charge_flux",
-    "openwave_local_gauss_quantum"
+    "openwave_local_gauss_quantum",
+    "openwave_m10_review_gate"
    ]
   },
   {
    "id": 2,
    "criterion": "Electron rest energy (mass)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The same 192-CAR matter action has a unique positive massive reference and exact full charge±1 floor at the electron unit. All charged/neutral branches coexist with the calibrated strong source, and native localized/electromagnetic controls retain their separate proved joins. The electron value is the disclosed energy anchor, not a predicted absolute scale.",
-   "next": "Complete localization, field and source-clock transfer for the full interacting construction; keep photon-containing gap claims distinct.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: localized state anchored to 511 keV. Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation.",
    "proofs": [
     "native_abelian_field_join",
     "native_block_dirac",
@@ -55,17 +56,19 @@ export const OPENWAVE = {
     "openwave_particle_readouts",
     "openwave_quantum_rotational",
     "openwave_spatial_completion",
-    "openwave_fock_field_transport"
+    "openwave_fock_field_transport",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source"
    ]
   },
   {
    "id": 3,
    "criterion": "de Broglie clock (Zitterbewegung)",
-   "status": "part",
-   "low": "part",
-   "high": "part",
-   "reason": "Six 4096-coordinate autonomous controller cases execute preparation, free flight and readout for three native charged energies and two preparation strengths. The free source frequency is the native mass, independent of preparation angle; energy twirling removes the signal. Initial clock/phase resources, terminal work and finite flight are supplied; a self-starting sustained clock is not derived.",
-   "next": "Extend the finite controller through reset and a second free-flight readout, retaining its phase resource and battery. Reuse the exact covariance no-go to eliminate invariant inputs. Account for every reset/clock/reference outcome and energy cost; bound phase visibility and frequency error over at least two cycles and three native masses. Twirled-resource and changed-preparation controls must pass. Declare resource consumption rather than infer self-starting persistence.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "A static 32,768-coordinate controller executes two complete preparation/free-flight/readout cycles for three native mass coefficients and two preparation strengths. The ideal source frequency equals its mass coefficient; actual finite second-flight frequencies have resolved controller bias and preparation-strength dependence. The shared preparation reference loses contrast, reset-conditioned excitation is below 0.000354, and all clock/reference/battery outcomes and work remain. These are not new GeV rest masses, a self-starting sustained clock or a native twelve-port implementation. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: self-starting frequency-rigid internal oscillation at ω = mc²/ℏ. Compile the full repeated clock, references, reset battery and readouts onto one native process. Construct a uniform enlarged-corridor family or complete boundary-current-corrected instrument that bounds the resolved finite-controller frequency bias for all three masses and both preparation strengths. Retain all failures, phase depletion, reset and work; the exact ideal collision frequency is not validation of the biased detector or a sustained oscillator.",
    "proofs": [
     "lepton_clock_energy",
     "native_exchange_clock",
@@ -79,17 +82,19 @@ export const OPENWAVE = {
     "openwave_passive_clock_records",
     "openwave_autonomous_clock_channel",
     "openwave_clock_phase_resource",
-    "openwave_finite_phase_clock"
+    "openwave_finite_phase_clock",
+    "openwave_m10_review_gate",
+    "openwave_repeated_native_clock"
    ]
   },
   {
    "id": 4,
    "criterion": "Particle stability (Derrick escape)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
    "reason": "The complete free native source passes an actual finite-time norm test in pinned OpenWave/Taichi with exact-symbol and RK4 controls. The complete 38,880-coordinate field and changed-frequency failures are retained. This is linear free stability; nonlinear particle stability and official validation are not established.",
-   "next": "Choose a model output whose parameter and variant choices did not use its comparison target. Freeze its observable, input ledger, tolerance and failure rule before inspecting a suitable held-out comparison. Reuse the three actual Taichi commands and typed publication dependency checks. Document target exposure, exact source/replay revisions and all failures. If no genuinely unexposed prediction is available, state that admission remains unestablished. Provide reproducible commands without sending an application or treating a local forecast as an award.",
+   "next": "Implement this observable on the pinned native twelve-port repair/memory process in-platform, with a complete apparatus/readout transfer and fixed physical gate. Choose a model output whose parameter and variant choices did not use its comparison target. Freeze its observable, input ledger, tolerance and failure rule before inspecting a suitable held-out comparison. Reuse the three actual Taichi commands and typed publication dependency checks. Document target exposure, exact source/replay revisions and all failures. If no genuinely unexposed prediction is available, state that a prospective observational prediction remains unestablished. Provide reproducible commands without sending an application or treating a local forecast as an award.",
    "proofs": [
     "compact_defect_transport",
     "openwave_infinite_photon",
@@ -101,17 +106,18 @@ export const OPENWAVE = {
     "openwave_reference_binding",
     "openwave_spatial_completion",
     "spin_dynamical_localization",
-    "openwave_admission_packet"
+    "openwave_admission_packet",
+    "openwave_m10_review_gate"
    ]
   },
   {
    "id": 5,
    "criterion": "Magnetic moment μ (g ≈ 2, magnetostatics)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "Complete native Gauss dressing preserves the quantum current. Global divided-difference and differentiated moment bounds enclose the infinite-photon static coefficient in[1.99827530667,1.99827540121] and control finite-time precession. The trap, regulator and uncalibrated external field remain explicit; this is not a fit to the observed anomaly.",
-   "next": "Port the complete infinite-photon current/precession records; establish the physical external-field, coupling and observed-particle dictionary without refitting the energy anchor.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: intrinsic magnetostatics: a stationary state sources a static dipole B from internal circulation, g ≈ 2; dipole Larmor response. Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation.",
    "proofs": [
     "openwave_angular_torque",
     "openwave_intrinsic_magnetic",
@@ -124,17 +130,19 @@ export const OPENWAVE = {
     "openwave_rotational_g_limit",
     "openwave_local_gauss_quantum",
     "openwave_infinite_current",
-    "openwave_fock_field_transport"
+    "openwave_fock_field_transport",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source"
    ]
   },
   {
    "id": 6,
    "criterion": "Angular momentum J (spin ℏ/2)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The actual native-charge CAR map and complete longitudinal Gauss isometry retain an isolated dressed spin-half band. Infinite-photon moments and full spatial-shell form convergence extend the representation in their stated trap domain. Complete complementary sectors and field angular momentum are retained; physical electron identification is separate.",
-   "next": "Reproduce the native-current, full-field angular and calibrated records in-platform; control spatial trap removal and the observed-particle dictionary.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: field-carried J = ℏ/2 on the electron state. Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation.",
    "proofs": [
     "openwave_angular_torque",
     "openwave_infinite_photon",
@@ -149,45 +157,49 @@ export const OPENWAVE = {
     "openwave_local_gauss_quantum",
     "openwave_infinite_current",
     "openwave_spatial_completion",
-    "openwave_fock_field_transport"
+    "openwave_fock_field_transport",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source"
    ]
   },
   {
    "id": 7,
    "criterion": "Spin-½ statistics (720° double cover)",
-   "status": "met",
+   "status": "untested",
    "low": "untested",
-   "high": "met",
+   "high": "untested",
    "reason": "Literal proper cube rotations preserve the kinetic/pairing source and its filled reference. Complete oriented spin-frame records return at 2pi; a declared two-copy apolar tensor law returns atpi. The odd source returns at 4pi relative to an idle reference. This meets the static field/frame precedent, with no fundamental nematic field or exchange-statistics claim.",
-   "next": "Port the actual spatial rotations, complete tensor/frame laws and pointer controls. Keep the two-copy observer-field convention distinct from the entire microscopic quantum state.",
+   "next": "Implement this observable on the pinned native twelve-port repair/memory process in-platform, with a complete apparatus/readout transfer and fixed physical gate. Port the actual spatial rotations, complete tensor/frame laws and pointer controls. Keep the two-copy observer-field convention distinct from the entire microscopic quantum state.",
    "proofs": [
     "particle_primary_composite_spin",
     "openwave_particle_readouts",
-    "openwave_spin_frame_records"
+    "openwave_spin_frame_records",
+    "openwave_m10_review_gate"
    ]
   },
   {
    "id": 8,
    "criterion": "Antimatter + annihilation",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "Actual native CAR current, rather than an inserted pair-transition projector, converts a neutral particle-hole pair into two transverse quantum modes with a positive full-H probability bound, complete observations and conserved energy/charge/momentum. Central credit follows the literal pair-to-radiation minimum. Supplied resonance, free-reference quench, cap dependence and measurement work remain explicit; no physical positron or outgoing scattering rate is inferred.",
-   "next": "Reproduce the current-derived finite conversion in-platform, then control the interacting reference, photon/volume limits and outgoing channels. Positronium2γ/3γ remains a separate follow-on.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "Actual native CAR current, rather than an inserted pair-transition projector, converts a neutral particle-hole pair into two transverse quantum modes with a positive full-H probability bound, complete observations and conserved energy/charge/momentum. This is supporting evidence for a finite pair-to-radiation mechanism; the native-process gate leaves the criterion untested. Supplied resonance, free-reference quench, cap dependence and measurement work remain explicit; no physical positron or outgoing scattering rate is inferred.",
+   "next": "Implement this observable on the pinned native twelve-port repair/memory process in-platform, with a complete apparatus/readout transfer and fixed physical gate. Reproduce the current-derived finite conversion in-platform, then control the interacting reference, photon/volume limits and outgoing channels. Positronium2γ/3γ remains a separate follow-on.",
    "proofs": [
     "particle_primary_charge_conjugation",
     "charge_conjugation_dynamics",
-    "openwave_radiative_pair"
+    "openwave_radiative_pair",
+    "openwave_m10_review_gate"
    ]
   },
   {
    "id": 9,
    "criterion": "Neutrinos (neutral states)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
    "reason": "Actual native light charge-zero Dirac states occur in all nine massive-neutral pair channels of the positive-frequency charged-decay source. A spectral-amplitude theorem controls release/parent relaxation over one and four calibrated weak lifetimes. Native weak-current readouts distinguish neutrino, antineutrino and sterile coordinates. Oscillation inputs, normal ordering and m1=.001eV are disclosed calibrations/choices; no independent absolute-mass prediction is claimed.",
-   "next": "Reproduce the complete emitted-neutral source and current instruments inside OpenWave; a measured beam-event likelihood and unfiltered-contact transfer are additional physical-completion tests.",
+   "next": "Implement this observable on the pinned native twelve-port repair/memory process in-platform, with a complete apparatus/readout transfer and fixed physical gate. Reproduce the complete emitted-neutral source and current instruments inside OpenWave; a measured beam-event likelihood and unfiltered-contact transfer are additional physical-completion tests.",
    "proofs": [
     "neutrino_mass_response",
     "openwave_baryon_beta",
@@ -209,17 +221,18 @@ export const OPENWAVE = {
     "openwave_reachable_averaging",
     "openwave_weak_decay",
     "openwave_lepton_widths",
-    "openwave_neutrino_matter"
+    "openwave_neutrino_matter",
+    "openwave_m10_review_gate"
    ]
   },
   {
    "id": 10,
    "criterion": "Neutrino oscillations (PMNS)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
    "reason": "The actual calibrated Dirac family tensor, native weak-flavour preparation/detection and complete vacuum flight reproduce three-flavour oscillations with the supplied PMNS angles and mass splittings. Native electron-current contractions additionally give the matter potential and complete finite medium records with a controlled mean-law limit. Fitted angles are allowed disclosed inputs; this literal mechanism is executed rather than only postulated.",
-   "next": "Reproduce the native flavour instruments and vacuum/matter laws in-platform, retaining calibration ancestry, all electron-spin/sterile outputs and the forward-port source boundary; physical beam data comparison is separate.",
+   "next": "Implement this observable on the pinned native twelve-port repair/memory process in-platform, with a complete apparatus/readout transfer and fixed physical gate. Reproduce the native flavour instruments and vacuum/matter laws in-platform, retaining calibration ancestry, all electron-spin/sterile outputs and the forward-port source boundary; physical beam data comparison is separate.",
    "proofs": [
     "native_flavour_transport",
     "neutrino_mass_observables",
@@ -228,17 +241,18 @@ export const OPENWAVE = {
     "openwave_neutrino_calibration",
     "openwave_neutrino_oscillation",
     "openwave_neutrino_matter",
-    "openwave_lepton_widths"
+    "openwave_lepton_widths",
+    "openwave_m10_review_gate"
    ]
   },
   {
    "id": 11,
    "criterion": "Lepton mass spectrum (μ, τ)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The native source theorem has exactly three colourless charged minima with the electron unit and retrospective analyzer phase 2/9. The actual pinned Taichi replay verifies three supplied rest eigenvectors and their source coefficients; it does not independently prove physical family counting or a common interacting continuum.",
-   "next": "Choose a model output whose parameter and variant choices did not use its comparison target. Freeze its observable, input ledger, tolerance and failure rule before inspecting a suitable held-out comparison. Reuse the three actual Taichi commands and typed publication dependency checks. Document target exposure, exact source/replay revisions and all failures. If no genuinely unexposed prediction is available, state that admission remains unestablished. Provide reproducible commands without sending an application or treating a local forecast as an award.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: exactly 3 charged-lepton minima; ratios 1 : 207 : 3477. Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation.",
    "proofs": [
     "lepton_mass_compiler",
     "lepton_register_round",
@@ -252,17 +266,19 @@ export const OPENWAVE = {
     "openwave_single_valley_leptons",
     "openwave_mass_catalogue",
     "openwave_fock_field_transport",
-    "openwave_admission_packet"
+    "openwave_admission_packet",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source"
    ]
   },
   {
    "id": 12,
    "criterion": "Quarks",
-   "status": "part",
+   "status": "untested",
    "low": "untested",
-   "high": "met",
-   "reason": "The complete gauge-invariant string instrument has endpoint charges +2/3 and −1/3, exact spatial flux profiles, source-time quadratures and work on carrier sizes 3,5,9. Its Gauss-failure and seed-failure outcomes are retained. Undressed charged one-point means vanish. Controlled endpoints are not self-sustained quark textures or physical quark masses.",
-   "next": "Add one specified gauge-covariant endpoint hopping term to the complete string source and compute charge, flux and reference records on two enlarged carriers. Use the Gauss-first POVM and full CAR contractions. Enclose the complete dynamics and leakage, retain all failure/work outcomes, and quantify localization or spreading without fitting a particle trajectory. A moving controlled string is not called a classical winding texture or physical quark pole.",
+   "high": "untested",
+   "reason": "One declared native hopping term moves charged string endpoints autonomously on five- and nine-vertex carriers. Full Gauss/CAR checks, outward dynamics, complementary outcomes and readout work are retained. Endpoint charges are +2/3 and −1/3; the all-time conditional mean displacement is bounded by 6/5 and 24/11 cells. These are prepared strings, not identified physical quark poles or self-created textures. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: fractional charge as partial winding on a quark string. Implement the autonomous gauge-covariant string transport and Gauss-first reference instrument on the fixed native process. Retain complete CAR/flux sectors and every failure/work outcome on enlarged carriers. Demonstrate a native persistent localized defect with the required charge and spatial winding interpretation; an assigned charge or prepared string alone does not establish a physical quark pole or GeV mass.",
    "proofs": [
     "defect_particle_classes",
     "native_quark_response",
@@ -277,17 +293,19 @@ export const OPENWAVE = {
     "openwave_strong_step_scaling",
     "openwave_native_centre_string",
     "openwave_quotient_homotopy",
-    "openwave_localized_quark_record"
+    "openwave_localized_quark_record",
+    "openwave_m10_review_gate",
+    "openwave_quark_string_transport"
    ]
   },
   {
    "id": 13,
    "criterion": "Baryons: bound state (p, n)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "An actual normalized infinite-chain Lambda trial has variance 655360 cells squared and full ground-band weight above 0.999778. All 72 local weak words and 23-field projection preserve its spatial envelope. Its complete principal current experiment needs no spectral band filter. The calibrated rest interval is[1.115684628607,1.115684878081] GeV; packet mean[1.115684894736,1.115684894737] GeV includes kinetic energy. Optional exact band filtering remains a nonlocal service. The complete interacting H5 essential spectrum contains the native Lambda rest energy. Exact ground-projection-defined vectors, relative truncations and separated finite spatial boxes give residual bounds 0.00631575,2.46709e-5 and 3.76448e-10 GeV for radius 4,8,16. Any normalized ground vector suffices; uniqueness is not assumed. No coefficient enumeration, finite observer preparation, Moller operator or nonzero on-shell weak overlap is claimed. The retained proton/neutron full-circle pole and complete finite source mechanisms keep their inherited strong/axial/electron inputs; physical 3+1 identification is open.",
-   "next": "Combine this actual normalizable near-pole trial and full H5 evolution in one complete observer protocol with a uniform momentum-dependent channel error; then evaluate its outgoing weak spectral weight.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The complete 72-word current on the normalizable packet has a certified ±1 MeV conditional spectral-window probability below 0.026622. A 32-column rational full-H witness retains every translation and residual. The lower bound is zero; neither a positive on-shell density nor a decay lifetime follows. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: a stable three-quark composite. Implement the actual current and its complete spectral/readout instrument on the fixed native twelve-port process. Retain the full strong Hamiltonian, all 72 current words and normalizable preparation. Establish a controlled narrow-window lower measure or a limiting on-shell density with the full residual/complement error; the present upper bound alone proves neither a decay nor a lifetime.",
    "proofs": [
     "correlated_hadron_spectrum",
     "openwave_axial_state",
@@ -307,17 +325,19 @@ export const OPENWAVE = {
     "openwave_full_strong_current",
     "openwave_lambda_wavepacket",
     "openwave_cluster_weyl_sequence",
-    "openwave_lambda_spectral_measure"
+    "openwave_lambda_spectral_measure",
+    "openwave_m10_review_gate",
+    "openwave_lambda_narrow_weight"
    ]
   },
   {
    "id": 14,
    "criterion": "Baryons: mass ordering + charge profile",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The calibrated native source retains a heavier neutron-assigned rest band and positive inner/negative outer signed charge records. Propagation preserves the complete N=3 rest operator. Unused nucleon charge-radius magnitudes still fail a common-length comparison.",
-   "next": "Test the neutron/proton ordering and signed charge profile on the common propagating source; identify a source extension that passes both unused radii without separate length fits.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "A full neutral oscillator with declared g=1/8 and omega=1/16 supplies a stable attractive term, zero in sectors with fewer than twelve fermions. With inherited strong/triton/electron inputs unchanged, helion [2.807625870510,2.808017057294] GeV and alpha [3.739060107335,3.739677967934] GeV both fail their held-out masses. The alpha lowering is only 63.87486875 keV. Full-uniform electric preparation means are exactly 8955/9152 and 2949/1360 source units; all fluxes, oscillator states and failures remain. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: m_n > m_p; positive core, negative shell. Implement the same dynamical nuclear field and its complete preparation/readout on the fixed native twelve-port process. Retain every oscillator/flux/matter sector and one unchanged electron/strong calibration. Obtain outward full-source helion and alpha rest-energy intervals and charge/current records; report the two existing failures. Fix any new interaction coefficient without either held-out nuclear target before comparison; a necessary coupling lower bound is not a successful fit. Breakup and halo thresholds remain required.",
    "proofs": [
     "openwave_baryon_ordering",
     "openwave_calibrated_hadrons",
@@ -330,17 +350,19 @@ export const OPENWAVE = {
     "openwave_baryon_form_factors",
     "openwave_hadron_refinement_flow",
     "openwave_baryon_dispersion",
-    "openwave_nuclear_em_transfer"
+    "openwave_nuclear_em_transfer",
+    "openwave_m10_review_gate",
+    "openwave_nuclear_field_attraction"
    ]
   },
   {
    "id": 15,
    "criterion": "Baryons: exact masses",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The calibrated neutron and proton rest intervals are [0.939565387072,0.939565456806] GeV and [0.938272054562,0.938272124297] GeV; their empirical mass/axial inputs and electron anchor are explicit. The unitary transports all 114 native source terms, 24 semileptonic current images, state, reference and work on all 192 CAR modes. The constant native transformation has zero field connection. A distinct infinite integer-rotor extension has the exact E+A connection and pair terms, including odd sectors; it is not unitarily onto the finite native carrier and supplies no additional common-source physical pole. The Lambda current-success mean is not a replacement rest mass.",
-   "next": "Construct one physical spatial/continuum dictionary for the complete native poles, currents and scattering channels; distinguish calibrated rest energies from packet means and held-out predictions.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: 938.3 / 939.6 MeV from the field. Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation.",
    "proofs": [
     "correlated_hadron_spectrum",
     "openwave_axial_state",
@@ -365,17 +387,19 @@ export const OPENWAVE = {
     "openwave_uniform_pole_bands",
     "openwave_normalizable_particle_records",
     "openwave_lambda_wavepacket",
-    "openwave_fock_field_transport"
+    "openwave_fock_field_transport",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source"
    ]
   },
   {
    "id": 16,
    "criterion": "Deuteron (binding + quadrupole)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The positive strong action has a deuteron binding calibration and complete retained nuclear channels. A separate inherited-charge pair-kernel comparison retains complete triton/helion/alpha spectra and preparation failures; it is not a transfer of the full positive electromagnetic field.",
-   "next": "Execute the common native two-nucleon source with its calibrated deuteron and complete charge/current readouts; extend the interacting field and cluster threshold comparison without discarding failure or higher-channel records.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "A full neutral oscillator with declared g=1/8 and omega=1/16 supplies a stable attractive term, zero in sectors with fewer than twelve fermions. With inherited strong/triton/electron inputs unchanged, helion [2.807625870510,2.808017057294] GeV and alpha [3.739060107335,3.739677967934] GeV both fail their held-out masses. The alpha lowering is only 63.87486875 keV. Full-uniform electric preparation means are exactly 8955/9152 and 2949/1360 source units; all fluxes, oscillator states and failures remain. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: m_d < m_p + m_n; the electric quadrupole moment. Implement the same dynamical nuclear field and its complete preparation/readout on the fixed native twelve-port process. Retain every oscillator/flux/matter sector and one unchanged electron/strong calibration. Obtain outward full-source helion and alpha rest-energy intervals and charge/current records; report the two existing failures. Fix any new interaction coefficient without either held-out nuclear target before comparison; a necessary coupling lower bound is not a successful fit. Breakup and halo thresholds remain required.",
    "proofs": [
     "openwave_nuclear_distance",
     "openwave_nuclear_exchange",
@@ -387,17 +411,19 @@ export const OPENWAVE = {
     "openwave_string_positive_cone",
     "openwave_strong_step_scaling",
     "openwave_nuclear_isospin",
-    "openwave_nuclear_em_transfer"
+    "openwave_nuclear_em_transfer",
+    "openwave_m10_review_gate",
+    "openwave_nuclear_field_attraction"
    ]
   },
   {
    "id": 17,
    "criterion": "Nuclear structure (levels, halos)",
-   "status": "part",
-   "low": "part",
-   "high": "part",
-   "reason": "With inherited strong/triton/electron inputs and declared electromagnetic coefficients, helion [2.807625870510,2.808017057294] GeV and alpha [3.739123982204,3.739741842803] GeV fail held-out masses. Every integer flux and dynamical polarization is retained. A positive field extension with common vacuum subtraction cannot lower the inherited alpha excess. Charge-dressed preparation work includes its electric energy.",
-   "next": "Classify the smallest common-source signed or nonadditive interaction not excluded by the positive-extension theorem. Derive it from a declared dynamical field before evaluating complete L=3,4 spectra; use the exact full-uniform Casimir work shortcut where applicable. Keep triton, electron and existing strong ancestry fixed. No helion/alpha target chooses a coefficient. Give outward held-out GeV intervals, stable lower bounds and charge-dressing work; failure of either mass is explicit. Retain breakup/halo obligations.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "A full neutral oscillator with declared g=1/8 and omega=1/16 supplies a stable attractive term, zero in sectors with fewer than twelve fermions. With inherited strong/triton/electron inputs unchanged, helion [2.807625870510,2.808017057294] GeV and alpha [3.739060107335,3.739677967934] GeV both fail their held-out masses. The alpha lowering is only 63.87486875 keV. Full-uniform electric preparation means are exactly 8955/9152 and 2949/1360 source units; all fluxes, oscillator states and failures remain. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: binding curve, levels, halo-nuclei lifetimes. Implement the same dynamical nuclear field and its complete preparation/readout on the fixed native twelve-port process. Retain every oscillator/flux/matter sector and one unchanged electron/strong calibration. Obtain outward full-source helion and alpha rest-energy intervals and charge/current records; report the two existing failures. Fix any new interaction coefficient without either held-out nuclear target before comparison; a necessary coupling lower bound is not a successful fit. Breakup and halo thresholds remain required.",
    "proofs": [
     "openwave_nuclear_distance",
     "openwave_nuclear_exchange",
@@ -409,17 +435,19 @@ export const OPENWAVE = {
     "openwave_strong_step_scaling",
     "openwave_light_nuclear_curve",
     "openwave_nuclear_isospin",
-    "openwave_nuclear_em_transfer"
+    "openwave_nuclear_em_transfer",
+    "openwave_m10_review_gate",
+    "openwave_nuclear_field_attraction"
    ]
   },
   {
    "id": 18,
    "criterion": "Mesons (π, K)",
-   "status": "part",
-   "low": "part",
-   "high": "part",
-   "reason": "The total conditioned current-success mean is [2.418046697462,2.418046697463] GeV; its increase is [1.302361802725,1.302361802726] GeV. Neither is a rest mass, decay energy or nonselective probe work. The inherited rest interval is [1.115684628607,1.115684878081] GeV. The ±1 MeV window has certified probability below 0.048210 and lower bound zero; the ±2 GeV window has certified probability above 0.5545182. No positive on-shell density or lifetime is established.",
-   "next": "Add certified cluster-ground trial fields at separated centres to the rational full-H resolvent frame, then optimize a finite-window minorant. Reuse all 72 native current words and the exact packet moments. Produce a positive certified weight in a declared narrow window or a source-specific upper bound with complete residual/complement error. Any on-shell claim also requires a lower density bound as window width tends to zero; fixed-window positivity never suffices.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The complete 72-word current on the normalizable packet has a certified ±1 MeV conditional spectral-window probability below 0.026622. A 32-column rational full-H witness retains every translation and residual. The lower bound is zero; neither a positive on-shell density nor a decay lifetime follows. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: π/K states; strange decays (Λ⁰ → p + π⁻). Implement the actual current and its complete spectral/readout instrument on the fixed native twelve-port process. Retain the full strong Hamiltonian, all 72 current words and normalizable preparation. Establish a controlled narrow-window lower measure or a limiting on-shell density with the full residual/complement error; the present upper bound alone proves neither a decay nor a lifetime.",
    "proofs": [
     "openwave_calibrated_hadrons",
     "openwave_composite_scale",
@@ -440,33 +468,36 @@ export const OPENWAVE = {
     "openwave_full_strong_current",
     "openwave_lambda_wavepacket",
     "openwave_cluster_weyl_sequence",
-    "openwave_lambda_spectral_measure"
+    "openwave_lambda_spectral_measure",
+    "openwave_m10_review_gate",
+    "openwave_lambda_narrow_weight"
    ]
   },
   {
    "id": 19,
    "criterion": "Dark matter candidate",
-   "status": "met",
-   "low": "part",
-   "high": "met",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
    "reason": "The periodic link-penalty-two source has an isolated stationary neutral band and exact location conservation. Known local states plus finite polynomial/polar services prepare its reduced density with success above 0.99999999999639 and stationarity error below 4.000002e-16. It satisfies the finite stable-neutral-state precedent; its exact momentum flatness prevents an inferred moving relativistic mass or cosmological identity.",
-   "next": "Reproduce the neutrality, isolation, preparation and exact flatness certificates in-platform. A mobile dark-matter interpretation needs a different source member, coupling and cosmological tests.",
+   "next": "Implement this observable on the pinned native twelve-port repair/memory process in-platform, with a complete apparatus/readout transfer and fixed physical gate. Reproduce the neutrality, isolation, preparation and exact flatness certificates in-platform. A mobile dark-matter interpretation needs a different source member, coupling and cosmological tests.",
    "proofs": [
     "neutrino_mass_response",
     "openwave_neutral_candidate",
     "openwave_neutral_stationary",
     "openwave_neutral_dispersion",
-    "openwave_neutral_preparation"
+    "openwave_neutral_preparation",
+    "openwave_m10_review_gate"
    ]
   },
   {
    "id": 20,
    "criterion": "Electric force (Coulomb 1/r, electrostatics)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
    "reason": "The native Green energy gives exact constrained separation differences and the static inverse-square limit. A declared axial changed-action member now removes position pinning: all 18 physical states and circulations obey autonomous hopping, exact continuity and an inward electric current-acceleration term -19sqrt(2)/5120. Other hopping and Yukawas are zero; empirical alpha and original ground/clock bounds are not transferred.",
-   "next": "Reproduce static Green and autonomous current-force identities in-platform; restore justified full interactions and attach an independently fixed physical strength.",
+   "next": "Implement this observable on the pinned native twelve-port repair/memory process in-platform, with a complete apparatus/readout transfer and fixed physical gate. Reproduce static Green and autonomous current-force identities in-platform; restore justified full interactions and attach an independently fixed physical strength.",
    "proofs": [
     "native_wilson_maxwell",
     "native_quantum_gauss",
@@ -476,17 +507,18 @@ export const OPENWAVE = {
     "openwave_reference_binding",
     "openwave_current_coulomb",
     "openwave_pinned_coulomb",
-    "openwave_autonomous_coulomb"
+    "openwave_autonomous_coulomb",
+    "openwave_m10_review_gate"
    ]
   },
   {
    "id": 21,
    "criterion": "Lorentz covariance (+ Coulomb = EM)",
-   "status": "part",
-   "low": "part",
-   "high": "part",
-   "reason": "Weighted full-complement Schur bounds tighten coarse and refined gap widths by factors 361.909 and 5.3628. Distant two-loop states prove ||QHP||²≥β²N_far/4 with N_far≥F−48 for the fixed global electric frame. The local-observable route avoids that global norm; no volume-uniform global bound, physical GeV glueball or four-dimensional continuum is proved. The unitary transports all 114 native source terms, 24 semileptonic current images, state, reference and work on all 192 CAR modes. The constant native transformation has zero field connection. A distinct infinite integer-rotor extension has the exact E+A connection and pair terms, including odd sectors; it is not unitarily onto the finite native carrier and supplies no additional common-source physical pole.",
-   "next": "Use a local observable algebra and representation-independent propagation estimate to compare a fixed Wilson/stress observable on coarse, refined and one larger patch. Do not reuse the extensive global E<5 projector as a uniform bound. Provide explicit spacing, volume, coupling and time constants with all representations retained. Hold out a second observable under the same clock. State whether the constants support iteration; no finite lattice gap is called a Clay continuum gap.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Full-Haar L=1,2,3 fixed-loop calculations retain frequencies 96 and 256 and certify normalized real correlations above 0.97 at the common source time 1/4096. All nine temporal records and backaction are retained; two-readout work is bounded by 32/3 or 512/27. The local error bound grows as L^4 and does not establish fixed-time continuum convergence or a Clay gap. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: Lorentz-invariant action, no preferred frame; boosted states contract, c-limited. Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation. Compile a fixed local Haar observable and complete temporal instrument onto the native process. Compare a further refinement and a held-out local observable under one clock, with every representation retained. Replace the growing L^4 error by an iteratable fixed-time estimate before any continuum claim; finite gaps and short-time memory do not solve four-dimensional Yang–Mills.",
    "proofs": [
     "source_mass_shell",
     "openwave_field_observables",
@@ -512,17 +544,20 @@ export const OPENWAVE = {
     "openwave_refined_haar_spectrum",
     "openwave_haar_memory_closure",
     "openwave_fock_field_transport",
-    "openwave_energy_schur"
+    "openwave_energy_schur",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source",
+    "openwave_local_gauge_memory"
    ]
   },
   {
    "id": 22,
    "criterion": "Strong force: confinement",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "Exact full-Fock SU3 fusion expands the allowed positive domain. On the same seven-input action, all40 internal pinned quark/diquark singlets satisfy H_pin(r+1)−H_pin(r)=(4kappa/3)I beyond adjacent sites, including every source term. One shared quadrupole/string attachment gives slope1GeV/fm. This is a calibrated total constrained potential, meeting the literal linear-potential minimum; external position constraints and the fit ancestry are explicit.",
-   "next": "Reproduce the total-source constrained potential and all internal/failure records in-platform, preserving the single length. Pair creation, string breaking and a physical continuum scattering potential are additional tests.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "Full-Haar L=1,2,3 fixed-loop calculations retain frequencies 96 and 256 and certify normalized real correlations above 0.97 at the common source time 1/4096. All nine temporal records and backaction are retained; two-readout work is bounded by 32/3 or 512/27. The local error bound grows as L^4 and does not establish fixed-time continuum convergence or a Clay gap. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: linear inter-charge potential, ~1 GeV/fm (Cornell). Compile a fixed local Haar observable and complete temporal instrument onto the native process. Compare a further refinement and a held-out local observable under one clock, with every representation retained. Replace the growing L^4 error by an iteratable fixed-time estimate before any continuum claim; finite gaps and short-time memory do not solve four-dimensional Yang–Mills.",
    "proofs": [
     "colour_deconfinement",
     "openwave_nuclear_distance",
@@ -537,17 +572,19 @@ export const OPENWAVE = {
     "openwave_cubic_haar_source",
     "openwave_refined_haar_source",
     "openwave_refined_haar_spectrum",
-    "openwave_energy_schur"
+    "openwave_energy_schur",
+    "openwave_m10_review_gate",
+    "openwave_local_gauge_memory"
    ]
   },
   {
    "id": 23,
    "criterion": "Running coupling",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The electron-assigned branch of the resolution-selected Wilson-half native source has a certified radius near 0.523002641 cells and over 54.7 percent spatial charge-response suppression. Complete same-source static native-charge interventions measure QF(k), and half-suppression occurs at kR between 1.23229 and 1.43768. Infinite-flux, opposite-charge, complete pointer/readout and vacuum-reference controls are retained. This supports the literal model-scale static coupling/core-onset test; it is not a measured QED/QCD beta function or universal renormalized charge.",
-   "next": "Reproduce the complete static native-charge/core experiment in-platform. Physical identification additionally needs a spatial continuum, accepted renormalized charge observable and held-out QED/QCD scales. The Wilson member was selected for resolution without fitting observed radius or running data.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "Full-Haar L=1,2,3 fixed-loop calculations retain frequencies 96 and 256 and certify normalized real correlations above 0.97 at the common source time 1/4096. All nine temporal records and backaction are retained; two-readout work is bounded by 32/3 or 512/27. The local error bound grows as L^4 and does not establish fixed-time continuum convergence or a Clay gap. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: coupling varies with scale (onset at the core radius). Compile a fixed local Haar observable and complete temporal instrument onto the native process. Compare a further refinement and a held-out local observable under one clock, with every representation retained. Replace the growing L^4 error by an iteratable fixed-time estimate before any continuum claim; finite gaps and short-time memory do not solve four-dimensional Yang–Mills.",
    "proofs": [
     "source_strong_coupling",
     "yukawa_source_running",
@@ -557,17 +594,19 @@ export const OPENWAVE = {
     "openwave_strong_step_scaling",
     "openwave_dressed_core_response",
     "openwave_resolved_core",
-    "openwave_energy_schur"
+    "openwave_energy_schur",
+    "openwave_m10_review_gate",
+    "openwave_local_gauge_memory"
    ]
   },
   {
    "id": 24,
    "criterion": "Weak force: muon decay",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The unchanged native family current of the declared positive-frequency source produces a lighter charged state and all massive neutrino/antineutrino channels. Exact spin/phase-space factors give the GeV width; a squared-mass spectral bound transfers controlled finite-lifetime relaxation to the massive source. GF is calibrated with muon-lifetime ancestry; the tree lifetime differs by-0.4247percent without radiative corrections. The literal decay mechanism is satisfied without claiming an independent precision lifetime.",
-   "next": "Reproduce complete finite decay records and the massive survival certificate in-platform; add electromagnetic radiative terms on the same source and test a held-out normalization. Do not treat GF-calibrated lifetime agreement as an independent prediction.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: μ relaxes to e + neutral ejecta. Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation.",
    "proofs": [
     "native_weak_current_response",
     "openwave_current_averaging",
@@ -580,17 +619,19 @@ export const OPENWAVE = {
     "openwave_weak_decay",
     "openwave_lepton_widths",
     "openwave_mass_catalogue",
-    "openwave_fock_field_transport"
+    "openwave_fock_field_transport",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source"
    ]
   },
   {
    "id": 25,
    "criterion": "Weak force: beta decay (n → p)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The retained native neutron/proton current and normalizable packets have complete preparation, current, reference and work outcomes. Their vector amplitude and inherited calibrated axial magnitude remain unchanged. Full-H5 Lambda strong response and its breakup spectrum are distinct from autonomous beta decay; no radiative correction or measured neutron lifetime is added.",
-   "next": "Construct the common outgoing nucleon/lepton dynamics and physical clock for the actual weak source, retaining all channels, radiative corrections and a held-out lifetime comparison.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: n → p + e + ν̄, parity-violating (needs a neutron). Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation.",
    "proofs": [
     "openwave_axial_state",
     "openwave_baryon_beta",
@@ -605,17 +646,19 @@ export const OPENWAVE = {
     "openwave_baryon_dispersion",
     "openwave_pole_weak_current",
     "openwave_normalizable_particle_records",
-    "openwave_fock_field_transport"
+    "openwave_fock_field_transport",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source"
    ]
   },
   {
    "id": 26,
    "criterion": "Gravity: Newton limit (GEM)",
-   "status": "part",
-   "low": "part",
-   "high": "part",
-   "reason": "All 49 positive native source/probe pairs have a relative mutual-energy remainder below 1e−18 at the observed-G-selected register count. The complete source-on quench and coordinate records have a Duhamel bound; two independently prepared timed samples recover the leading response within 1e−11. Clock, memory and work are supplied. This is equilibrium/quench control with inherited G calibration, not independent Newton strength or nonlinear Einstein dynamics. The complete geometry source proves g_N=S Cov(Q,exp(Q))/(2πω), Var(Q)=q²/N and W Var(Q)=q²ωu/2. Coordinate measurement attains zero-source ground-state quantum Fisher information; quench information is at most four times that value. An independent Var(Q) datum would fix N; Cov(Q,exp(Q)) fixes the response. No physical metric-noise identification or unfitted G prediction is supplied.",
-   "next": "Use the exact response/noise/work identity to design a complete covariance protocol on the same matter/photon/geometry source, or exhibit its unresolved source-count freedom explicitly. The register count or stiffness must be specified independently of observed G before an unfitted prediction is claimed. Propagate covariance error into G and verify the same physical clock and length. OpenWave row 26 forbids fitted Newton strength; observed-G-selected N cannot close it.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "Ten noncommuting means and all 30 outcome probabilities factor through a 34-site tensor stencil with 60 native coordinate columns. Exact backaction/work and sharp null/variation error transfer are supplied. The conservative joint epsilon=0.001, confidence=0.99 bound requires 3,239,348,495 independent copies. The metric assignment is declared and its nonzero Einstein residual remains. The complete coordinate statistic D=(x−y)(exp(x)−exp(y))/2 estimates Cov(Q,exp(Q)). Its finite-sample relative-error bound is independent of register count, while work per record pair is N omega u. A common clock and photon length expose the rest/photon normalization factors. Independent register-count ancestry and physical metric-noise identification are missing; observed-G-selected N cannot predict Newton strength. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: attractive 1/r² between masses, via the GEM route; the strength (G) credited only when it follows from the model's own mechanism, never fitted. Compile all ten native stress observables and their complete three-outcome instruments onto one fixed native process. Propagate acquisition, backaction, compiler and sampling errors through the exact 34-site stencil and sharp null/variation bounds; retain the actual nonzero Einstein residual, reference outcomes and all work. Establish a common physical stress/metric/unit map before any gravity criterion claim. Implement the complete covariance, mean-lapse and photon-clock measurements on the same native process. Retain finite-sample, detector, work and compiler errors and the weak-source normalization domain. Fix the register count or stiffness independently of observed G and attach one physical clock/length before comparing Newton strength; observed-G-selected N cannot validate row 26.",
    "proofs": [
     "matched_einstein_limit",
     "matter_geometry_response",
@@ -636,17 +679,20 @@ export const OPENWAVE = {
     "openwave_tensor_record_transport",
     "openwave_collective_gravity_strength",
     "openwave_collective_finite_strength",
-    "openwave_gravity_noise_normalization"
+    "openwave_gravity_noise_normalization",
+    "openwave_m10_review_gate",
+    "openwave_stress_curvature_instruments",
+    "openwave_geometry_covariance_protocol"
    ]
   },
   {
    "id": 27,
    "criterion": "Gravity: local metric phenomena",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "All 49 positive native source/probe pairs have a relative mutual-energy remainder below 1e−18 at the observed-G-selected register count. The complete source-on quench and coordinate records have a Duhamel bound; two independently prepared timed samples recover the leading response within 1e−11. Clock, memory and work are supplied. This is equilibrium/quench control with inherited G calibration, not independent Newton strength or nonlinear Einstein dynamics. The complete geometry source proves g_N=S Cov(Q,exp(Q))/(2πω), Var(Q)=q²/N and W Var(Q)=q²ωu/2. Coordinate measurement attains zero-source ground-state quantum Fisher information; quench information is at most four times that value. An independent Var(Q) datum would fix N; Cov(Q,exp(Q)) fixes the response. No physical metric-noise identification or unfitted G prediction is supplied.",
-   "next": "Construct complete quantum instruments for one finite stress/curvature stencil and connect their classical outputs to the existing sharp null-inverse and staggered transport theorem. Keep noncommuting acquisition error, reference, backaction, clock, work and every output. Prove the resulting tensor error bound on complete small carriers and show the same-state consistency domain. A classical decoder alone does not acquire quantum stress.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "Ten noncommuting means and all 30 outcome probabilities factor through a 34-site tensor stencil with 60 native coordinate columns. Exact backaction/work and sharp null/variation error transfer are supplied. The conservative joint epsilon=0.001, confidence=0.99 bound requires 3,239,348,495 independent copies. The metric assignment is declared and its nonzero Einstein residual remains. The complete coordinate statistic D=(x−y)(exp(x)−exp(y))/2 estimates Cov(Q,exp(Q)). Its finite-sample relative-error bound is independent of register count, while work per record pair is N omega u. A common clock and photon length expose the rest/photon normalization factors. Independent register-count ancestry and physical metric-noise identification are missing; observed-G-selected N cannot predict Newton strength. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: light bending, gravitational time dilation / Shapiro delay. Compile all ten native stress observables and their complete three-outcome instruments onto one fixed native process. Propagate acquisition, backaction, compiler and sampling errors through the exact 34-site stencil and sharp null/variation bounds; retain the actual nonzero Einstein residual, reference outcomes and all work. Establish a common physical stress/metric/unit map before any gravity criterion claim. Implement the complete covariance, mean-lapse and photon-clock measurements on the same native process. Retain finite-sample, detector, work and compiler errors and the weak-source normalization domain. Fix the register count or stiffness independently of observed G and attach one physical clock/length before comparing Newton strength; observed-G-selected N cannot validate row 26.",
    "proofs": [
     "native_clock_comparison",
     "openwave_dynamic_stress",
@@ -673,17 +719,20 @@ export const OPENWAVE = {
     "openwave_tensor_record_transport",
     "openwave_collective_gravity_strength",
     "openwave_collective_finite_strength",
-    "openwave_gravity_noise_normalization"
+    "openwave_gravity_noise_normalization",
+    "openwave_m10_review_gate",
+    "openwave_stress_curvature_instruments",
+    "openwave_geometry_covariance_protocol"
    ]
   },
   {
    "id": 28,
    "criterion": "Cosmology: Λ / cosmic acceleration",
-   "status": "part",
-   "low": "part",
-   "high": "part",
-   "reason": "The exact H0 rescaling and linear-amplitude symmetries expose independent normalization inputs. With fixed primordial curvature, the present capacity metric coefficient is [0.734179279095,0.734257299186], versus [0.709108311479,0.709181069590] for the same-density Lambda control; their ratio is [1.035249403259,1.035465650732]. The strict k=0 mode is residual adiabatic coordinate freedom. These are validated conditional metric coefficients, not finite-k matter growth, a CMB match or a derived cosmological amplitude.",
-   "next": "Extend the exact k=0 solution through a controlled k² correction using variation of constants and the interval background. Separately state a native capacity-to-horizon/clock relation and test its normalization freedom. Give a finite nonzero-k error interval and distinguish metric potential from comoving matter growth. Preserve primordial, H0 and density inputs. OpenWave row 28 requires amplitude never fitted from observed Lambda; a supplied amplitude or k=0 coordinate mode cannot close it.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "For k=0.01 on the declared late preparation N from −1 to 0, the metric coefficient is [0.734178437082,0.734256737081] and comoving dust response is [−0.000145594911,−0.000145454956]. The leading k^2 metric correction is negative, [−0.008281806997,−0.005759370982]. Complete remainder bounds retain supplied background, horizon/clock and primordial normalization; these are conditional transfers, not a measured growth or CMB match. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: Λ from the model's own mechanism, never fitted; every remaining gap and a falsification named. Construct native capacity/history and horizon/clock observables, preserving the supplied H0, densities and primordial preparation ledger. Extend the controlled finite-k solution to a justified early preparation and compare a held-out metric or comoving-matter observable with full errors. Row 28 requires an amplitude never fitted from observed Lambda; the late prepared transfer alone does not derive an amplitude or a CMB match.",
    "proofs": [
     "matched_einstein_limit",
     "openwave_gravity_capacity",
@@ -692,32 +741,36 @@ export const OPENWAVE = {
     "openwave_radiation_capacity",
     "openwave_capacity_perturbations",
     "openwave_capacity_transfer",
-    "openwave_capacity_normalization_transfer"
+    "openwave_capacity_normalization_transfer",
+    "openwave_m10_review_gate",
+    "openwave_capacity_finite_wavelength"
    ]
   },
   {
    "id": 29,
    "criterion": "EM waves (Maxwell)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "Two transverse Maxwell modes, exact finite-occupation dynamics and independent real-space propagation pass on the declared cochain source; source choices remain explicit, as permitted by the M6 precedent.",
-   "next": "Reproduce the declared finite Maxwell evolution and refinement in-platform; attach a common physical particle/source clock only for the stronger joint electromagnetic interpretation.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: Maxwell recovered; transverse waves at c. Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation.",
    "proofs": [
     "maxwell_local_selection",
     "native_wilson_maxwell",
     "openwave_field_observables",
-    "openwave_fock_field_transport"
+    "openwave_fock_field_transport",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source"
    ]
   },
   {
    "id": 30,
    "criterion": "Quantum wave equation (Klein-Gordon)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
-   "reason": "The actual pinned OpenWave/Taichi source executes its complete lattice mass shell and a changed-frequency negative control. The independent full symbol has the sine dispersion. Finite-spacing dispersion and exact-arithmetic RK4 error do not establish Lorentz-invariant interacting continuum dynamics.",
-   "next": "Choose a model output whose parameter and variant choices did not use its comparison target. Freeze its observable, input ledger, tolerance and failure rule before inspecting a suitable held-out comparison. Reuse the three actual Taichi commands and typed publication dependency checks. Document target exposure, exact source/replay revisions and all failures. If no genuinely unexposed prediction is available, state that admission remains unestablished. Provide reproducible commands without sending an application or treating a local forecast as an award.",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
+   "reason": "The declared interacting source retains all 192 CAR modes, all 114 source terms, two unrestricted U(1) cycle links and 96 positive spatial squares. Exact Gauss/current/reference/work identities and a full-tail Temple bound give a common charged one-lepton architecture shift of about 7.5354869816e−6 GeV at the inherited electron anchor; the neutral shift cancels. An optional single source-computed subtraction H_delta=H−delta N_ch restores all inherited charged particle/antiparticle family rest coefficients and preserves the global vacuum, without another empirical target. This is a distinct normalization convention, not a forced native law, physical mass prediction or unchanged weak-current/work transfer. Native twelve-port implementation is unestablished.",
+   "next": "Execute the literal OpenWave test on the fixed native twelve-port process: emergent ω² = k² + m² for matter waves. Provide an explicit native operation/readout map for the complete interacting matter/flux source and bound its generator/instrument residual on all basis operators of a small carrier and one enlargement. Retain charge, Gauss, reference, normalization and complementary outcomes. The optional common counterterm must use its own currents and work; restored inherited coefficients do not prove physical masses or native implementation.",
    "proofs": [
     "openwave_field_observables",
     "openwave_kinetic_phase_cycle",
@@ -726,22 +779,35 @@ export const OPENWAVE = {
     "source_mass_shell",
     "openwave_boosted_records",
     "openwave_fock_field_transport",
-    "openwave_admission_packet"
+    "openwave_admission_packet",
+    "openwave_m10_review_gate",
+    "openwave_matter_flux_source"
    ]
   },
   {
    "id": 31,
    "criterion": "Orbital quantization (atomic structure)",
-   "status": "met",
-   "low": "part",
-   "high": "met",
+   "status": "untested",
+   "low": "untested",
+   "high": "untested",
    "reason": "The declared Gauss atom produces negative discrete standing-wave levels with independently varied volume and spacing. Its first gap approaches 3/8 and second-shell splitting falls to 0.000410646363. This meets the finite hydrogen-like level criterion; mass, kinetic law and coupling are supplied, with no precision physical-hydrogen claim.",
-   "next": "Reproduce the finite Gauss atom in-platform. Physical precision requires volume/spacing enclosures and a source particle/coupling dictionary beyond this finite standing-wave criterion.",
+   "next": "Implement this observable on the pinned native twelve-port repair/memory process in-platform, with a complete apparatus/readout transfer and fixed physical gate. Reproduce the finite Gauss atom in-platform. Physical precision requires volume/spacing enclosures and a source particle/coupling dictionary beyond this finite standing-wave criterion.",
    "proofs": [
     "native_abelian_field_join",
     "openwave_field_observables",
-    "openwave_atomic_refinement"
+    "openwave_atomic_refinement",
+    "openwave_m10_review_gate"
    ]
   }
- ]
+ ],
+ "official_admitted": true,
+ "official_model": "M10",
+ "official_counts": {
+  "validated": 0,
+  "partial": 0,
+  "negative": 0,
+  "untested": 31
+ },
+ "official_rank": 7,
+ "native_process_gate": "unestablished"
 };
