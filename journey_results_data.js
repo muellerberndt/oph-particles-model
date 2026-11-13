@@ -1,8 +1,8 @@
 export const JOURNEY_RESULTS = {
   "schema": "oph.journey_verified_results.v1",
   "date": "2026-11-13",
-  "source_revision": "17023e933b086884e6550a0db5b2ebfd6833f4e8",
-  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/17023e933b086884e6550a0db5b2ebfd6833f4e8/",
+  "source_revision": "a082125c66747a87f9f2d8435d6634f9d5d4dd8a",
+  "source_repository": "https://github.com/FloatingPragma/observer-patch-holography/blob/a082125c66747a87f9f2d8435d6634f9d5d4dd8a/",
   "scope": "Conditional finite constructions; calibration, preparation and physical identification are separate.",
   "leptons": {
     "rows": [
@@ -4950,7 +4950,527 @@ export const JOURNEY_RESULTS = {
     },
     "new_independent_nature_validation": false
   },
+  "native_execution_results": {
+    "process": {
+      "ports": [
+        240,
+        960
+      ],
+      "histories": [
+        15625,
+        15625
+      ],
+      "causal_order_equal": true
+    },
+    "response": {
+      "ports": [
+        240,
+        960,
+        3840
+      ],
+      "cell_memory": [
+        [
+          5.249013185521121e-07,
+          5.249013185521123e-07
+        ],
+        [
+          3.280633240950701e-08,
+          3.280633240950702e-08
+        ],
+        [
+          2.050395775594188e-09,
+          2.050395775594189e-09
+        ]
+      ],
+      "native_cosine_transfer": false
+    },
+    "charge": {
+      "algebra": "M66(C)",
+      "protected_fractional_charge": false
+    },
+    "clock": {
+      "multipliers": [
+        [
+          "11/12",
+          "1/60"
+        ],
+        [
+          "11/12",
+          "-1/60"
+        ],
+        [
+          "9/10",
+          "0"
+        ]
+      ],
+      "basis_columns": 66,
+      "raw_basis_checks": 47520,
+      "events": 4,
+      "expanded_four_event_tree": false,
+      "physical_rest_mass": false
+    },
+    "interaction": {
+      "rows": [
+        {
+          "blocks": 1,
+          "pair_difference": "1/4",
+          "record_difference": "1/4"
+        },
+        {
+          "blocks": 2,
+          "pair_difference": "9/64",
+          "record_difference": "3/64"
+        }
+      ],
+      "current_covariance": "1/8",
+      "matrix_units": 128,
+      "physical_field_unitary": false
+    },
+    "packet": {
+      "records": [
+        {
+          "ports": 240,
+          "radius": 0,
+          "held_out": false,
+          "attempts": 315,
+          "time": 0.25,
+          "arrival": [
+            0.0021556992754699945,
+            0.0021556992754699954
+          ],
+          "distance": [
+            0.8535470647985515,
+            0.8535470647985517
+          ]
+        },
+        {
+          "ports": 240,
+          "radius": 0,
+          "held_out": false,
+          "attempts": 1260,
+          "time": 1.0,
+          "arrival": [
+            0.07958660209949794,
+            0.07958660209949797
+          ],
+          "distance": [
+            1.7167385636970958,
+            1.7167385636970962
+          ]
+        },
+        {
+          "ports": 240,
+          "radius": 0,
+          "held_out": false,
+          "attempts": 5040,
+          "time": 4.0,
+          "arrival": [
+            0.47385579845839443,
+            0.47385579845839454
+          ],
+          "distance": [
+            2.910596746985582,
+            2.9105967469855827
+          ]
+        },
+        {
+          "ports": 240,
+          "radius": 1,
+          "held_out": false,
+          "attempts": 315,
+          "time": 0.25,
+          "arrival": [
+            0.00681318430227865,
+            0.006813184302278652
+          ],
+          "distance": [
+            1.2363427857589224,
+            1.2363427857589229
+          ]
+        },
+        {
+          "ports": 240,
+          "radius": 1,
+          "held_out": false,
+          "attempts": 1260,
+          "time": 1.0,
+          "arrival": [
+            0.10451074389467152,
+            0.10451074389467155
+          ],
+          "distance": [
+            1.819880061742033,
+            1.8198800617420334
+          ]
+        },
+        {
+          "ports": 240,
+          "radius": 1,
+          "held_out": false,
+          "attempts": 5040,
+          "time": 4.0,
+          "arrival": [
+            0.49047030751964965,
+            0.49047030751964976
+          ],
+          "distance": [
+            2.964463955220694,
+            2.964463955220695
+          ]
+        },
+        {
+          "ports": 240,
+          "radius": 2,
+          "held_out": true,
+          "attempts": 315,
+          "time": 0.25,
+          "arrival": [
+            0.03497601460141783,
+            0.034976014601417846
+          ],
+          "distance": [
+            1.6804721143430827,
+            1.6804721143430832
+          ]
+        },
+        {
+          "ports": 240,
+          "radius": 2,
+          "held_out": true,
+          "attempts": 1260,
+          "time": 1.0,
+          "arrival": [
+            0.18716207675741542,
+            0.18716207675741547
+          ],
+          "distance": [
+            2.0694055304684142,
+            2.069405530468415
+          ]
+        },
+        {
+          "ports": 240,
+          "radius": 2,
+          "held_out": true,
+          "attempts": 5040,
+          "time": 4.0,
+          "arrival": [
+            0.5473970357374858,
+            0.547397035737486
+          ],
+          "distance": [
+            3.1262676388692867,
+            3.1262676388692876
+          ]
+        },
+        {
+          "ports": 960,
+          "radius": 0,
+          "held_out": false,
+          "attempts": 1260,
+          "time": 0.25,
+          "arrival": [
+            0.002112489439865534,
+            0.002112489439865535
+          ],
+          "distance": [
+            0.8530183817334903,
+            0.8530183817334905
+          ]
+        },
+        {
+          "ports": 960,
+          "radius": 0,
+          "held_out": false,
+          "attempts": 5040,
+          "time": 1.0,
+          "arrival": [
+            0.07824107797599471,
+            0.07824107797599474
+          ],
+          "distance": [
+            1.7146511165528358,
+            1.7146511165528362
+          ]
+        },
+        {
+          "ports": 960,
+          "radius": 0,
+          "held_out": false,
+          "attempts": 20160,
+          "time": 4.0,
+          "arrival": [
+            0.47167519659817597,
+            0.4716751965981761
+          ],
+          "distance": [
+            2.9252881387983085,
+            2.9252881387983094
+          ]
+        },
+        {
+          "ports": 960,
+          "radius": 1,
+          "held_out": false,
+          "attempts": 1260,
+          "time": 0.25,
+          "arrival": [
+            0.006654092616215071,
+            0.006654092616215072
+          ],
+          "distance": [
+            1.2359588512454636,
+            1.235958851245464
+          ]
+        },
+        {
+          "ports": 960,
+          "radius": 1,
+          "held_out": false,
+          "attempts": 5040,
+          "time": 1.0,
+          "arrival": [
+            0.10286963128880205,
+            0.10286963128880208
+          ],
+          "distance": [
+            1.8174531738128463,
+            1.8174531738128468
+          ]
+        },
+        {
+          "ports": 960,
+          "radius": 1,
+          "held_out": false,
+          "attempts": 20160,
+          "time": 4.0,
+          "arrival": [
+            0.4883188302727684,
+            0.4883188302727685
+          ],
+          "distance": [
+            2.981371912535689,
+            2.98137191253569
+          ]
+        },
+        {
+          "ports": 960,
+          "radius": 2,
+          "held_out": true,
+          "attempts": 1260,
+          "time": 0.25,
+          "arrival": [
+            0.03394916367938412,
+            0.03394916367938414
+          ],
+          "distance": [
+            1.6791253431158322,
+            1.6791253431158326
+          ]
+        },
+        {
+          "ports": 960,
+          "radius": 2,
+          "held_out": true,
+          "attempts": 5040,
+          "time": 1.0,
+          "arrival": [
+            0.18434384387702557,
+            0.18434384387702563
+          ],
+          "distance": [
+            2.0654028367621473,
+            2.065402836762148
+          ]
+        },
+        {
+          "ports": 960,
+          "radius": 2,
+          "held_out": true,
+          "attempts": 20160,
+          "time": 4.0,
+          "arrival": [
+            0.545292390479561,
+            0.5452923904795612
+          ],
+          "distance": [
+            3.15235594817116,
+            3.1523559481711607
+          ]
+        },
+        {
+          "ports": 3840,
+          "radius": 0,
+          "held_out": false,
+          "attempts": 5040,
+          "time": 0.25,
+          "arrival": [
+            0.002116560936096409,
+            0.00211656093609641
+          ],
+          "distance": [
+            0.8529033261965958,
+            0.852903326196596
+          ]
+        },
+        {
+          "ports": 3840,
+          "radius": 0,
+          "held_out": false,
+          "attempts": 20160,
+          "time": 1.0,
+          "arrival": [
+            0.07824464676991276,
+            0.07824464676991279
+          ],
+          "distance": [
+            1.7146107812151288,
+            1.7146107812151292
+          ]
+        },
+        {
+          "ports": 3840,
+          "radius": 0,
+          "held_out": false,
+          "attempts": 80640,
+          "time": 4.0,
+          "arrival": [
+            0.4716695840625015,
+            0.4716695840625016
+          ],
+          "distance": [
+            2.9251482738231,
+            2.9251482738231007
+          ]
+        },
+        {
+          "ports": 3840,
+          "radius": 1,
+          "held_out": false,
+          "attempts": 5040,
+          "time": 0.25,
+          "arrival": [
+            0.006659719834679447,
+            0.0066597198346794485
+          ],
+          "distance": [
+            1.2359161549626339,
+            1.2359161549626343
+          ]
+        },
+        {
+          "ports": 3840,
+          "radius": 1,
+          "held_out": false,
+          "attempts": 20160,
+          "time": 1.0,
+          "arrival": [
+            0.10287052315386708,
+            0.1028705231538671
+          ],
+          "distance": [
+            1.8174348256435766,
+            1.817434825643577
+          ]
+        },
+        {
+          "ports": 3840,
+          "radius": 1,
+          "held_out": false,
+          "attempts": 80640,
+          "time": 4.0,
+          "arrival": [
+            0.4883133923135409,
+            0.488313392313541
+          ],
+          "distance": [
+            2.9812011299691648,
+            2.9812011299691656
+          ]
+        },
+        {
+          "ports": 3840,
+          "radius": 2,
+          "held_out": true,
+          "attempts": 5040,
+          "time": 0.25,
+          "arrival": [
+            0.03395300199110366,
+            0.033953001991103675
+          ],
+          "distance": [
+            1.6791077890554378,
+            1.6791077890554382
+          ]
+        },
+        {
+          "ports": 3840,
+          "radius": 2,
+          "held_out": true,
+          "attempts": 20160,
+          "time": 1.0,
+          "arrival": [
+            0.18433882223486753,
+            0.18433882223486758
+          ],
+          "distance": [
+            2.0654089652555427,
+            2.0654089652555436
+          ]
+        },
+        {
+          "ports": 3840,
+          "radius": 2,
+          "held_out": true,
+          "attempts": 80640,
+          "time": 4.0,
+          "arrival": [
+            0.5452874887370793,
+            0.5452874887370796
+          ],
+          "distance": [
+            3.152041378285748,
+            3.152041378285749
+          ]
+        }
+      ],
+      "local_powers": 128,
+      "coherent_translation": false,
+      "physical_speed": false
+    },
+    "geometry": {
+      "repair_phase_TV": "0",
+      "extended_phase_TV_diagnostic": 0.9999999999999997,
+      "matrix_units": 4356,
+      "coherent_service_supplied": true,
+      "Einstein_continuum": false
+    },
+    "capacity": {
+      "kernel_identical": true,
+      "complete_history_blocks": 625,
+      "physical_normalization": false
+    },
+    "platform": {
+      "raw_slots": 25,
+      "operator_columns": 16,
+      "author_side_execution": true,
+      "official_validated": 0,
+      "official_untested": 31
+    },
+    "new_GeV_rest_masses": [],
+    "new_independent_nature_validation": false
+  },
   "source_sha256": {
+    "model/openwave_native_process/results.json": "9ff181eeea900bc52d89591c665caf80ac5854fc519d053126fe4b6979cd9ed5",
+    "model/openwave_native_response/results.json": "86cfe08f73a73467aa6f65deaa411e88ec5df7aae0228d375d7bd88178154ba2",
+    "model/openwave_native_defect_records/results.json": "06fc172f41a6053b36924a5958363d15d2077dcf50ef38cfdffe0f340c7e0613",
+    "model/openwave_native_event_clock/results.json": "3cc724579d1bb11d74aa9197170da730e08edf35b300d9cd44594f489bfa5d0c",
+    "model/openwave_native_packet_propagation/results.json": "9c891df48dc580bacfc7597c926f65bf12dce7f234ef761a26885ac8be74b60c",
+    "model/openwave_native_interaction/results.json": "b6ff8e93d97670ae04a390d812462ee6be66832aac206fdffef592dd42d3a995",
+    "model/openwave_native_rest_energy/results.json": "4dc33182feb139091cb9ac577c0e959a3ee6b298497d9313d1ed8547dd35f8c4",
+    "model/openwave_native_geometry_readout/results.json": "f678ee3e584cd70ddb4ce7b1253585e9ef60fabae4e5586863cded95233a9367",
+    "model/openwave_native_capacity_history/results.json": "407c2912e6198e7f7b40263445be769554d0821f3ddaeafbd73b2e9242bf9217",
+    "model/openwave_native_platform_gate/results.json": "aa233a877d0e8e1f4f6f88f3c29771bfc10d90207585c48f86b2883f21460704",
     "model/openwave_lambda_narrow_weight/results.json": "eaa5a274adcf10ec9f4787ebb5c58cd2ccb7949abbcb282226dad32d4cbe3882",
     "model/openwave_repeated_native_clock/results.json": "f641dc2227194e4f30f0028a893647557fd11eb8dd65083159a4d6cc28bad133",
     "model/openwave_quark_string_transport/results.json": "49979443130dcc8cb9fd63e7b030c36deb7e6120ca792792176ac6a2ea05ee8a",
@@ -5095,6 +5615,16 @@ export const JOURNEY_RESULTS = {
     "model/openwave_radiation_capacity/results.json": "2c8e6386773591de98cafb882bc8d0c4449ee5e2235fd96455cc0f39768260cb"
   },
   "source_paths": {
+    "native_process": "model/openwave_native_process/results.json",
+    "native_response": "model/openwave_native_response/results.json",
+    "native_defect_records": "model/openwave_native_defect_records/results.json",
+    "native_event_clock": "model/openwave_native_event_clock/results.json",
+    "native_packet_propagation": "model/openwave_native_packet_propagation/results.json",
+    "native_interaction": "model/openwave_native_interaction/results.json",
+    "native_rest_energy": "model/openwave_native_rest_energy/results.json",
+    "native_geometry_readout": "model/openwave_native_geometry_readout/results.json",
+    "native_capacity_history": "model/openwave_native_capacity_history/results.json",
+    "native_platform_gate": "model/openwave_native_platform_gate/results.json",
     "lambda_narrow_weight": "model/openwave_lambda_narrow_weight/results.json",
     "repeated_native_clock": "model/openwave_repeated_native_clock/results.json",
     "quark_string_transport": "model/openwave_quark_string_transport/results.json",

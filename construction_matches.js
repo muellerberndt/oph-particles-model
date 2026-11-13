@@ -47,6 +47,15 @@ Object.assign(CONSTRUCTION_SUMMARIES,{
  27:'Complete stress/curvature acquisition retains ten noncommuting means, all outcomes and a conservative 3,239,348,495-copy bound. The metric is declared and the nonzero Einstein residual is retained.',
  28:'Controlled finite-wavelength metric and comoving-dust intervals follow for a supplied late-time preparation. Native capacity/horizon/clock and absolute primordial/cosmological normalization remain open; no observed growth or CMB match is claimed.'
 });
+Object.assign(CONSTRUCTION_SUMMARIES,{
+ 1:'Complete actual repair histories execute on 240- and 960-port carriers. Disjoint event orders agree after record-address relabeling; the physical continuum is unproved.',
+ 3:'Native current records expose exact event-relaxation multipliers (55±√5)/60 and 9/10. They are not particle oscillation frequencies or GeV masses; the repair-only source has no nonzero Hamiltonian rest phase.',
+ 4:'Uniformization bounds complete native occupation spread and crossing-current records through 80,640 attempts using 128 local powers. Coherence does not translate; no physical wave speed follows.',
+ 12:'Native current obeys exact integer continuity, but a modulo-six history label is not protected fractional charge. Separate declared gauge-source strings retain their own physical-identification limits.',
+ 21:'Actual two-load exclusion changes a complete native repair statistic by 1/4 and 3/64 relative to independent walkers. This finite source interaction is not an interacting continuum field or Clay construction.',
+ 26:'A declared coherent apparatus distinguishes phase twins that repair-only records cannot distinguish. The extended complete instrument does not derive physical Newton strength or Einstein spacetime.',
+ 28:'Native archive-plus-FIFO histories have an exact capacity-change identity with export_oldest. Clock, horizon and primordial normalization are undetermined; supplied finite-wavelength cosmology retains its separate equation ancestry.'
+});
 export function applyConstructionEvidence(groups){
  const updates={
   running:{ow:23,name:'Native charge response at the core scale',value:(100*mid(N.core.rows[0].suppression)).toFixed(6)+'% suppression',tip:'The same static native charge intervention and a separately measured radius resolve half-suppression at kR of order one, with every flux, probe outcome and work term retained. The Wilson coefficient was selected for resolution. This model-scale effective charge is not a measured QED/QCD running curve or a universal renormalized charge.',open:'The Wilson coefficient was selected for resolution. This model-scale effective charge is not a measured QED/QCD running curve or a universal renormalized charge.',src:[proof('resolved_core')]},
