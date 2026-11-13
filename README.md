@@ -49,8 +49,8 @@ lepton-cycle outcomes, reference-inclusive error budgets, exact closed-cell popu
 conjugation symmetry, correlated hadron errors and cutoff sensitivity. Its data projector rejects stale RER
 source bindings. All reported clocks, preparations and physical interpretations retain their stated domains.
 
-The [Journey page](https://particles.floatingpragma.ai/) shows the journey from the holographic screen to the
-particles, and every match of the model with nature as one wall of tiles. The Results group holds the full list
+The [Journey page](https://particles.floatingpragma.ai/?page=journey) tells the story from the holographic screen
+to particle records. The Results group holds the numerical comparisons and their complete list
 ([Matches to nature](https://particles.floatingpragma.ai/?page=matches)), the board of numbers and status, the
 [finite constructions](https://particles.floatingpragma.ai/?page=constructions) with their proofs, and the
 [OpenWave status](https://particles.floatingpragma.ai/?page=openwave) of the 31 OpenWave criteria. Values that
@@ -73,13 +73,13 @@ python tools/sync_openwave_status.py
 python tools/sync_openwave_status.py --check
 ```
 
-The current projection binds 53 RER receipts to one committed source revision. The finite-constructions page
-shows ten current tasks and the charged-lepton comparison; 39 supporting constructions stay available in a
-collapsed section. Highlights include the four-input hadron/axial calibration, complete weak-contact energy
-lines, distinct strong and nuclear fit controls, a native beta momentum-parity bound, oscillation-calibrated
-Dirac masses, controlled outgoing meson emission, one positive 192-mode semileptonic source, joint native
-clocks and an executed full-carrier Taichi kernel in a pinned OpenWave checkout. Calibration targets,
-independent comparisons and actual failed fits are labelled separately.
+The projection binds 86 RER receipts to one committed source revision. The finite-constructions page
+shows ten selected tasks, with supporting calculations in a collapsed section. Matches highlights
+calibrated proton, neutron, kaon, Lambda and triton energies in GeV, the charged-lepton comparison and
+the held-out tau leptonic ratio. The source cards give certified bulk bands, complete transverse-light
+and clock records, a fixed-spacing Yang–Mills gap theorem and correlated chronometer comparisons.
+Calibration targets, independent comparisons and failed fits have separate labels. Neither the
+strong-coupling lattice theorem nor the finite gravity mechanism establishes a continuum theory.
 
 The overlay preserves the Fable viewer and Journey layout. Small, fail-closed data hooks update its existing
 Matches rows and OpenWave summaries; calibrated masses and axial strength carry visible calibration labels.
@@ -98,3 +98,5 @@ python tools/sync_journey_results.py --rer /path/to/reverse-engineering-reality 
 
 Use a current published checkout when applying the overlay: it updates only the bound Results assets and data
 hooks. It must not replace concurrently edited simulation files or revert the Early Universe/cosmology page.
+
+The compact Numbers and status board (`?page=results`) uses the same committed-source projection: charged-lepton GeV values, calibrated hadron and nuclear energies, and the held-out tau width ratio. Calibrated rows carry OpenWave row numbers and no independent-fit deviation marker.

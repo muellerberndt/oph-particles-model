@@ -16,6 +16,7 @@ from pathlib import Path
 from ninth_results import project as ninth_projection
 from tenth_results import project as tenth_projection
 from eleventh_results import project as eleventh_projection
+from twelfth_results import project as twelfth_projection
 
 ROOT=Path(__file__).resolve().parents[1]
 RER=ROOT.parent/'reverse-engineering-reality'
@@ -97,6 +98,16 @@ SOURCES={
  'pure_su2_source':'model/openwave_pure_su2_source/results.json',
  'su2_transfer':'model/openwave_su2_transfer/results.json',
  'su2_spectral':'model/openwave_su2_spectral/results.json',
+ 'strange_composites':'model/openwave_strange_composites/results.json',
+ 'light_nuclear_curve':'model/openwave_light_nuclear_curve/results.json',
+ 'hadron_refinement_flow':'model/openwave_hadron_refinement_flow/results.json',
+ 'native_centre_string':'model/openwave_native_centre_string/results.json',
+ 'dressed_core_response':'model/openwave_dressed_core_response/results.json',
+ 'autonomous_clock_channel':'model/openwave_autonomous_clock_channel/results.json',
+ 'dirac_maxwell_refinement':'model/openwave_dirac_maxwell_refinement/results.json',
+ 'transverse_gravity':'model/openwave_transverse_gravity/results.json',
+ 'su2_volume_gap':'model/openwave_su2_volume_gap/results.json',
+ 'capacity_stress':'model/openwave_capacity_stress/results.json',
 
 
 
@@ -199,6 +210,7 @@ def project(rer=RER):
   'latest_tasks':ninth_projection(receipts),
   'particle_results':tenth_projection(receipts),
   'frontier_results':eleventh_projection(receipts),
+  'current_results':twelfth_projection(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }
@@ -534,6 +546,10 @@ def apply_data_hooks(name,body):
    ("import { COSMOLOGY_LEDGER, TILT_COMPARISONS } from './cosmos_evidence.js';", "import { COSMOLOGY_LEDGER, TILT_COMPARISONS } from './cosmos_evidence.js';\nimport { applyConstructionEvidence, updateConstructionOpenItems } from './construction_matches.js';"),
    ('  for (const g of groups) g.rows = g.rows.filter(Boolean);','  applyConstructionEvidence(groups);\n  for (const g of groups) g.rows = g.rows.filter(Boolean);'),
    ('  for (const o of open) if (OW[o.id]) o.ow = OW[o.id];','  updateConstructionOpenItems(open);\n  for (const o of open) if (OW[o.id]) o.ow = OW[o.id];')]
+ elif name=='results.js':
+  patches=[
+   ("import { STATUS, TICKS, FILES, REF, PLACEHOLDER_LABEL, INCOMPLETE_LABEL, axisX, board, fmtDev, fmtPct, fmtSigma } from './results_data.js';", "import { STATUS, TICKS, FILES, REF, PLACEHOLDER_LABEL, INCOMPLETE_LABEL, axisX, board, fmtDev, fmtPct, fmtSigma } from './results_data.js';\nimport { applyConstructionNumbers } from './construction_matches.js';"),
+   ('  B = board(LIVE);','  B = applyConstructionNumbers(board(LIVE));')]
  elif name=='openwave.js':
   patches=[("const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/main/';", "const RER = 'https://github.com/FloatingPragma/observer-patch-holography/blob/' + OPENWAVE.evaluated_RER_commit + '/';"),
    ('const PLAIN = {',"import { CONSTRUCTION_SUMMARIES } from './construction_matches.js';\nconst PLAIN = {"),
@@ -548,10 +564,10 @@ def apply_data_hooks(name,body):
 def sync(out,rer=RER,check=False):
  data=project(rer);body=json.dumps(data,indent=2,ensure_ascii=False)+'\n'
  outputs={'journey_results.json':body,'journey_results_data.js':'export const JOURNEY_RESULTS = '+body.rstrip()+';\n'}
- for name in ('journey_results.js','journey_results.css','construction_matches.js','ninth_results.js','tenth_results.js','eleventh_results.js'):outputs[name]=(EXTRA/name).read_text()
+ for name in ('journey_results.js','journey_results.css','construction_matches.js','ninth_results.js','tenth_results.js','eleventh_results.js','twelfth_results.js'):outputs[name]=(EXTRA/name).read_text()
  outputs['journey.js']=remove_journey_matches((out/'journey.js').read_text())
  check_placement((out/CONSUMER).read_text(),outputs['journey.js'])
- for name in ('matches_data.js','openwave.js'):
+ for name in ('matches_data.js','openwave.js','results.js'):
   outputs[name]=apply_data_hooks(name,(out/name).read_text())
  for name,body in outputs.items():
   p=out/name

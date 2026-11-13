@@ -31,7 +31,7 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertGreater(p['weak']['receiver_probability_interval'][0],0)
   self.assertGreater(p['neutral_transfer']['receiver_probability_interval'][0],0)
   self.assertFalse(p['neutral_transfer']['earlier_flat_band_transferred'])
-  self.assertEqual(len(p['source_sha256']),76)
+  self.assertEqual(len(p['source_sha256']),86)
   self.assertEqual(p['particle_results']['task_count'],10)
   self.assertFalse(p['particle_results']['catalogue']['source_joins']['all_sources_identified_as_one_interacting_theory'])
   self.assertFalse(p['particle_results']['widths']['muon_normalization_comparison']['independent_prediction'])
@@ -89,6 +89,13 @@ class JourneyProjectionTest(unittest.TestCase):
   self.assertIn('CONSTRUCTION_SUMMARIES',out)
   with self.assertRaisesRegex(ValueError,'Fable data hook changed'):
    apply_data_hooks('openwave.js','a changed Fable renderer')
+ def test_results_hook_preserves_standalone_data_and_is_idempotent(self):
+  original="import { STATUS, TICKS, FILES, REF, PLACEHOLDER_LABEL, INCOMPLETE_LABEL, axisX, board, fmtDev, fmtPct, fmtSigma } from './results_data.js';\n  B = board(LIVE);"
+  out=apply_data_hooks('results.js',original)
+  self.assertEqual(out,apply_data_hooks('results.js',out))
+  self.assertIn('applyConstructionNumbers(board(LIVE))',out)
+  with self.assertRaisesRegex(ValueError,'Fable data hook changed'):
+   apply_data_hooks('results.js',original.replace('B = board(LIVE)','B = changedBoard(LIVE)'))
  def test_changed_display_domains_are_rejected(self):
   mutations=[
    ('openwave_localized_rest_packet',lambda x:x['near_rest_localized_source'].__setitem__('source_time_horizon',100)),

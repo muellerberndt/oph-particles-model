@@ -30,7 +30,7 @@ assert.equal(D.higgs.observed_quark_mass_fit,false);
 assert.equal(D.gravity.physical_G_or_clock_calibrated,false);
 assert.equal(D.weak.physical_lifetime_or_weak_scale_derived,false);
 assert.equal((html.match(/id="particle-results"/g)||[]).length,1);
-assert.equal(Object.keys(D.source_sha256).length,76);
+assert.equal(Object.keys(D.source_sha256).length,86);
 for(const phrase of ['q = −1','photon-cap removal','Quantum Larmor precession','Neutrino-like flight','GeV width','Bound three-quark','Bound meson','Geometry mediates','finite packet bends','rejected hadron assignments','not an independent mass fit','not running masses','γ=−1 has zero principal-ray bending'])assert(html.includes(phrase),phrase);
 for(const r of D.previous_tasks.common_scale.rows)assert(html.includes(Number(r.conditional_GeV).toPrecision(10)));
 assert.equal(D.previous_tasks.common_scale.physical_hadron_mass_fit,false);
@@ -92,15 +92,62 @@ assert.equal(D.particle_results.boost.full_interacting_Lorentz_covariance,false)
 
 assert.equal(D.frontier_results.task_count,10);
 assert.equal(D.frontier_results.additional_pure_gauge_tasks,3);
-assert.equal((html.match(/data-frontier-card=/g)||[]).length,10);
-assert(html.indexOf('data-frontier-card="masses"')<html.indexOf('class="jr-supporting"'));
-for(const id of ['masses','profiles','length','strong-steps','yang-mills','transverse','running','clock','flux','gravity'])assert(html.includes(`data-frontier-card="${id}"`));
-assert.equal(D.frontier_results.yang_mills.Clay_solved,false);
-assert.equal(D.frontier_results.profiles.physical_radius_fit,false);
-assert.equal(D.frontier_results.transverse.physical_electron_pole,false);
-assert.equal(D.frontier_results.clocks.passive_onset,false);
-assert.equal(D.frontier_results.flux.texture_winding,false);
-assert.equal(D.frontier_results.gravity.physical_G,false);
-for(const r of D.frontier_results.strong.mass_fits)assert(html.includes((r.computed_GeV??((r.interval_GeV[0]+r.interval_GeV[1])/2)).toFixed(r.name==='Delta_plus'?6:11)));
-for(const phrase of ['Seven disclosed inputs','Breit–Wigner','held-out neutral-pion','not an isolated electron pole','not an equilibrium time crystal','not the reconstructed photon','No GeV glueball mass or Clay solution'])assert(html.includes(phrase),phrase);
-console.log('Current ten cards, calibrated energies and pure-gauge boundaries PASS');
+assert.equal(D.current_results.task_count,10);
+assert.equal((html.match(/data-current-card=/g)||[]).length,10);
+assert(html.indexOf('data-current-card="strange"')<html.indexOf('class="jr-supporting"'));
+for(const id of ['strange','bulk','nuclei','string','core','pauli','clock','photon-gravity','uniform-gap','cosmology'])assert(html.includes(`data-current-card="${id}"`));
+assert(!html.includes('data-frontier-card='),'Replace the ten visible cards without growing the wall');
+assert.equal(D.current_results.yang_mills.Clay_solved,false);
+assert.equal(D.current_results.cosmology.Lambda_amplitude_derived,false);
+assert.equal(D.current_results.core.physical_running_fit,false);
+assert.equal(D.current_results.electromagnetism.physical_pole_fit,false);
+assert.equal(D.current_results.clock.autonomous_phase_onset_established,false);
+assert.equal(D.current_results.gravity.physical_G,false);
+assert.equal(D.current_results.strange.on_shell_strange_channel_open,false);
+for(const r of D.current_results.strange.masses.filter(x=>x.comparison_role==='calibration'))assert(html.includes(r.computed_GeV.toFixed(6)));
+for(const phrase of ['Two additional','held-out','not physical pole fits','autonomous phase onset','tested common-unit map fails','Clay solution','dark-energy amplitude is calibrated'])assert(html.includes(phrase),phrase);
+assert(rows.find(r=>r.id==='strange_K+').natureWord==='fit target');
+assert(rows.find(r=>r.id==='triton_calibrated').dev==='calibrated interval');
+assert(rows.find(r=>r.id==='bend').src.some(x=>x[1].includes('openwave_transverse_gravity')));
+assert(!journeySource.includes('journey-matches'),'New data must not restore Journey duplication');
+const {outwardBox}=await import(pathToFileURL(path.join(site,'twelfth_results.js')));
+const currentIntervals=[
+ [D.current_results.bulk.neutron_GeV_interval,9],[D.current_results.bulk.proton_GeV_interval,9],
+ [D.current_results.bulk.axial_interval,6],
+ ...D.current_results.nuclear.masses.map(r=>[r.GeV_interval,7]),
+ [D.current_results.core.rows[0].radius_cells_interval,9],
+ [D.current_results.core.rows[0].response[0].interval,12],
+ [D.current_results.core.rows[0].response.at(-1).interval,12],
+ ...D.current_results.electromagnetism.rest_rows.map(r=>[r.source_reference_energy_GeV_interval,12]),
+ [D.current_results.clock.bands.at(-1).linewidth_interval,10],
+ ...D.current_results.gravity.records.same_joint_native_clock_phase_ratio_intervals.map(r=>[r,7]),
+];
+for(const [source,places]of currentIntervals){
+ const display=outwardBox(source,places),[lo,hi]=display.split(', ').map(Number);
+ assert(lo<=source[0]&&source[1]<=hi,display);
+ assert(html.includes('['+display+']'),display);
+}
+// Binary64 0.1 lies strictly above its one-place decimal; the negative control reverses this.
+assert.equal(outwardBox([.1,.1],1),'0.1, 0.2');
+assert.equal(outwardBox([-.1,-.1],1),'-0.2, -0.1');
+assert.equal(outwardBox([Number.MIN_VALUE,Number.MIN_VALUE],12),'0.000000000000, 0.000000000001');
+assert.equal(outwardBox([-Number.MIN_VALUE,-Number.MIN_VALUE],12),'-0.000000000001, 0.000000000000');
+assert.equal(outwardBox([.5,.5],1),'0.5, 0.5');
+assert.throws(()=>outwardBox([1,0]),/Invalid/);
+assert.throws(()=>outwardBox([0,Infinity]),/Invalid/);
+console.log('Current ten cards, actual GeV outputs and retained physical failures PASS');
+
+const {board}=await import(pathToFileURL(path.join(site,'results_data.js')));
+const {applyConstructionNumbers}=await import(pathToFileURL(path.join(site,'construction_matches.js')));
+const boardData=applyConstructionNumbers(board()),numberRows=boardData.groups.flatMap(g=>g.rows);
+assert.equal(boardData.groups.filter(g=>g.id==='native_masses').length,1);
+const once=JSON.stringify(boardData);assert.equal(JSON.stringify(applyConstructionNumbers(boardData)),once,'Results overlay is idempotent');
+for(const r of D.frontier_results.strong.mass_fits){const row=numberRows.find(x=>x.id==='native_'+r.name);assert.equal(row.model,r.computed_GeV??((r.interval_GeV[0]+r.interval_GeV[1])/2));assert.equal(row.cmp,null);assert.equal(row.refWord,'calibration target');assert(row.none.includes('OW '));}
+for(const r of D.current_results.strange.masses.filter(x=>x.comparison_role==='calibration'))assert.equal(numberRows.find(x=>x.id==='native_'+r.name).model,r.computed_GeV);
+assert.equal(numberRows.find(x=>x.id==='native_tau_ratio').model,D.particle_results.widths.ratio.native_ratio);
+assert.equal(numberRows.find(x=>x.id==='native_tau_ratio').refWord,'held-out comparison');
+for(const [id,particle]of [['m_mu','muon'],['m_tau','tau']]){const row=numberRows.find(x=>x.id===id);assert.equal(row.unit,'GeV');assert.equal(row.model,D.particle_results.leptons.rows.find(x=>x.particle===particle).mass_GeV);}
+for(const row of numberRows.filter(x=>x.id.startsWith('native_')))assert(row.more.every(x=>x[2].includes(D.source_revision)));
+assert(fs.readFileSync(path.join(site,'results.js'),'utf8').includes('B = applyConstructionNumbers(board(LIVE));'));
+assert(!JSON.stringify(boardData).includes('NaN'));
+console.log('Compact Results page: source-bound GeV values, held-out ratio and calibration labels PASS');
