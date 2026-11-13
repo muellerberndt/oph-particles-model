@@ -1,4 +1,5 @@
 import { ninthResults } from './ninth_results.js';
+import { tenthResults } from './tenth_results.js';
 import { JOURNEY_RESULTS as D } from './journey_results_data.js';
 const BASE=D.source_repository;
 const esc=(value)=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -123,7 +124,9 @@ export function renderJourneyResults(){
  return `<section class="jr" id="particle-results" aria-labelledby="jr-title">
   <div class="jr-heading"><div><span class="jr-eyebrow">Results from the executable constructions · ${esc(D.date)}</span><h3 id="jr-title">From source records to particle numbers</h3></div><a class="jr-all" href="finite_results.html">Explore all finite results →</a></div>
   <p class="jr-intro">The target is one explicit OPH implementation whose observer records match our Universe. Specified construction choices are part of that model. These executable results connect charge, spin, weak transitions, composites and dynamical geometry; conditional GeV values and actual mismatches remain visible.</p>
-  <div class="jr-grid">
+  <div class="jr-grid">${tenthResults()}</div>
+  <details class="jr-supporting"><summary>Supporting constructions and comparison controls (50)</summary><div class="jr-grid">
+
    <article class="jr-card jr-masses"><div class="jr-label">One electron anchor · conditional masses</div><h4>Three charged-lepton branches</h4>${ow([11])}
     <div class="jr-table-wrap"><table><thead><tr><th>Branch</th><th>Rest energy / GeV</th><th>Role</th></tr></thead><tbody>${masses}</tbody></table></div>
     <p class="jr-ratio">1 : ${Number(D.leptons.muon_electron_ratio).toFixed(6)} : ${Number(D.leptons.tau_electron_ratio).toFixed(6)}</p>
@@ -131,8 +134,7 @@ export function renderJourneyResults(){
     <details><summary>What is derived, calibrated and still open?</summary><p>The branch ratios follow from the declared analyzer and clock, including phase 2/9. The measured CODATA 2022 electron energy sets the GeV unit. Architecture development had prior exposure to lepton masses: this is a conditional retrospective comparison, not a blind prediction. The muon discrepancy exceeds the reference measurement uncertainty. An interacting physical lepton identity, removal of additional lattice modes and a physical clock remain open.</p><p>${link('packet')} · <a href="${BASE}model/lepton_cycle/COMPARISON.md">Frozen CODATA 2022 / PDG 2024 comparison ↗</a></p></details>
    </article>
    ${ninthResults()}
-  </div>
-  <details class="jr-supporting"><summary>Further finite constructions and controls (39)</summary><div class="jr-grid">
+
    ${calibrationResults()}
    ${referenceResults()}
    ${previousResults()}

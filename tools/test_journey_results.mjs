@@ -7,8 +7,8 @@ const {JOURNEY_RESULTS:D}=await import(pathToFileURL(path.join(site,'journey_res
 const html=renderJourneyResults();
 assert.match(D.source_revision,/^[0-9a-f]{40}$/);
 assert.notEqual(D.uncommitted_preview,true,'An uncommitted local preview cannot pass publication checks');
-assert.equal((html.match(/<article /g)||[]).length,50);
-assert.equal((html.match(/<details>/g)||[]).length,50);
+assert.equal((html.match(/<article /g)||[]).length,60);
+assert.equal((html.match(/<details>/g)||[]).length,60);
 assert.equal(D.current_tasks.task_count,10);
 assert.equal(D.latest_tasks.task_count,10);
 for(let i=1;i<=10;i++)assert.equal((html.match(new RegExp(`data-calibration-task="${i}"`,'g'))||[]).length,1);
@@ -25,7 +25,7 @@ assert.equal(D.higgs.observed_quark_mass_fit,false);
 assert.equal(D.gravity.physical_G_or_clock_calibrated,false);
 assert.equal(D.weak.physical_lifetime_or_weak_scale_derived,false);
 assert.equal((html.match(/id="particle-results"/g)||[]).length,1);
-assert.equal(Object.keys(D.source_sha256).length,53);
+assert.equal(Object.keys(D.source_sha256).length,63);
 for(const phrase of ['q = −1','photon-cap removal','Quantum Larmor precession','Neutrino-like flight','GeV width','Bound three-quark','Bound meson','Geometry mediates','finite packet bends','rejected hadron assignments','not an independent mass fit','not running masses','γ=−1 has zero principal-ray bending'])assert(html.includes(phrase),phrase);
 for(const r of D.previous_tasks.common_scale.rows)assert(html.includes(Number(r.conditional_GeV).toPrecision(10)));
 assert.equal(D.previous_tasks.common_scale.physical_hadron_mass_fit,false);
@@ -65,11 +65,22 @@ assert.equal(OPENWAVE.evaluated_RER_commit,D.source_revision,'Status and numbers
 assert.match(OPENWAVE.assessment_sha256,/^[0-9a-f]{64}$/);
 for(const key of ['met','part','fails','untested'])assert.equal(OPENWAVE.counts[key],OPENWAVE.rows.filter(r=>r.status===key).length);
 const M=matches(), rows=M.groups.flatMap(g=>g.rows);
-for(const id of ['baryon','order','meson','deuteron','neutrino','slow','bend','beta']){
+for(const id of ['gen','boost','confine','baryon','order','meson','deuteron','neutrino','slow','bend','beta']){
  const r=rows.find(x=>x.id===id);assert(r,id);
  assert.equal(r.kind,OPENWAVE.rows.find(o=>o.id===r.ow).status==='met'?'seen':'part',id);
 }
 for(const r of D.current_tasks.calibrated_hadrons.fits){const x=rows.find(x=>x.id==='calibrated_'+r.comparison);assert.equal(x.value,Number(r.computed_GeV).toFixed(11));assert.equal(x.dev,'calibrated');assert.equal(x.natureWord,'fit target');}
 assert(M.groups.find(g=>g.id==='cosmos').rows.some(r=>r.page==='cosmology'));
 assert(!JSON.stringify(M.open).includes('energetically forbidden'));
+assert(rows.find(r=>r.id==='confine').open.includes('1 GeV/fm'));
+assert(rows.find(r=>r.id==='boost').open.includes('nonlocal'));
+assert(rows.find(r=>r.id==='gen').open.includes('retrospective ancestry'));
 console.log('Results projection, Fable data hooks and scientific scope checks PASS');
+
+assert.equal(D.particle_results.task_count,10);
+for(let i=1;i<=10;i++)assert.equal((html.match(new RegExp(`data-particle-task=\"${i}\"`,'g'))||[]).length,1);
+assert(html.indexOf('data-particle-task="9"')<html.indexOf('class="jr-supporting"'));
+assert(html.indexOf('data-task="1"')>html.indexOf('class="jr-supporting"'));
+assert.equal(D.particle_results.widths.ratio.used_in_parameter_selection,false);
+assert.equal(D.particle_results.electromagnetism.transverse_photons,false);
+assert.equal(D.particle_results.boost.full_interacting_Lorentz_covariance,false);

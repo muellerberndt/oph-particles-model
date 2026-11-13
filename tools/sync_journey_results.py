@@ -14,6 +14,7 @@ import subprocess
 from fractions import Fraction
 from pathlib import Path
 from ninth_results import project as ninth_projection
+from tenth_results import project as tenth_projection
 
 ROOT=Path(__file__).resolve().parents[1]
 RER=ROOT.parent/'reverse-engineering-reality'
@@ -72,6 +73,16 @@ SOURCES={
  'common_mass_source':'model/openwave_common_mass_source/results.json',
  'joint_native_clocks':'model/openwave_joint_native_clocks/results.json',
  'platform_kernel':'model/openwave_platform_kernel/results.json',
+ 'beta_angular':'model/openwave_beta_angular/results.json',
+ 'lepton_widths':'model/openwave_lepton_widths/results.json',
+ 'neutrino_matter':'model/openwave_neutrino_matter/results.json',
+ 'spin_gradient_nuclei':'model/openwave_spin_gradient_nuclei/results.json',
+ 'rest_spectroscopy':'model/openwave_rest_spectroscopy/results.json',
+ 'colour_string':'model/openwave_colour_string/results.json',
+ 'common_electromagnetism':'model/openwave_common_electromagnetism/results.json',
+ 'boosted_records':'model/openwave_boosted_records/results.json',
+ 'single_valley_leptons':'model/openwave_single_valley_leptons/results.json',
+ 'mass_catalogue':'model/openwave_mass_catalogue/results.json',
 
 
 
@@ -132,7 +143,7 @@ def project(rer=RER):
                'vacuum_probability':vacuum['two_photon_no_fermion_probability']})
  return {
   'schema':'oph.journey_verified_results.v1',
-  'date':'2026-11-12',
+  'date':'2026-11-13',
   'source_revision':revision,
   'source_repository':f'https://github.com/FloatingPragma/observer-patch-holography/blob/{revision}/',
   'scope':'Conditional finite constructions; calibration, preparation and physical identification are separate.',
@@ -166,6 +177,7 @@ def project(rer=RER):
   'reference_tasks':reference_tasks(receipts),
   'current_tasks':current_tasks(receipts),
   'latest_tasks':ninth_projection(receipts),
+  'particle_results':tenth_projection(receipts),
   'source_sha256':{path:digest(rer/path)for path in SOURCES.values()},
   'source_paths':SOURCES,
  }
@@ -502,7 +514,7 @@ def apply_data_hooks(name,body):
 def sync(out,rer=RER,check=False):
  data=project(rer);body=json.dumps(data,indent=2,ensure_ascii=False)+'\n'
  outputs={'journey_results.json':body,'journey_results_data.js':'export const JOURNEY_RESULTS = '+body.rstrip()+';\n'}
- for name in ('journey_results.js','journey_results.css','construction_matches.js','ninth_results.js'):outputs[name]=(EXTRA/name).read_text()
+ for name in ('journey_results.js','journey_results.css','construction_matches.js','ninth_results.js','tenth_results.js'):outputs[name]=(EXTRA/name).read_text()
  check_placement((out/CONSUMER).read_text(),(out/'journey.js').read_text())
  for name in ('matches_data.js','openwave.js'):
   outputs[name]=apply_data_hooks(name,(out/name).read_text())
