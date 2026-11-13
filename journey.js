@@ -1063,8 +1063,8 @@ function paintPage(t) {                       // every visible row, and the coun
 }
 export function mount(host) {
   css();
-  // The page: the journey as one running picture, then every match with nature (matches.js), then the maps between
-  // the steps. No result block is mounted here: results live on the pages of the Results group.
+  // The page: the journey as one running picture, then the maps between the steps.
+  // Matches and numerical results live on their dedicated Results pages.
   host.innerHTML = `<div class="jy-wrap">
     <div class="jy-head"><h2>Journey</h2><button class="jy-results" data-page="matches" title="every match with nature in one list"><b>8</b><span>Results</span><i>›</i></button></div>
     <div class="jy-sides">
@@ -1075,7 +1075,6 @@ export function mount(host) {
     <div class="jy-ownbar"></div>
     <div class="jy-film"></div>
   </div>
-  <div class="mw" id="journey-matches"></div>
   <div class="jy-wrap jy-wrap-more">
     <h3 class="jy-sec-title">The maps between the steps</h3>
     <div class="jy-cards">${MAPS.map((m, i) => `<div class="jy-card" data-map="${m.id}" role="button" tabindex="0" title="open the map ${m.name}">
@@ -1084,7 +1083,6 @@ export function mount(host) {
       <div class="jy-card-pic"><canvas></canvas></div>
       <div class="jy-card-f"><span>${RULE_CAP[m.id]}</span><i>›</i></div></div>`).join('')}</div>
     <div class="jy-foot"><div class="jy-legend">${Object.keys(STATUS).map(chip).join('')}</div><div class="jy-live"><i></i><span></span></div></div></div>`;
-  import('./matches.js').then((m) => { const el = host.querySelector('#journey-matches'); if (el) m.wall(el); }).catch(() => {});
   const wrap = host.querySelector('.jy-wrap'), pageEl = host.closest ? host.closest('.page') : null, page = pageEl;
   PG = { host, wrap, film: host.querySelector('.jy-film'), own: host.querySelector('.jy-ownbar'), live: host.querySelector('.jy-live span'), mode: modeOf(wrap.clientWidth || 1200), pics: [], told: -9, io: null };
   if (typeof IntersectionObserver === 'function') PG.io = new IntersectionObserver((es) => es.forEach((e) => { if (e.target.__pic) e.target.__pic.vis = e.isIntersecting; }));
