@@ -7,7 +7,7 @@
 </p>
 
 <h3 align="center">▶ <a href="https://particles.floatingpragma.ai/">particles.floatingpragma.ai</a></h3>
-<p align="center"><a href="https://particles.floatingpragma.ai/?page=journey">The journey</a> · <a href="https://particles.floatingpragma.ai/?page=matches">Matches with our universe</a> · <a href="https://particles.floatingpragma.ai/about.html">About</a> · <a href="https://philpapers.org/rec/MUEFOC">Main paper</a> · <a href="https://github.com/FloatingPragma/observer-patch-holography">Theory repository</a></p>
+<p align="center"><a href="https://particles.floatingpragma.ai/?page=journey">The journey</a> · <a href="https://particles.floatingpragma.ai/?page=matches">Matches with our universe</a> · <a href="https://particles.floatingpragma.ai/about.html">About</a> · <a href="https://floatingpragma.ai/faq/">Reality FAQ</a> · <a href="https://philpapers.org/rec/MUEFOC">Main paper</a> · <a href="https://github.com/FloatingPragma/observer-patch-holography">Theory repository</a></p>
 
 ## This repository
 
