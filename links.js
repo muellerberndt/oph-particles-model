@@ -92,7 +92,7 @@ document.head.appendChild(st);
 function papersMenu() {
   const top = document.getElementById('top'); if (!top || document.getElementById('papers-btn')) return;
   const wrap = document.createElement('div'); wrap.id = 'papers-btn';
-  wrap.innerHTML = `<button title="the papers behind this site">papers</button><div class="papers-pop"><a href="https://oph-book.floatingpragma.ai/" target="_blank" rel="noopener"><b>Read the book online</b> ↗</a><a href="https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a" target="_blank" rel="noopener"><b>Ask the OPH Notebook</b> ↗</a>${PAPERS.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join('')}<a href="https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/README.md" target="_blank" rel="noopener">All derivations behind this site ↗</a><a href="${BOOK_PDF}" target="_blank" rel="noopener">The book: Reverse Engineering Reality (PDF) ↗</a><a href="https://oph-particles-data-20261111.s3.amazonaws.com/index.html" target="_blank" rel="noopener">The complete simulation runs, for download ↗</a></div>`;
+  wrap.innerHTML = `<button title="the papers behind this site">papers</button><div class="papers-pop"><a href="https://oph-book.floatingpragma.ai/" target="_blank" rel="noopener"><b>Read the book online</b> ↗</a><a href="https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a" target="_blank" rel="noopener"><b>Ask the OPH Notebook</b> ↗</a><a href="https://floatingpragma.ai/faq/" target="_blank" rel="noopener"><b>Reality FAQ</b>, with a chat with Sage ↗</a>${PAPERS.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join('')}<a href="https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/README.md" target="_blank" rel="noopener">All derivations behind this site ↗</a><a href="${BOOK_PDF}" target="_blank" rel="noopener">The book: Reverse Engineering Reality (PDF) ↗</a><a href="https://oph-particles-data-20261111.s3.amazonaws.com/index.html" target="_blank" rel="noopener">The complete simulation runs, for download ↗</a></div>`;
 
   const pop = wrap.querySelector('.papers-pop'); document.body.appendChild(pop);   // outside the header, whose blur would clip it
   pop.addEventListener('click', (e) => e.stopPropagation());
@@ -104,9 +104,12 @@ function papersMenu() {
   const about = document.createElement('a'); about.id = 'about-link'; about.href = 'about.html'; about.textContent = 'about';
   about.title = 'what OPH is, with the paper, the book and the repository';
   top.appendChild(about);
+  const faq = document.createElement('a'); faq.id = 'faq-link'; faq.href = 'https://floatingpragma.ai/faq/'; faq.target = '_blank'; faq.rel = 'noopener';
+  faq.textContent = 'faq'; faq.title = 'Reality FAQ: answers to the big questions, and a chat with Sage';
+  top.appendChild(faq);
   top.appendChild(wrap);
   const st2 = document.createElement('style');
-  st2.textContent = `#about-link{background:rgba(20,30,52,.85);color:var(--text);border:1px solid var(--edge);border-radius:9px;padding:6px 11px;font-size:13px;text-decoration:none;white-space:nowrap}#about-link:hover{border-color:#3a5586;background:#17233b}#papers-btn{position:relative}#papers-btn>button{border-color:rgba(63,224,208,.45);color:#3fe0d0}.papers-pop{display:none;position:fixed;z-index:30;min-width:330px;padding:8px;border-radius:12px;background:rgba(9,14,26,.97);border:1px solid #2b3d63;box-shadow:0 18px 50px -20px #000}
+  st2.textContent = `#about-link,#faq-link{background:rgba(20,30,52,.85);color:var(--text);border:1px solid var(--edge);border-radius:9px;padding:6px 11px;font-size:13px;text-decoration:none;white-space:nowrap}#about-link:hover,#faq-link:hover{border-color:#3a5586;background:#17233b}#papers-btn{position:relative}#papers-btn>button{border-color:rgba(63,224,208,.45);color:#3fe0d0}.papers-pop{display:none;position:fixed;z-index:30;min-width:330px;padding:8px;border-radius:12px;background:rgba(9,14,26,.97);border:1px solid #2b3d63;box-shadow:0 18px 50px -20px #000}
 .papers-pop.open{display:flex;flex-direction:column}.papers-pop a{padding:7px 10px;border-radius:8px;color:#dfe6f5;text-decoration:none;font-size:13px}.papers-pop a:hover{background:rgba(63,224,208,.12);color:#3fe0d0}`;
   document.head.appendChild(st2);
 }
