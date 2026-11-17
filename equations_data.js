@@ -261,7 +261,7 @@ export const CARDS = {
     what: 'On the cubic family: weak links V, hypercharge angle a, doublet Φ with ρ² = Φ<sup>†</sup>Φ, β<sub>G</sub> = 4/g². λ<sub>L</sub> is a declared stabilizer.',
     status: 'declared',
     wide: true,
-    links: [['source', 'The gauge-Higgs system, specification', DER + 'work/HR/SPEC.md'], ['report', 'The Higgs register', DER + 'reports/UH.md'], ['report', 'Links, action and bare couplings', DER + 'reports/GL.md']],
+    links: [['source', 'The gauge-Higgs system, specification', DER + 'work/HR/SPEC.md'], ['report', 'Links, action and bare couplings', DER + 'reports/GL.md']],
   },
 
 };

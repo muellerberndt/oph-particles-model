@@ -42,8 +42,6 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const pageOn = () => { const p = $('page-lattice'); return !!(p && p.classList.contains('on')); };
 const EXTRA = [                                              // links beyond the keys of links.js (listed in the lane report)
   ['Proof: the coherent seam repair and its kernel', RER + 'model/coherent_seam_repair/PROOF.md'],
-  ['Proof: one attempt per tick', RER + 'model/lepton_register_round/PROOF.md'],
-  ['Derivation: the plaquette cost of every class', DER + 'reports/LV.md'],
   ['The routing walk on cubic boxes', RER + 'model/coherent_defect_wave/spatial/ROUTE.md'],
   ['Code: the link ensemble of this page', SITE + 'lattice_mc.js'],
   ['Its check script', SITE + 'lattice_check.mjs'],
