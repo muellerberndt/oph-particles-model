@@ -16,15 +16,7 @@ export const chip = (kind, label) => `<span class="q2-chip q2-${kind}">${label |
 // a small "?" that shows one text on hover, focus or tap; used where the page help cannot reach (side panels, rows built late)
 export const hint = (html) => `<span class="hq q2-hq" tabindex="0" role="button" aria-label="explanation" data-q2tip="${esc(html)}">?</span>`;
 // What is missing behind a mass that is not yet derived, one sentence each (SPECTRUM.md, LEPTON_STEPS.md, the theory addendum).
-export const MISSING = {
-  lepton: 'The common scale of the three rest rates is open: a mass in MeV with no measured input needs one number, the lepton scale, and the source gives no value for it yet.',
-  chain: 'W and Z come from declared forms of the coupling chain that fit: the hypercharge slope, the power of P in the unification scale and the weight of the collar law are declared, and their derivation is open.',
-  higgs: 'The register gives one relation between the Higgs mass and the top mass, so one of the two is a measured input, and the mass term of the Higgs register is of cell size in every regulator.',
-  quark: 'Quark masses are open: every law that reads only the class gives up equal to down, and the magnitude law of the junction that would split them has no derivation.',
-  neutrino: 'The declared source conserves B − L and excludes a number-violating Majorana term in that sector. A physical neutrino identity, mass and mixing are not derived.',
-  hadron: 'A hadron mass in GeV goes through the declared coupling chain and through a coefficient that the lattice run of the model has to supply.',
-  rest: 'The rest angle is a benchmark on a frozen flux background and the tick is set by the measured electron mass, so the value in MeV is a calibration: the common scale is open.',
-};
+export const MISSING = { lepton: '', chain: '', higgs: '', quark: '', neutrino: '', hadron: '', rest: '' };
 export const INCOMPLETE = 'derivation incomplete';
 export const incomplete = (key) => `<span class="q2-incw"><span class="q2-chip q2-inc">${INCOMPLETE}</span>${hint(MISSING[key] || key)}</span>`;
 
@@ -52,7 +44,7 @@ document.addEventListener('click', (e) => {
 const IDENT = 'Every protected defect class equals the Standard Model centre class 6Y mod 6 on all 32 matter patterns of the five-level code: classes 1 and 5 left-handed quarks, 4 and 2 right-handed quarks, 3 the lepton doublet and the Higgs, 0 the right-handed leptons and the gauge fields. The class does not carry the generation, the member inside a class, or the mass.';
 const STATS = 'Quanta are fermions; defects, links and the Higgs register are bosons. Premises: a spin doublet per quantum, the Gauss law, antisymmetric occupation.';
 const NOTBLIND = 'not blind';
-const QUARK_MASS = [['Quark masses', 'open', chip('open'), 'Every law that reads only the class gives up equal to down. The magnitude law of the junction 1 + 3 → 4 that would split them is not derived.']];
+const QUARK_MASS = [];
 
 export const CLASSES = {
   1: { title: 'Left-handed quark class', short: 'qL', color: '#ff7a45', shape: 'disc', conj: 5, colour: 'triplet', weak: 'doublet',
@@ -68,7 +60,7 @@ export const CLASSES = {
     gens: [['ū, d̄', 'generation 1'], ['c̄, s̄', 'generation 2'], ['t̄, b̄', 'generation 3']],
     sees: 'Every charged quantum, as class 1',
     vertex: '1 + 5 → 0: a quark and its antiquark annihilate. 3 + 5 → 2: the conjugate of the quark mass vertex.',
-    massRows: [['Quark masses', 'open', chip('open'), 'Antiparticles have the masses of their particles. See class 1.']] },
+    massRows: [] },
   4: { title: 'Right-handed quark class', short: 'qR', color: '#ffb347', shape: 'disc', conj: 2, colour: 'triplet', weak: 'singlet',
     card: 'u<sub>R</sub>, d<sub>R</sub> · c<sub>R</sub>, s<sub>R</sub> · t<sub>R</sub>, b<sub>R</sub>',
     members: 'u<sub>R</sub> with hypercharge +2/3 and d<sub>R</sub> with −1/3 in three colours: 6 states per generation. Both have 6Y = 4 mod 6, so the class does not tell up from down',
@@ -82,29 +74,21 @@ export const CLASSES = {
     gens: [['ū, d̄', 'generation 1'], ['c̄, s̄', 'generation 2'], ['t̄, b̄', 'generation 3']],
     sees: 'Quarks only, as class 4',
     vertex: '1 + 2 → 3: a left-handed quark and a right-handed antiquark give the Higgs class, the quark Yukawa vertex. A carrier that holds the fluxes {2,2,2} is a boson and it is not a baryon.',
-    massRows: [['Quark masses', 'open', chip('open'), 'Antiparticles have the masses of their particles. See class 4.']] },
+    massRows: [] },
   3: { title: 'Lepton doublet and Higgs class', short: 'ℓL', color: '#3ee6a8', rim: '#4cc3ff', shape: 'duo', conj: 3, colour: 'singlet', weak: 'doublet',
     card: 'e<sub>L</sub>, ν<sub>e</sub> · μ<sub>L</sub>, ν<sub>μ</sub> · τ<sub>L</sub>, ν<sub>τ</sub> · Higgs doublet',
     members: 'e<sub>L</sub> and ν<sub>L</sub>, the lepton doublet with hypercharge −1/2, and their antiparticles: 4 states per generation. The Higgs doublet, a boson with hypercharge +1/2, has the same class. Class 3 is its own conjugate',
     gens: [['e, ν<sub>e</sub>', 'generation 1'], ['μ, ν<sub>μ</sub>', 'generation 2'], ['τ, ν<sub>τ</sub>', 'generation 3']],
     sees: 'Left-handed doublets only: weak flux is read by classes 1, 3 and 5',
     vertex: '3 + 3 → 0: the lepton mass vertex, a lepton doublet with the Higgs gives a right-handed lepton.',
-    massRows: [
-      ['m<sub>μ</sub> / m<sub>e</sub>', '206.770316', chip('conditional'), `Measured 206.7682827(46), CODATA 2022: +9.83 ppm, ${NOTBLIND}.`],
-      ['m<sub>τ</sub> / m<sub>e</sub>', '3477.4728', chip('conditional'), `Measured 3477.365(176) with the tau mass of the Particle Data Group 2024: +0.61 σ, ${NOTBLIND}.`],
-      ['Masses in MeV', 'open', chip('open'), 'The two numbers above are ratios of rest rates and use no measured mass. They are not yet the measured rest masses: one common scale is open.'],
-      ['Higgs mass', '125.04 to 126.02 GeV', incomplete('higgs'), `One relation, read at the top mass 172.1 GeV. Measured 125.20(11) GeV, Particle Data Group 2024, ${NOTBLIND}.`],
-      ['Neutrino masses', 'open', chip('open'), 'B − L is conserved in the declared sector. A physical neutrino identity, mass and mixing are not derived.']] },
+    massRows: [] },
   0: { title: 'Class 0', short: '0', color: '#9fb0cf', shape: 'flat', conj: 0, colour: 'singlet', weak: 'singlet',
     card: 'e<sub>R</sub>, μ<sub>R</sub>, τ<sub>R</sub>, ν<sub>R</sub> · gluons, W, B',
     members: 'e<sub>R</sub> and ν<sub>R</sub> and their antiparticles, 4 states per generation, and the gauge fields: 8 gluons, 3 W and B, which mix into the photon and the Z. A face of class 0 carries no flux, so these leave no defect on the screen',
     gens: [['e<sub>R</sub>, ν<sub>R</sub>', 'generation 1'], ['μ<sub>R</sub>, ν<sub>μR</sub>', 'generation 2'], ['τ<sub>R</sub>, ν<sub>τR</sub>', 'generation 3']],
     sees: 'Nothing: class 0 is invisible to every flux',
     vertex: 'The end point of the lepton mass vertex 3 + 3 → 0 and of every annihilation 1 + 5 → 0 and 2 + 4 → 0.',
-    massRows: [
-      ['Photon and gluons', 'massless', chip('conditional'), 'The unbroken gauge fields have no mass term in the declared action. The global gauge group is (SU(3) × SU(2) × U(1))/Z6 from port phases.'],
-      ['W mass, tree level', '80.330 GeV', incomplete('chain'), `Declared forms that fit; derivation open. Measured 80.3692(133) GeV, Particle Data Group 2024, ${NOTBLIND}.`],
-      ['Z mass, tree level', '91.588 GeV', incomplete('chain'), `Declared forms that fit; derivation open. Measured 91.1880(20) GeV, Particle Data Group 2024, ${NOTBLIND}.`]] },
+    massRows: [] },
 };
 
 // ---------------------------------------------------------------- data
@@ -189,11 +173,9 @@ function leptonWidget() {
 }
 function current() { return evolve(LR.c, LR.t); }
 function out() {
-  const ratio = [3477.4728, 1, 206.770316];
   const h = LR.hist.map((r, i) => {
-    const sure = r.p > 0.98, mev = 0.51099895069 * ratio[r.k];
-    return `<div class="lr-row"><span>${i === 0 ? 'last read' : 'earlier'}, ${r.T} levels</span><b>${sure ? NAMES[r.k] : 'mostly ' + NAMES[r.k] + ', ' + (100 * r.p).toFixed(1) + ' %'}</b><span class="num">${r.f.toFixed(6)} per tick</span>
-      ${sure && r.k !== 1 ? `<span class="lr-mev"><span class="num">${mev.toFixed(3)} MeV with the electron as anchor</span> ${incomplete('lepton')}</span>` : ''}</div>`;
+    const sure = r.p > 0.98;
+    return `<div class="lr-row"><span>${i === 0 ? 'last read' : 'earlier'}, ${r.T} levels</span><b>${sure ? NAMES[r.k] : 'mostly ' + NAMES[r.k] + ', ' + (100 * r.p).toFixed(1) + ' %'}</b><span class="num">${r.f.toFixed(6)} per tick</span></div>`;
   }).join('');
   $('lr-out').innerHTML = h || '<div class="lr-row"><span>no read yet</span><b>one third tau, one third muon, one third electron</b></div>';
 }
@@ -245,8 +227,6 @@ export async function openClass(k) {
       <p class="q2-small">class ${k} · conjugate class ${c.conj} · colour ${c.colour} · weak ${c.weak}</p></div></div>
     <div class="cl-sec"><div class="k">What it is ${chip('derived')}${hint(IDENT)}</div><p>${c.members}.</p>
       <div class="cl-gens">${c.gens.map(([a, b]) => `<span>${a}<em>${b}</em></span>`).join('')}</div></div>
-    <div class="cl-sec"><div class="k">Mass</div>${massBlock(k)}</div>
-    ${k === 3 ? leptonGenerations() : ''}
     <div class="cl-sec"><div class="k">Its vertex</div><p>${c.vertex}</p></div>
     <div class="cl-sec"><div class="k">Who reads its flux</div><p>${c.sees}.</p></div>
     <div class="cl-sec"><div class="k">Spin and statistics ${chip('derived')}</div><p>${STATS}</p></div>
@@ -254,7 +234,6 @@ export async function openClass(k) {
     <details class="q2-exp"><summary>The patterns that carry it</summary>${patternRows(k)}</details>
     <div class="cl-sec"><div class="k">Backing</div>${linkList(['classes', 'spin', 'gauge', ...({ 3: ['lepton', 'higgs', 'neutral'], 0: ['coupling'], 1: ['yukawa'], 4: ['yukawa'] }[k] || []), 'run'])}</div>`;
   $('cl-x').onclick = () => $('cl-modal').classList.remove('on');
-  if (k === 3) leptonWidget();
 }
 window.__openClass = openClass;
 

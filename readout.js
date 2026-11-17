@@ -450,10 +450,10 @@ function showInfo(id) {
       <tr><td>colour</td><td>${st.colour}</td></tr><tr><td>weak isospin</td><td>${st.weak}</td></tr>
       <tr><td>prepared Dirac spin</td><td>½${s ? ` · now ⟨σ⟩ = (${s.spin.map((x) => x.toFixed(2)).join(', ')})` : ''}</td></tr>
       <tr><td>handedness, prepared</td><td>${st.hand}${s ? ` · now ⟨γ5⟩ = ${s.chirality.toFixed(2)}` : ''}</td></tr>
-      <tr><td>rest angle per tick</td><td>${th.toFixed(4)}</td></tr><tr><td>model rest energy</td><td>${mevOf(th).toFixed(3)} MeV</td></tr>
+      <tr><td>rest angle per tick</td><td>${th.toFixed(4)}</td></tr>
       <tr><td>records so far</td><td>${p.nrec}</td></tr>
       <tr><td>last recorded position</td><td>${last ? last.x.map(fm).join(', ') + ' fm' : 'not yet recorded'}</td></tr></table>
-    <div class="note">Position records use the observer’s axes 1, 2, 3. The class is exact as a centre class; generation and member inside the class are not carried. The model rest energy uses the displayed rest angle and supplied unit scale; it is not an identified Standard Model mass. Follow this source ID in the inspector below.</div>`;
+    <div class="note">Position records use the observer’s axes 1, 2, 3. The class is exact as a centre class; generation and member inside the class are not carried. Follow this source ID in the inspector below.</div>`;
   box.style.display = 'block'; $('roInfoX').onclick = () => { box.style.display = 'none'; };
 }
 function updateLegend() {
@@ -481,7 +481,7 @@ function drawClocks(now) {
     g.fillStyle = color; g.font = `700 ${12 * dpr}px Inter, Helvetica, Arial`; g.textAlign = 'center';
     g.fillText(name, x, y + r + 17 * dpr);
     g.fillStyle = 'rgba(197,208,230,.85)'; g.font = `${10.5 * dpr}px Inter, Helvetica, Arial`;
-    g.fillText(th ? `θ ${th.toFixed(4)} · ${mevOf(th).toFixed(3)} MeV` : 'θ = 0: no clock at rest', x, y + r + 32 * dpr);
+    g.fillText(th ? `θ ${th.toFixed(4)} per tick` : 'θ = 0: no clock at rest', x, y + r + 32 * dpr);
     g.fillText(th ? `one turn per ${Math.round(2 * Math.PI / th)} ticks` : 'moves at one cell per tick', x, y + r + 46 * dpr);
     g.textAlign = 'left';
   });
@@ -510,18 +510,16 @@ function buildCards() {
     ['Time', 'The finite Dirac Hamiltonian generates the packet clock. Playback advances it by a chosen number of ticks per source slice.', 'field time and the load-run repair clock remain separate; a modular clock identification needs its own reference-state proof'],
     ['Position', 'A complete Gaussian detector acts on the finite field and retains both of its energy-band outcomes.', 'a recorded detector centre, with a conditional state and finite spatial resolution'],
     ['Momentum', 'Fourier modes diagonalize translations of this same finite field. Its distribution is calculated from the packet amplitudes.', 'p = ħk; position and momentum are alternative settings, each with a distribution'],
-    ['Rest energy', 'The specified Dirac mass angle θ gives the zero-momentum energy in the selected branch.', 'E0 = ħθ/τ; the displayed MeV scale uses electron calibration and is not a mass prediction'],
+    ['Rest energy', 'The specified Dirac mass angle θ gives the zero-momentum energy in the selected branch.', 'E0 = ħθ/τ, in units of the tick'],
     ['Generation', 'A centre class does not distinguish electron, muon and tau, nor the three quark generations.', 'no generation or family mass hierarchy is extracted from this display'],
   ];
   $('ro-cards').innerHTML = `
     <div class="card ro-card ro-wide"><details class="ro-fold"><summary class="k">What each property is</summary>
       <table class="t ro-t ro-dict"><tr><th>Property</th><th>In the construction</th><th>What the observer reads</th></tr>
       ${rows.map((r) => `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</table></details></div>
-    <div class="card ro-card"><div class="k">Rest mass</div>
+    <div class="card ro-card"><div class="k">Rest phase</div>
       <canvas id="roClocks"></canvas>
       <p class="lead"><b>What it is.</b> In this declared Dirac program, a nonzero mass angle rotates the two record components and mixes chirality. The corresponding rest frequency is θ per tick. For a blank record at zero momentum, a single mass pulse gives written-record probability sin²θ. At nonzero momentum the massless Dirac dispersion has group speed c; this is a property of the field equation used here.</p>
-      <p class="lead"><b>How it is calculated.</b> At rest the field goes as e<sup>−iθt</sup>, so the turning rate is an energy: E₀ = ħθ/τ, with τ the duration of one tick. One tick is τ = ħ/E<sub>cell</sub>, the inverse of the energy of one cell, so rest mass is m = E₀/c² = θE<sub>cell</sub>/c²; here E<sub>cell</sub> = ħ/τ = ${hbarTau} MeV. The benchmark interprets frozen level-10 flux as a supplied Higgs-type background and assigns θ = ${U.theta.qL.toFixed(4)} for left-handed quarks, ${U.theta.qR.toFixed(4)} for right-handed quarks, ${U.theta.lL.toFixed(4)} for left-handed leptons and 0 for the right-singlet class. These separate class values do not yet form the left/right components of one interacting massive lepton. With τ = ${U.tick.toExponential(3)} s, set by the electron, that is ${qm} MeV, ${qr} MeV and ${lm} MeV. The lepton-scale agreement fixes the clock; it is a calibration check, not an independent prediction.</p>
-      <p class="note">One angle per class is insufficient for the observed particle spectrum. Full field identification, the generation dynamics and an independent comparison of masses remain required.</p></div>
     <div class="card ro-card"><div class="k">From the tick to the field equation</div>
       <details class="ro-fold"><summary>The six steps and the continuum check</summary><ol class="ro-steps">
         <li>One tick: ψ → M(θ/2) S M(θ/2) ψ with S = (Q₃R)(Q₂R)(Q₁R), the order of the axes alternating.</li>

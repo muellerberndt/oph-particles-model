@@ -31,10 +31,8 @@ export const STEPS = [
   { id: 'defects', n: 2, name: 'Defects', line: 'faces of nonzero class, born in neutral sets', pages: [['defects', 'Catalogue']] },
   { id: 'lattice', n: 3, name: 'Lattice', line: 'links, plaquettes and the weight exp(−S)', pages: [['lattice', 'From defects to the lattice']] },
   { id: 'field', n: 4, name: 'Field', line: 'the Dirac equation and gauge waves in 3 + 1', pages: [['readout', 'Continuum field'], ['nowave', 'No wave function'], ['space', 'Forces']] },
-  { id: 'early', n: 5, name: 'Early universe', line: 'cooling, then quarks bind into hadrons', pages: [['cosmos', 'First defects'], ['cosmology', 'Against ΛCDM'], ['timeline', 'Timeline'], ['transitions', 'Phase transitions']] },
-  { id: 'particles', n: 6, name: 'Particles', line: 'class k is the centre class 6Y mod 6', pages: [['classes', 'Classes'], ['decoder', 'Decoder'], ['map', 'Map']] },
-  { id: 'masses', n: 7, name: 'Masses', line: 'rest mass is a rest phase per tick', pages: [['masses', 'Masses'], ['leptons', 'Lepton derivation'], ['spectrum', 'Full spectrum'], ['couplings', 'Couplings']] },
-  { id: 'results', n: 8, name: 'Results', line: 'every match with nature in one list', pages: [['matches', 'Matches to nature'], ['results', 'Numbers and status'], ['constructions', 'Finite constructions'], ['openwave', 'OpenWave status']] },
+  { id: 'early', n: 5, name: 'Early universe', line: 'ticks in time are a temperature', pages: [], map: 'heat' },
+  { id: 'particles', n: 6, name: 'Particles', line: 'class k is the centre class 6Y mod 6', pages: [['classes', 'Classes'], ['decoder', 'Decoder']] },
 ];
 export const STEP_OF_PAGE = {};
 for (const s of STEPS) for (const [p] of s.pages) STEP_OF_PAGE[p] = s.id;
@@ -70,34 +68,20 @@ export const MAPS = [
     src: ['continuum', ['Candidate program CF-1: the routing tick', DER + 'candidates/CF1.md'], ['Derivation: gauge group, equal couplings, gauge waves', DER + 'reports/GL.md']],
     panes: ['lattice: one routing tick at a time', 'rule: the walk against the Dirac shell', 'field: packets on the cone'] },
   { id: 'heat', from: 'field', to: 'early', name: 'heat', status: ['declared'],
-    say: 'A lattice with N<sub>t</sub> ticks in the time direction is the equilibrium state of the fields at temperature E<sub>cell</sub>/N<sub>t</sub>, the couplings run from the cell to the GeV range along the declared chain, and the transitions sit where the ensemble changes phase.',
-    tex: [T`T \;=\; \frac{E_{\rm cell}}{N_t},\qquad E_{\rm cell} = 9.5599\times 10^{18}\ \mathrm{GeV}`],
-    src: [['Porting the system into the run: ensemble and temperature', DER + 'work/HR/FOR_SIM.md'], ['Derivation: the corrected coupling chain', DER + 'COUPLING_FIX.md'],
-      ['Derivation: the register ensemble with the plaquette weight', DER + 'reports/MA.md'], ['Derivation: hadron masses from the colour coupling', DER + 'reports/HD.md']],
+    say: 'A lattice with N<sub>t</sub> ticks in the time direction is the equilibrium state of the fields at temperature E<sub>cell</sub>/N<sub>t</sub>.',
+    tex: [T`T \;=\; rac{E_{
+m cell}}{N_t}`],
+    src: [['Porting the system into the run: ensemble and temperature', DER + 'work/HR/FOR_SIM.md'], ['Derivation: the register ensemble with the plaquette weight', DER + 'reports/MA.md']],
     panes: ['fields on a lattice with N_t ticks', 'rule: T = E_cell / N_t', 'early universe: what the ensemble holds'] },
   { id: 'centre', from: 'early', to: 'particles', name: 'centre', status: ['derived'],
     say: 'What the cooled universe holds is named by its centre class: the flux of a class-k defect is the central element exp(2πi kY) of the gauge group (SU(3) × SU(2) × U(1))/Z6, a quantum of hypercharge Y carried around it picks up that phase, and the class of a multiplet is 6Y mod 6 on all 32 patterns.',
     tex: [T`k \;=\; 6Y \bmod 6 \;=\; 3\,(n_2 \bmod 2) - 2\,(n_3 \bmod 3) \bmod 6,\qquad \text{phase} \;=\; e^{2\pi i\,kY}`],
     src: [['Certificate: defect classes are centre classes (61 checks)', RER + 'model/defect_particle_classes/PROOF.md'], 'classes', 'spin'],
     panes: ['defect: a flux of class k', 'rule: carry a quantum around it', 'particles: class = 6Y mod 6'] },
-  { id: 'reads', from: 'particles', to: 'masses', name: 'reads', status: ['conditional'],
-    say: 'On the declared clock the rest phase per tick is the expected number of reads per tick: two cells give the count 2/9, and the three characters of the face third-turn give three rates.',
-    tex: [T`\theta \;=\; p + q - 2pq \;=\; \tfrac{2}{9},\qquad p = \tfrac{1}{12},\quad q = \tfrac{1}{6}`,
-      T`y_k \;=\; \tfrac{1}{27}\Bigl(1 + \sqrt{2}\,\cos\bigl(\theta + \tfrac{2\pi k}{3}\bigr)\Bigr)^{2},\qquad m_k \propto y_k`],
-    src: [['Certificate: the charged-lepton register (99 checks)', RER + 'model/lepton_register_round/PROOF.md'], ['State and open steps of the lepton lane', DER + 'LEPTON_STEPS.md'],
-      ['Derivation: the count 2/9 on sixty addresses', DER + 'reports/LC.md'], ['Derivation: the weak round', DER + 'reports/CK2.md'], ['Derivation: the clock unit', DER + 'reports/LT.md'],
-      ['Paper: particles from native overlap transport', PAPER('deriving_the_particle_zoo_from_observer_consistency')]],
-    panes: ['reads: two cells, two flags', 'rule: the count is the phase', 'masses: three rates'] },
   { id: 'refine', from: 'screen', to: 'screen', name: 'refine', status: ['declared'], secondary: true, inside: ['Screen', 'One carrier'],
     say: 'The screen is refined L times into 20 · 4<sup>L</sup> cells, and every cell is the same twelve-port carrier, joined to three neighbours by glue seams.',
     tex: [T`N = 20\cdot 4^{L},\qquad c\;\mapsto\;\{4c,\;4c+1,\;4c+2,\;4c+3\},\qquad L = 6:\; N = 81{,}920`],
     src: ['run'], panes: ['screen at level L', 'one cell becomes four', 'screen at level L + 1'] },
-  { id: 'scale', from: 'masses', to: 'early', name: 'scale', status: ['declared'], secondary: true,
-    say: 'The declared chain sets the electroweak scale v = E<sub>cell</sub> exp(−2π/(4α<sub>U</sub>)) and the colour scale Λ<sup>(3)</sup> = 0.340 GeV, and these two scales place the two transitions on the temperature axis.',
-    tex: [T`v \;=\; E_{\rm cell}\,e^{-2\pi/(4\alpha_U)} \;=\; 246.60\ \mathrm{GeV}\quad \text{at}\quad 1/\alpha_U = 24.3166,\qquad \Lambda^{(3)} = 0.340\ \mathrm{GeV}`],
-    src: [['Derivation: the law for v', DER + 'reports/LV.md'], ['Derivation: the corrected coupling chain', DER + 'COUPLING_FIX.md'], ['Derivation: hadron masses from the colour coupling', DER + 'reports/HD.md'],
-      ['Certificate: central flux costs (section 9)', RER + 'model/defect_particle_classes/PROOF.md']],
-    panes: ['one flux quantum of each class', 'rule: the exponent of the chain', 'scales: from the cell to the GeV range'] },
 ];
 const MAP = Object.fromEntries(MAPS.map((m) => [m.id, m]));
 const MAIN = MAPS.filter((m) => !m.secondary);
@@ -287,7 +271,6 @@ class DiracWalk {
 }
 
 // The three rest rates of the charged-lepton register: characters 1, w, w^2 of the face third-turn are tau,
-// electron, muon; at theta = 2/9 the ratios are 206.770316 and 3477.4728 (LEPTON_STEPS.md, lepton_register_round).
 const leptonRate = (k, theta = 2 / 9) => (1 + Math.SQRT2 * Math.cos(theta + TAU * k / 3)) ** 2 / 27;
 const leptonRates = (theta = 2 / 9) => ({ tau: leptonRate(0, theta), e: leptonRate(1, theta), mu: leptonRate(2, theta) });
 const READ = { p: 1 / 12, q: 1 / 6, count: 1 / 12 + 1 / 6 - 2 * (1 / 12) * (1 / 6) };
@@ -303,10 +286,8 @@ function fluxCount(k) {
   };
   go(0, 0, 0); return 8 / best;
 }
-// the declared chain (COUPLING_FIX.md section 2, reports LV and HD); energies in GeV
-// v is the chain's stated value; the rounded inputs printed here reproduce it within 0.01 percent (vFromInputs)
-const CHAIN = { Ecell: 9.5599e18, invAlphaU: 24.3166, MU: 2.4736e16, v: 246.60, Lambda3: 0.340 };
-CHAIN.vFromInputs = CHAIN.Ecell * Math.exp(-TAU * CHAIN.invAlphaU / 4);
+// the cell energy of the declared chain, for the thermometer of the map heat
+const CHAIN = { Ecell: 9.5599e18 };
 
 export const ENGINES = { rng, ICO, buildGeodesic, CarrierRun, COST, KAPPA, buildHoneycomb, PatchRegister, GaugeZN, DiracWalk, leptonRate, leptonRates, READ, classOf, fluxCount, CHAIN };
 
@@ -386,7 +367,7 @@ function drawGlobe(g, geo, P, cx, cy, R, yaw, o = {}) {
 // One continuous picture in a fixed coordinate system of VW x VH units, scaled to the canvas. From left to right:
 // the screen with its observers, the defects, the lattice reading, the field, the cooling universe, the particle
 // classes and the masses. Z are the boundaries of the seven zones; their widths are in the ratio 2:1:1:2:1:1:1.
-const VW = 1620, VH = 384, Z = [0, 360, 540, 720, 1080, 1260, 1440, 1620], UNITS = [2, 1, 1, 2, 1, 1, 1];
+const VW = 1440, VH = 384, Z = [0, 360, 540, 720, 1080, 1260, 1440], UNITS = [2, 1, 1, 2, 1, 1];
 const Y0 = 236, WD = 80, SKEW = 0.56, TILT = 0.5, R3 = Math.sqrt(3);
 const pr = (u, w, h = 0) => [u + SKEW * w, Y0 + TILT * w - h];                 // the ribbon plane in oblique projection
 const NET = { u0: 172, s: 12.8, cols: 18, rows: 8 }, LAT = { u0: 540, a: 20, cols: 10, rows: 8 }, SUR = { u0: 706, u1: 1262 }, FIELD = { u0: 730, len: 520 };
@@ -603,7 +584,7 @@ function drawJourney(g, t, S) {
     cap(g, 'record tape', S.PX[o.node] + 36, S.PY[o.node] - 73, { size: 9 });
     cap(g, 'records of one event', pr(f0.u, f0.w)[0] - 8, pr(f0.u, f0.w)[1] - f0.h - 15, { size: 9 });
     cap(g, 'agreed values', pr(f1.u, WD)[0], pr(f1.u, WD)[1] + 15, { size: 9, align: 'center' });
-    cap(g, 'crossover', e[0] - 5, e[1] + 15, { size: 9, align: 'right' }); cap(g, 'hadrons', q[0] + 5, q[1] + 15, { size: 9 }); }
+    }
 }
 const WSYM = { 0: 'e_{R} ν_{R}', 1: 'Q', 2: 'q̄_{R}', 3: 'L · H', 4: 'q_{R}', 5: 'Q̄' };
 function drawWheel(g, cx, cy, R, t, o = {}) {      // the six classes on a hexagon; conjugate classes face each other across the vertical axis
@@ -634,7 +615,6 @@ ENGINES.scene = { makeScene, advance, netCls, fieldH, fieldU, VW, VH, Z };
 // ================================================================================================ the rule of every map
 // One small running picture per map: the rule that carries the step on its left into the step on its right.
 // r = { x, y, w, h } in CSS pixels, R the state of the card.
-const fmtE = (x) => { if (x >= 1e4 || x < 0.01) { const e = Math.floor(Math.log10(x)); return `${(x / 10 ** e).toFixed(2)} × 10^{${e}} GeV`; } return `${x >= 100 ? x.toFixed(1) : x >= 1 ? x.toFixed(2) : x.toFixed(3)} GeV`; };
 const sgn = (v) => (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v);
 function wire(g, cx, cy, R, cam) {            // the carrier as a wire frame; returns its projected ports
   const P = ICO.V.map(cam), X = (i) => cx + P[i][0] * R, Y = (i) => cy - P[i][1] * R;
@@ -727,10 +707,9 @@ function ruleHeat(g, r, t, R) {               // the tick extent of the lattice 
   for (let i = 0; i <= k; i++) { const y = by - i * st, a = 0.25 + 0.6 * (i / Math.max(1, k)); g.strokeStyle = rgba(i === k ? C.teal : C.line, a); g.fillStyle = rgba(C.cold, 0.05); g.lineWidth = 1; g.beginPath(); g.moveTo(bx - sw, y); g.lineTo(bx + sw * 0.5, y); g.lineTo(bx + sw, y - 12); g.lineTo(bx - sw * 0.5, y - 12); g.closePath(); g.fill(); g.stroke(); }
   g.strokeStyle = rgba(C.teal, 0.55); g.lineWidth = 1.2; g.beginPath(); g.ellipse(bx - sw - 6, by - (k * st) / 2 - 6, 9, Math.max(8, (k * st) / 2), 0, Math.PI * 0.5, Math.PI * 1.5); g.stroke(); arrowHead(g, bx - sw - 6, by - 6, 0, 6, rgba(C.teal, 0.8));
   rich(g, `N_{t} = 2^{${Math.floor(n)}} ticks`, bx, r.y + r.h * 0.11, { size: Math.min(13, r.w * 0.036), weight: 600, align: 'center', max: r.w * 0.5, color: rgba(C.text, 0.95) });
-  rich(g, `T = ${fmtE(10 ** lT)}`, bx, r.y + r.h * 0.11 + Math.min(18, r.h * 0.08), { size: Math.min(12, r.w * 0.034), weight: 600, align: 'center', max: r.w * 0.5, color: rgba(C.teal, 1) });
   const gr = g.createLinearGradient(0, top, 0, top + H); gr.addColorStop(0, 'rgba(190,236,255,.9)'); gr.addColorStop(0.75, rgba(C.amber, 0.9)); gr.addColorStop(1, 'rgba(255,128,96,.9)');
   g.strokeStyle = gr; g.lineWidth = 3; g.lineCap = 'round'; g.beginPath(); g.moveTo(ax, top); g.lineTo(ax, top + H); g.stroke(); g.lineCap = 'butt';
-  for (const [v, s] of [[CHAIN.Ecell, 'E_{cell}'], [CHAIN.MU, 'M_{U}'], [CHAIN.v, 'v = 246.60 GeV'], [CHAIN.Lambda3, 'Λ^{(3)} = 0.340 GeV']]) { const y = Yl(Math.log10(v)); g.strokeStyle = rgba(C.text, 0.6); g.lineWidth = 1; g.beginPath(); g.moveTo(ax - 6, y); g.lineTo(ax + 6, y); g.stroke(); rich(g, s, ax + 13, y + 4, { size: Math.min(11.5, r.w * 0.032), max: r.x + r.w - ax - 15, color: rgba(C.soft, 0.9) }); }
+  for (const [v, s] of [[CHAIN.Ecell, 'E_{cell}']]) { const y = Yl(Math.log10(v)); g.strokeStyle = rgba(C.text, 0.6); g.lineWidth = 1; g.beginPath(); g.moveTo(ax - 6, y); g.lineTo(ax + 6, y); g.stroke(); rich(g, s, ax + 13, y + 4, { size: Math.min(11.5, r.w * 0.032), max: r.x + r.w - ax - 15, color: rgba(C.soft, 0.9) }); }
   const y = Yl(lT); g.globalCompositeOperation = 'lighter'; spot(g, C.teal, ax, y, 13, 1); g.globalCompositeOperation = 'source-over';
 }
 const MULT = [['Q', 1 / 6], ['u_{R}', 2 / 3], ['d_{R}', -1 / 3], ['L', -1 / 2], ['e_{R}', -1], ['ν_{R}', 0], ['H', 1 / 2]];
@@ -749,28 +728,6 @@ function ruleCentre(g, r, t, R) {             // quanta carried around a flux of
     rich(g, s, tx, y, { size: sz, weight: 600, color: col }); text(g, sgn(Math.round(6 * Yv)), tx + r.w * 0.13, y, { size: sz, color: col, align: 'center' });
     glyph(g, kk, tx + r.w * 0.22, y - 4, 5); text(g, String(kk), tx + r.w * 0.26, y, { size: sz, color: col }); text(g, turn ? `${turn}/6 turn` : 'none', tx + r.w * 0.32, y, { size: sz, color: turn ? rgba(C.teal, 1) : col }); });
 }
-function ruleReads(g, r, t, R) {              // two cells and two flags: the exclusive read count, then the three rates
-  if (!R.rand) { R.rand = rng(9); R.n = 0; R.hit = 0; R.next = 0; R.fa = -9; R.fb = -9; R.A = 0; R.B = 0; }
-  const PA = 2, PB = 7, ends = (a) => { const [p, q] = ICO.E[a >> 1]; return a & 1 ? [q, p] : [p, q]; };
-  if (t > R.next) { R.next = t + 0.14; R.A = Math.floor(R.rand() * 60); R.B = Math.floor(R.rand() * 60); const [ta] = ends(R.A), [tb, hb] = ends(R.B), rp = ta === PA, hh = tb === PB || hb === PB; if (rp) R.fa = t; if (hh) R.fb = t; R.n++; if (rp !== hh) R.hit++; }
-  const rho = Math.min(r.w * 0.085, r.h * 0.17), cy = r.y + r.h * 0.28, sz = Math.min(12, r.w * 0.031), cam = camera(0.5 + t * 0.12, 0.3);
-  [[r.x + r.w * 0.13, R.A, PA, 'R+', R.fa, C.teal, '1/12'], [r.x + r.w * 0.34, R.B, PB, 'H', R.fb, C.amber, '1/6']].forEach(([cx, adr, port, flag, at, rgb, wgt]) => {
-    const { P, X, Y } = wire(g, cx, cy, rho, cam), [ta, he] = ends(adr), lit = t - at < 0.4;
-    g.strokeStyle = rgba(C.text, 0.9); g.lineWidth = 1.6; g.beginPath(); g.moveTo(X(ta), Y(ta)); g.lineTo(X(he), Y(he)); g.stroke(); g.fillStyle = rgba(C.text, 1); g.beginPath(); g.arc(X(he), Y(he), 2.4, 0, TAU); g.fill();
-    g.globalCompositeOperation = 'lighter'; spot(g, rgb, X(port), Y(port), lit ? 16 : 9, P[port][2] > 0 ? 1 : 0.45); g.globalCompositeOperation = 'source-over';
-    text(g, flag, cx, cy + rho + 22, { size: sz * 1.25, weight: 700, align: 'center', color: rgba(rgb, lit ? 1 : 0.35) }); text(g, wgt, cx, cy + rho + 22 + sz * 1.35, { size: sz * 0.9, align: 'center', color: rgba(C.muted, 0.9) });
-  });
-  rich(g, `reads: ${R.hit} of ${R.n} = ${(R.hit / Math.max(1, R.n)).toFixed(3)}`, r.x + r.w * 0.03, r.y + r.h * 0.84, { size: sz, max: r.w * 0.45, color: rgba(C.soft, 0.95) });
-  rich(g, 'p + q − 2pq = 2/9 = 0.222', r.x + r.w * 0.03, r.y + r.h * 0.84 + sz * 1.6, { size: sz, weight: 600, max: r.w * 0.45, color: rgba(C.teal, 1) });
-  const s = Math.min(r.w * 0.11, r.h * 0.17), ox = r.x + r.w * 0.6, oy = r.y + r.h * 0.36, th = 2 / 9, y = leptonRates();
-  g.strokeStyle = rgba(C.line, 0.5); g.lineWidth = 1; g.beginPath(); g.moveTo(ox - 0.55 * s, oy); g.lineTo(ox + 2.6 * s, oy); g.moveTo(ox, oy - 1.55 * s); g.lineTo(ox, oy + 1.55 * s); g.stroke();
-  g.strokeStyle = rgba(C.violet, 0.6); g.beginPath(); g.arc(ox + s, oy, Math.SQRT2 * s, 0, TAU); g.stroke();
-  [['τ', C.violet], ['e', C.amber], ['μ', C.teal]].forEach(([sym, rgb], k) => { const a = th + TAU * k / 3, x = ox + s + Math.SQRT2 * s * Math.cos(a), yy = oy - Math.SQRT2 * s * Math.sin(a);
-    g.strokeStyle = rgba(rgb, 0.5); g.setLineDash([2, 3]); g.beginPath(); g.moveTo(x, yy); g.lineTo(x, oy); g.stroke(); g.setLineDash([]); g.strokeStyle = rgba(rgb, 1); g.lineWidth = 3; g.beginPath(); g.moveTo(ox, oy); g.lineTo(x, oy); g.stroke(); g.lineWidth = 1;
-    g.fillStyle = rgba(rgb, 1); g.beginPath(); g.arc(x, yy, 3.6, 0, TAU); g.fill(); text(g, sym, x + (k === 0 ? 8 : -14), yy + (k === 2 ? 16 : -7), { size: sz * 1.15, weight: 700, color: rgba(rgb, 1) }); });
-  rich(g, `m_{μ}/m_{e} = ${(y.mu / y.e).toFixed(6)}`, r.x + r.w * 0.53, r.y + r.h * 0.84, { size: sz, weight: 600, max: r.w * 0.46, color: rgba(C.text, 1) });
-  rich(g, `m_{τ}/m_{e} = ${(y.tau / y.e).toFixed(4)}`, r.x + r.w * 0.53, r.y + r.h * 0.84 + sz * 1.6, { size: sz, weight: 600, max: r.w * 0.46, color: rgba(C.text, 1) });
-}
 function ruleRefine(g, r, t, R) {             // one cell becomes four, level by level
   const per = 3.4, L = Math.floor(t / per) % 4, f = ease(((t % per) / per) / 0.6), cx = r.x + r.w * 0.34, cy = r.y + r.h * 0.56, s = Math.min(r.w * 0.3, r.h * 0.44);
   const A = [cx, cy - s], B = [cx - s * 0.98, cy + s * 0.7], D = [cx + s * 0.98, cy + s * 0.7], mid = (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2];
@@ -784,20 +741,7 @@ function ruleRefine(g, r, t, R) {             // one cell becomes four, level by
   for (let l = 0; l <= 6; l++) rich(g, `L = ${l}      ${(20 * 4 ** l).toLocaleString('en-US')}`, tx, ty + dy * l, { size: sz, max: r.x + r.w - tx, weight: l === now || l === 6 ? 700 : 500, color: l === now ? rgba(C.teal, 1) : l === 6 ? rgba(C.amber, 1) : rgba(C.soft, 0.7) });
   cap(g, 'one face of the screen', cx, cy + s * 0.7 + 22, { size: 8, align: 'center' });
 }
-function ruleScale(g, r, t, R) {              // the count of each flux class, and the exponent that carries the cell down to v
-  const bx = r.x + r.w * 0.04, bw = r.w * 0.42, by = r.y + r.h * 0.7, bh = r.h * 0.46, sz = Math.min(12, r.w * 0.031);
-  for (let k = 1; k <= 5; k++) { const c = fluxCount(k), x = bx + bw * (k - 0.5) / 5, h = bh * c / 4, hot = k === 3;
-    g.fillStyle = rgba(hot ? C.teal : C.line, hot ? 0.8 : 0.3); g.fillRect(x - 12, by - h, 24, h); glyph(g, k, x, by + 15, 5.5);
-    text(g, Math.abs(c - 4) < 1e-9 ? '4' : Math.abs(c - 3) < 1e-9 ? '3' : '12/5', x, by - h - 7, { size: sz, weight: 700, align: 'center', color: rgba(hot ? C.teal : C.soft, 1) }); }
-  cap(g, 'cost of one flux quantum', bx, r.y + r.h * 0.08, { size: 8, max: bw + r.w * 0.06 }); rich(g, '8π^{2} / tr H_{k}^{2}', bx + bw / 2, by + 42, { size: sz, align: 'center', max: bw, color: rgba(C.soft, 0.9) });
-  const ax = r.x + r.w * 0.6, top = r.y + r.h * 0.22, H = r.h * 0.6, Yl = (l) => top + H * (19.3 - l) / 20.6;
-  g.strokeStyle = rgba(C.line, 0.6); g.lineWidth = 2; g.beginPath(); g.moveTo(ax, top); g.lineTo(ax, top + H); g.stroke();
-  for (const [v, s, rgb] of [[CHAIN.Ecell, 'E_{cell}', C.text], [CHAIN.MU, 'M_{U}', C.muted], [CHAIN.v, 'v = 246.60 GeV', C.teal], [CHAIN.Lambda3, 'Λ^{(3)} = 0.340 GeV', C.amber]]) { const y = Yl(Math.log10(v)); g.strokeStyle = rgba(rgb, 0.9); g.lineWidth = 1.2; g.beginPath(); g.moveTo(ax - 6, y); g.lineTo(ax + 6, y); g.stroke(); rich(g, s, ax + 13, y + 4, { size: sz * 0.95, max: r.x + r.w - ax - 15, color: rgba(rgb, 0.95) }); }
-  const f = ease(((t % 4.6) / 4.6) / 0.62), y = Yl(Math.log10(CHAIN.Ecell) + f * (Math.log10(CHAIN.v) - Math.log10(CHAIN.Ecell))); g.globalCompositeOperation = 'lighter'; spot(g, C.teal, ax, y, 12, 1); g.globalCompositeOperation = 'source-over';
-  rich(g, 'v = E_{cell} · e^{−2π/(4 α_{U})}', r.x + r.w - 2, r.y + r.h * 0.08, { size: sz, weight: 600, align: 'right', max: r.w * 0.46, color: rgba(C.text, 1) });
-  rich(g, `e^{−${(TAU * CHAIN.invAlphaU / 4).toFixed(3)}} = 2.58 × 10^{−17}`, r.x + r.w - 2, r.y + r.h * 0.97, { size: sz * 0.92, align: 'right', max: r.w * 0.5, color: rgba(C.teal, 0.95) });
-}
-const RULES = { twist: ruleTwist, links: ruleLinks, continuum: ruleContinuum, heat: ruleHeat, centre: ruleCentre, reads: ruleReads, refine: ruleRefine, scale: ruleScale };
+const RULES = { twist: ruleTwist, links: ruleLinks, continuum: ruleContinuum, heat: ruleHeat, centre: ruleCentre, refine: ruleRefine };
 const RULE_CAP = { twist: 'law C and the register', links: 'holonomy, action, weight', continuum: 'the tick against the Dirac shell', heat: 'ticks in time are temperature',
   centre: 'carry a quantum around the flux', reads: 'the read count is the phase', refine: 'one cell becomes four', scale: 'the exponent of the chain' };
 
@@ -953,7 +897,6 @@ function fillModal(m) {
   typeset(el);
   // the map heat names the binding of quarks into hadrons: the lane that computes it on the lattice reports its progress here
   const lane = el.querySelector('.jm-lane'); lane.innerHTML = '';
-  if (m.id === 'heat') import('./progress.js').then((pg) => { if (M.id === 'heat' && !lane.firstChild) lane.appendChild(pg.laneProgress('HAD', { label: 'static potential and hadron masses on the lattice' })); }).catch(() => {});
   // The map links is the popup "how repair becomes a quantum lattice": its body is the guided explainer of the
   // lattice page. When that module or its function is missing, the panel keeps its own picture and text.
   el.classList.toggle('jm-ext', m.id === 'links'); el.classList.remove('jm-ext-on');
@@ -983,14 +926,13 @@ const bars = new Set(); let barPage = null, barWatch = false;
 export function journeyBar() {
   css();
   const el = document.createElement('nav'); el.className = 'jbar'; el.setAttribute('aria-label', 'the journey');
-  const stepB = (s) => `<button class="jb-step" data-step="${s.id}" data-page="${s.pages[0][0]}" title="${s.pages.map((p) => p[1]).join(' · ')}"><i></i><span>${s.name}</span></button>`;
+  const stepB = (s) => `<button class="jb-step" data-step="${s.id}" ${s.pages.length ? `data-page="${s.pages[0][0]}"` : `data-map="${s.map}"`} title="${s.pages.length ? s.pages.map((p) => p[1]).join(' · ') : 'the map ' + s.map}"><i></i><span>${s.name}</span></button>`;
   const mapB = (m) => `<button class="jb-map" data-map="${m.id}" title="the map ${m.name}: ${fromName(m)} to ${toName(m)}"><u></u><span>${m.name}</span><u></u></button>`;
   let html = '<button class="jb-home" data-page="journey" title="the whole chain on one page">Journey</button>';
   STEPS.forEach((s, i) => {
     if (i) { const m = MAIN.find((x) => x.to === s.id && x.from === STEPS[i - 1].id); html += m ? mapB(m) : '<span class="jb-gap"><u></u></span>'; }
     html += stepB(s);
     if (s.id === 'screen') html += '<button class="jb-sec" data-map="refine" title="the map refine: the screen is refined into carriers">refine</button>';
-    if (s.id === 'masses') html += '<button class="jb-sec" data-map="scale" title="the map scale: the chain sets the two transition scales of the early universe">↩ scale</button>';
   });
   el.innerHTML = `<div class="jbar-in">${html}</div>`;
   el.addEventListener('click', (e) => {
@@ -1024,21 +966,21 @@ export function setJourneyPage(page) {
 // boundaries, repair their disagreements", "protected defects that local repairs cannot undo") and the consensus paper.
 const SIDES = [
   ['The simulation', 'A network of simple observers on a holographic screen. Each one runs <b>one local repair law</b> until the network settles.'],
-  ['What its observers measure', '<b>Particles in a field in three dimensions of space</b>, with the charges, forces and masses of our universe.'],
+  ['What its observers measure', '<b>Particles in a field in three dimensions of space</b>.'],
 ];
 // One row on wide screens, two rows below 1100 px, one step per row below 700 px.
 const modeOf = (w) => (w >= 1100 ? 1 : w >= 700 ? 2 : 3);
-const ROWS = { 1: [[0, 6]], 2: [[0, 2], [3, 6]], 3: [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6]] };
+const ROWS = { 1: [[0, 5]], 2: [[0, 2], [3, 5]], 3: [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] };
 function rowWindow([i0, i1], mode) {          // the part of the picture a row shows: x0, x1, y0, y1 in picture units
   if (mode === 1) return [0, VW, 0, VH];
-  if (mode === 2) return [i0 ? Z[i0] + 28 : 0, i1 < 6 ? Z[i1 + 1] + 32 : VW, 26, VH];      // the weights of the lattice sheets stay with the lattice
+  if (mode === 2) return [i0 ? Z[i0] + 28 : 0, i1 < 5 ? Z[i1 + 1] + 32 : VW, 26, VH];      // the weights of the lattice sheets stay with the lattice
   const one = UNITS[i0] === 1; return [Math.max(0, Z[i0] - (one ? 62 : 14)), Math.min(VW, Z[i1 + 1] + (one ? 62 : 14)), one ? 58 : 30, one ? 322 : 330];
 }
 const mapBtn = (m, style, cls = '', arrow = '›') => `<button class="jy-mapb${m.label ? ' jy-key' : ''}${cls}" data-map="${m.id}" style="${style}--c:rgb(${STATUS[m.status[0]].rgb})" title="${fromName(m)} to ${toName(m)}"><span>${m.label || m.name}</span><i>${arrow}</i></button>`;
 const SEP = '<span class="jy-sep"></span>';
 const secChip = (id, label) => `<span class="jy-secwrap">${SEP}<button class="jy-secchip" data-map="${id}" title="the map ${id}: ${fromName(MAP[id])} to ${toName(MAP[id])}">${label}</button></span>`;
-const stepCell = (s) => `<div class="jy-step" data-step="${s.id}"><button class="jy-name" data-page="${s.pages[0][0]}"><b>${s.n}</b><span>${s.name}</span></button><div class="jy-line">${s.line}</div>
-  <div class="jy-pages">${s.pages.map(([p, label]) => `<button data-page="${p}">${label}</button>`).join(SEP)}${s.id === 'screen' ? secChip('refine', 'refine') : s.id === 'masses' ? secChip('scale', '↩ scale') : ''}</div></div>`;
+const stepCell = (s) => `<div class="jy-step" data-step="${s.id}"><button class="jy-name" ${s.pages.length ? `data-page="${s.pages[0][0]}"` : `data-map="${s.map}"`}><b>${s.n}</b><span>${s.name}</span></button><div class="jy-line">${s.line}</div>
+  <div class="jy-pages">${s.pages.map(([p, label]) => `<button data-page="${p}">${label}</button>`).join(SEP)}${s.id === 'screen' ? secChip('refine', 'refine') : ''}</div></div>`;
 let PG = null;
 function buildFilm() {                        // the rows of the picture for the current width
   const { film, mode } = PG, rows = ROWS[mode];
@@ -1048,7 +990,7 @@ function buildFilm() {                        // the rows of the picture for the
     const [x0, x1, y0, y1] = rowWindow([i0, i1], mode), w = x1 - x0, at = (x) => (100 * (x - x0) / w).toFixed(2);
     const cols = STEPS.slice(i0, i1 + 1).map((s, k) => `${Math.round((i0 + k === i1 ? x1 : Z[i0 + k + 1]) - (k === 0 ? x0 : Z[i0 + k]))}fr`).join(' ');
     const inner = MAIN.slice(i0, i1).map((m, k) => mapBtn(m, `left:${at(Z[i0 + k + 1])}%;`)).join('');
-    const sec = mode === 1 ? mapBtn(MAP.refine, 'left:5.7%;top:64%;', ' jy-sec') + mapBtn(MAP.scale, 'left:83.4%;top:6%;', ' jy-sec', '↩') : '';
+    const sec = mode === 1 ? mapBtn(MAP.refine, 'left:6.4%;top:64%;', ' jy-sec') : '';
     return `<div class="jy-row" data-row="${r}"><div class="jy-pic${x0 > 0 ? ' jy-cutl' : ''}${x1 < VW ? ' jy-cutr' : ''}" style="aspect-ratio:${Math.round(w)}/${y1 - y0}"><canvas></canvas>${inner}${sec}</div>
       <div class="jy-steps" style="grid-template-columns:${cols}">${STEPS.slice(i0, i1 + 1).map(stepCell).join('')}</div></div>`
       + (rows[r + 1] ? `<div class="jy-between">${mapBtn(MAIN[i1], '', ' jy-down', '↓')}</div>` : '');
@@ -1064,9 +1006,8 @@ function paintPage(t) {                       // every visible row, and the coun
 export function mount(host) {
   css();
   // The page: the journey as one running picture, then the maps between the steps.
-  // Matches and numerical results live on their dedicated Results pages.
   host.innerHTML = `<div class="jy-wrap">
-    <div class="jy-head"><h2>Journey</h2><button class="jy-results" data-page="matches" title="every match with nature in one list"><b>8</b><span>Results</span><i>›</i></button></div>
+    <div class="jy-head"><h2>Journey</h2></div>
     <div class="jy-sides">
       <div class="jy-side"><div class="jy-kick">${SIDES[0][0]}</div><div class="jy-say">${SIDES[0][1]}</div></div>
       <div class="jy-arrow" aria-hidden="true"><i></i></div>

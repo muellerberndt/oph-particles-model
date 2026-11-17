@@ -10,24 +10,18 @@ import top from './help/top.js';
 import universe from './help/universe.js';
 import readout from './help/readout.js';
 import classes from './help/classes.js';
-import spectrum from './help/spectrum.js';
-import story from './help/story.js';
 import carrier from './help/carrier.js';
 import space from './help/space.js';
-import cosmos from './help/cosmos.js';
 import observer from './help/observer.js';
 import detector from './help/detector.js';
-import map from './help/map.js';
-import particles from './help/particles.js';
-import findings from './help/findings.js';
 import data from './help/data.js';
 import defects from './help/defects.js';
 
-const REG = { top, universe, readout, classes, spectrum, story, carrier, space, cosmos, observer, detector, map, particles, findings, data, defects };
+const REG = { top, universe, readout, classes, carrier, space, observer, detector, data, defects };
 // pages added later register their entries when their help file exists (a missing file is not an error);
 // the entries of the equations section apply on every page
 let EQ = [];
-for (const p of ['results', 'decoder', 'leptons', 'couplings', 'timeline', 'transitions', 'lattice', 'journey', 'nowave', 'masses', 'cosmology', 'matches', 'constructions', 'openwave']) {
+for (const p of ['decoder', 'lattice', 'journey', 'nowave']) {
   import(`./help/${p}.js`).then((m) => { REG[p] = (m.default || []).concat(EQ); }).catch(() => {});
 }
 import('./help/zoom.js').then((m) => { REG.universe = REG.universe.concat(m.default || []); }).catch(() => {});      // the zoom view lives on the Screen page

@@ -26,7 +26,7 @@ const CHAPTERS = [
   { name: 'Repair becomes a unitary step', short: 'A unitary step', cap: `One attempt makes the two ports of a seam agree. The unitary tick W gives the same populations and keeps a record: ${tex('A^\\dagger W A=K=1-L/60')}.`, nums: ['ticks', 'return, repair', 'return, unitary tick'] },
   { name: 'The patch becomes a lattice', short: 'The lattice', cap: 'On one of its five cubic frames a carrier shares six seams with its neighbours. Cells are sites, frame seams are links, faces are plaquettes, ticks are the time direction.', nums: ['cubic frames', 'sites', 'links'] },
   { name: 'All histories at once, and cooling', short: 'Cooling', cap: `Every link field at once, each with weight ${tex('e^{-S}')}, S the sum of the plaquette costs, sampled sweep by sweep. As the coupling κ rises the lattice cools and orders.`, nums: ['coupling κ', 'nontrivial faces', 'Polyakov loop'] },
-  { name: 'What the large runs measure', short: 'Large runs', cap: 'The same weight on large lattices: the register ensemble of the theory side, and three runs of the research lanes.', nums: ['', '', ''] },
+  { name: 'What the large runs measure', short: 'Large runs', cap: 'The same weight on a large lattice: the register ensemble of the theory side.', nums: ['', '', ''] },
 ];
 const LINKCOL = { 1: '#ff7a45', 2: '#ffb347', 3: '#3ee6a8' };
 const FLUXCOL = { 2: [null, '#3ee6a8'], 3: [null, '#ffb347', '#ff8a5c'] };
@@ -500,21 +500,6 @@ const TILES = [
       return { title: 'The register ensemble on 96 × 48 × 48 cells', value: s3 ? `√σ = ${s3.sqrt_sigma.toFixed(3)} <small>per cell: colour centre, area law</small>` : '', text: 'At the flux density of the stored runs the colour centre Z3 sits on the confined side, with an area law. The weak centre Z2 is deconfined, with a perimeter law.', tag: 'MEASURED',
         curves: [diagW(z3) && { x: [1, 4, 9, 16, 25, 36, 49, 64], y: diagW(z3), col: '#ffb347' }, diagW(z2) && { x: [1, 4, 9, 16, 25, 36, 49, 64], y: diagW(z2), col: '#3ee6a8' }].filter(Boolean), note: 'Wilson loops against area, logarithmic: Z3 falls, Z2 stays' };
     } },
-  { id: 'ew', lane: 'EW', name: 'Electroweak crossover', get: () => fetch('rl/EW/ew_transition.json', { cache: 'no-store' }),
-    read(d) {
-      const o = d.oph || {}, s = biggest(o.series, 'L'), ref = o.reference;
-      return { value: isFinite(o.T_c_GeV) ? `T<sub>c</sub> = ${pm(o.T_c_GeV, o.T_c_err)} GeV${ref ? ` <small>reference ${pm(ref.T_c_GeV, ref.err)}, not blind</small>` : ''}` : '', curves: s && s.t ? [{ x: s.t, y: s.chi || s.order, mark: o.T_c_GeV }] : [], note: 'susceptibility against temperature' };
-    } },
-  { id: 'qcd', lane: 'QCD', name: 'Colour deconfinement', get: () => fetch('rl/QCD/colour_transition.json', { cache: 'no-store' }),
-    read(d) {
-      const u = d.su3 || {}, s = biggest(u.series, 'N_s');
-      return { value: isFinite(u.beta_c) ? `β<sub>c</sub> = ${pm(u.beta_c, u.beta_c_err, 3)}${isFinite(u.beta_c_literature) ? ` <small>literature ${u.beta_c_literature}</small>` : ''}` : '', curves: s && s.beta ? [{ x: s.beta, y: s.absL, mark: u.beta_c }] : [], note: 'Polyakov loop against the coupling', gate: 'Gate passed: SU(3) plaquette on 12⁴ cells 0.54886(29) at β = 5.7 and 0.59371(6) at β = 6.0; literature 0.5492 and 0.5937.' };
-    } },
-  { id: 'had', lane: 'HAD', name: 'Quarks binding into hadrons', get: () => fetch('rl/HAD/hadrons.json', { cache: 'no-store' }),
-    read(d) {
-      const p = d.potential || {}, f = p.fit || {};
-      return { value: isFinite(f.sigma) ? `σ a² = ${pm(f.sigma, f.sigma_err, 3)}` : '', curves: p.r ? [{ x: p.r, y: p.V }] : [], note: 'static potential against distance' };
-    } },
 ];
 async function loadTiles() {
   for (const t of TILES) {
@@ -565,7 +550,7 @@ function render(host) {
   </div>
   <div class="lt-limits" id="lt-limits"><b>limits</b>The stored run is a quench of the classical law and does not sample this ensemble. The Z6 register is a declared layer. The couplings of the action come from the declared chain.</div>
   <div class="lt-foot"><div class="lt-into" id="lt-out"><b>map out · continuum</b>To Field: on the cubic lattice of cells, quanta routed over many cells obey the Dirac equation, and waves of the links are the gauge fields.</div>
-    <div class="lt-src"><span>sources</span>${linkList(['gauge', 'run', 'hadrons'])}<div class="src-links">${EXTRA.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join('')}</div></div></div>
+    <div class="lt-src"><span>sources</span>${linkList(['gauge', 'run'])}<div class="src-links">${EXTRA.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join('')}</div></div></div>
 </div>`;
   typeset(host);
 }
@@ -626,7 +611,6 @@ function controls() {
   stage.addEventListener('pointerdown', (e) => { if (e.target.closest('.lt-tile, .lt-seg, .hq')) return; LV.drag = [e.clientX, e.clientY, LV.yaw, LV.pitch]; });
   window.addEventListener('pointermove', (e) => { if (!LV.drag) return; LV.yaw = LV.drag[2] + (e.clientX - LV.drag[0]) * 0.008; LV.pitch = Math.max(-1.2, Math.min(1.2, LV.drag[3] + (e.clientY - LV.drag[1]) * 0.008)); });
   window.addEventListener('pointerup', () => { LV.drag = null; });
-  for (const t of TILES) { const el = $('lt-tile-' + t.id); el.onclick = () => showPage('transitions'); }
   $('lt-in').onclick = (e) => { if (!e.target.closest('.hq')) showPage('defects'); };
   $('lt-out').onclick = (e) => { if (!e.target.closest('.hq')) showPage('readout'); };
   $('lt-open').onclick = () => openExplainer();

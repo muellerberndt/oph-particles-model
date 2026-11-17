@@ -204,13 +204,6 @@ export const CARDS = {
   },
   // Source: readout.js card "Rest mass" (E0 = hbar theta / tau, tau = hbar / E_cell); RL/MATCH.md (unit correction by
   // worker DC: the tick is hbar / E_cell); RL/candidates/CF1.md section 6 (mass step and the unit of the tick declared).
-  mass: {
-    tex: T`m\,c^{2}=\theta\,E_{\rm cell},\qquad E_{\rm cell}=\frac{\hbar}{\tau_{\rm tick}}`,
-    name: 'Rest mass',
-    what: 'A rest mass is a rest phase per tick.',
-    status: 'declared',
-    links: [['code', 'The routing tick', SITE + 'cf1_engine.js'], ['report', 'Candidate program CF-1', DER + 'candidates/CF1.md']],
-  },
   // Source: RL/candidates/CF1.md section 4 item 2 ("One axis, exactly cos E = cos(theta) cos(p)") and its five
   // numbers; RL/work/HR/FOR_SIM.md section 4 item 3. Check V8d (difference to the CF-1 numbers below 4e-7).
   dispersion: {
@@ -219,110 +212,6 @@ export const CARDS = {
     what: 'Exact for the tick. For small p and θ it is the relation of special relativity.',
     status: 'declared',
     links: [['report', 'Candidate program CF-1', DER + 'candidates/CF1.md'], ['code', 'The routing tick', SITE + 'cf1_engine.js']],
-  },
-
-  // ---------------------------------------------------------------------------------------------- masses
-  // Source: RL/LEPTON_STEPS.md section 1; lepton_register_round/PROOF.md section 1 (compression_is_sqrt2_over_3_C_theta);
-  // tex fragment, Theorem "Exact compression to the balanced circulant". Check V9b.
-  circulant: {
-    tex: T`C(\theta)=\tfrac{1}{\sqrt6}\,I+\tfrac{1}{\sqrt{12}}\big(e^{i\theta}R+e^{-i\theta}R^{-1}\big),\qquad R^{3}=I`,
-    name: 'The generation register',
-    what: 'It compresses to a balanced circulant on the face third-turn R. Exact, given the register and its stated premises.',
-    status: 'conditional',
-    links: [['proof', 'The charged-lepton register', LRR + 'PROOF.md'], ['paper', 'The charged-lepton register', ZOO], ['code', 'Certificate, 99 checks', LRR + 'certificate.py']],
-  },
-  // Source: LEPTON_STEPS.md section 1 "Phase"; PROOF.md section 1 (exclusive_read_count_is_2_9) and section 6
-  // (two cells); RL/reports/LC.md item 3. Check V9a.
-  phase: {
-    tex: T`\theta=p+q-2pq=\tfrac{2}{9},\qquad p=\tfrac{1}{12},\quad q=\tfrac{1}{6}`,
-    name: 'The phase is a read count',
-    what: 'The exclusive read of one repair and one hold on two cells with independent address registers.',
-    status: 'conditional',
-    links: [['proof', 'Read counts and the weak round', LRR + 'PROOF.md'], ['report', 'The register on the carrier', DER + 'reports/LC.md'], ['report', 'Open steps', DER + 'LEPTON_STEPS.md']],
-  },
-  // Source: LEPTON_STEPS.md section 1 "Rates" and its table (0.2096935560, 0.0124683656, 0.0000603006);
-  // PROOF.md (eigenvalues_on_the_characters; electron, muon, tau are the characters w, w^2, 1). Checks V9b, V9c.
-  rates: {
-    tex: T`\begin{gathered}y_k=\tfrac{1}{27}\Big(1+\sqrt2\,\cos\!\big(\theta+\tfrac{2\pi k}{3}\big)\Big)^{2}\\[3pt] k=0,\,1,\,2:\quad \tau,\ e,\ \mu\end{gathered}`,
-    name: 'Rest rates',
-    what: 'The eigenvalues of the read effect (2/9) C², per unit clock time. Mass ratios are ratios of the rates.',
-    status: 'conditional',
-    links: [['report', 'Charged-lepton rest masses', DER + 'LEPTON_STEPS.md'], ['code', 'The mass readout of this site', SITE + 'lepton_readout.js'], ['proof', 'Eigenvalues on the characters', LRR + 'PROOF.md']],
-  },
-  // Source: PROOF.md section 1 (koide_two_thirds_in_the_positive_chamber, register_outputs_at_theta_2_9);
-  // ADDENDUM_THEORY.md item 6 (206.770316, 3477.4728). Checks V9d, V9e.
-  koide: {
-    tex: T`\begin{gathered}Q=\frac{\sum_k m_k}{\big(\sum_k\sqrt{m_k}\big)^{2}}=\frac{2}{3}\\[3pt] \frac{m_\mu}{m_e}=206.770316,\qquad \frac{m_\tau}{m_e}=3477.4728\end{gathered}`,
-    name: 'Koide\'s relation',
-    what: 'It holds for every phase in the positive chamber. The ratios are the register\'s at θ = 2/9. No measured mass enters.',
-    status: 'conditional',
-    links: [['proof', 'Koide in the positive chamber', LRR + 'PROOF.md'], ['paper', 'The charged-lepton register', ZOO], ['report', 'Comparison and open steps', DER + 'LEPTON_STEPS.md']],
-  },
-  // Source: LEPTON_STEPS.md section 3 (m_k = F E_cell y_k; with no measured input it needs F, steps L6 to L8);
-  // ADDENDUM_THEORY.md "OPEN: the absolute lepton scale".
-  scale: {
-    tex: T`m_k\,c^{2}=F\,E_{\rm cell}\,y_k`,
-    name: 'The absolute scale',
-    what: 'One number F turns the rates into masses in MeV. The source does not give it yet.',
-    status: 'open',
-    links: [['report', 'What a mass in MeV needs', DER + 'LEPTON_STEPS.md']],
-  },
-
-  // ---------------------------------------------------------------------------------------------- couplings
-  // Source: fine-structure paper eqs. (MU), (Ecell): M_U = E_P exp(-2 pi) P^(1/6), E_cell = E_P / sqrt P;
-  // RL/COUPLING_FIX.md section 2 "declared forms"; RL/reports/CU_UNIFICATION.md (the stack gives E_cell exp(-2 pi);
-  // the power P^(2/3) has no source reading). Checks V10, V10b (both spellings of M_U agree).
-  forms: {
-    tex: T`E_{\rm cell}=\frac{E_P}{\sqrt{P}},\qquad M_U=E_{\rm cell}\,e^{-2\pi}\,P^{2/3}`,
-    name: 'Declared scales',
-    what: 'The stack gives M<sub>U</sub> = E<sub>cell</sub> e<sup>−2π</sup>. The factor P<sup>2/3</sup> has no source reading.',
-    status: 'declared',
-    links: [['paper', 'The gauge closure and the fine-structure constant', ALPHA], ['report', 'The unification scale', DER + 'reports/CU_UNIFICATION.md'], ['report', 'The cell energy', DER + 'reports/DC.md']],
-  },
-  // Source: fine-structure paper eqs. (b), (running); RL/reports/CA_ANCHOR.md; ADDENDUM_THEORY.md item CH (the source
-  // as built has slopes (81/10, 5/6, -3)). Check V10 (1/alpha_2(m_Z) = 29.605, alpha_s = 0.11834).
-  running: {
-    tex: T`\begin{gathered}\frac{1}{\alpha_i(\mu)}=\frac{1}{\alpha_U}+\frac{b_i}{2\pi}\,\ln\frac{M_U}{\mu}\\[3pt] (b_1,b_2,b_3)=\big(\tfrac{33}{5},\,1,\,-3\big)\end{gathered}`,
-    name: 'One-loop running',
-    what: 'Below the unification scale with the declared slopes. The source as built has (81/10, 5/6, −3).',
-    status: 'declared',
-    links: [['paper', 'The gauge closure and the fine-structure constant', ALPHA], ['report', 'The hypercharge slope', DER + 'reports/CH_HYPERCHARGE.md'], ['report', 'The corrected coupling chain', DER + 'COUPLING_FIX.md']],
-  },
-  // Source: RL/reports/CA_ANCHOR.md "Anchor in the chain's variables" (this exact form); fine-structure paper eqs.
-  // (mZtree), (mZfixed) (the same quantity written as (v/2) sqrt(4 pi alpha_2 + 4 pi alpha_Y)). Check V10 (91.588 GeV).
-  anchor: {
-    tex: T`\begin{gathered}m_Z(\mu)=E_{\rm cell}\,e^{-\pi/(2\alpha_U)}\sqrt{\pi\big(\alpha_2(\mu)+\tfrac35\,\alpha_1(\mu)\big)}\\[3pt] \mu=m_Z(\mu)\end{gathered}`,
-    name: 'The anchor',
-    what: 'The couplings are read at the first freeze of the weak currents, the fixed point of the tree-level Z mass.',
-    status: 'premise',
-    links: [['report', 'The electroweak anchor', DER + 'reports/CA_ANCHOR.md'], ['paper', 'The gauge closure and the fine-structure constant', ALPHA]],
-  },
-  // Source: fine-structure paper eqs. (ellbar), (t23), (pixelclosure); RL/COUPLING_FIX.md section 1;
-  // ADDENDUM_THEORY.md item CG (weight d_R and shape number 1 are declared). Check V10 (1/alpha_U = 24.3166).
-  closure: {
-    tex: T`\begin{gathered}\bar\ell_{\mathrm{SU}(2)}(t_2)+\bar\ell_{\mathrm{SU}(3)}(t_3)=\frac{P}{4},\qquad t_i=4\pi^{2}\,\alpha_i(m_Z)\\[3pt] \bar\ell_G(t)=\frac{\sum_R d_R\,e^{-t\,C_2(R)}\,\ln d_R}{\sum_R d_R\,e^{-t\,C_2(R)}}\end{gathered}`,
-    name: 'The closure',
-    what: 'It fixes α<sub>U</sub>: the mean log-dimension of the collar\'s sector label equals the entropy budget of one cell.',
-    status: 'declared',
-    links: [['paper', 'Heat-kernel gauge closure', ALPHA], ['report', 'The collar law', DER + 'reports/CG_COLLAR.md'], ['code', 'Closure check', DER + 'work/COUPLING/closure_check.py']],
-  },
-  // Source: fine-structure paper eq. (v) with beta_EW = 4; RL/COUPLING_FIX.md section 2 (246.60 GeV at 24.3166);
-  // RL/reports/LV.md. Check V10 (v = 246.597 GeV).
-  v: {
-    tex: T`v=E_{\rm cell}\,\exp\!\Big(-\frac{2\pi}{4\,\alpha_U}\Big)`,
-    name: 'The electroweak scale',
-    what: 'Transmutation from the cell: 246.60 GeV at 1/α<sub>U</sub> = 24.3166.',
-    status: 'declared',
-    links: [['paper', 'Electroweak transmutation', ALPHA], ['report', 'The law for v', DER + 'reports/LV.md'], ['report', 'The corrected coupling chain', DER + 'COUPLING_FIX.md']],
-  },
-  // Source: defect_particle_classes/PROOF.md section 9 (table: 12/5, 3, 4); fine-structure paper, text after eq. (v);
-  // ADDENDUM_THEORY.md item 4. Check V7 (exact rationals).
-  count4: {
-    tex: T`\beta_k=\frac{8\pi^{2}}{\operatorname{tr}_5 H_k^{\dagger}H_k}=\Big(\tfrac{12}{5},\,3,\,4,\,3,\,\tfrac{12}{5}\Big)_{k=1,\dots,5}`,
-    name: 'The count 4',
-    what: 'The 4 in the exponent is the plaquette cost of one weak-centre flux quantum, class 3. The other classes give 12/5 and 3.',
-    status: 'derived',
-    links: [['proof', 'Central flux costs', DPC + 'PROOF.md'], ['code', 'Flux costs', DPC + 'flux_costs.py'], ['paper', 'Electroweak transmutation', ALPHA]],
   },
 
   // ---------------------------------------------------------------------------------------------- lattice
@@ -375,35 +264,6 @@ export const CARDS = {
     links: [['source', 'The gauge-Higgs system, specification', DER + 'work/HR/SPEC.md'], ['report', 'The Higgs register', DER + 'reports/UH.md'], ['report', 'Links, action and bare couplings', DER + 'reports/GL.md']],
   },
 
-  // ---------------------------------------------------------------------------------------------- early universe
-  // Source: fine-structure paper, text after eq. (Ecell) (one radian of phase per tick); RL/MATCH.md (6.9e-44 s per
-  // tick); RL/COUPLING_FIX.md (E_cell from P = 1.6309721, E_P = 1.220890e19 GeV). Checks V10, V12 (6.885e-44 s).
-  tickunit: {
-    tex: T`\begin{gathered}\tau_{\rm tick}=\frac{\hbar}{E_{\rm cell}}=6.89\times10^{-44}\ \text{s}\\[3pt] E_{\rm cell}=9.56\times10^{18}\ \text{GeV}\end{gathered}`,
-    name: 'The unit of time',
-    what: 'One tick is one radian of phase at the cell energy.',
-    status: 'declared',
-    links: [['paper', 'The gauge closure and the fine-structure constant', ALPHA], ['report', 'The cell energy', DER + 'reports/DC.md']],
-  },
-  // A standard relation, no statement of the model: Friedmann equation with rho = (pi^2/30) g* T^4, t = 1/(2H);
-  // brief EPOCHS (t = 2.42 s / sqrt(g*) / (T/MeV)^2). Check V12 (2.4203 s).
-  radiation: {
-    tex: T`t=\sqrt{\frac{90}{32\pi^{3}g_*}}\ \frac{\hbar\,E_P}{T^{2}}=\frac{2.42\ \text{s}}{\sqrt{g_*}}\,\Big(\frac{\text{MeV}}{T}\Big)^{2}`,
-    name: 'Time from temperature',
-    what: 'The standard relation of the radiation era. g<sub>∗</sub> counts the relativistic degrees of freedom.',
-    standard: true,
-    links: [['source', 'Particle Data Group: cosmology reviews', 'https://pdg.lbl.gov/']],
-  },
-  // A standard relation applied to the chain's coupling. Source: RL/reports/HD.md (Lambda^(3) = 0.3400 GeV from
-  // alpha_3 = 0.118336 at 91.588 GeV by four-loop running and three-loop decoupling at m_b = 4.18 and
-  // m_c = 1.27 GeV). Check V13 (0.3401 GeV).
-  lambda: {
-    tex: T`\alpha_s(m_Z)=0.1183\ \ \longrightarrow\ \ \Lambda^{(3)}_{\overline{\rm MS}}=0.340\ \text{GeV}`,
-    name: 'The colour scale',
-    what: 'The chain\'s strong coupling, run down by the standard four-loop relation with the bottom and charm thresholds.',
-    standard: true,
-    links: [['report', 'Hadron masses from the colour coupling', DER + 'reports/HD.md'], ['report', 'The corrected coupling chain', DER + 'COUPLING_FIX.md']],
-  },
 };
 
 // The steps of the navigation bar. title: the name of the step. lead: the one line under the heading. src: keys of SRC
@@ -411,12 +271,9 @@ export const CARDS = {
 export const GROUPS = {
   network: { title: 'Holographic screen', lead: 'Every observer is one carrier. All of them run the same seam law.', cards: ['counts', 'lawC', 'descent', 'depth'], src: ['run'] },
   defects: { title: 'Defects', lead: 'Map into this step: a repair current twists the two faces of its seam.', cards: ['twist', 'accept', 'neutral', 'reactions'], src: ['run', 'classes'] },
-  lattice: { title: 'Lattice', lead: 'Map into this step: the seam cost around a face is the action, and ticks in the time direction are temperature.', cards: ['plaquette', 'weight', 'pclass', 'temperature', 'gaugehiggs'], src: ['gauge', 'hadrons', 'higgs'] },
-  field: { title: 'Field', lead: 'Map into this step: the routing tick of the candidate program CF-1 has the Dirac equation as its long-wave limit.', cards: ['tick', 'twoticks', 'dirac', 'mass', 'dispersion'], src: ['continuum', 'fields'] },
-  cosmos: { title: 'Early universe', lead: 'Map into this step: the chain sets the energy scales. A card without a chip is a standard relation that the page uses.', cards: ['tickunit', 'v', 'temperature', 'radiation', 'lambda'], src: ['coupling', 'hadrons', 'run'] },
+  lattice: { title: 'Lattice', lead: 'Map into this step: the seam cost around a face is the action, and ticks in the time direction are temperature.', cards: ['plaquette', 'weight', 'pclass', 'temperature', 'gaugehiggs'], src: ['gauge', 'higgs'] },
+  field: { title: 'Field', lead: 'Map into this step: the routing tick of the candidate program CF-1 has the Dirac equation as its long-wave limit.', cards: ['tick', 'twoticks', 'dirac', 'dispersion'], src: ['continuum', 'fields'] },
   classes: { title: 'Particles', lead: 'Map into this step: the flux of a defect is a central element of the gauge group.', cards: ['rule', 'flux', 'group', 'spin', 'bl'], src: ['classes', 'spin', 'gauge'] },
-  masses: { title: 'Masses', lead: 'Map into this step: the rest phase per tick is the expected number of reads per tick.', cards: ['circulant', 'phase', 'rates', 'koide', 'scale'], src: ['lepton'] },
-  couplings: { title: 'Masses: the coupling chain', lead: 'Declared forms that fit; derivation open. 1/α<sub>U</sub> = 24.3166, v = 246.60 GeV, α<sub>s</sub>(m<sub>Z</sub>) = 0.1183, sin²θ<sub>W</sub>(m<sub>Z</sub>) = 0.2307.', cards: ['forms', 'running', 'anchor', 'closure', 'v', 'count4'], src: ['coupling', 'electroweak'] },
 };
 
 // Which cards each page shows. A page names one group and may replace its card list, lead and sources. The page
@@ -430,16 +287,9 @@ export const PAGES = {
   readout: { group: 'field' },
   nowave: { group: 'field', cards: ['record', 'lawC', 'walk'], lead: 'What one repair attempt writes: the record law, the committed rule and its reversible version.', src: ['run'] },
   space: { group: 'field' },
-  cosmos: { group: 'cosmos', cards: ['reactions', 'tickunit', 'v', 'radiation', 'lambda'] },
-  timeline: { group: 'cosmos' },
-  transitions: { group: 'cosmos', cards: ['temperature', 'gaugehiggs', 'v', 'radiation', 'lambda'], src: ['gauge', 'coupling', 'hadrons', 'higgs'] },
   classes: { group: 'classes' },
   decoder: { group: 'classes' },
-  map: { group: 'classes' },
-  leptons: { group: 'masses' },
-  spectrum: { group: 'masses', cards: ['mass', 'circulant', 'phase', 'rates', 'koide', 'scale'], src: ['lepton', 'spectrum'] },
-  couplings: { group: 'couplings' },
-  journey: { groups: ['network', 'defects', 'lattice', 'field', 'cosmos', 'classes', 'masses', 'couplings'] },
+  journey: { groups: ['network', 'defects', 'lattice', 'field', 'classes'] },
 };
 
 // Cards that are written and checked as mathematics but not shown, with the reason. To show one, add its id to a page.

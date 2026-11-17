@@ -30,9 +30,7 @@ export function marker(k, size = 16) {             // the screen marker of a reg
 const RUN_DONE = new Set();
 const once = (k, f) => () => { if (RUN_DONE.has(k)) return; RUN_DONE.add(k); return f(); };
 const RUN_VIEWS = {
-  particles: once('particles', async () => { const [c, t] = await Promise.all([mod('./chart.js'), mod('./tables.js')]); c.renderChart(); await t.renderParticles(); }),
   data: once('data', async () => (await mod('./tables.js')).renderData()),
-  findings: once('findings', async () => (await mod('./findings.js')).renderFindings()),
 };
 let runResolve; const runLoaded = new Promise((r) => { runResolve = r; });
 let FAM_READY = false, helpStarted = false;
@@ -442,11 +440,9 @@ function renderCard() {
     <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
       <button data-depth="${c.birth_depth[r]}">go to birth</button>
       ${alive ? '' : `<button data-depth="${Math.max(0, c.death_depth[r] - 1)}">go to end</button>`}
-      <button data-table="${k}">table row</button>
     </div>`;
   el.querySelectorAll('a[data-id]').forEach((a) => a.onclick = (e) => { e.preventDefault(); select(parseInt(a.dataset.id)); });
   el.querySelectorAll('button[data-depth]').forEach((b) => b.onclick = () => setFrame(frameOfDepth(parseInt(b.dataset.depth)) + (b.textContent.includes('birth') ? 1 : 0)));
-  el.querySelectorAll('button[data-table]').forEach((b) => b.onclick = () => { showPage('particles'); const t = document.getElementById('class-row-' + b.dataset.table); if (t) t.scrollIntoView({ block: 'center' }); });
 }
 function phaseOf(f) {
   if (f.depth === 0) return '<span style="color:var(--violet)">the preparation: no repair has happened</span>';
@@ -499,10 +495,9 @@ function renderLegend() {
   const G = Object.fromEntries(S.pmap.groups.map((g) => [g.id, g]));
   h += `<div style="margin-top:8px;padding-top:8px;border-top:1px solid #16213a;display:block;color:var(--muted);font-size:12.5px">Not on the screen as defects:
     <b style="color:${G.photon.color}">photon</b>, <b style="color:${G.gluon.color}">gluons</b>, <b style="color:${G.weak.color}">W and Z</b>
-    and the right-handed <b style="color:${G.lepton.color}">charged leptons</b> carry class 0. The <b style="color:${G.higgs.color}">Higgs</b> doublet shares class 3 with the lepton doublet (<a href="#" onclick="window.__openClass && window.__openClass(0); return false">the neutral class</a>). <a href="#" id="toChart">Open the particle chart</a>.</div>`;
+    and the right-handed <b style="color:${G.lepton.color}">charged leptons</b> carry class 0. The <b style="color:${G.higgs.color}">Higgs</b> doublet shares class 3 with the lepton doublet (<a href="#" onclick="window.__openClass && window.__openClass(0); return false">the neutral class</a>).</div>`;
   h += `<div class="note">Each defect class is exactly the centre class 6Y mod 6 of a Standard Model multiplet (exact on all 32 code patterns). The defect is the flux of its class; the quarks and leptons are the fermionic quanta that carry it. A disc is a particle class, a ring its antiparticle, the two-tone marker the lepton doublet and Higgs class. The register is declared and does not act back on the loads; generation and mass are not carried by the class. Click a class for its card.</div>`;
   $('legend').innerHTML = h;
-  $('toChart').onclick = (e) => { e.preventDefault(); showPage('particles'); };
 }
 function renderAbout() {
   const g = S.meta.geometry, c = S.meta.config, t = S.meta.totals;
@@ -632,15 +627,12 @@ window.addEventListener('keydown', (e) => {
 // The journey: step groups from left to right, each with its pages. A connector between two steps is the map that
 // carries one into the next (opened from journey.js).
 const GROUPS = [
-  { id: 'journey', label: 'Journey', pages: [['journey', 'The chain', 'the whole chain from the holographic screen to the particles and their masses, with the maps between the steps']] },
+  { id: 'journey', label: 'Journey', pages: [['journey', 'The chain', 'the whole chain from the holographic screen to the particles, with the maps between the steps']] },
   { id: 'screen', label: 'Holographic screen', step: 1, pages: [['universe', 'Screen', 'the run: every observer on the screen, with its defects, cut by cut'], ['carrier', 'One carrier', 'one cell of the screen: twelve ports, thirty seams, twenty faces'], ['observer', 'One observer', 'one observer with its own clock and record tape']] },
   { id: 'defects', label: 'Defects', step: 1, map: 'twist', pages: [['defects', 'Catalogue', 'every defect class moving on the screen, beside the particle class it represents']] },
   { id: 'lattice', label: 'Lattice', step: 1, map: 'links', pages: [['lattice', 'From defects to the lattice', 'how wandering defects become a lattice computation']] },
   { id: 'field', label: 'Field', step: 1, map: 'continuum', pages: [['readout', 'Continuum field', 'defects of the run beside the relativistic field in 3+1 dimensions'], ['nowave', 'No wave function', 'the double slit on the model: a position becomes real when an observer writes a record of it'], ['space', 'Forces', 'quanta and gauge waves moving through the cubic family of carriers']] },
-  { id: 'early', label: 'Early universe', step: 1, map: 'heat', pages: [['cosmos', 'First defects', 'the first defects of the run beside the early plasma'], ['cosmology', 'Against ΛCDM', 'the early universe and the cosmos of the model beside the measured sky and the standard model of cosmology'], ['timeline', 'Timeline', 'from the first tick to the first second'], ['transitions', 'Phase transitions', 'the electroweak crossover, colour confinement and the binding of quarks into hadrons, on the lattice']] },
-  { id: 'particles', label: 'Particles', step: 1, map: 'centre', pages: [['classes', 'Classes', 'the six classes and the Standard Model multiplets they are'], ['decoder', 'Decoder', 'from a pattern of the five-level code to the particle and its charges'], ['map', 'Map', 'every known particle beside its object in the model']] },
-  { id: 'masses', label: 'Masses', step: 1, map: 'reads', pages: [['masses', 'Masses', 'relative masses and rest masses beside the measured values'], ['leptons', 'Lepton derivation', 'the charged-lepton mass hierarchy from the read count of the carrier, against CODATA and PDG'], ['spectrum', 'Full spectrum', 'every particle from its class to a mass in GeV, by status'], ['couplings', 'Couplings', 'the coupling chain from the cell to the electroweak scale']] },
-  { id: 'results', label: 'Results', sep: 1, pages: [['matches', 'Matches to nature', 'every match of the model with our universe in one list'], ['results', 'Numbers and status', 'every number of the model beside the measured value, with its status'], ['constructions', 'Finite constructions', 'the executable constructions behind the matches, with proofs and complete records'], ['openwave', 'OpenWave status', 'the 31 criteria of the OpenWave comparison and where the model stands on each']] },
+  { id: 'particles', label: 'Particles', step: 1, map: 'centre', pages: [['classes', 'Classes', 'the six classes and the Standard Model multiplets they are'], ['decoder', 'Decoder', 'from a pattern of the five-level code to the particle and its charges']] },
   // not in the navigation, reachable by address: story, detector, particles (tables), findings, data
 ];
 const PAGE_GROUP = {}, LAST = {};
@@ -675,9 +667,12 @@ function renderSub(g, p) {
   }
 }
 // pages that live in their own module: each exports mount(host) and optionally shown(host)
-const EXTRA = { matches: './matches.js', constructions: './constructions.js', openwave: './openwave.js', cosmology: './cosmology.js', masses: './masses.js', results: './results.js', decoder: './decoder.js', leptons: './leptons.js', couplings: './couplings_page.js', timeline: './timeline.js', transitions: './transitions.js', lattice: './lattice.js', journey: './journey.js', nowave: './nowave.js' };
+const EXTRA = { decoder: './decoder.js', lattice: './lattice.js', journey: './journey.js', nowave: './nowave.js' };
 const EXTRA_FAILED = {};
+// Pages taken down on 2026-11-17 (masses, matches and results): an old address opens the journey.
+const REMOVED = new Set(['spectrum', 'results', 'leptons', 'couplings', 'timeline', 'transitions', 'matches', 'constructions', 'openwave', 'masses', 'cosmology', 'cosmos', 'map', 'story', 'particles', 'findings']);
 export function showPage(p) {
+  if (REMOVED.has(p)) p = 'journey';
   if (!$('page-' + p)) p = 'universe';
   if (!EXTRA[p] && p !== 'journey') { window.__runWanted = true; if (window.__needRun) { const f = window.__needRun; window.__needRun = null; f(); } }
   buildNav();
@@ -690,8 +685,8 @@ export function showPage(p) {
   document.querySelectorAll('.page').forEach((d) => d.classList.toggle('on', d.id === 'page-' + p));
   $('uni-controls').style.display = p === 'universe' ? 'flex' : 'none';
   const SHOWN = { observer: ['./observer.js', 'observerShown'], carrier: ['./carrier.js', 'carrierShown'], space: ['./space.js', 'spaceShown'],
-    cosmos: ['./cosmos.js', 'cosmosShown'], map: ['./mapview.js', 'mapShown'], story: ['./story.js', 'storyShown'], readout: ['./readout.js', 'readoutShown'],
-    classes: ['./classes.js', 'classesShown'], spectrum: ['./spectrum.js', 'spectrumShown'] };
+    readout: ['./readout.js', 'readoutShown'],
+    classes: ['./classes.js', 'classesShown'] };
   const RUN_PAGES = new Set(['observer', 'cosmos', 'map', 'readout', 'classes']);      // these read the run: they draw once it is there
   if (SHOWN[p]) (RUN_PAGES.has(p) ? runLoaded : Promise.resolve()).then(() => mod(SHOWN[p][0])).then((m) => { if (document.body.dataset.page === p) m[SHOWN[p][1]](); }).catch((e) => console.error('page ' + p, e));
   if (p === 'detector') labModule().then((m) => m.labShown()).catch((e) => console.error('page detector', e));
@@ -731,7 +726,7 @@ function declutter() {
   }
 }
 declutter();
-const FIRST = (() => { const p = new URLSearchParams(location.search).get('page'); return p && document.getElementById('page-' + p) ? p : 'journey'; })();
+const FIRST = (() => { const p = new URLSearchParams(location.search).get('page'); return p && document.getElementById('page-' + p) && !REMOVED.has(p) ? p : 'journey'; })();
 buildNav(); renderSub(PAGE_GROUP[FIRST], FIRST); document.querySelectorAll('#nav .tab').forEach((b) => b.classList.toggle('on', !!PAGE_GROUP[FIRST] && b.dataset.group === PAGE_GROUP[FIRST].id));
 document.querySelectorAll('.page').forEach((d) => d.classList.toggle('on', d.id === 'page-' + FIRST));
 $('uni-controls').style.display = FIRST === 'universe' ? 'flex' : 'none';

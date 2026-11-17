@@ -513,32 +513,11 @@ table.ro-t tr.hl td{color:var(--teal)}
 </div>
 
 <div class="page" id="page-classes" style="overflow:auto"><div id="cl-host"></div></div>
-<div class="page" id="page-spectrum"><div id="sp-host"></div></div>
 <div class="page" id="page-defects"><div id="df-host"></div></div>
-<div class="page" id="page-results" style="overflow:auto"><div id="results-host"></div></div>
 <div class="page" id="page-decoder" style="overflow:auto"><div id="decoder-host"></div></div>
-<div class="page" id="page-leptons" style="overflow:auto"><div id="leptons-host"></div></div>
-<div class="page" id="page-couplings" style="overflow:auto"><div id="couplings-host"></div></div>
-<div class="page" id="page-timeline" style="overflow:auto"><div id="timeline-host"></div></div>
-<div class="page" id="page-transitions" style="overflow:auto"><div id="transitions-host"></div></div>
 <div class="page" id="page-lattice" style="overflow:auto"><div id="lattice-host"></div></div>
 <div class="page" id="page-journey" style="overflow:auto"><div id="journey-host"></div></div>
 <div class="page" id="page-nowave" style="overflow:auto"><div id="nowave-host"></div></div>
-<!-- overview pages: every match to nature in one list, the finite constructions, the masses, the comparison with LambdaCDM -->
-<div class="page" id="page-matches" style="overflow:auto"><div id="matches-host"></div></div>
-<div class="page" id="page-constructions" style="overflow:auto"><!-- oph-current-highlights:start -->
-<section id="current-highlights" aria-label="Conditional finite results" style="max-width:1420px;margin:24px auto 0;padding:24px;border:1px solid #355363;border-radius:16px;background:#101d2d;color:#dce8f5">
-<p style="margin:0 0 8px;color:#75dcca;font-size:12px;letter-spacing:.08em">CONDITIONAL PARTICLE READOUTS · 50 SOURCE-BOUND RECEIPTS</p>
-<h2 style="margin:0 0 16px;font-size:clamp(22px,3vw,31px)">Finite measurements, explicit calibration</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:20px">
-<div><h3 style="margin:0 0 8px;font-size:15px">Conditional neutrino observables</h3><p style="font-size:13px;line-height:1.7;margin:0">mᵦ = 8.899344e-12 GeV<br>mₑₑ ∈ [1.494139e-12, 3.747079e-12] GeV</p><p style="font-size:12px;color:#a9bbd1">Supplied mass and mixing inputs; full Majorana phase envelope. <a style="color:#75dcca" href="finite_results.html#neutrino-observables">Explore the phase</a></p></div>
-<div><h3 style="margin:0 0 8px;font-size:15px">Bare Wilson, not identified quark masses</h3><p style="font-size:13px;line-height:1.7;margin:0">Ratio-tuned: 0.004837547 GeV<br>± 6.9809e-05 statistical<br>± 0.00013899 fit sensitivity</p><p style="font-size:12px;color:#a9bbd1">Conditional rho-anchored action coordinate; no total physical error. <a style="color:#75dcca" href="finite_results.html#paired-quarks">Compare all scale choices</a></p></div>
-<div><h3 style="margin:0 0 8px;font-size:15px">Finite-time mass spectroscopy</h3><p style="font-size:13px;line-height:1.7;margin:0">1 reusable pointer qubit + 5 bits<br>8,010 complete records<br>≥65/72 ideal coverage on one-excitation inputs</p><p style="font-size:12px;color:#a9bbd1">Calibrated source; neutrino species remain unresolved. <a style="color:#75dcca" href="finite_results.html#finite-spectroscopy">Inspect every phase bin</a></p></div>
-</div><p style="margin:12px 0 0;font-size:12px"><a style="color:#75dcca" href="finite_results.html#current-results">Ten finite constructions, complete proofs and downloadable receipts →</a></p></section>
-<!-- oph-current-highlights:end --><div id="constructions-host"></div></div>
-<div class="page" id="page-openwave" style="overflow:auto"><div id="openwave-host"></div></div>
-<div class="page" id="page-masses" style="overflow:auto"><div id="masses-host"></div></div>
-<div class="page" id="page-cosmology" style="overflow:auto"><div id="cosmology-host"></div></div>
 
 <div class="page" id="page-observer">
   <div id="obs-left">
@@ -626,58 +605,6 @@ table.ro-t tr.hl td{color:var(--teal)}
     </div>
   </div>
 </div>
-<div class="page" id="page-cosmos">
-  <div style="max-width:1500px;margin:0 auto"><h2 style="margin:0" class="cos-legacy">The early universe: OPH beside the standard model</h2>
-    <p class="small cos-legacy" style="margin:3px 0 0;max-width:1100px">Right: schematic standard thermal history with cited observations and model assumptions. Left: separate OPH proposals and executable register records. Each OPH entry says whether it is executed, stated under premises, imported or not derived. Pick an era. Below the eras: <a href="#cos-first">The first defects and early plasma</a>, the executed register history beside a schematic thermal history.</p></div>
-  <div id="cos-eras" class="cos-legacy"></div>
-  <div id="cos-read" class="cos-legacy"></div>
-  <div class="cos-grid cos-legacy">
-    <div class="cos-col"><h3 style="color:#b197ff">OPH</h3><canvas id="cos-oph" width="640" height="640"></canvas><p id="cos-oph-text"></p><div id="cos-oph-bars"></div></div>
-    <div class="cos-col"><h3 style="color:#ffb07a">Standard model of cosmology</h3><canvas id="cos-std" width="640" height="640"></canvas><p id="cos-std-text"></p><div id="cos-std-bars"></div></div>
-  </div>
-  <div class="cos-legacy" style="max-width:1500px;margin:14px auto 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-    <button id="cos-run">▶ let gravity act</button><button id="cos-reset">reset</button>
-    <span id="cos-mode-row" class="lab-ctl" style="margin:0"><span>OPH panel shows</span><select id="cos-mode"><option value="branch">the gravity law the papers assume</option><option value="executed">load-run limitation (illustration)</option></select></span>
-  </div>
-  <div class="cos-fp" id="cos-first"></div>
-  <div class="cos-legacy" style="max-width:1500px;margin:22px auto 0"><h2 style="margin:0 0 6px">Point by point</h2>
-    <details class="bz"><summary>the ledger, row by row</summary><table class="t" id="cos-table" style="width:100%"></table></details>
-    <div class="note" style="margin-top:8px">The numerical comparisons retain the named datasets of the <a href="https://github.com/muellerberndt/reverse-engineering-reality/blob/main/code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md">public seen-data ledger</a>; they are not a latest-measurement survey or frozen predictions. Overlapping CMB combinations are not independent and must not be combined as separate scores. The two P branches differ in tilt by only 8.1 × 10⁻⁸. The clumping pictures are a two-dimensional particle-mesh calculation with the same seed on both sides. Their geometry, expansion, transfer function and normalization are illustrative inputs, not reconstructed from the load run. <a href="https://pdg.lbl.gov/2025/reviews/rpp2025-rev-bbang-cosmology.pdf">PDG thermal history</a> and <a href="https://pdg.lbl.gov/2025/reviews/rpp2025-rev-bbang-nucleosynthesis.pdf">nucleosynthesis</a> give the standard comparison domain.</div></div>
-</div>
-<div class="page" id="page-map"><div id="map-host"></div></div>
-<div class="page" id="page-story"><div class="st-wrap">
-  <h2 style="margin:0">From register defects to declared quantum records</h2>
-  <p class="small" style="max-width:1100px;margin:4px 0 0">The interactive panels execute three specified constructions. Step 1 applies the passive register rule on one carrier. Steps 2 and 3 use the candidate CF-1 quantum tick and its apparatus. The later cards distinguish finite amplitude identities, Hamiltonian energy lines and calibrated mass comparisons.</p>
-
-  <div class="st-ch"><div><h2><span class="st-num">1</span>Born: conjugate register defects appear after accepted twists</h2>
-    <p class="lead">Twelve ports hold integer loads. Repair evens the loads across a seam; an accepted current-driven register twist changes its two adjacent face classes. Two blank faces can become a conjugate pair. Orange marks classes 1/5, amber 2/4, green 3. The quark and lepton assignments are candidate labels. Register pairs can move, annihilate, split, exchange or fuse. The register does not feed back into the load dynamics.</p>
-    <svg id="st-born-svg" viewBox="0 0 600 480" preserveAspectRatio="xMidYMid meet"></svg>
-    <div class="lab-ctl" style="margin-top:8px"><button id="st-born-new">new carrier</button><button id="st-born-step">one sweep</button><button id="st-born-run">▶ run</button><button id="st-born-kick">disturb the load</button></div></div>
-    <div><div class="k" style="margin-top:0">What happened on this carrier</div><div class="card" id="st-born-side"></div>
-    <div class="note">This is integer agreement with a fair tie coin and the declared Z6 register cost table. Birth proportions depend on the preparation and tier; the isolated-carrier drawing is not a rerun of the federation. After balance positive-cost twists are blocked while many class-1/5 moves continue. <a href="run_evidence.json">Exact run counts and passive-register control</a>.</div></div></div>
-
-  <div class="st-ch"><div><h2><span class="st-num">2</span>A declared rest angle changes the walk</h2>
-    <p class="lead">Two wave packets start with zero mean momentum on a one-dimensional line. Left: zero rest angle, with fronts at one cell per tick. Right: a chosen coherent rest rotation changes the phase and spreading. The internal record is not measured during this evolution. The dial reads the zero-momentum phase of that same walk; interpreting its angle as a physical particle mass requires a separate source and unit map.</p>
-    <div class="st-pair"><canvas id="st-mass-a" width="640" height="300"></canvas><canvas id="st-mass-b" width="640" height="300"></canvas></div>
-    <div class="lab-ctl" style="margin-top:8px"><span>rest angle</span><select id="st-mass-theta"><option value="0.05">0.05</option><option value="0.1" selected>0.10</option><option value="0.2">0.20</option><option value="0.4">0.40</option></select><button id="st-mass-run">▶ run</button><button id="st-mass-reset">reset</button></div></div>
-    <div><div class="k" style="margin-top:0">Rest phase in the declared walk</div><div class="card" style="display:flex;gap:14px;align-items:flex-start"><canvas id="st-dial" width="130" height="130" style="flex:none"></canvas><div id="st-mass-num" style="flex:1"></div></div>
-    <div class="note">Here the rest angle is the selected parameter of the CF-1 tick. A specified coherent scalar background can produce a coupling-dependent angle; replacing it with a quantum scalar memory is a different Hamiltonian problem. The family instrument below is another construction: its one-tick effect is not this repeated mass clock. A physical GeV scale and source transfer require separate evidence.</div></div></div>
-
-  <div class="st-ch"><div><h2><span class="st-num">3</span>It is recorded: position and momentum</h2>
-    <p class="lead">A prepared quantum walk evolves on a line of 256 cells. Position records project onto disjoint groups of cells. The translation-phase detector has a complete finite-clock probability law and a declared real-amplitude state update. Each record samples an outcome and changes the state. Track mode records every detector-width ticks; coarse and fine detectors produce different disturbances. A fitted finite track slope is a detector statistic, not an undisturbed velocity or a sharp simultaneous position and momentum.</p>
-    <div class="st-recs"><canvas id="st-rec-x" width="900" height="120"></canvas><canvas id="st-rec-p" width="900" height="120"></canvas><canvas id="st-rec-t" width="900" height="200"></canvas></div>
-    <div class="lab-ctl" style="flex-wrap:wrap"><button id="st-rec-run">▶ run</button><button id="st-rec-reset">reset</button><button id="st-rec-pos">record position</button><button id="st-rec-mom">record momentum</button>
-      <label class="chk"><input type="checkbox" id="st-rec-track"> track</label>
-      <span>detector</span><select id="st-rec-det"><option value="4">4 cells</option><option value="12">12 cells</option><option value="32" selected>32 cells</option></select>
-      <span>clock</span><select id="st-rec-clock"><option value="8">8 states</option><option value="32" selected>32 states</option><option value="256">256 states</option></select></div></div>
-    <div><div class="k" style="margin-top:0">Records</div><div class="card" id="st-rec-num"></div>
-    <div class="note">The outcome probabilities equal those of a uniform finite clock, controlled translation and Fourier readout. The shown state update additionally removes an outcome-dependent momentum phase; it is a declared instrument choice. All clock outcomes are included. A 256-state clock resolves this line’s discrete translation eigenvalues. The list shows the latest records; the full session list remains in memory.</div>
-    <div class="note">The position width also sets the interval between automatic records, so changing it changes both resolution and measurement frequency. The speed row compares a finite sampled track with the starting packet’s group velocity; subsequent measurements can alter that packet.</div></div></div>
-
-  <div><h2><span class="st-num">4</span>What fixes its mass</h2>
-    <p class="lead" style="max-width:1150px">For the declared neutral background H=(0,v), the finite Yukawa benchmark gives m=|vY|, with v=v_EW/√2. A quantum scalar memory instead has its own stationary reference, two charged energy-transfer lines and complete residues. The same-H elementary/composite relation is exact in that finite memory; it does not prove a relativistic rest-mass pole or continuum FMS transfer. The masses below are comparison targets, and their physical unit is a calibration input.</p>
-    <details class="bz"><summary>particle by particle</summary><table class="t" id="st-mass-table" style="width:100%"></table></details></div>
-</div></div>
 <div class="page" id="page-detector">
   <div id="lab-left">
     <div id="lab-clockline">&nbsp;</div>
@@ -715,8 +642,6 @@ table.ro-t tr.hl td{color:var(--teal)}
     </div>
   </div>
 </div>
-<div class="page" id="page-particles"><div class="scroll"><div id="chart"></div><div id="particles"></div></div></div>
-<div class="page" id="page-findings"><div class="scroll" id="findings"></div></div>
 <div class="page" id="page-data"><div class="scroll" id="data"></div></div>
 
 <script>
