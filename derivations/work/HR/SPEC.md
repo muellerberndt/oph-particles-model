@@ -1,3 +1,7 @@
+> Note, 2026-11-17. This is a research record. The model derives no particle mass: every mass value in the OPH
+> work so far is calibrated to a measurement, imported from the literature, set by a declared construction, or
+> open. The executable model is a calibrated test candidate, not yet a production-level model.
+
 > Working note of a worker that ended before its report was reviewed. Its statements are unreviewed; the lattice lanes of the viewer check what they take from it.
 
 # HR: the lattice gauge-Higgs system of the source, specified for a Monte Carlo run

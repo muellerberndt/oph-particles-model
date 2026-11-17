@@ -1,5 +1,9 @@
 # MA report: the link field of CF-1 in the plaquette-action Gibbs ensemble at the census densities (run H4)
 
+> Note, 2026-11-17. This is a research record. The model derives no particle mass: every mass value in the OPH
+> work so far is calibrated to a measurement, imported from the literature, set by a declared construction, or
+> open. The executable model is a calibrated test candidate, not yet a production-level model.
+
 Brief: `repair-law/work/SIM/cf1/GAUGE_BRIEF.md`. Scripts: `repair-law/work/SIM/cf1/gauge/`. Results:
 `repair-law/work/SIM/cf1/runs/H4_*.json`. Labels: EXACT, MEASURED (error from independent configurations or binning),
 ARGUED. Nothing here is a claim about quantum chromodynamics. This file is appended after every finished part.

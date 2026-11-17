@@ -1,5 +1,9 @@
 # Defects as particles: the match
 
+> Note, 2026-11-17. This is a research record. The model derives no particle mass: every mass value in the OPH
+> work so far is calibrated to a measurement, imported from the literature, set by a declared construction, or
+> open. The executable model is a calibrated test candidate, not yet a production-level model.
+
 Owner, 2026-11-10: the protected defects appear to observers as particles; name them. This file does that, with
 the exact checks in `work/MATCH/match.py` (result `work/MATCH/match.json`, all assertions pass, one CPU second).
 
@@ -78,54 +82,6 @@ class 0.
   between 0.042 and 0.171 per tick: every species within a factor of about four of every other. Nature spans a
   factor of 340,000 from the electron to the top quark. The class match holds; the mass match needs the
   generation label and a junction strength per generation, which nothing computed so far supplies.
-
-## Masses in GeV from the data (owner: "check the relative masses, attach SI units")
-
-Script `work/MATCH/masses_from_data.py`, result `masses_from_data.json`. Unit: the external unit of the public
-comparison branch, E* = 1.22089e19 GeV. One tick is hbar/E* = 5.39e-44 s, one cell 1.62e-35 m, and a rest phase
-theta per tick is a rest energy theta E* (theta x 2.18e-8 kg). No measured mass enters; measured values are read
-afterwards. Correction (worker DC, `reports/DC.md`): with one link crossed per tick on the cubic arrangement and the
-screen cell dual to a crossing link, the tick is hbar/E_cell with E_cell = E* P^(-1/2) = 0.78303 E* at P_fwd, so the
-GeV values below are to be multiplied by 0.78303 (6.9e-44 s per tick, 2.06e-35 m per cell). Ratios and the verdict
-are unchanged.
-
-The data holds two mass-like numbers per class: the rest phase of the class-k charge carried by a class-k defect pair
-at the lasting separations 2 to 5 (option M1 of CF-1), and the declared register cost of a class-k defect in the
-universe runs (5, 8, 10 cost units for classes {1,5}, {2,4}, 3).
-
-| Named particle | Left-handed defect | Right-handed defect | Same value for the three generations | Measured (PDG 2026) |
-| --- | --- | --- | --- | --- |
-| up, charm, top | class 1: 0.051 to 0.059 per tick = 6.2e17 to 7.2e17 GeV | class 4: 1.1e18 to 1.4e18 GeV | yes | 0.00216, 1.2729, 172.1 GeV |
-| down, strange, bottom | class 1: as above | class 4: as above | yes | 0.0047, 0.0929, 4.186 GeV |
-| electron, muon, tau | class 3: 0.111 to 0.171 per tick = 1.4e18 to 2.1e18 GeV | class 0: 0 | yes | 0.000511, 0.10566, 1.77693 GeV |
-
-Relative masses: the data's rest phases span a factor of 3.4 across all species and give electron, muon and tau
-the same value (ratios 1 : 1 : 1); measured 1 : 206.77 : 3477.37, and the charged fermions span a factor of
-336,791. With the unit anchored on the electron instead, the muon comes out at 0.000511 GeV against 0.1057 GeV
-measured. The register costs give 5 : 8 : 10 and the same verdict. **The relative masses do not fit.** The data
-contains one defect per class; nature has three particles of very different mass in each.
-
-The repository's mass lanes for the same particles (tiers quoted from `code/particles/MASS_CANDIDATE_STATUS.md`):
-
-| Particles | Lane | Values | Tier and what is still declared |
-| --- | --- | --- | --- |
-| W, Z | D10 strict branch | 80.330, 91.119 GeV (zero-selector law); 80.321, 91.124 (carrier value law) | T2: outputs of P and a discrete repair-law choice (T3 once the law selection is a theorem). v = E* P^(-1/2) exp(-pi/(2 alpha_U)) is computed. Declared: MSSM-like one-loop slopes (33/5, 1, -3), the forms of M_U and E_cell, beta_EW = 4, the law selection |
-| P itself | alpha fixed point P = phi + sqrt(pi) alpha(P) | P = 1.6309721 | declared: the same slopes; open: hadronic spectral transport, scheme bridge |
-| Higgs, top | double criticality at E* exp(-pi) P^(-1/6), the geometric mean of E_cell and M_U | 125.77, 172.63 GeV | T2: boundary scale identified after the implied scale was computed |
-| e, mu, tau | MCPR completed response (circulant) | ratios within 0.09 ppm of measured | T2: circulant architecture historically target-informed; balance |b|/a = 1/sqrt2 from a finite GNS lane with premises abstracted from the measured triple; phase law open |
-| quarks | strict lane | none: a continuous spread fiber per sector | the paper's comparison branch uses declared textures diag(6^-6, 6^-3, 1), diag(6^-6, 6^-4, 6^-2); the integer-exponent family for charm and up is removed (`runs/flavor/up_type_register_exponent_scan.json`) |
-| neutrinos | none | | mechanism and scale open |
-
-The declared items in this table are the campaign's derivation targets (`CAMPAIGN.md`).
-
-What a fit needs from the law: a label that separates three copies of each defect, and a junction strength per copy
-(1 + 3 -> 4 for quarks, 3 + 3 -> 0 for leptons). For the charged leptons the target is sharp (lead L40,
-`work/MATCH/koide_balance.py`): Koide's relation Q = 2/3, measured 0.6666645, holds exactly when the square roots of
-the three masses carry equal weight on consensus and on disagreement; with the relative phase 2/9 the ratios are
-206.7703 and 3477.47 against 206.7683 and 3477.37 measured. A law that makes the three lepton copies by one
-balanced step out of consensus, with phase 2/9, gives all three lepton masses from one unit. The phase is known
-only from the measured masses so far. The repository has the same identity in circulant form
-(Q = 2/3 iff |b|/a = 1/sqrt2, `runs/leptons/koide_circulant_identity.json`).
 
 ## Status of each row against nature
 
