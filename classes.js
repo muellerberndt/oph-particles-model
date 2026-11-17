@@ -232,7 +232,7 @@ export async function openClass(k) {
     <div class="cl-sec"><div class="k">Spin and statistics ${chip('derived')}</div><p>${STATS}</p></div>
     <details class="q2-exp"><summary>In the run ${S.name || ''}</summary>${runRows(k)}</details>
     <details class="q2-exp"><summary>The patterns that carry it</summary>${patternRows(k)}</details>
-    <div class="cl-sec"><div class="k">Backing</div>${linkList(['classes', 'spin', 'gauge', ...({ 3: ['lepton', 'higgs', 'neutral'], 0: ['coupling'], 1: ['yukawa'], 4: ['yukawa'] }[k] || []), 'run'])}</div>`;
+    <div class="cl-sec"><div class="k">Backing</div>${linkList(['classes', 'spin', 'gauge', 'run'])}</div>`;
   $('cl-x').onclick = () => $('cl-modal').classList.remove('on');
 }
 window.__openClass = openClass;

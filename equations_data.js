@@ -271,7 +271,7 @@ export const CARDS = {
 export const GROUPS = {
   network: { title: 'Holographic screen', lead: 'Every observer is one carrier. All of them run the same seam law.', cards: ['counts', 'lawC', 'descent', 'depth'], src: ['run'] },
   defects: { title: 'Defects', lead: 'Map into this step: a repair current twists the two faces of its seam.', cards: ['twist', 'accept', 'neutral', 'reactions'], src: ['run', 'classes'] },
-  lattice: { title: 'Lattice', lead: 'Map into this step: the seam cost around a face is the action, and ticks in the time direction are temperature.', cards: ['plaquette', 'weight', 'pclass', 'temperature', 'gaugehiggs'], src: ['gauge', 'higgs'] },
+  lattice: { title: 'Lattice', lead: 'Map into this step: the seam cost around a face is the action, and ticks in the time direction are temperature.', cards: ['plaquette', 'weight', 'pclass', 'temperature', 'gaugehiggs'], src: ['gauge'] },
   field: { title: 'Field', lead: 'Map into this step: the routing tick of the candidate program CF-1 has the Dirac equation as its long-wave limit.', cards: ['tick', 'twoticks', 'dirac', 'dispersion'], src: ['continuum', 'fields'] },
   classes: { title: 'Particles', lead: 'Map into this step: the flux of a defect is a central element of the gauge group.', cards: ['rule', 'flux', 'group', 'spin', 'bl'], src: ['classes', 'spin', 'gauge'] },
 };

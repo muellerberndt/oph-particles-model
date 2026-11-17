@@ -6,7 +6,6 @@ export const SITE = 'https://github.com/muellerberndt/oph-particles-model/blob/g
 export const DER = 'https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/';
 export const PAPER = (f) => RER + 'paper/' + f + '.pdf';
 export const PAPERS = [
-  ['Finite predictions and error bounds', './finite_results.html'],
   ['Synthesis paper (PhilPapers)', 'https://philpapers.org/rec/MUEFOC'],
   ['Execution model: an executable observer for OPH', PAPER('executable_observer_construction')],
   ['Particles from native overlap transport', PAPER('deriving_the_particle_zoo_from_observer_consistency')],
@@ -57,7 +56,6 @@ const P = {
   observers: ['Observers paper', PAPER('observers_are_all_you_need'), 'Observers are all you need'],
   particles: ['Particle paper', PAPER('deriving_the_particle_zoo_from_observer_consistency'), 'Particles from native overlap transport'],
   gauge: ['Gauge paper', PAPER('deriving_standard_model_gauge_structure_from_observer_overlap_consistency'), 'Standard Model gauge structure'],
-  koide: ['Lepton paper', RER + 'extra/koide_identity_from_positive_c3_face_circulants.pdf', 'The charged-lepton register and Koide identity'],
   alpha: ['Coupling paper', RER + 'extra/fine_structure_constant_derivation.pdf', 'The gauge closure and the fine-structure constant'],
 };
 export const BOOK_PDF = BOOK('reverse-engineering-reality-book.pdf');
@@ -68,14 +66,10 @@ const READ_STEP = {
   lattice: [P.gauge, CH(26, '27-chapter-26.md', 'Why exactly these forces?'), CH(31, '32-chapter-31.md', 'What is a Lagrangian?')],
   field: [P.particles, CH(28, '29-chapter-28.md', 'What is a particle, what is a wave, and why does it look like both?'), CH(17, '18-chapter-17.md', 'Why is there a speed limit?')],
   nowave: [P.observers, P.consensus, CH(5, '06-chapter-05.md', 'Why do you and I see the same table?'), CH(19, '20-chapter-19.md', "Why can't you ask everything at once?")],
-  early: [P.gauge, CH(27, '28-chapter-27.md', 'Why this exact list of matter, and why three times over?'), CH(36, '37-chapter-36.md', 'Why these laws and not others?')],
   particles: [P.particles, P.gauge, CH(27, '28-chapter-27.md', 'Why this exact list of matter, and why three times over?')],
-  masses: [P.koide, P.particles, CH(30, '31-chapter-30.md', 'Why do the masses land where they do?')],
-  couplings: [P.alpha, P.gauge, CH(29, '30-chapter-29.md', 'Why 1/137?')],
-  results: [P.synthesis, CH(33, '34-chapter-33.md', 'Why was every open problem the same problem?'), ['Book appendix D', BOOK('47-appendix-d.md'), 'Run it yourself']],
 };
 const STEP_OF = { journey: 'journey', universe: 'screen', carrier: 'screen', observer: 'screen', defects: 'defects', lattice: 'lattice',
-  readout: 'field', nowave: 'nowave', space: 'field', cosmos: 'early', timeline: 'early', transitions: 'early',
+  readout: 'field', nowave: 'nowave', space: 'field', 
   classes: 'particles', decoder: 'particles', map: 'particles', masses: 'masses', cosmology: 'early', leptons: 'masses', spectrum: 'masses', couplings: 'couplings', results: 'results', matches: 'results', constructions: 'results', openwave: 'results' };
 export function readLinks(page) { return READ_STEP[STEP_OF[page]] || []; }
 export function linkList(keys) {
