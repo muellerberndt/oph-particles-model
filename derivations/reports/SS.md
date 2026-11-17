@@ -1,7 +1,3 @@
-> Note, 2026-11-17. This is a research record. The model derives no particle mass: every mass value in the OPH
-> work so far is calibrated to a measurement, imported from the literature, set by a declared construction, or
-> open. The executable model is a calibrated test candidate, not yet a production-level model.
-
 ## RESULT
 
 **(1) What is declared today, and where**

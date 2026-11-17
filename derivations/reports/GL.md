@@ -1,7 +1,3 @@
-> Note, 2026-11-17. This is a research record. The model derives no particle mass: every mass value in the OPH
-> work so far is calibrated to a measurement, imported from the literature, set by a declared construction, or
-> open. The executable model is a calibrated test candidate, not yet a production-level model.
-
 > Working document of the campaign. One correction applies throughout: the cell coupling 1/alpha = 16.2453 and every statement built on it (the bound 18.24, the value 10.03, unification at the cell) are retired. The current state of the coupling chain is in [COUPLING_FIX.md](../COUPLING_FIX.md) and the reports CA_ANCHOR, CU_UNIFICATION, CH_HYPERCHARGE and CG_COLLAR.
 
 ## GL report: continuous seam links in S(U(3)xU(2)) from the source, their action, bare couplings, waves

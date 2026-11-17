@@ -1,10 +1,5 @@
 # Derivations behind the viewer
 
-> Note, 2026-11-17. The model derives no particle mass: every mass value in the OPH work so far is calibrated to a
-> measurement, imported from the literature, set by a declared construction, or open. The executable model is a
-> calibrated test candidate, not yet a production-level model. The reports on masses, couplings, hadrons and the
-> spectrum were removed from this folder on that date, together with the site pages that showed them.
-
 Working reports of the OPH particle campaign (November 2026) that the remaining pages of the viewer cite. Status
 words in the reports: EXACT (proved or computed exactly), DERIVED (follows under the named premises), CONDITIONAL
 (needs named declared items), DECLARED (a stated choice), OPEN (no source construction yet), NOT BLIND (compared

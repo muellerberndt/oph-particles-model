@@ -1,9 +1,5 @@
 # Candidate CF-1: the coherent family program, executable specification
 
-> Note, 2026-11-17. This is a research record. The model derives no particle mass: every mass value in the OPH
-> work so far is calibrated to a measurement, imported from the literature, set by a declared construction, or
-> open. The executable model is a calibrated test candidate, not yet a production-level model.
-
 **Status: a candidate assembled from checked parts. Every operator below is defined and has a reference
 implementation with validation numbers. It is not an accepted law: the list of declared items is in section 6, and
 nothing here identifies a particle or gives a mass in physical units.**

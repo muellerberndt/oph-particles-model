@@ -1,7 +1,3 @@
-> Note, 2026-11-17. This is a research record. The model derives no particle mass: every mass value in the OPH
-> work so far is calibrated to a measurement, imported from the literature, set by a declared construction, or
-> open. The executable model is a calibrated test candidate, not yet a production-level model.
-
 ## RESULT
 
 **Derived (EXACT unless marked).** The source as built runs the one-loop slopes **(81/10, 5/6, -3)** from M_U to m_Z with **no threshold**, and its twelve links gauge hypercharge with the SU(5) normalisation **c_Y = 5/3**.

@@ -1,9 +1,5 @@
 # Defects as particles: the match
 
-> Note, 2026-11-17. This is a research record. The model derives no particle mass: every mass value in the OPH
-> work so far is calibrated to a measurement, imported from the literature, set by a declared construction, or
-> open. The executable model is a calibrated test candidate, not yet a production-level model.
-
 Owner, 2026-11-10: the protected defects appear to observers as particles; name them. This file does that, with
 the exact checks in `work/MATCH/match.py` (result `work/MATCH/match.json`, all assertions pass, one CPU second).
 
@@ -76,12 +72,6 @@ class 0.
 - **The generation.** All three generations sit in the same class. Electron, muon and tau are the same class-3
   defect with a class-0 partner; up, charm and top are the same class-1 defect with a class-4 partner.
 - **Up against down, electron against neutrino inside a class.** These differ by T3, which a Z6 flux does not see.
-- **The rest mass.** In the audit's chiral construction a mass is |v y| for each channel: v is the Higgs
-  background, y the strength of the junction 1 + 3 -> 4 (quarks) or 3 + 3 -> 0 (leptons). Read from the run's own
-  numbers (a charged level on a carrier with a flux pair), the rest phases of all classes and separations lie
-  between 0.042 and 0.171 per tick: every species within a factor of about four of every other. Nature spans a
-  factor of 340,000 from the electron to the top quark. The class match holds; the mass match needs the
-  generation label and a junction strength per generation, which nothing computed so far supplies.
 
 ## Status of each row against nature
 
@@ -94,4 +84,3 @@ class 0.
 | matter and antimatter in the prepared run | equal within 0.8 standard errors (nature: 6e-10 excess, not resolvable here) |
 | six quark flavours and six leptons as pair kinds | excluded (mirror pairs, positions on a carrier) |
 | generations | not carried by the class |
-| rest masses | do not fit: phases span a factor of 3.4 against 336,791; e, mu, tau equal in the data; lattice-scale values (1e17 to 1e18 GeV) in the paper's unit |

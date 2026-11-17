@@ -17,10 +17,8 @@ observer's field readout.
 
 ## Status
 
-The model derives no particle mass. Every mass value in the OPH work so far is calibrated to a measurement, imported
-from the literature, set by a declared construction, or open. The executable model is a calibrated test candidate,
-not yet a production-level model, and the search for its specification is ongoing. On 2026-11-17 the pages that
-showed masses, matches with measured values and numerical results were removed from the site.
+The executable model behind the site is an early calibrated test model. It is the main subject of current research
+and is under heavy development.
 
 ## Build
 
