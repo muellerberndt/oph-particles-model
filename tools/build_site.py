@@ -136,23 +136,28 @@ def add_tags(out: Path) -> None:
         page.write_text(s.replace('</title>', '</title>\n' + head, 1))
 
 
-INDEX_TITLE = 'OPH particles: watch a simulated universe make its own particles'
+INDEX_TITLE = 'OPH particles: watch a simulated universe make its own particles | Observer Patch Holography'
 INDEX_SHARE_TITLE = 'Watch a universe make its own particles'
 
 
+# Pragma Research and its Observer Patch Holography entity, as on floatingpragma.ai.
+ORG_JSONLD = {'@type': 'Organization', '@id': 'https://floatingpragma.ai/#org', 'name': 'Pragma Research', 'url': 'https://floatingpragma.ai/', 'email': 'info@floatingpragma.ai', 'logo': 'https://floatingpragma.ai/apple-touch-icon.png', 'brand': [{'@type': 'Brand', 'name': 'Observer Patch Holography', 'alternateName': 'OPH'}, {'@type': 'Brand', 'name': 'Cadence Neural Networks', 'alternateName': 'Cadence'}]}
+OPH_JSONLD = {'@type': 'CreativeWork', '@id': 'https://floatingpragma.ai/oph/#oph', 'name': 'Observer Patch Holography', 'alternateName': ['OPH', 'Observer-Patch Holography'], 'description': 'Observer Patch Holography (OPH) is a theory of fundamental physics by Pragma Research: the Universe is what its observers agree on. Observers keep records and repair their disagreements, and space, time and particles are read out of those records.', 'genre': 'Theoretical physics', 'url': 'https://floatingpragma.ai/oph/', 'creator': {'@id': 'https://floatingpragma.ai/#org'}, 'isAccessibleForFree': True, 'sameAs': ['https://github.com/FloatingPragma/observer-patch-holography', 'https://philpapers.org/rec/MUEFOC', 'https://doi.org/10.5281/zenodo.24191882', 'https://oph-book.floatingpragma.ai/']}
+
+
 def index_jsonld() -> dict:
-    """The viewer as a free web application about the OPH entity defined on floatingpragma.ai/oph/."""
-    return {'@context': 'https://schema.org', '@type': 'WebApplication', '@id': 'https://particles.floatingpragma.ai/#app',
+    """The viewer as a free web application about Observer Patch Holography, with that entity and its publisher."""
+    app = {'@type': 'WebApplication', '@id': 'https://particles.floatingpragma.ai/#app',
             'name': 'OPH particles',
             'alternateName': ['OPH particle simulation', 'Observer Patch Holography particle simulation'],
             'url': 'https://particles.floatingpragma.ai/', 'description': DESCRIPTION,
             'applicationCategory': 'EducationalApplication', 'operatingSystem': 'Any web browser', 'isAccessibleForFree': True,
             'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'},
             'image': 'https://particles.floatingpragma.ai/og.jpg', 'about': {'@id': 'https://floatingpragma.ai/oph/#oph'},
-            'publisher': {'@type': 'Organization', '@id': 'https://floatingpragma.ai/#org', 'name': 'Pragma Research',
-                          'url': 'https://floatingpragma.ai/'},
+            'publisher': {'@id': 'https://floatingpragma.ai/#org'},
             'sameAs': ['https://github.com/muellerberndt/oph-particles-model',
                        'https://github.com/FloatingPragma/observer-patch-holography']}
+    return {'@context': 'https://schema.org', '@graph': [app, ORG_JSONLD, OPH_JSONLD]}
 
 
 DATA_URL = 'https://oph-particles-data-20261111.s3.amazonaws.com/index.html'   # the complete runs, for download
