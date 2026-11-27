@@ -33,3 +33,7 @@ The [full universe runs](https://oph-particles-data-20261111.s3.amazonaws.com/in
 viewer copies, which retain the screen tier of the stored cuts and catalogue.
 
 [derivations/](derivations/README.md) holds the research reports that the remaining pages cite.
+
+## Contact
+
+Questions, collaboration and press: [info@floatingpragma.ai](mailto:info@floatingpragma.ai).
